@@ -1,14 +1,25 @@
+//requiring path and fs modules
+const path = require("path");
 const http = require("http");
+const fs = require("fs");
 
-const hostname = "127.0.0.1";
-const port = 3000;
+//joining path of directory
+let directoryPath = path.join(__dirname, "content");
+//passsing directoryPath and callback function
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello world\n");
+directories = fs.readdirSync(directoryPath);
+directoryFiles = [];
+directories.forEach(directory => {
+  const fileDirectoryPath = `${directoryPath}/${directory}`;
+  files = fs.readdirSync(fileDirectoryPath);
+  files.forEach(f => directoryFiles.push(f));
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+let ejs = require("ejs");
+var indexHtmlFormat = fs.readFileSync("./public/index.html", "utf-8");
+html = ejs.render(indexHtmlFormat, {
+  title: "aaaa",
+  fileList: directoryFiles
 });
+
+fs.writeFileSync("./deploy/index.html", html);
