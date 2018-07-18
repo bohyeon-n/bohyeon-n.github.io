@@ -6,12 +6,13 @@
   </h2>
   <ul>
     <% fileList.forEach((file,index) => { %>
-      <a href="../deploy/content/<%=file %>">
-        <li>
-          <%=file %>
-        </li>
+      <% let fileName = file.slice(0, file.indexOf(".")) %>
+        <a href="../deploy/content/<%=fileName %>.html">
+          <li>
+            <%=fileName %>
+          </li>
 
-      </a>
-      <% }) %>
+        </a>
+        <% }) %>
   </ul>
 </div>
