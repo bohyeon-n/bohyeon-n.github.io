@@ -1,0 +1,17 @@
+<div class="main">
+
+  <h2>
+
+    <%=folderName %>
+  </h2>
+  <ul>
+    <% fileList.forEach((file,index) => { %>
+      <a href="../content/<%=folderName %>/<%=file %>">
+        <li>
+          <%=file %>
+        </li>
+
+      </a>
+      <% }) %>
+  </ul>
+</div>

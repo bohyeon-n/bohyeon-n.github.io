@@ -1,0 +1,15 @@
+.sidebar {
+  width: 10rem;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: rgb(255, 230, 230);
+}
+
+.main {
+  position: absolute;
+  margin: 5rem;
+  left: 10rem;
+}
