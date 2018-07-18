@@ -1,0 +1,23 @@
+{
+  "name": "hello-node.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello-world.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bohyeon-n/Create-Blog-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bohyeon-n/Create-Blog-Project/issues"
+  },
+  "homepage": "https://github.com/bohyeon-n/Create-Blog-Project#readme",
+  "dependencies": {
+    "markdown-it": "^8.4.2"
+  }
+}
