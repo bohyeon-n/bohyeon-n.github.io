@@ -16,17 +16,42 @@ let directories = fs.readdirSync(directoryPath);
 directories.forEach((directory, index) => {
   fileLists.push(fs.readdirSync(`./content/${directory}`));
 });
-console.log(fileLists);
-
 const indexHtmlFormat = fs.readFileSync("./public/index.html", "utf8");
 const sidebarHtmlFormat = fs.readFileSync("./public/sidebar.html", "utf8");
 const mainHtmlFormat = fs.readFileSync("./public/main.html", "utf8");
 const homeHtmlFormat = fs.readFileSync("./public/home.html", "utf8");
+const articleHtmlFormat = fs.readFileSync("./public/article.html", "utf-8");
+
+// md파일에서 사용자가 입력한 값 추출하기
+
+articleValue = [];
+function extractedValue(md) {
+  let mdFile = md.replace(/(\r\n|\n|\r)/gm, " ");
+  let extracted = mdFile.match(/\+\+\+(.+)\+\+\+/);
+
+  let value;
+  if (extracted === null) {
+    value = { title: "", date: "" };
+  } else {
+    extracted = extracted[1];
+    value = extracted.match(/title:(.+)date:(.+)/);
+
+    value = { title: value[1], date: value[2] };
+  }
+  articleValue.push(value);
+  return value;
+}
+
+function extractedBody(md) {
+  let mdFile = md.replace(/(\r\n|\n|\r)/gm, " ");
+  return mdFile.replace(/\+\+\+(.+)\+\+\+/, "");
+}
 
 let sidebar = ejs.render(sidebarHtmlFormat, {
   folderList: directories
 });
 
+// 폴더 리스트 메인
 fileLists.forEach((fileList, index) => {
   let main = ejs.render(mainHtmlFormat, {
     fileList: fileList,
@@ -39,17 +64,22 @@ fileLists.forEach((fileList, index) => {
   });
 
   fs.writeFileSync(`./deploy/${directories[index]}-index.html`, html);
+
+  // article파일
   fileList.forEach(file => {
     // markdown to html file
     const markdownFile = fs.readFileSync(
       `./content/${directories[index]}/${file}`,
       "utf-8"
     );
-    let convertedFile = md.render(markdownFile);
 
-    let html = ejs.render(indexHtmlFormat, {
+    let value = extractedValue(markdownFile);
+    let convertedFile = md.render(markdownFile);
+    let html = ejs.render(articleHtmlFormat, {
       main: convertedFile,
-      sidebar: sidebar
+      sidebar: sidebar,
+      title: value.title,
+      date: value.date
     });
     let n = file.indexOf(".");
     let fileName = file.slice(0, n);
@@ -57,8 +87,18 @@ fileLists.forEach((fileList, index) => {
   });
 });
 
+// 홈화면 메인
+let file = [];
+console.log(fileLists);
+fileLists.forEach(files => {
+  file.push(...files);
+});
+articleList = ejs.render(homeHtmlFormat, {
+  articles: articleValue,
+  fileList: file
+});
 html = ejs.render(indexHtmlFormat, {
   sidebar: sidebar,
-  main: homeHtmlFormat
+  main: articleList
 });
 fs.writeFileSync("./deploy/home.html", html);

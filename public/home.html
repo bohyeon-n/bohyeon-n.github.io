@@ -1,5 +1,13 @@
-<div class="main">
-  <div class="message">
-    구보현 블로그입니다.
-  </div>
-</div>
+<% articles.forEach((article,index) => { %>
+  <% let fileName = fileList[index].slice(0, fileList[index].indexOf(".")) %>
+    <a href='../deploy/<%= fileName %>.html'>
+
+      <div class="title">
+        <%= article.title %>
+      </div>
+    </a>
+    <div class="date">
+      <%= article.date %>
+    </div>
+
+    <% }) %>
