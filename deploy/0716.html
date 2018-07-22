@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+
+  <div class="sidebar">
+  <!-- folder name -->
+  <a href="/">
+    <h3>
+      blog
+    </h3>
+
+  </a>
+  <ul>
+
+    
+      <a href="../deploy/Algorithm-index.html">
+        <li>
+          Algorithm
+        </li>
+      </a>
+      
+      <a href="../deploy/Javascript-index.html">
+        <li>
+          Javascript
+        </li>
+      </a>
+      
+      <a href="../deploy/TIL-index.html">
+        <li>
+          TIL
+        </li>
+      </a>
+      
+  </ul>
+
+</div>
+
+    <div class="main">
+      <h1>
+         0716 TIL/
+           2018-7-16T24:00:00-00:00
+      </h1>
+      <h1>오늘 한 일</h1>
+<h2>node.js</h2>
+<ul>
+<li>
+<p>node.js 란 자바스크립트를 os 위에서 구동할 수 있게 하는 것.</p>
+</li>
+<li>
+<p>node.js 를 사용하여 로컬에 있는 폴더와 파일을 읽어서 html 에 리스트형식으로 렌더링해보자.</p>
+</li>
+</ul>
+<pre><code class="language-js">const path = require(&quot;path&quot;);
+const http = require(&quot;http&quot;);
+const fs = require(&quot;fs&quot;);
+
+let directoryPath = path.join(__dirname, &quot;content&quot;);
+
+directories = fs.readdirSync(directoryPath);
+directoryFiles = [];
+directories.forEach(directory =&gt; {
+  const fileDirectoryPath = `${directoryPath}/${directory}`;
+  files = fs.readdirSync(fileDirectoryPath);
+  files.forEach(f =&gt; directoryFiles.push(f));
+});
+
+let ejs = require(&quot;ejs&quot;);
+var indexHtmlFormat = fs.readFileSync(&quot;./public/index.html&quot;, &quot;utf-8&quot;);
+html = ejs.render(indexHtmlFormat, {
+  title: &quot;file list&quot;,
+  fileList: directoryFiles
+});
+fs.writeFileSync(&quot;./deploy/index.html&quot;, html);
+</code></pre>
+<ul>
+<li>template engine 을 사용하여 client 에서 node.js 의 data 를 렌더링 할 수 있도록 했다.</li>
+<li><code>readfile</code>을 한 후 html 형식의 string 을 변수에 대입 한다. 그 값에 data 를 넣어준다.</li>
+<li>html file 을 ejs 형식으로 작성하고 넣어진 값을 deploy/index.html 에 생성해 준다.</li>
+<li>'readdir' 'readfFile'은 값이 채워질 때까지 다른 작업을 실행하지 않도록 동기식으로 처리한다.</li>
+</ul>
+<h2>algorithm</h2>
+<ul>
+<li>3sum closest 알고리즘 문제를 풀었다.</li>
+<li>무작정 풀기 보다는 좀 더 효율적인 방법을 잘 생각해봐야 겠다.</li>
+</ul>
+<h1>오늘의 느낀점</h1>
+<p>마구잡이로 검색을 하고, 이것저것 해보다가 express 를 사용헤서 서버를 띄웠다. 알고 보니 내가 하려던 일에서는 전혀 필요가 없는 작업이었다.</p>
+<p>express 가 무엇인지, 내가 어떤 것을 하고 싶은 지는 고려하지 않고 무조건 검색해서 예제만 따라했다.
+내가 하고 싶은 일이 무엇인지, 내가 지금 어떤 것을 쓰려고 하는지, 정확히 알아야겠다.</p>
+<p>아직 node.js 에 대해서 잘 모르겠다. 서버와 클라이언트 이런 기초적인 개념에 대해서 잘 모르는 것 같다.</p>
+<ul>
+<li>문서를 끝까지 읽자!</li>
+<li>내가 하려고 하는 일과 내가 지금 작성하고 있는 코드를 말로 풀어서 설명하는 연습을 하자!</li>
+</ul>
+<h1>내일 할 일</h1>
+<ul>
+<li>
+<p>계속해서 블로그 만들기 😱</p>
+<ul>
+<li>폴더별로 리스트를 정리한다.</li>
+<li>리스트 클릭 시 html 파일 렌더링 해주기.</li>
+<li>...</li>
+</ul>
+</li>
+<li>
+<p>수업 들으면서 어려웠던 Javascript 주제 하나 정해서 공부하기.</p>
+</li>
+<li>
+<p>알고리즘 문제 풀기.</p>
+</li>
+</ul>
+
+
+    </div>
+
+</body>
+
+</html>

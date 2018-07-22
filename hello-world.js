@@ -34,11 +34,13 @@ function extractedValue(md) {
     str = string[2].match(/[^\r\n]+/g);
     let extractedValue = {};
     str.forEach(value => {
-      console.log("value", value);
       if (value !== " ") {
-        let valueline = value.match(/(.+)[:\n](.+)/);
-
-        extractedValue[valueline[1]] = valueline[2];
+        let valueline = value.match(/(.+)[=\n](.+)/);
+        if (valueline != null) {
+          key = valueline[1].replace(/\s/g, "");
+          value = valueline[2].replace(/['"]*/g, "");
+          extractedValue[key] = value;
+        }
       }
     });
     return extractedValue;
@@ -97,11 +99,12 @@ let file = [];
 fileLists.forEach(files => {
   file.push(...files);
 });
-console.log(articleValue);
+console.log(articleValue[0]);
 articleList = ejs.render(homeHtmlFormat, {
   articles: articleValue,
   fileList: file
 });
+
 html = ejs.render(indexHtmlFormat, {
   sidebar: sidebar,
   main: articleList

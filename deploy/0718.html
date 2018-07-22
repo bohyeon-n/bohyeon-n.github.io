@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+
+  <div class="sidebar">
+  <!-- folder name -->
+  <a href="/">
+    <h3>
+      blog
+    </h3>
+
+  </a>
+  <ul>
+
+    
+      <a href="../deploy/Algorithm-index.html">
+        <li>
+          Algorithm
+        </li>
+      </a>
+      
+      <a href="../deploy/Javascript-index.html">
+        <li>
+          Javascript
+        </li>
+      </a>
+      
+      <a href="../deploy/TIL-index.html">
+        <li>
+          TIL
+        </li>
+      </a>
+      
+  </ul>
+
+</div>
+
+    <div class="main">
+      <h1>
+         0718 TIL/
+           2018-7-18T22:00:00-00:00
+      </h1>
+      <h1>오늘 한 일</h1>
+<h2>create-blog-project</h2>
+<ul>
+<li>sidebar main, home 을 분리하여 재사용할 수 있도록 만들었다.</li>
+<li><code>&lt;%- sidebar %&gt;</code>이렇게 써줘야 이스케이프 처리를 하지 않는다. 변환되지 않고 입력한대로 사용할 수 있다!</li>
+<li>markdown parser markdown-it 을 사용하여 사용자가 content 폴더에 md 파일을 추가하면 html 파일로 변환해서 보여준다.</li>
+<li>폴더 리스트나, 파일 리스트를 읽어올 때 사용자가 입력한 폴더에서 읽어와야 하는지, 내가 새로 변환해서 만들어놓은 폴더에서 읽어와야 하는지 잘 모르겠다.</li>
+<li>지금은 변환하기 전에 사용자가 입력한 폴더에서 리스트와 파일들의 목록을 불러와서 변환하고 변환한 파일을 화면에서 보여주고 있다.</li>
+<li>폴더를 어떻게 정리해야 할 지 잘 모르겠다.</li>
+</ul>
+<h2>Algorithm</h2>
+<ul>
+<li>어제 푼 sort colors 알고리즘 문제를 다른 사람 풀이를 참조하여 다시 풀어보았다.</li>
+</ul>
+<h2>javascript</h2>
+<ul>
+<li>javascript 교재 객체 복습 중</li>
+<li>객체, 프로토타입, bind, this, 화살표 함수에대해 정리해야겠다.</li>
+</ul>
+<h1>내일 할 일</h1>
+<ul>
+<li>자바스크립트 공부</li>
+<li>algorithm 문제 풀기</li>
+<li>blog 만들기</li>
+</ul>
+
+
+    </div>
+
+</body>
+
+</html>
