@@ -66,7 +66,7 @@ fileLists.forEach((fileList, index) => {
     sidebar: sidebar
   });
 
-  fs.writeFileSync(`./deploy/${directories[index]}-index.html`, html);
+  fs.writeFileSync(`./docs/${directories[index]}-index.html`, html);
   // article파일
   fileList.forEach(file => {
     // markdown to html file
@@ -88,7 +88,7 @@ fileLists.forEach((fileList, index) => {
     });
     let n = file.indexOf(".");
     let fileName = file.slice(0, n);
-    fs.writeFileSync(`./deploy/${fileName}.html`, html);
+    fs.writeFileSync(`./docs/${fileName}.html`, html);
   });
 });
 
@@ -106,4 +106,4 @@ html = ejs.render(indexHtmlFormat, {
   sidebar: sidebar,
   main: articleList
 });
-fs.writeFileSync("./deploy/home.html", html);
+fs.writeFileSync("./docs/index.html", html);
