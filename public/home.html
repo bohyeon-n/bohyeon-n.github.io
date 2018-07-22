@@ -1,13 +1,15 @@
 <% articles.forEach((article,index) => { %>
   <% let fileName = fileList[index].slice(0, fileList[index].indexOf(".")) %>
-    <a href='../deploy/<%= fileName %>.html'>
+    <div class="articleList">
+      <a href='../deploy/<%= fileName %>.html'>
 
-      <div class="title">
-        <%= article.title %>
+        <div class="title">
+          <%= article.title %>
+        </div>
+      </a>
+      <div class="date">
+        <%= article.date %>
       </div>
-    </a>
-    <div class="date">
-      <%= article.date %>
     </div>
 
     <% }) %>

@@ -24,33 +24,36 @@ const articleHtmlFormat = fs.readFileSync("./public/article.html", "utf-8");
 
 // md파일에서 사용자가 입력한 값 추출하기
 
-articleValue = [];
 function extractedValue(md) {
-  let mdFile = md.replace(/(\r\n|\n|\r)/gm, " ");
-  let extracted = mdFile.match(/\+\+\+(.+)\+\+\+/);
+  string = md.match(/\n*(\+\+\+)\n*([\s\S]+)\n*(\+\+\+)/);
 
-  let value;
-  if (extracted === null) {
+  if (string === null) {
     value = { title: "", date: "" };
+    return value;
   } else {
-    extracted = extracted[1];
-    value = extracted.match(/title:(.+)date:(.+)/);
+    str = string[2].match(/[^\r\n]+/g);
+    let extractedValue = {};
+    str.forEach(value => {
+      console.log("value", value);
+      if (value !== " ") {
+        let valueline = value.match(/(.+)[:\n](.+)/);
 
-    value = { title: value[1], date: value[2] };
+        extractedValue[valueline[1]] = valueline[2];
+      }
+    });
+    return extractedValue;
   }
-  articleValue.push(value);
-  return value;
 }
 
 function extractedBody(md) {
-  let mdFile = md.replace(/(\r\n|\n|\r)/gm, " ");
-  return mdFile.replace(/\+\+\+(.+)\+\+\+/, "");
+  return md.replace(/\n*(\+\+\+)\n*([\s\S]+)\n*(\+\+\+)/, "");
 }
 
 let sidebar = ejs.render(sidebarHtmlFormat, {
   folderList: directories
 });
 
+let articleValue = [];
 // 폴더 리스트 메인
 fileLists.forEach((fileList, index) => {
   let main = ejs.render(mainHtmlFormat, {
@@ -64,7 +67,6 @@ fileLists.forEach((fileList, index) => {
   });
 
   fs.writeFileSync(`./deploy/${directories[index]}-index.html`, html);
-
   // article파일
   fileList.forEach(file => {
     // markdown to html file
@@ -74,7 +76,10 @@ fileLists.forEach((fileList, index) => {
     );
 
     let value = extractedValue(markdownFile);
-    let convertedFile = md.render(markdownFile);
+    let body = extractedBody(markdownFile);
+
+    articleValue.push(value);
+    let convertedFile = md.render(body);
     let html = ejs.render(articleHtmlFormat, {
       main: convertedFile,
       sidebar: sidebar,
@@ -89,10 +94,10 @@ fileLists.forEach((fileList, index) => {
 
 // 홈화면 메인
 let file = [];
-console.log(fileLists);
 fileLists.forEach(files => {
   file.push(...files);
 });
+console.log(articleValue);
 articleList = ejs.render(homeHtmlFormat, {
   articles: articleValue,
   fileList: file
