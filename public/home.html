@@ -1,7 +1,7 @@
 <% articles.forEach((article,index) => { %>
   <% let fileName = fileList[index].slice(0, fileList[index].indexOf(".")) %>
     <div class="articleList">
-      <a href='./<%= fileName %>.html'>
+      <a href='../deploy/<%= fileName %>.html'>
 
         <div class="title">
           <%= article.title %>

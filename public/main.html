@@ -5,7 +5,7 @@
 <ul>
   <% fileList.forEach((file,index) => { %>
     <% let fileName = file.slice(0, file.indexOf(".")) %>
-      <a href="./<%=fileName %>.html">
+      <a href="../deploy/<%=fileName %>.html">
         <li>
           <%=fileName %>
         </li>

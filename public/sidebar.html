@@ -1,6 +1,6 @@
 <div class="sidebar">
   <!-- folder name -->
-  <a href="./index.html">
+  <a href="/">
     <h3>
       blog
     </h3>
@@ -9,7 +9,7 @@
   <ul>
 
     <% for(let i = 0; i < folderList.length; i++) { %>
-      <a href="./<%= folderList[i]%>-index.html">
+      <a href="../deploy/<%= folderList[i]%>-index.html">
         <li>
           <%=folderList[i] %>
         </li>
