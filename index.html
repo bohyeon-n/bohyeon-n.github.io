@@ -168,6 +168,64 @@ var threeSumClosest = function(nums, target) {
         <h1>
 
           <span>
+            BestTimetoBuyandSellStock
+          </span>
+          <span>
+            20180723
+          </span>
+
+        </h1>
+        <h1>
+        </h1>
+
+      </div>
+      <h1>Best Time to Buy and Sell Stock</h1>
+<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
+<p>Note that you cannot sell a stock before you buy one.</p>
+<pre><code class="language-js">Input: [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+             Not 7-1 = 6, as selling price needs to be larger than buying price.
+</code></pre>
+<h2>나의 풀이</h2>
+<ol>
+<li>prices 배열을 반복문을 돌면서 확인한다.</li>
+<li>buy 값이 없거나, buy 보다 작은 값이면 buy 에 대입한다.</li>
+<li>그렇지 않다면 buy 보다 큰 수이다. 큰 수 이면서 기존 profit 의 값보다 profit 이 크다면, profit 에 buy 와 현재 배열 요소의 차를 재대입한다.</li>
+<li>profit 을 리턴한다.</li>
+</ol>
+<pre><code class="language-js">var maxProfit = function(prices) {
+  let profit = 0;
+  let buy;
+  for (let i = 0; i &lt; prices.length + 1; i++) {
+    if (buy === undefined || buy &gt; prices[i]) {
+      buy = prices[i];
+    } else {
+      if (profit &lt; prices[i] - buy) {
+        profit = prices[i] - buy;
+      }
+    }
+    console.log(buy, profit);
+  }
+  return profit;
+};
+</code></pre>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="article__value">
+
+        <h1>
+
+          <span>
             피보나치수구현하기
           </span>
           <span>
@@ -1026,6 +1084,76 @@ fs.writeFileSync(&quot;./deploy/index.html&quot;, html);
       
 
   
+    <div class="article">
+      <div class="article__value">
+
+        <h1>
+
+          <span>
+            7월23일TIL
+          </span>
+          <span>
+            20180723
+          </span>
+
+        </h1>
+        <h1>
+        </h1>
+
+      </div>
+      <h1>오늘 한 일</h1>
+<ul>
+<li>
+<p>블로그 만들기</p>
+<ul>
+<li>헤더, 사이드바, 메인 레이아웃을 구상했다.</li>
+<li>메인 페이지에서 글의 내용을 보이게 하였다.</li>
+<li>category 를 입력받아서 카테고리 폴더를 생성하였고 그 안에 파일을 생성하였다.</li>
+<li>사용자에게 auth 를 md 파일로 받아서 블로그 이름, 소개, 이미지를 받아서 헤더에 보여주게 하였다.</li>
+<li>나눴던 html 컴포넌트?를 다시 정의하여 index.html 에서만 조합하도록 하였다. 큰 틀을 header, sidebar, main 으로하였고 main 의 내용만 변경하는 식으로 템플릿을 사용하였다.</li>
+<li>gihub page 에서 css 폴더 안에다 css 파일을 넣으니 제대로 작동하지 않았다. 찾아보니 style 폴더 안에 넣으면 된다고 style 폴더에 넣었더니 제대로 작동되었다.</li>
+<li>github 에서 특정 형식에 맞춰 쓴 폴더만 읽게 하는 걸까?</li>
+</ul>
+</li>
+<li>
+<p>알고리즘 문제 풀이</p>
+<ul>
+<li>Best Time to Buy and Sell Stock</li>
+</ul>
+</li>
+</ul>
+<h1>오늘의 느낀점</h1>
+<ul>
+<li>실제 블로그를 쓰려고 하니, 이것저것 수정하고 덧붙여야 할 것들이 많아졌다.</li>
+<li>디자인을 빨리 마무리해서 깔끔한 블로그를 만들고 싶다.</li>
+<li>자바스크립트 파일이 점점 지저분해지고 있다. 처음에 막 만들고 수정하기를 반복하다보니, 깔끔하게 작성하기가 힘든 것 같다. 조금씩 수정하면서 개선해야겠다.</li>
+<li>사용자가 어느정도 내 README 파일을 자세히 읽어줄까?</li>
+<li>대충 읽어도 잘 사용할 수 있도록 개선해나가야겠다.</li>
+<li>블로그 만들기를 하니까 시간이 훅훅가서 다른 공부는 잘 못했다. 해야 할 것들이 많은데...</li>
+</ul>
+<h1>내일 할 일 / 앞으로 할 일</h1>
+<ul>
+<li>블로그
+<ul>
+<li>카테고리별로 분류하 듯 태그별로도 분류 할 수 있도록</li>
+<li>디자인 하기.</li>
+<li>javascript highlight 를 어떻게 해줘야 할까.</li>
+<li>날짜순으로 정렬하기.</li>
+<li>포스팅 수와 카테고리 수 표시해주기.</li>
+</ul>
+</li>
+<li>알고리즘 문제풀기</li>
+<li>내일 깃헙 특강들으러 가기</li>
+</ul>
+
+    </div>
+
+    
+
+
+      
+
+  
 
 
       
@@ -1034,7 +1162,9 @@ fs.writeFileSync(&quot;./deploy/index.html&quot;, html);
         <div class="sidebar">
           <div class="sidebar">
   <!-- folder name -->
-
+  <div>
+    Category
+  </div>
   <ul>
 
     
