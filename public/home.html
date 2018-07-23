@@ -1,15 +1,27 @@
-<% articles.forEach((article,index) => { %>
-  <% let fileName = fileList[index].slice(0, fileList[index].indexOf(".")) %>
-    <div class="articleList">
-      <a href='/deploy/<%=article.category %>/<%= fileName %>.html'>
+<% articles.forEach(article => { %>
 
-        <div class="title">
-          <%= article.title %>
-        </div>
-      </a>
-      <div class="date">
-        <%= article.date %>
+  <% if(article.value.category !== undefined) { %>
+    <div class="article">
+      <div class="article__value">
+
+        <h1>
+
+          <span>
+            <%= article.value.title %>
+          </span>
+          <span>
+            <%= article.value.date %>
+          </span>
+
+        </h1>
+        <h1>
+        </h1>
+
       </div>
+      <%- article.convertedFile %>
     </div>
 
-    <% }) %>
+    <% } %>
+
+
+      <% }) %>

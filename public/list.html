@@ -6,10 +6,9 @@
   <% fileList.forEach((file,index) => { %>
     <% let fileName = file.slice(0, file.indexOf(".")) %>
       <li>
-        <a href="../<%=category %>/<%=fileName %>.html">
+        <a href="/deploy/<%=articles[index].category %>/<%=fileName %>.html">
           <span>
             <%=articles[index].title %>
-              title
           </span>
           <span>
             <%= articles[index].date %>

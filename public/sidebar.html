@@ -4,12 +4,15 @@
   <ul>
 
     <% for(let i = 0; i < categories.length; i++) { %>
-      <a href="/deploy/index/<%=categories[i] %>.html">
-        <li>
-          <%=categories[i] %>
-        </li>
-      </a>
-      <%} %>
+      <% if(categories[i] !== "author") { %>
+        <a href="/deploy/category/<%=categories[i] %>.html">
+          <li>
+            <%=categories[i] %>
+          </li>
+        </a>
+
+        <%} %>
+          <%} %>
   </ul>
 
 </div>

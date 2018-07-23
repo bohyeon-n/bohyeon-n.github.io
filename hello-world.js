@@ -19,7 +19,6 @@ const articleHtmlFormat = fs.readFileSync("./public/article.html", "utf8");
 const headerHtmlFormat = fs.readFileSync("./public/header.html", "utf8");
 
 // md파일에서 사용자가 입력한 값 추출하기
-
 function extractedValue(md) {
   string = md.match(/\n*(\+\+\+)\n*([\s\S]+)\n*(\+\+\+)/);
 
@@ -34,7 +33,7 @@ function extractedValue(md) {
         let valueline = value.match(/(.+)[=\n](.+)/);
         if (valueline != null) {
           key = valueline[1].replace(/\s/g, "");
-          value = valueline[2].replace(/['"]*/g, "");
+          value = valueline[2].replace(/['"]*/g, "").replace(/\s/g, "");
           extractedValue[key] = value;
         }
       }
@@ -42,22 +41,21 @@ function extractedValue(md) {
     return extractedValue;
   }
 }
+
 // md 파일에서 사용자가 입력한 값을 제외한 본문 추출하기
 function extractedBody(md) {
   return md.replace(/\n*(\+\+\+)\n*([\s\S]+)\n*(\+\+\+)/, "");
 }
+
 // 폴더 만들어주기
-let dir = "./deploy/index";
+let dir = "./deploy/category";
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
-// 사용자 정보 읽기
 
+// 사용자 정보 읽기
 const author = fs.readFileSync("./content/author/author.md", "utf8");
 const authorValue = extractedValue(author);
-
-// 최신글 보여줄 때 filelist 사용 하기
-let fileLists = [];
 
 // content 안에 있는 directories 읽기
 let directories = fs.readdirSync(directoryPath);
@@ -65,14 +63,16 @@ let directories = fs.readdirSync(directoryPath);
 // header
 const header = ejs.render(headerHtmlFormat, {
   author: authorValue,
-  postNum: 1,
-  categoryNum: 3
+  postNum: 0,
+  categoryNum: 0
 });
 // sidebar
 const sidebar = ejs.render(sidebarHtmlFormat, {
   categories: directories
 });
+// articles
 let articles = [];
+
 directories.forEach((directory, index) => {
   let files = fs.readdirSync(`./content/${directory}`);
   let articleValue = [];
@@ -100,14 +100,19 @@ directories.forEach((directory, index) => {
     });
     let n = file.indexOf(".");
     let fileName = file.slice(0, n);
-    let dir = `./deploy/${value.category}`;
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
+    if (value.category !== undefined) {
+      let dir = `./deploy/${value.category}`;
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+      }
+      fs.writeFileSync(`./deploy/${value.category}/${fileName}.html`, html);
     }
+
+    articles.push({ convertedFile, value });
+    console.log(article);
     // ./deploy에 카테고리별로 파일을 생성한다.
-    fs.writeFileSync(`./deploy/${value.category}/${fileName}.html`, html);
   });
-  console.log(articleValue);
+
   let main = ejs.render(listHtmlFormat, {
     fileList: files,
     category: directory,
@@ -120,25 +125,19 @@ directories.forEach((directory, index) => {
     sidebar: sidebar
   });
 
-  fs.writeFileSync(`./deploy/index/${directory}.html`, indexHtml);
+  fs.writeFileSync(`./deploy/category/${directory}.html`, indexHtml);
 
-  fileLists.push(files);
-  articles.push(...articleValue);
+  // articlesValue.push(...articleValue);
 });
 
-// 홈화면 메인
-let file = [];
-fileLists.forEach(files => {
-  file.push(...files);
+// 홈화면
+main = ejs.render(homeHtmlFormat, {
+  articles: articles
 });
-articleList = ejs.render(homeHtmlFormat, {
-  articles: articles,
-  fileList: file
-});
-
 html = ejs.render(indexHtmlFormat, {
-  header: header,
-  sidebar: sidebar,
-  main: articleList
+  main,
+  sidebar,
+  header
 });
+
 fs.writeFileSync("./index.html", html);
