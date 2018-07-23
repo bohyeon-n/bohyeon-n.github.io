@@ -1,29 +1,35 @@
-<div class="header">
-  <div class="username">
-    <%= author.username %>
-  </div>
-  <div class="user__img">
-    <img src="<%= author.image %>" alt="">
-  </div>
-  <div class="user__post">
-    <div class="user__post-num">
-      <span>글</span>
-      <span>
-        <%= postNum %>
-      </span>
-    </div>
-    <div class="user__post-categoies">
-      <span>카테고리</span>
-      <span>
-        <%= categoryNum %>
-      </span>
-    </div>
-  </div>
-  <div class="user__description">
-    <%=author.description %>
-  </div>
-  <div class="search">
-    search
-  </div>
+<header>
 
-</div>
+  <div class="header">
+    <div class="user__img">
+      <img src="<%= author.image %>" alt="">
+    </div>
+    <div class="user">
+      <div class="username">
+        <%= author.username %>
+      </div>
+      <div class="user__post">
+        <span class="user__post-num">
+          <span>글</span>
+          <span>
+            <%= postNum %>
+          </span>
+        </span>
+        <span class="user__post-categoies">
+          <span>카테고리</span>
+          <span>
+            <%= categoryNum %>
+          </span>
+        </span>
+      </div>
+      <div class="user__description">
+        <%=author.description %>
+      </div>
+
+    </div>
+    <div class="search">
+      search
+    </div>
+
+  </div>
+</header>

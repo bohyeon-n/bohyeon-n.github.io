@@ -1,19 +1,53 @@
 .sidebar {
-    width: 10rem;
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background: rgb(255, 230, 230);
+  width: 10rem;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: rgb(255, 230, 230);
 }
 
 .main {
-    position: absolute;
-    margin: 5rem;
-    left: 10rem;
+  position: absolute;
+  margin: 5rem;
+  left: 10rem;
 }
 
 .articleList {
-    display: flex;
+  display: flex;
+}
+
+header {
+  background: mediumaquamarine;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.header {
+  width: 80%;
+  margin: 1rem auto;
+  background: orange;
+  display: flex;
+  justify-content: space-around;
+}
+
+.user__img img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user__post-num:after {
+  content: "";
+  border: 0.5px solid black;
 }
