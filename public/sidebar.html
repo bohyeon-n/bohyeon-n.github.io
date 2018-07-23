@@ -1,17 +1,12 @@
 <div class="sidebar">
   <!-- folder name -->
-  <a href="/">
-    <h3>
-      blog
-    </h3>
 
-  </a>
   <ul>
 
-    <% for(let i = 0; i < folderList.length; i++) { %>
-      <a href="../deploy/<%= folderList[i]%>-index.html">
+    <% for(let i = 0; i < categories.length; i++) { %>
+      <a href="/deploy/index/<%=categories[i] %>.html">
         <li>
-          <%=folderList[i] %>
+          <%=categories[i] %>
         </li>
       </a>
       <%} %>

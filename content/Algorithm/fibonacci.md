@@ -1,5 +1,5 @@
 +++
-categories = ["Algorithm"]
+category = Algorithm
 comments = true
 date = "2018-4-01T16:59:13-04:00"
 draft = false

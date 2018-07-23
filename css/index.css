@@ -1,17 +1,26 @@
-.sidebar {
-  width: 10rem;
-  height: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background: rgb(255, 230, 230);
+body {
+  background: slategray;
+}
+
+.content {
+  background: tomato;
+  width: 70%;
+  margin: 0 auto;
+}
+
+main {
+  display: flex;
+  width: 100%;
 }
 
 .main {
-  position: absolute;
-  margin: 5rem;
-  left: 10rem;
+  width: 70%;
+  background: lightpink;
+}
+
+.sidebar {
+  width: 30%;
+  background: teal;
 }
 
 .articleList {
@@ -21,14 +30,10 @@
 header {
   background: mediumaquamarine;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
 }
 
 .header {
-  width: 80%;
+  height: 8rem;
   margin: 1rem auto;
   background: orange;
   display: flex;
@@ -50,4 +55,5 @@ header {
 .user__post-num:after {
   content: "";
   border: 0.5px solid black;
+  margin: 0 0.5rem;
 }
