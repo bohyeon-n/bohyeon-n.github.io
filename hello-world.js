@@ -20,7 +20,8 @@ const indexHtmlFormat = fs.readFileSync("./public/index.html", "utf8");
 const sidebarHtmlFormat = fs.readFileSync("./public/sidebar.html", "utf8");
 const mainHtmlFormat = fs.readFileSync("./public/main.html", "utf8");
 const homeHtmlFormat = fs.readFileSync("./public/home.html", "utf8");
-const articleHtmlFormat = fs.readFileSync("./public/article.html", "utf-8");
+const articleHtmlFormat = fs.readFileSync("./public/article.html", "utf8");
+const headerHtmlFormat = fs.readFileSync("./public/header.html", "utf8");
 
 // md파일에서 사용자가 입력한 값 추출하기
 
@@ -51,6 +52,17 @@ function extractedBody(md) {
   return md.replace(/\n*(\+\+\+)\n*([\s\S]+)\n*(\+\+\+)/, "");
 }
 
+// 사용자 정보 읽기
+
+const author = fs.readFileSync("./author.md", "utf8");
+const authorValue = extractedValue(author);
+console.log(authorValue);
+
+const header = ejs.render(headerHtmlFormat, {
+  author: authorValue,
+  postNum: 1,
+  categoryNum: 3
+});
 let sidebar = ejs.render(sidebarHtmlFormat, {
   folderList: directories
 });
@@ -63,6 +75,7 @@ fileLists.forEach((fileList, index) => {
     folderName: directories[index]
   });
   let html = ejs.render(indexHtmlFormat, {
+    header: header,
     folderList: directories,
     main: main,
     sidebar: sidebar
@@ -106,6 +119,7 @@ articleList = ejs.render(homeHtmlFormat, {
 });
 
 html = ejs.render(indexHtmlFormat, {
+  header: header,
   sidebar: sidebar,
   main: articleList
 });
