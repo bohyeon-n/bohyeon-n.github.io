@@ -1,5 +1,25 @@
-const MarkdownIt = require("markdown-it"),
-  md = new MarkdownIt();
+const hljs = require("highlight.js");
+
+const md = require("markdown-it")({
+  html: true,
+  linkify: true,
+  typograther: true,
+  highlight: function(str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return (
+          `<pre class="hljs "><code><div class="code__content">` +
+          hljs.highlight(lang, str, true).value +
+          "</div></code></pre>"
+        );
+      } catch (__) {}
+    }
+
+    return (
+      '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + "</code></pre>"
+    );
+  }
+});
 
 //requiring path and fs modules
 const path = require("path");

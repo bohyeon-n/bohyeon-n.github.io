@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/style/index.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+
+
+
   <title>
     blog
   </title>
@@ -79,25 +83,25 @@
 <p>그 다음 n 번 째 피보나치 수는 (n-1 번 째 피보나치 수)+(n-2 번 째 피보나치 수)입니다.</p>
 <h2>재귀함수로 피보나치 수 구현하기</h2>
 <p>피보나치 수를 재귀함수로 구현하면 다음과 같습니다.</p>
-<pre><code>function fibonacci(num) {
-  if (num === 1) {
-    return 0;
+<pre class="hljs "><code><div class="code__content"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
+  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
   }
-  if (num === 2) {
-    return 1;
+  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
   }
-  return fibonacci(num - 1) + fibonacci(num - 2);
+  <span class="hljs-keyword">return</span> fibonacci(num - <span class="hljs-number">1</span>) + fibonacci(num - <span class="hljs-number">2</span>);
 }
-</code></pre>
+</div></code></pre>
 <p>5 번째 피보나치 수를 계산하는 과정을 그림으로 표현하면 다음과 같습니다.</p>
-<pre><code>                         fib(5)
+<pre class="hljs "><code><div class="code__content">                         fib(<span class="hljs-number">5</span>)
                      /
-               fib(4)                fib(3)
-             /                      /
+               fib(<span class="hljs-number">4</span>)                fib(<span class="hljs-number">3</span>)
+             /                      <span class="hljs-regexp">/
          fib(3)      fib(2)         fib(2)    fib(1)
-        /
-  fib(2)   fib(1)
-</code></pre>
+        /</span>
+  fib(<span class="hljs-number">2</span>)   fib(<span class="hljs-number">1</span>)
+</div></code></pre>
 <p>fibonacci(5)는 fibonacci(4) + fibonacci(3)을 계산하기 위해 fibonacci(4)를 호출합니다.
 이처럼 자기 자신을 호출하는 함수를 재귀함수라고 합니다.</p>
 <p>fibonacci(4)는 fibonacci(3) + fibonacci(2)를 호출합니다.</p>
@@ -127,24 +131,24 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 재귀함수를 사용하는 것 보다 훨씬 더 효율적입니다.
 이제 100 번 째 1000 번째 피보나치수를 구하더라도 브라우저가 멈추지 않을 것 입니다.</p>
 <p>반복문을 사용한 피보나치 함수를 구현하면 다음과 같습니다.</p>
-<pre><code class="language-js">function fibonacci(num) {
-  if (num === 1) {
-    return 0;
+<pre class="hljs "><code><div class="code__content"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
+  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
   }
-  if (num === 2) {
-    return 1;
+  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
   }
-  var prepre = 0;
-  var pre = 1;
-  var fib;
-  for (i = 2; i &lt; num; i++) {
+  <span class="hljs-keyword">var</span> prepre = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">var</span> pre = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">var</span> fib;
+  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">2</span>; i &lt; num; i++) {
     fib = pre + prepre;
     prepre = pre;
     pre = fib;
   }
-  return fib;
+  <span class="hljs-keyword">return</span> fib;
 }
-</code></pre>
+</div></code></pre>
 <p>지금까지 재귀함수와 반복문, 두 가지 방법으로 피보나치 수를 구현해 보았습니다.</p>
 <p>재귀함수를 사용하는 방법이 직관적이고 이해하기 쉬운 방식이지만 수가 커질수록 스택의 깊이는 깊어지고 함수 실행 시 많은 시간이 소요됩니다.
 이런 문제점 때문에 재귀함수를 사용하는 대신, 반복문을 사용하여 필요한 값을 계속해서 변수에 저장하는 방식으로 피보나치 수를 구현하였습니다.</p>
@@ -205,6 +209,8 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 
   </div>
   </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
 
 </body>
 

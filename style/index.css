@@ -1,8 +1,9 @@
 body {
   background: red;
-  font-size: 2vw;
+  font-size: 4vw;
   margin: 0;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
 }
 
 img {
@@ -11,10 +12,20 @@ img {
 
 .content {
   background: lawngreen;
+  width: 100%;
+  margin: 0 1rem;
 }
 
 .main {
   background: lightpink;
+}
+
+.hljs {
+  overflow: scroll;
+}
+
+.hljs .code__content {
+  width: 100%;
 }
 
 .sidebar {

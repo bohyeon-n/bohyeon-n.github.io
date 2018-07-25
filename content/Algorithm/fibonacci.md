@@ -35,7 +35,7 @@ fibonacci 수열은 0 1 1 2 3 5 8 13... 입니다.
 
 피보나치 수를 재귀함수로 구현하면 다음과 같습니다.
 
-```
+```js
 function fibonacci(num) {
   if (num === 1) {
     return 0;
@@ -49,7 +49,7 @@ function fibonacci(num) {
 
 5 번째 피보나치 수를 계산하는 과정을 그림으로 표현하면 다음과 같습니다.
 
-```
+```js
                          fib(5)
                      /
                fib(4)                fib(3)

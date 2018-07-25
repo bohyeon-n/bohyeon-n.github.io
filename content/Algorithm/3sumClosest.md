@@ -17,7 +17,7 @@ Given an array nums of n integers and an integer target, find three integers in 
 
 Example:
 
-```
+```js
 Given array nums = [-1, 2, 1, -4], and target = 1.
 
 The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).

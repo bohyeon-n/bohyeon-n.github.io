@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/style/index.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+
+
+
   <title>
     blog
   </title>
@@ -67,10 +71,10 @@
   <h1>3Sum Closest</h1>
 <p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
 <p>Example:</p>
-<pre><code>Given array nums = [-1, 2, 1, -4], and target = 1.
+<pre class="hljs "><code><div class="code__content">Given array nums = [<span class="hljs-number">-1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-4</span>], and target = <span class="hljs-number">1.</span>
 
-The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
-</code></pre>
+The sum that is closest to the target is <span class="hljs-number">2.</span> (<span class="hljs-number">-1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">1</span> = <span class="hljs-number">2</span>).
+</div></code></pre>
 <h3>나의 풀이</h3>
 <ol>
 <li>반복문을 돌면서 배열의 세 정수의 조합을 모두 확인한다.</li>
@@ -80,27 +84,27 @@ The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 <ul>
 <li>sort 를 사용해서 정렬을 한 후 문제를 풀어보려고 했지만, 잘 되지 않아서 일단은 반복문으로 모든 숫자의 조합을 생각하기로 하였다.</li>
 </ul>
-<pre><code class="language-js">//	80 ms
-var threeSumClosest = function(nums, target) {
-  let closestSum;
-  for (let i = 0; i &lt; nums.length; i++) {
-    for (let j = i + 1; j &lt; nums.length; j++) {
-      for (let t = j + 1; t &lt; nums.length; t++) {
-        let sum = nums[i] + nums[j] + nums[t];
-        if (sum === target) {
-          return sum;
-        } else if (
+<pre class="hljs "><code><div class="code__content"><span class="hljs-comment">//	80 ms</span>
+<span class="hljs-keyword">var</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
+  <span class="hljs-keyword">let</span> closestSum;
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = i + <span class="hljs-number">1</span>; j &lt; nums.length; j++) {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> t = j + <span class="hljs-number">1</span>; t &lt; nums.length; t++) {
+        <span class="hljs-keyword">let</span> sum = nums[i] + nums[j] + nums[t];
+        <span class="hljs-keyword">if</span> (sum === target) {
+          <span class="hljs-keyword">return</span> sum;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (
           !closestSum ||
-          Math.abs(closestSum - target) &gt; Math.abs(sum - target)
+          <span class="hljs-built_in">Math</span>.abs(closestSum - target) &gt; <span class="hljs-built_in">Math</span>.abs(sum - target)
         ) {
           closestSum = sum;
         }
       }
     }
   }
-  return closestSum;
+  <span class="hljs-keyword">return</span> closestSum;
 };
-</code></pre>
+</div></code></pre>
 <h2>다른 사람 풀이</h2>
 <ol>
 <li>nums.length 가 3 보다 작으면 바로 리턴한다.</li>
@@ -116,33 +120,33 @@ var threeSumClosest = function(nums, target) {
 <li>target 과의 차이를 줄여갈 수 있기 때문에</li>
 <li>첫 번째 방식보다 빠르게 찾아낼 수 있다.</li>
 </ul>
-<pre><code class="language-js">let threeSumClosest = function(nums, target) {
-  let result;
-  if (nums.length &lt;= 3) {
-    result = nums[0] + nums[1] + nums[2];
-    return result;
+<pre class="hljs "><code><div class="code__content"><span class="hljs-keyword">let</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
+  <span class="hljs-keyword">let</span> result;
+  <span class="hljs-keyword">if</span> (nums.length &lt;= <span class="hljs-number">3</span>) {
+    result = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>] + nums[<span class="hljs-number">2</span>];
+    <span class="hljs-keyword">return</span> result;
   }
-  nums.sort((a, b) =&gt; a - b);
-  for (let i = 0; i &lt; nums.length - 2; i++) {
-    let lo = i + 1,
-      hi = nums.length - 1;
-    while (lo &lt; hi) {
-      let sum = nums[i] + nums[lo] + nums[hi];
-      if (sum === target) {
-        return sum;
+  nums.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length - <span class="hljs-number">2</span>; i++) {
+    <span class="hljs-keyword">let</span> lo = i + <span class="hljs-number">1</span>,
+      hi = nums.length - <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">while</span> (lo &lt; hi) {
+      <span class="hljs-keyword">let</span> sum = nums[i] + nums[lo] + nums[hi];
+      <span class="hljs-keyword">if</span> (sum === target) {
+        <span class="hljs-keyword">return</span> sum;
       }
-      if (
-        typeof result === &quot;undefined&quot; ||
-        Math.abs(target - sum) &lt; Math.abs(target - result)
+      <span class="hljs-keyword">if</span> (
+        <span class="hljs-keyword">typeof</span> result === <span class="hljs-string">"undefined"</span> ||
+        <span class="hljs-built_in">Math</span>.abs(target - sum) &lt; <span class="hljs-built_in">Math</span>.abs(target - result)
       ) {
         result = sum;
       }
       sum &gt; target ? hi-- : lo++;
     }
   }
-  return result;
+  <span class="hljs-keyword">return</span> result;
 };
-</code></pre>
+</div></code></pre>
 
 </div>
 
@@ -194,6 +198,8 @@ var threeSumClosest = function(nums, target) {
 
   </div>
   </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
 
 </body>
 

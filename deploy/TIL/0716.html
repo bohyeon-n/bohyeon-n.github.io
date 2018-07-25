@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/style/index.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+
+
+
   <title>
     blog
   </title>
@@ -74,28 +78,28 @@
 <p>node.js 를 사용하여 로컬에 있는 폴더와 파일을 읽어서 html 에 리스트형식으로 렌더링해보자.</p>
 </li>
 </ul>
-<pre><code class="language-js">const path = require(&quot;path&quot;);
-const http = require(&quot;http&quot;);
-const fs = require(&quot;fs&quot;);
+<pre class="hljs "><code><div class="code__content"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
+<span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
 
-let directoryPath = path.join(__dirname, &quot;content&quot;);
+<span class="hljs-keyword">let</span> directoryPath = path.join(__dirname, <span class="hljs-string">"content"</span>);
 
 directories = fs.readdirSync(directoryPath);
 directoryFiles = [];
-directories.forEach(directory =&gt; {
-  const fileDirectoryPath = `${directoryPath}/${directory}`;
+directories.forEach(<span class="hljs-function"><span class="hljs-params">directory</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> fileDirectoryPath = <span class="hljs-string">`<span class="hljs-subst">${directoryPath}</span>/<span class="hljs-subst">${directory}</span>`</span>;
   files = fs.readdirSync(fileDirectoryPath);
-  files.forEach(f =&gt; directoryFiles.push(f));
+  files.forEach(<span class="hljs-function"><span class="hljs-params">f</span> =&gt;</span> directoryFiles.push(f));
 });
 
-let ejs = require(&quot;ejs&quot;);
-var indexHtmlFormat = fs.readFileSync(&quot;./public/index.html&quot;, &quot;utf-8&quot;);
+<span class="hljs-keyword">let</span> ejs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"ejs"</span>);
+<span class="hljs-keyword">var</span> indexHtmlFormat = fs.readFileSync(<span class="hljs-string">"./public/index.html"</span>, <span class="hljs-string">"utf-8"</span>);
 html = ejs.render(indexHtmlFormat, {
-  title: &quot;file list&quot;,
-  fileList: directoryFiles
+  <span class="hljs-attr">title</span>: <span class="hljs-string">"file list"</span>,
+  <span class="hljs-attr">fileList</span>: directoryFiles
 });
-fs.writeFileSync(&quot;./deploy/index.html&quot;, html);
-</code></pre>
+fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
+</div></code></pre>
 <ul>
 <li>template engine 을 사용하여 client 에서 node.js 의 data 를 렌더링 할 수 있도록 했다.</li>
 <li><code>readfile</code>을 한 후 html 형식의 string 을 변수에 대입 한다. 그 값에 data 를 넣어준다.</li>
@@ -184,6 +188,8 @@ fs.writeFileSync(&quot;./deploy/index.html&quot;, html);
 
   </div>
   </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
 
 </body>
 
