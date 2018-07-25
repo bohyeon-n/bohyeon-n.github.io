@@ -1,9 +1,10 @@
+html,
 body {
-  background: red;
+  overflow-x: hidden;
+}
+
+body {
   font-size: 4vw;
-  margin: 0;
-  width: 100%;
-  height: 100%;
 }
 
 img {
@@ -12,49 +13,54 @@ img {
 
 .content {
   background: lawngreen;
-  width: 100%;
-  margin: 0 1rem;
 }
 
 .main {
   background: lightpink;
 }
 
-.hljs {
+.main .hljs {
   overflow: scroll;
 }
 
-.hljs .code__content {
+.main .hljs .code__content {
   width: 100%;
 }
 
-.sidebar {
+.main .sidebar {
   background: teal;
 }
 
-.articleList {
+.main .articleList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-header {
+.main .header {
   background: mediumaquamarine;
-  width: 100%;
-}
-
-header .header {
-  height: 13vw;
+  width: 95%;
+  margin: 0 auto;
   background: #ffa500;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-header .header .user__img {
+.main .header .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main .header .user__img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,110 +73,38 @@ header .header .user__img {
           flex-direction: column;
 }
 
-header .header .user__img img {
+.main .header .user__img img {
   width: 10vw;
   height: 10vw;
   border-radius: 50%;
 }
 
-header .header .user__username {
+.main .header .user__username {
   background: rebeccapurple;
   line-height: 13vw;
   margin-left: 1vw;
 }
 
-header .header .user__post {
-  display: none;
+.main .nav {
+  background: navajowhite;
+  padding: 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-header .header .user__description {
-  display: none;
-}
-
-header .header .search {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.article {
+.main .article {
   border: 1px solid black;
 }
 
-.article:after {
+.main .article:after {
   content: "";
   height: 3rem;
   width: 100%;
   background: red;
   display: block;
-}
-
-/* tablet style */
-@media only screen and (min-width: 401px) and (max-width: 960px) {
-  body {
-    background-color: yellow;
-  }
-}
-
-/* desktop style */
-@media only screen and (min-width: 961px) {
-  /* body {
-  background: slategray;
-}
-.content {
-  width: 70%;
-  margin: 0 auto;
-}
-main {
-  display: flex;
-  width: 100%;
-}
-.main {
-  width: 70%;
-  background: lightpink;
-}
-.user__img img {
-  max-width: 7rem;
-  max-height: auto;
-  border-radius: 50%;
-}
-.sidebar {
-  width: 30%;
-  background: teal;
-}
-.articleList {
-  display: flex;
-}
-header {
-  background: mediumaquamarine;
-  width: 100%;
-}
-.header {
-  height: 8rem;
-  margin: 1rem auto;
-  background: orange;
-  display: flex;
-  justify-content: space-around;
-}
-.user {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.user__post-num:after {
-  content: "";
-  border: 0.5px solid black;
-  margin: 0 0.5rem;
-}
-.article {
-  border: 1px solid black;
-}
-.article:after {
-  content: "";
-  height: 3rem;
-  width: 100%;
-  background: red;
-  display: block;
-} */
 }
 /*# sourceMappingURL=index.css.map */

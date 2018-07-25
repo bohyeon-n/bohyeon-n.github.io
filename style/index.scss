@@ -1,172 +1,96 @@
 // mixin 정의
 @mixin bp-tablet {
-    @media only screen and (min-width: 401px) and (max-width: 960px) {
-        @content;
-    }
+  @media only screen and (min-width: 401px) and (max-width: 960px) {
+    @content;
+  }
 }
 
 @mixin bp-pc {
-    @media only screen and (min-width: 961px) {
-        @content;
-    }
+  @media only screen and (min-width: 961px) {
+    @content;
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 //mixin 사용
 body {
-    background: red;
-    font-size: 4vw;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+  font-size: 4vw;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 .content {
-    background: lawngreen;
-    width: 100%;
-    margin: 0 1rem;
+  background: lawngreen;
 }
 
 .main {
-    background: lightpink;
-}
-
-.hljs {
+  background: lightpink;
+  .hljs {
     overflow: scroll;
     .code__content {
-        width: 100%;
+      width: 100%;
     }
-}
-
-.sidebar {
+  }
+  .sidebar {
     background: teal;
-}
-
-.articleList {
+  }
+  .articleList {
     display: flex;
-}
-
-header {
+  }
+  .header {
     background: mediumaquamarine;
-    width: 100%;
-    .header {
-        height: 13vw;
-        background: #ffa500;
+    width: 95%;
+    margin: 0 auto;
+    background: #ffa500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .user {
+      display: flex;
+      &__img {
         display: flex;
         justify-content: center;
-        .user__img {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            img {
-                width: 10vw;
-                height: 10vw;
-                border-radius: 50%;
-            }
+        flex-direction: column;
+        img {
+          width: 10vw;
+          height: 10vw;
+          border-radius: 50%;
         }
-        .user {
-            &__username {
-                background: rebeccapurple;
-                line-height: 13vw;
-                margin-left: 1vw;
-            }
-            &__post {
-                display: none;
-            }
-            &__description {
-                display: none;
-            }
-        }
-        .search {
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
+      }
+      &__username {
+        background: rebeccapurple;
+        line-height: 13vw;
+        margin-left: 1vw;
+      }
     }
-}
-
-.article {
+  }
+  .nav {
+    background: navajowhite;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .article {
     border: 1px solid black;
-}
-
-.article:after {
+  }
+  .article:after {
     content: "";
     height: 3rem;
     width: 100%;
     background: red;
     display: block;
+  }
 }
 
-/* tablet style */
-
-@media only screen and (min-width: 401px) and (max-width: 960px) {
-    body {
-        background-color: yellow;
-    }
-}
-
-/* desktop style */
-
-@media only screen and (min-width: 961px) {
-    /* body {
-  background: slategray;
-}
-.content {
-  width: 70%;
-  margin: 0 auto;
-}
-main {
-  display: flex;
-  width: 100%;
-}
-.main {
-  width: 70%;
-  background: lightpink;
-}
-.user__img img {
-  max-width: 7rem;
-  max-height: auto;
-  border-radius: 50%;
-}
-.sidebar {
-  width: 30%;
-  background: teal;
-}
-.articleList {
-  display: flex;
-}
-header {
-  background: mediumaquamarine;
-  width: 100%;
-}
-.header {
-  height: 8rem;
-  margin: 1rem auto;
-  background: orange;
-  display: flex;
-  justify-content: space-around;
-}
-.user {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.user__post-num:after {
-  content: "";
-  border: 0.5px solid black;
-  margin: 0 0.5rem;
-}
-.article {
-  border: 1px solid black;
-}
-.article:after {
-  content: "";
-  height: 3rem;
-  width: 100%;
-  background: red;
-  display: block;
-} */
-}
+// /* tablet style */
+// @media only screen and (min-width: 401px) and (max-width: 960px) {
+//     body
+// }
+// /* desktop style */
+// @media only screen and (min-width: 961px) {}

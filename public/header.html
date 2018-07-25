@@ -1,40 +1,45 @@
-<header>
+<div class="user">
+  <div class="user__img">
+    <a href="/">
+      <img src="<%= author.image %>" alt="">
+    </a>
+  </div>
 
-  <div class="header">
-    <div class="user__img">
-      <a href="/">
-        <img src="<%= author.image %>" alt="">
+  <div class="user__username">
+    <%= author.username %>
+  </div>
+  <div class="user__social">
+    <% if(author.github){ %>
+      <a href="<%=author.github %>">
+        <div class="github">
+          <i class="fab fa-github fa-2x"></i>
+
+        </div>
+
       </a>
-    </div>
-    <div class="user">
-      <div class="user__username">
-        <%= author.username %>
-      </div>
-      <div class="user__post">
-        <span class="user__post-num">
-          <span>글</span>
-          <span>
-            <%= postNum %>
-          </span>
-        </span>
-        <span class="user__post-categoies">
-          <span>카테고리</span>
-          <span>
-            <%= categoryNum %>
-          </span>
-        </span>
-      </div>
-      <div class="user__description">
-        <%=author.description %>
-      </div>
 
-    </div>
-    <div class="search">
-      <div class="search__icon">
-        search
+      <%}%>
+        <% if(author.facebook) { %>
+          <div class=" facebook ">
+            페이스북
+          </div>
+          <%}%>
+  </div>
 
-      </div>
-    </div>
+</div>
+<div class="nav ">
+  <div class="nav__home">
+    Home
+  </div>
+  <div class="nav__category">
+    Category
+  </div>
+  <div class="nav__about">
+    About
+  </div>
+  <div class="nav__search ">
+    Search
+
 
   </div>
-</header>
+</div>

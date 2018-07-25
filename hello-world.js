@@ -76,15 +76,13 @@ if (!fs.existsSync(dir)) {
 // 사용자 정보 읽기
 const author = fs.readFileSync("./content/author/author.md", "utf8");
 const authorValue = extractedValue(author);
-
+console.log(authorValue);
 // content 안에 있는 directories 읽기
 let directories = fs.readdirSync(directoryPath);
 
 // header
 const header = ejs.render(headerHtmlFormat, {
-  author: authorValue,
-  postNum: 0,
-  categoryNum: 0
+  author: authorValue
 });
 // sidebar
 const sidebar = ejs.render(sidebarHtmlFormat, {
