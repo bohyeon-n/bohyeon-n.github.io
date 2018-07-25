@@ -109,7 +109,6 @@ directories.forEach((directory, index) => {
     }
 
     articles.push({ convertedFile, value });
-    console.log(article);
 
     // ./deploy에 카테고리별로 파일을 생성한다.
   });

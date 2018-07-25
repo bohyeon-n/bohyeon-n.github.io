@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/style/index.css">
   <title>
-    blog
+    blogd
   </title>
 </head>
 
@@ -16,81 +16,85 @@
 
     <header>
 
-  <div class="header">
-    <div class="user__img">
-      <a href="/">
-        <img src="https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
-      </a>
-    </div>
-    <div class="user">
-      <div class="username">
-        구보현
-      </div>
-      <div class="user__post">
-        <span class="user__post-num">
-          <span>글</span>
-          <span>
-            0
-          </span>
-        </span>
-        <span class="user__post-categoies">
-          <span>카테고리</span>
-          <span>
-            0
-          </span>
-        </span>
-      </div>
-      <div class="user__description">
-        Fornt-EndDeveloper
-      </div>
+      <div class="header">
+        <div class="user__img">
+          <a href="/">
+            <img src="https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
+          </a>
+        </div>
+        <div class="user">
+          <div class="user__username">
+            구보현블로그
+          </div>
+          <div class="user__post">
+            <span class="user__post-num">
+              <span>글</span>
+              <span>
+                0
+              </span>
+            </span>
+            <span class="user__post-categoies">
+              <span>카테고리</span>
+              <span>
+                0
+              </span>
+            </span>
+          </div>
+          <div class="user__description">
+            Fornt-EndDeveloper
+          </div>
 
-    </div>
-    <div class="search">
-      search
-    </div>
+        </div>
+        <div class="search">
+          <div class="search__icon">
+            search
 
-  </div>
-</header>
-
-      <main>
-        <div class="main">
-          
-
-  
-    <div class="article">
-      <div class="article__value">
-
-        <h1>
-
-          <span>
-            3sumClosest
-          </span>
-          <span>
-            2018-4-01T16:59:13-04:00
-          </span>
-
-        </h1>
-        <h1>
-        </h1>
+          </div>
+        </div>
 
       </div>
-      <h1>3Sum Closest</h1>
-<p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
-<p>Example:</p>
-<pre><code>Given array nums = [-1, 2, 1, -4], and target = 1.
+    </header>
+
+    <main>
+      <div class="main">
+
+
+
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                3sumClosest
+              </span>
+              <span>
+                2018-4-01T16:59:13-04:00
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>3Sum Closest</h1>
+          <p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest
+            to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
+          <p>Example:</p>
+          <pre><code>Given array nums = [-1, 2, 1, -4], and target = 1.
 
 The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 </code></pre>
-<h3>나의 풀이</h3>
-<ol>
-<li>반복문을 돌면서 배열의 세 정수의 조합을 모두 확인한다.</li>
-<li>target 수와 세 정수의 합이 같으면 return 해서 반복문을 종료한다.</li>
-<li>sum 과 target 숫자의 차가 현재 closestSum 과 target 의 숫자의 차보다 작으면 sum 을 closestSum 에 대입한다.</li>
-</ol>
-<ul>
-<li>sort 를 사용해서 정렬을 한 후 문제를 풀어보려고 했지만, 잘 되지 않아서 일단은 반복문으로 모든 숫자의 조합을 생각하기로 하였다.</li>
-</ul>
-<pre><code class="language-js">//	80 ms
+          <h3>나의 풀이</h3>
+          <ol>
+            <li>반복문을 돌면서 배열의 세 정수의 조합을 모두 확인한다.</li>
+            <li>target 수와 세 정수의 합이 같으면 return 해서 반복문을 종료한다.</li>
+            <li>sum 과 target 숫자의 차가 현재 closestSum 과 target 의 숫자의 차보다 작으면 sum 을 closestSum 에 대입한다.</li>
+          </ol>
+          <ul>
+            <li>sort 를 사용해서 정렬을 한 후 문제를 풀어보려고 했지만, 잘 되지 않아서 일단은 반복문으로 모든 숫자의 조합을 생각하기로 하였다.</li>
+          </ul>
+          <pre><code class="language-js">//	80 ms
 var threeSumClosest = function(nums, target) {
   let closestSum;
   for (let i = 0; i &lt; nums.length; i++) {
@@ -111,22 +115,23 @@ var threeSumClosest = function(nums, target) {
   return closestSum;
 };
 </code></pre>
-<h2>다른 사람 풀이</h2>
-<ol>
-<li>nums.length 가 3 보다 작으면 바로 리턴한다.</li>
-<li>nums 배열을 sort 메소드를 사용하여 작은 수 부터 정렬한다.</li>
-<li>반복문을 돈다.</li>
-<li>첫 번 째 숫자를 고정시킨다.</li>
-<li>고정시킨 배열의 첫 번째 숫자와 두 번 째 숫자, 맨 마지막 숫자를 더해준다.</li>
-<li>현재 result 의 값이 없거나, result 와 target 의 차이가 현재 sum 과 target 의 차이값보다 크다면, sum 을 result 에 대입해준다.</li>
-<li>result 값이 target 값보다 작으면, 더 큰 수를 더해줘야 하므로, 정렬된 배열의 두번째 숫자의 인덱스를 ++ 해준다. 반대의 경우라면, 더 작은 수를 더해줘야 하므로 마지막 숫자의 인덱스를 -- 해준다.</li>
-</ol>
-<ul>
-<li>조건에 맞는 정수의 합을 찾기 위해서 반복문을 도는 것은 첫 번째 방식과 비슷하지만, target 과 일치하는 세 정수의 합이 있다면,</li>
-<li>target 과의 차이를 줄여갈 수 있기 때문에</li>
-<li>첫 번째 방식보다 빠르게 찾아낼 수 있다.</li>
-</ul>
-<pre><code class="language-js">let threeSumClosest = function(nums, target) {
+          <h2>다른 사람 풀이</h2>
+          <ol>
+            <li>nums.length 가 3 보다 작으면 바로 리턴한다.</li>
+            <li>nums 배열을 sort 메소드를 사용하여 작은 수 부터 정렬한다.</li>
+            <li>반복문을 돈다.</li>
+            <li>첫 번 째 숫자를 고정시킨다.</li>
+            <li>고정시킨 배열의 첫 번째 숫자와 두 번 째 숫자, 맨 마지막 숫자를 더해준다.</li>
+            <li>현재 result 의 값이 없거나, result 와 target 의 차이가 현재 sum 과 target 의 차이값보다 크다면, sum 을 result 에 대입해준다.</li>
+            <li>result 값이 target 값보다 작으면, 더 큰 수를 더해줘야 하므로, 정렬된 배열의 두번째 숫자의 인덱스를 ++ 해준다. 반대의 경우라면, 더 작은 수를 더해줘야 하므로 마지막 숫자의 인덱스를
+              -- 해준다.</li>
+          </ol>
+          <ul>
+            <li>조건에 맞는 정수의 합을 찾기 위해서 반복문을 도는 것은 첫 번째 방식과 비슷하지만, target 과 일치하는 세 정수의 합이 있다면,</li>
+            <li>target 과의 차이를 줄여갈 수 있기 때문에</li>
+            <li>첫 번째 방식보다 빠르게 찾아낼 수 있다.</li>
+          </ul>
+          <pre><code class="language-js">let threeSumClosest = function(nums, target) {
   let result;
   if (nums.length &lt;= 3) {
     result = nums[0] + nums[1] + nums[2];
@@ -154,47 +159,107 @@ var threeSumClosest = function(nums, target) {
 };
 </code></pre>
 
-    </div>
-
-    
+        </div>
 
 
-      
 
-  
-    <div class="article">
-      <div class="article__value">
 
-        <h1>
 
-          <span>
-            피보나치수구현하기
-          </span>
-          <span>
-            2018-4-01T16:59:13-04:00
-          </span>
 
-        </h1>
-        <h1>
-        </h1>
 
-      </div>
-      <h1>피보나치 수 구현하기</h1>
-<p>피보나치 수를 구현하는 방법에는 두 가지가 있습니다.</p>
-<ul>
-<li>재귀함수를 사용하는 방법</li>
-<li>반복문을 사용하는 방법</li>
-</ul>
-<h2>피보나치 수란?</h2>
-<p>피보나치 수는 다음과 같이 정의되는 수열입니다.</p>
-<p><img src="/img/fibonacci-definition.png" alt="피보나치 수 정의"></p>
-<p>fibonacci 수열은 0 1 1 2 3 5 8 13... 입니다.
-앞에 있는 두 수를 더하여 그 다음의 수를 얻을 수 있습니다.</p>
-<p>첫 번째 수와 두 번째 수는 0 과 1 로 정해져있습니다.</p>
-<p>그 다음 n 번 째 피보나치 수는 (n-1 번 째 피보나치 수)+(n-2 번 째 피보나치 수)입니다.</p>
-<h2>재귀함수로 피보나치 수 구현하기</h2>
-<p>피보나치 수를 재귀함수로 구현하면 다음과 같습니다.</p>
-<pre><code>function fibonacci(num) {
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                BestTimetoBuyandSellStock
+              </span>
+              <span>
+                20180723
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>Best Time to Buy and Sell Stock</h1>
+          <p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+          <p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock),
+            design an algorithm to find the maximum profit.</p>
+          <p>Note that you cannot sell a stock before you buy one.</p>
+          <pre><code class="language-js">Input: [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+             Not 7-1 = 6, as selling price needs to be larger than buying price.
+</code></pre>
+          <h2>나의 풀이</h2>
+          <ol>
+            <li>prices 배열을 반복문을 돌면서 확인한다.</li>
+            <li>buy 값이 없거나, buy 보다 작은 값이면 buy 에 대입한다.</li>
+            <li>그렇지 않다면 buy 보다 큰 수이다. 큰 수 이면서 기존 profit 의 값보다 profit 이 크다면, profit 에 buy 와 현재 배열 요소의 차를 재대입한다.</li>
+            <li>profit 을 리턴한다.</li>
+          </ol>
+          <pre><code class="language-js">var maxProfit = function(prices) {
+  let profit = 0;
+  let buy;
+  for (let i = 0; i &lt; prices.length + 1; i++) {
+    if (buy === undefined || buy &gt; prices[i]) {
+      buy = prices[i];
+    } else {
+      if (profit &lt; prices[i] - buy) {
+        profit = prices[i] - buy;
+      }
+    }
+    console.log(buy, profit);
+  }
+  return profit;
+};
+</code></pre>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                피보나치수구현하기
+              </span>
+              <span>
+                2018-4-01T16:59:13-04:00
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>피보나치 수 구현하기</h1>
+          <p>피보나치 수를 구현하는 방법에는 두 가지가 있습니다.</p>
+          <ul>
+            <li>재귀함수를 사용하는 방법</li>
+            <li>반복문을 사용하는 방법</li>
+          </ul>
+          <h2>피보나치 수란?</h2>
+          <p>피보나치 수는 다음과 같이 정의되는 수열입니다.</p>
+          <p>
+            <img src="/img/fibonacci-definition.png" alt="피보나치 수 정의">
+          </p>
+          <p>fibonacci 수열은 0 1 1 2 3 5 8 13... 입니다. 앞에 있는 두 수를 더하여 그 다음의 수를 얻을 수 있습니다.</p>
+          <p>첫 번째 수와 두 번째 수는 0 과 1 로 정해져있습니다.</p>
+          <p>그 다음 n 번 째 피보나치 수는 (n-1 번 째 피보나치 수)+(n-2 번 째 피보나치 수)입니다.</p>
+          <h2>재귀함수로 피보나치 수 구현하기</h2>
+          <p>피보나치 수를 재귀함수로 구현하면 다음과 같습니다.</p>
+          <pre><code>function fibonacci(num) {
   if (num === 1) {
     return 0;
   }
@@ -204,8 +269,8 @@ var threeSumClosest = function(nums, target) {
   return fibonacci(num - 1) + fibonacci(num - 2);
 }
 </code></pre>
-<p>5 번째 피보나치 수를 계산하는 과정을 그림으로 표현하면 다음과 같습니다.</p>
-<pre><code>                         fib(5)
+          <p>5 번째 피보나치 수를 계산하는 과정을 그림으로 표현하면 다음과 같습니다.</p>
+          <pre><code>                         fib(5)
                      /
                fib(4)                fib(3)
              /                      /
@@ -213,36 +278,37 @@ var threeSumClosest = function(nums, target) {
         /
   fib(2)   fib(1)
 </code></pre>
-<p>fibonacci(5)는 fibonacci(4) + fibonacci(3)을 계산하기 위해 fibonacci(4)를 호출합니다.
-이처럼 자기 자신을 호출하는 함수를 재귀함수라고 합니다.</p>
-<p>fibonacci(4)는 fibonacci(3) + fibonacci(2)를 호출합니다.</p>
-<p>fibonacci(3)은 fibonacci(2) + fibonacci(1)를 호출합니다.
-여기서 fibonacci(2) 와 fibonacci(1)의 값은 1 과 0 으로 정하였으므로 더이상 함수를 부르지 않고 값이 계산되어 나오게 됩니다.
-fibonacci(3)은 0+1 인 1 이 됩니다.</p>
-<p>그 다음 fibonacci(4)를 계산하려고 호출했던 fobonacci(2)를 계산합니다.
-fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
-위와 같은 과정을 거쳐야 fibonacci(5)를 구할 수 있습니다.</p>
-<p>만약 fibonacci(5)가 아닌 fibonacci(100), fibonacci(1000)이면 어떨까요?</p>
-<p>5 번째 피보나치 수를 구하기 위해서는 함수를 9 번 호출해야 합니다. 10 번째 피보나치 수는 109 번, 20 번 째 피보나치 수는 13529 번, 30 번 째 피보나치 수는 1664079 번 함수를 호출해야 합니다.</p>
-<p>다음은 피보나치 수를 구하는 함수의 실행시간 그래프입니다.
-구하려는 피보나치 수가 커질수록 급격하게 그래프가 치솟는 것을 볼 수 있습니다.</p>
-<p><img src="/img/fibonaccitime.png" alt="실행시간"></p>
-<h2>함수 스택</h2>
-<p>피보나치 수가 커질수록 함수 실행시간이 급격히 증가하는 이유는 무엇일까요
-함수가 계산되는 방식때문입니다.</p>
-<p>함수가 호출 될 때 메모리블록을 할당받게 됩니다. 이 블록들이 쌓이는 곳을 스택프레임이라고 합니다.
-함수가 return 되면 할당받았던 메모리블록은 스텍프레임에서 사라지게 됩니다. 함수는 가장 나중에 넣은 메모리블록이 가장 먼저 나오는 LIFO(last in first out)의 구조입니다.</p>
-<p><img src="/img/Call-stack-of-Fibonacci.jpg" alt="stack"></p>
-<p><a href="http://knowledge-cess.com/recursion-vs-iteration-an-analysis-fibonacci-and-factorial/">이미지 출처</a></p>
-<p>n 번 째 피보나치 수를 계산 할 때 스텍프레임에 메모리블록들이 쌓이다가 fibonacci(2)와 fibonaci(1)이 나와야만 미리 약속한 값인 0 과 1 로 꺼낼 수 있습니다.
-그러나 한 번 꺼낸 값이 스택에 저장되는 것이 아닙니다. 계산이 끝나 return 하게 되면 기존에 선언한 변수는 스택에서 사라지게 됩니다. 그렇기 때문에 그 전에 fibonacci(3)을 계산하였어도 다시 한번 함수를 불러 계산해야 합니다.</p>
-<h2>반복문으로 피보나치수 구하기</h2>
-<p>피보나치 수를 구하는 또다른 방법은 반복문을 사용하는 것 입니다.
-반복문을 이용하여 n 번째 피보나치 수를 구하면 대략 n 번만 반복하여 결과를 얻을 수 있습니다.
-재귀함수를 사용하는 것 보다 훨씬 더 효율적입니다.
-이제 100 번 째 1000 번째 피보나치수를 구하더라도 브라우저가 멈추지 않을 것 입니다.</p>
-<p>반복문을 사용한 피보나치 함수를 구현하면 다음과 같습니다.</p>
-<pre><code class="language-js">function fibonacci(num) {
+          <p>fibonacci(5)는 fibonacci(4) + fibonacci(3)을 계산하기 위해 fibonacci(4)를 호출합니다. 이처럼 자기 자신을 호출하는 함수를 재귀함수라고 합니다.</p>
+          <p>fibonacci(4)는 fibonacci(3) + fibonacci(2)를 호출합니다.</p>
+          <p>fibonacci(3)은 fibonacci(2) + fibonacci(1)를 호출합니다. 여기서 fibonacci(2) 와 fibonacci(1)의 값은 1 과 0 으로 정하였으므로 더이상 함수를 부르지
+            않고 값이 계산되어 나오게 됩니다. fibonacci(3)은 0+1 인 1 이 됩니다.</p>
+          <p>그 다음 fibonacci(4)를 계산하려고 호출했던 fobonacci(2)를 계산합니다. fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다. 위와 같은 과정을 거쳐야
+            fibonacci(5)를 구할 수 있습니다.</p>
+          <p>만약 fibonacci(5)가 아닌 fibonacci(100), fibonacci(1000)이면 어떨까요?</p>
+          <p>5 번째 피보나치 수를 구하기 위해서는 함수를 9 번 호출해야 합니다. 10 번째 피보나치 수는 109 번, 20 번 째 피보나치 수는 13529 번, 30 번 째 피보나치 수는 1664079 번 함수를
+            호출해야 합니다.</p>
+          <p>다음은 피보나치 수를 구하는 함수의 실행시간 그래프입니다. 구하려는 피보나치 수가 커질수록 급격하게 그래프가 치솟는 것을 볼 수 있습니다.</p>
+          <p>
+            <img src="/img/fibonaccitime.png" alt="실행시간">
+          </p>
+          <h2>함수 스택</h2>
+          <p>피보나치 수가 커질수록 함수 실행시간이 급격히 증가하는 이유는 무엇일까요 함수가 계산되는 방식때문입니다.</p>
+          <p>함수가 호출 될 때 메모리블록을 할당받게 됩니다. 이 블록들이 쌓이는 곳을 스택프레임이라고 합니다. 함수가 return 되면 할당받았던 메모리블록은 스텍프레임에서 사라지게 됩니다. 함수는 가장 나중에
+            넣은 메모리블록이 가장 먼저 나오는 LIFO(last in first out)의 구조입니다.</p>
+          <p>
+            <img src="/img/Call-stack-of-Fibonacci.jpg" alt="stack">
+          </p>
+          <p>
+            <a href="http://knowledge-cess.com/recursion-vs-iteration-an-analysis-fibonacci-and-factorial/">이미지 출처</a>
+          </p>
+          <p>n 번 째 피보나치 수를 계산 할 때 스텍프레임에 메모리블록들이 쌓이다가 fibonacci(2)와 fibonaci(1)이 나와야만 미리 약속한 값인 0 과 1 로 꺼낼 수 있습니다. 그러나 한 번 꺼낸
+            값이 스택에 저장되는 것이 아닙니다. 계산이 끝나 return 하게 되면 기존에 선언한 변수는 스택에서 사라지게 됩니다. 그렇기 때문에 그 전에 fibonacci(3)을 계산하였어도 다시 한번 함수를
+            불러 계산해야 합니다.</p>
+          <h2>반복문으로 피보나치수 구하기</h2>
+          <p>피보나치 수를 구하는 또다른 방법은 반복문을 사용하는 것 입니다. 반복문을 이용하여 n 번째 피보나치 수를 구하면 대략 n 번만 반복하여 결과를 얻을 수 있습니다. 재귀함수를 사용하는 것 보다 훨씬
+            더 효율적입니다. 이제 100 번 째 1000 번째 피보나치수를 구하더라도 브라우저가 멈추지 않을 것 입니다.</p>
+          <p>반복문을 사용한 피보나치 함수를 구현하면 다음과 같습니다.</p>
+          <pre><code class="language-js">function fibonacci(num) {
   if (num === 1) {
     return 0;
   }
@@ -260,58 +326,63 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
   return fib;
 }
 </code></pre>
-<p>지금까지 재귀함수와 반복문, 두 가지 방법으로 피보나치 수를 구현해 보았습니다.</p>
-<p>재귀함수를 사용하는 방법이 직관적이고 이해하기 쉬운 방식이지만 수가 커질수록 스택의 깊이는 깊어지고 함수 실행 시 많은 시간이 소요됩니다.
-이런 문제점 때문에 재귀함수를 사용하는 대신, 반복문을 사용하여 필요한 값을 계속해서 변수에 저장하는 방식으로 피보나치 수를 구현하였습니다.</p>
-<p>단순히 함수를 구현하여 결과를 얻는 것뿐만 아니라 그 과정의 비용도 생각해야 합니다.</p>
-<h2>참고자료</h2>
-<ul>
-<li><a href="https://ko.wikipedia.org/wiki/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98_%EC%88%98">위키백과 피보나치 수</a></li>
-<li><a href="https://homoefficio.github.io/2015/07/27/%EC%9E%AC%EA%B7%80-%EB%B0%98%EB%B3%B5-Tail-Recursion/">HomoEfficio 님의 블로그/재귀, 반복, Tail Recursion</a></li>
-</ul>
+          <p>지금까지 재귀함수와 반복문, 두 가지 방법으로 피보나치 수를 구현해 보았습니다.</p>
+          <p>재귀함수를 사용하는 방법이 직관적이고 이해하기 쉬운 방식이지만 수가 커질수록 스택의 깊이는 깊어지고 함수 실행 시 많은 시간이 소요됩니다. 이런 문제점 때문에 재귀함수를 사용하는 대신, 반복문을 사용하여
+            필요한 값을 계속해서 변수에 저장하는 방식으로 피보나치 수를 구현하였습니다.</p>
+          <p>단순히 함수를 구현하여 결과를 얻는 것뿐만 아니라 그 과정의 비용도 생각해야 합니다.</p>
+          <h2>참고자료</h2>
+          <ul>
+            <li>
+              <a href="https://ko.wikipedia.org/wiki/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98_%EC%88%98">위키백과 피보나치 수</a>
+            </li>
+            <li>
+              <a href="https://homoefficio.github.io/2015/07/27/%EC%9E%AC%EA%B7%80-%EB%B0%98%EB%B3%B5-Tail-Recursion/">HomoEfficio 님의 블로그/재귀, 반복, Tail Recursion</a>
+            </li>
+          </ul>
 
-    </div>
-
-    
+        </div>
 
 
-      
 
-  
-    <div class="article">
-      <div class="article__value">
 
-        <h1>
 
-          <span>
-            sortcolors
-          </span>
-          <span>
-            2018-7-18T23:59:13-04:00
-          </span>
 
-        </h1>
-        <h1>
-        </h1>
 
-      </div>
-      <h1>sort colors</h1>
-<p>Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
-<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
-<h1>나의 풀이</h1>
-<ul>
-<li>
-<p>in-place 알고리즘이란 원소들의 개에 비해서 충분히 무시할 만한 저장 공간만을 더 사용하여 정렬 알고리즘들을 의미한다.</p>
-</li>
-<li>
-<p>버블 정렬</p>
-<ul>
-<li>두 인접한 원소를 검사하여 큰 수를 뒤로 보내는 간단한 알고리즘</li>
-<li>다른 정렬 알고리즘에 비해 속도가 상당히 느리다.</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-js">var sortColors = function(nums) {
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                sortcolors
+              </span>
+              <span>
+                2018-7-18T23:59:13-04:00
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>sort colors</h1>
+          <p>Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color
+            are adjacent, with the colors in the order red, white and blue.</p>
+          <p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
+          <h1>나의 풀이</h1>
+          <ul>
+            <li>
+              <p>in-place 알고리즘이란 원소들의 개에 비해서 충분히 무시할 만한 저장 공간만을 더 사용하여 정렬 알고리즘들을 의미한다.</p>
+            </li>
+            <li>
+              <p>버블 정렬</p>
+              <ul>
+                <li>두 인접한 원소를 검사하여 큰 수를 뒤로 보내는 간단한 알고리즘</li>
+                <li>다른 정렬 알고리즘에 비해 속도가 상당히 느리다.</li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="language-js">var sortColors = function(nums) {
   for (let i = 0; i &lt; nums.length; i++) {
     for (let j = 0; j &lt; nums.length - i; j++) {
       if (nums[j] &gt; nums[j + 1]) {
@@ -323,22 +394,22 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
   }
 };
 </code></pre>
-<h1>다른 사람 풀이</h1>
-<ul>
-<li>low, high, index 변수가 있다.</li>
-<li>nums 배열을 돌면서 확인한다.</li>
-<li>0 이면, nums[low]에 위치한다.</li>
-<li>low++ index++ 를 해준다. 0, 가장 낮은 수 이므로 고정시키면 되기 때문에 이제 더 이상 볼 필요가 없어졌다.</li>
-<li>다시 nums[index]를 확인한다.</li>
-<li>1 이면, index++ 를 해서 다음 숫자를 확인한다.</li>
-<li>2 이면, nums[high] nums 배열의 끝에 위치하고, 2 도 가장 큰 수이므로, 더이상 확인할 필요가 없으므로, nums[high]에 고정시키면 된다. high-- 해준다.</li>
-<li>계속해서 반복하다보면, 0 과 2 는 앞 뒤로 위치된다.</li>
-<li>1 은 자동으로 그 사이에 위치된다.</li>
-</ul>
-<ul>
-<li>나는 언제쯤 이런 생각을 할 수 있을까... 😱</li>
-</ul>
-<pre><code class="language-js">var sortColors = function(nums) {
+          <h1>다른 사람 풀이</h1>
+          <ul>
+            <li>low, high, index 변수가 있다.</li>
+            <li>nums 배열을 돌면서 확인한다.</li>
+            <li>0 이면, nums[low]에 위치한다.</li>
+            <li>low++ index++ 를 해준다. 0, 가장 낮은 수 이므로 고정시키면 되기 때문에 이제 더 이상 볼 필요가 없어졌다.</li>
+            <li>다시 nums[index]를 확인한다.</li>
+            <li>1 이면, index++ 를 해서 다음 숫자를 확인한다.</li>
+            <li>2 이면, nums[high] nums 배열의 끝에 위치하고, 2 도 가장 큰 수이므로, 더이상 확인할 필요가 없으므로, nums[high]에 고정시키면 된다. high-- 해준다.</li>
+            <li>계속해서 반복하다보면, 0 과 2 는 앞 뒤로 위치된다.</li>
+            <li>1 은 자동으로 그 사이에 위치된다.</li>
+          </ul>
+          <ul>
+            <li>나는 언제쯤 이런 생각을 할 수 있을까... 😱</li>
+          </ul>
+          <pre><code class="language-js">var sortColors = function(nums) {
   let temp,
     lo = 0,
     hi = nums.length - 1;
@@ -361,176 +432,195 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 };
 </code></pre>
 
-    </div>
-
-    
+        </div>
 
 
-      
 
-  
-    <div class="article">
-      <div class="article__value">
 
-        <h1>
 
-          <span>
-            정규표현식
-          </span>
-          <span>
-            2018-7-19T22:59:13-04:00
-          </span>
 
-        </h1>
-        <h1>
-        </h1>
 
-      </div>
-      <h1>정규 표현식</h1>
-<h2>정규표현식의 목적</h2>
-<ol>
-<li>검사</li>
-<li>검색</li>
-<li>치환</li>
-</ol>
-<h2>정규 표현식 만들기</h2>
-<ol>
-<li><code>/</code>로 감싸는 패턴</li>
-</ol>
-<pre><code class="language-js">let re = /ab+c/;
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                정규표현식
+              </span>
+              <span>
+                2018-7-19T22:59:13-04:00
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>정규 표현식</h1>
+          <h2>정규표현식의 목적</h2>
+          <ol>
+            <li>검사</li>
+            <li>검색</li>
+            <li>치환</li>
+          </ol>
+          <h2>정규 표현식 만들기</h2>
+          <ol>
+            <li>
+              <code>/</code>로 감싸는 패턴</li>
+          </ol>
+          <pre><code class="language-js">let re = /ab+c/;
 </code></pre>
-<ul>
-<li>문자열이 아니다.</li>
-<li>즉시 정규식 객체로 변환되어 대입된다.</li>
-</ul>
-<ol start="2">
-<li>RegExp 객체의 생성자 함수를 호출하는 방법</li>
-</ol>
-<pre><code class="language-js">let re = new RegExp(&quot;ab+c&quot;);
+          <ul>
+            <li>문자열이 아니다.</li>
+            <li>즉시 정규식 객체로 변환되어 대입된다.</li>
+          </ul>
+          <ol start="2">
+            <li>RegExp 객체의 생성자 함수를 호출하는 방법</li>
+          </ol>
+          <pre><code class="language-js">let re = new RegExp(&quot;ab+c&quot;);
 </code></pre>
-<ul>
-<li>
-<p>문자열을 정규식 객체로 변환하는 과정을 거친다. (문자열 리터럴이 메모리에 올라가는 과정이 추가로 필요하다.)</p>
-</li>
-<li>
-<p>속도가 느릴 수 있다.</p>
-</li>
-<li>
-<p>정규식의 패턴이 변경될 수 있는 경우, 사용자 입력과 같이 다른 출처로부터 패턴을 가져와야 하는 경우에는 생성자 함수를 사용한다.</p>
-</li>
-<li>
-<p>문자열 래퍼 객체에는 match, search, split, replace 메소드가 정규 표현식을 지원하게 만들어져 있다.</p>
-<ul>
-<li>래퍼 객체?
-<ul>
-<li>원시타입의 값은 객체가 아님에도 불구하고, 원시 타입에 점 표기법을 써서 메소드를 호출 하거나 속성을 읽어올 수 있다.</li>
-<li>원시 타입의 값에 대해 속성을 읽으려고 시도하면, 그 값은 그 순간에만 객체로 변환되어 마치 객체인 것처럼 동작한다.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2>정규식 패턴 작성하기</h2>
-<h3>단순 패턴 사용하기</h3>
-<ul>
-<li>문자열을 있는 그대로 대응시키고자 할 때 사용된다.</li>
-</ul>
-<pre><code class="language-js">&quot;Hi, do you know your abc&quot;.search(/abc/);
+          <ul>
+            <li>
+              <p>문자열을 정규식 객체로 변환하는 과정을 거친다. (문자열 리터럴이 메모리에 올라가는 과정이 추가로 필요하다.)</p>
+            </li>
+            <li>
+              <p>속도가 느릴 수 있다.</p>
+            </li>
+            <li>
+              <p>정규식의 패턴이 변경될 수 있는 경우, 사용자 입력과 같이 다른 출처로부터 패턴을 가져와야 하는 경우에는 생성자 함수를 사용한다.</p>
+            </li>
+            <li>
+              <p>문자열 래퍼 객체에는 match, search, split, replace 메소드가 정규 표현식을 지원하게 만들어져 있다.</p>
+              <ul>
+                <li>래퍼 객체?
+                  <ul>
+                    <li>원시타입의 값은 객체가 아님에도 불구하고, 원시 타입에 점 표기법을 써서 메소드를 호출 하거나 속성을 읽어올 수 있다.</li>
+                    <li>원시 타입의 값에 대해 속성을 읽으려고 시도하면, 그 값은 그 순간에만 객체로 변환되어 마치 객체인 것처럼 동작한다.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h2>정규식 패턴 작성하기</h2>
+          <h3>단순 패턴 사용하기</h3>
+          <ul>
+            <li>문자열을 있는 그대로 대응시키고자 할 때 사용된다.</li>
+          </ul>
+          <pre><code class="language-js">&quot;Hi, do you know your abc&quot;.search(/abc/);
 
 &quot;Hi, do you know your abc&quot;.search(&quot;abc&quot;);
 
 // 단순히 문자열을 그대로 찾아주는 것이므로 실행결과는 동일하다.
 </code></pre>
-<h3>특수 문자 사용하기</h3>
-<ol>
-<li><code>\</code></li>
-</ol>
-<ul>
-<li>
-<p>특수 문자가 아닌 문자 앞에서 사용된 백슬래시</p>
-<ul>
-<li>'해당 문자는 특별하고, 문자 그대로 해석되면 안된다.'는 사실을 가리킨다.</li>
-</ul>
-</li>
-<li>
-<p>특수 문자 앞에 위치한 백슬래시</p>
-<ul>
-<li>'다음에 오는 문자는 특별하지 않고, 문자 그대로 해석되어야 한다.'는 사실을 가리킨다.</li>
-<li><code>&quot;hello*world&quot;.match(/\*/)</code></li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li><code>^</code></li>
-</ol>
-<ul>
-<li>입력의 시작 부분에 대응된다.</li>
-<li>문자열 시작부분에 있지 않으면 대응되는 패턴이 있을 수 없다.</li>
-</ul>
-<pre><code class="language-js">&quot;a1234f g&quot;.match(/^g/); //null
+          <h3>특수 문자 사용하기</h3>
+          <ol>
+            <li>
+              <code>\</code>
+            </li>
+          </ol>
+          <ul>
+            <li>
+              <p>특수 문자가 아닌 문자 앞에서 사용된 백슬래시</p>
+              <ul>
+                <li>'해당 문자는 특별하고, 문자 그대로 해석되면 안된다.'는 사실을 가리킨다.</li>
+              </ul>
+            </li>
+            <li>
+              <p>특수 문자 앞에 위치한 백슬래시</p>
+              <ul>
+                <li>'다음에 오는 문자는 특별하지 않고, 문자 그대로 해석되어야 한다.'는 사실을 가리킨다.</li>
+                <li>
+                  <code>&quot;hello*world&quot;.match(/\*/)</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ol start="2">
+            <li>
+              <code>^</code>
+            </li>
+          </ol>
+          <ul>
+            <li>입력의 시작 부분에 대응된다.</li>
+            <li>문자열 시작부분에 있지 않으면 대응되는 패턴이 있을 수 없다.</li>
+          </ul>
+          <pre><code class="language-js">&quot;a1234f g&quot;.match(/^g/); //null
 &quot;An B&quot;.match(/^A/);
 </code></pre>
-<ol start="3">
-<li><code>$</code></li>
-</ol>
-<ul>
-<li>입력의 끝 부분과 대응된다.</li>
-</ul>
-<pre><code class="language-js">&quot;eat&quot;.match(/t$/);
+          <ol start="3">
+            <li>
+              <code>$</code>
+            </li>
+          </ol>
+          <ul>
+            <li>입력의 끝 부분과 대응된다.</li>
+          </ul>
+          <pre><code class="language-js">&quot;eat&quot;.match(/t$/);
 &quot;eat&quot;.match(/a$/); //null
 </code></pre>
-<ol start="4">
-<li><code>*</code></li>
-</ol>
-<ul>
-<li>앞의 표현식이 0 회 이상 연속으로 반복되는 부분과 대응된다.</li>
-<li>수량자라고도 한다.</li>
-</ul>
-<ol start="5">
-<li><code>+</code></li>
-</ol>
-<ul>
-<li>1 회 이상 반복을 의미</li>
-<li>하나 이상은 있어야 대응된다.</li>
-</ul>
-<pre><code class="language-js">&quot;ac&quot;.match(/ab*c/);
+          <ol start="4">
+            <li>
+              <code>*</code>
+            </li>
+          </ol>
+          <ul>
+            <li>앞의 표현식이 0 회 이상 연속으로 반복되는 부분과 대응된다.</li>
+            <li>수량자라고도 한다.</li>
+          </ul>
+          <ol start="5">
+            <li>
+              <code>+</code>
+            </li>
+          </ol>
+          <ul>
+            <li>1 회 이상 반복을 의미</li>
+            <li>하나 이상은 있어야 대응된다.</li>
+          </ul>
+          <pre><code class="language-js">&quot;ac&quot;.match(/ab*c/);
 &quot;ac&quot;.match(/ab+c/); //null
 </code></pre>
-<ol start="6">
-<li><code>?</code></li>
-</ol>
-<ul>
-<li>앞의 표현식이 0 또는 1 회 등장하는 부분과 대응된다. {0,1}과 같은 의미이다.</li>
-<li>만약 수량자 바로 뒤에 사용되면, 기본적으로 탐욕스럽던 수량자를 탐욕스럽지 않게 만든다.</li>
-<li>수량자를 쓸 때 거의 ? 를 붙인다.</li>
-<li><code>/e?le?/</code>
-<ul>
-<li>e 는 나와도 되고 안나와도 되고, 나올거면 한 번만 나온다.</li>
-<li>l 은 나와야 한다.</li>
-<li>e 는 있거나 없거나, 나올거면 한 번만 나와야 한다.</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-js">&quot;ac&quot;.match(/ab?c/); //ac
+          <ol start="6">
+            <li>
+              <code>?</code>
+            </li>
+          </ol>
+          <ul>
+            <li>앞의 표현식이 0 또는 1 회 등장하는 부분과 대응된다. {0,1}과 같은 의미이다.</li>
+            <li>만약 수량자 바로 뒤에 사용되면, 기본적으로 탐욕스럽던 수량자를 탐욕스럽지 않게 만든다.</li>
+            <li>수량자를 쓸 때 거의 ? 를 붙인다.</li>
+            <li>
+              <code>/e?le?/</code>
+              <ul>
+                <li>e 는 나와도 되고 안나와도 되고, 나올거면 한 번만 나온다.</li>
+                <li>l 은 나와야 한다.</li>
+                <li>e 는 있거나 없거나, 나올거면 한 번만 나와야 한다.</li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="language-js">&quot;ac&quot;.match(/ab?c/); //ac
 &quot;abc&quot;.match(/ab?c/); //abc
 &quot;abbbbc&quot;.match(/ab?c/); //null
 </code></pre>
-<ol start="7">
-<li><code>.</code></li>
-</ol>
-<ul>
-<li>개행 문자를 제외한 모든 단일 문자와 대응된다.</li>
-<li>다만 엔터는 제외한다.</li>
-</ul>
-<pre><code class="language-js">&quot;ba&quot;.match(/./);
+          <ol start="7">
+            <li>
+              <code>.</code>
+            </li>
+          </ol>
+          <ul>
+            <li>개행 문자를 제외한 모든 단일 문자와 대응된다.</li>
+            <li>다만 엔터는 제외한다.</li>
+          </ul>
+          <pre><code class="language-js">&quot;ba&quot;.match(/./);
 &quot;&lt;hello&gt;world&quot;.match(/\&lt;.+\&gt;/);
 </code></pre>
-<ul>
-<li>정규 표현식 패턴과 맞는 부분이 있는지 확인하 수 있다.</li>
-<li>여는 꺽쇠괄호 뒤에 1 개 이상의 문자가 오고, 그 다음에 닫는 꺽쇠 괄호가 나오는 패턴.</li>
-<li><code>.</code> 쓸모가 많음, 사이에 들어오는 문자는 무엇이든 상관없다.</li>
-</ul>
-<pre><code class="language-js">// 숫자만 있고 싶다면,
+          <ul>
+            <li>정규 표현식 패턴과 맞는 부분이 있는지 확인하 수 있다.</li>
+            <li>여는 꺽쇠괄호 뒤에 1 개 이상의 문자가 오고, 그 다음에 닫는 꺽쇠 괄호가 나오는 패턴.</li>
+            <li>
+              <code>.</code> 쓸모가 많음, 사이에 들어오는 문자는 무엇이든 상관없다.</li>
+          </ul>
+          <pre><code class="language-js">// 숫자만 있고 싶다면,
 &quot;&lt;hello&gt;world&quot;.match(/\&lt;\d+\&gt;/); //null
 &quot;&lt;1234&gt;world&quot;.match(/\&lt;\d+\&gt;/);
 
@@ -539,23 +629,23 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 &quot;&lt;hello&gt;world &lt;java&gt;script&quot;.match(/\&lt;.+?\&gt;/);
 // ? 가능한 한 적게 일치시켜라.
 </code></pre>
-<h3>괄호를 사용하기</h3>
-<ul>
-<li>
-<p>정규식 내부의 일부를 둘러싼 괄호는, 해당 부분에서 대응된 문자열을 기억하는 효과를 갖는다.</p>
-</li>
-<li>
-<p>기억된 문자열은 다른 곳에서 사용하기 위하여 불러질 수 있다.</p>
-</li>
-<li>
-<p>포획괄호</p>
-<ul>
-<li>부분 표현식을 하나의 단위로 취급하는 기능</li>
-<li>대응된 문자열을 기억하는 기능</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-js">&quot;foo&quot;.match(/(foo)/);
+          <h3>괄호를 사용하기</h3>
+          <ul>
+            <li>
+              <p>정규식 내부의 일부를 둘러싼 괄호는, 해당 부분에서 대응된 문자열을 기억하는 효과를 갖는다.</p>
+            </li>
+            <li>
+              <p>기억된 문자열은 다른 곳에서 사용하기 위하여 불러질 수 있다.</p>
+            </li>
+            <li>
+              <p>포획괄호</p>
+              <ul>
+                <li>부분 표현식을 하나의 단위로 취급하는 기능</li>
+                <li>대응된 문자열을 기억하는 기능</li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="language-js">&quot;foo&quot;.match(/(foo)/);
 &quot;foo foo&quot;.match(/(foo) \1/);
 &quot;foooo foooo&quot;.match(/(fo+) \1/);
 &quot;foooo foooo foooo&quot;.match(/(fo+) \1/);
@@ -563,20 +653,20 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 &quot;foo bar foo bar&quot;.match(/(foo) (bar) \1/);
 &quot;foo bar foo bar&quot;.match(/(foo) (bar) \2/); //null
 </code></pre>
-<ul>
-<li>비포획괄호
-<ul>
-<li>부분 표현식을 하나의 단위로 취급가능</li>
-<li>괄호를 사용하면서 대응된 문자열을 기억하고 싶지 않을 때</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-js">&quot;foofoofoo&quot;.match(/(?:foo)*/);
+          <ul>
+            <li>비포획괄호
+              <ul>
+                <li>부분 표현식을 하나의 단위로 취급가능</li>
+                <li>괄호를 사용하면서 대응된 문자열을 기억하고 싶지 않을 때</li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="language-js">&quot;foofoofoo&quot;.match(/(?:foo)*/);
 </code></pre>
-<ul>
-<li>{}</li>
-</ul>
-<pre><code class="language-js">// 같은 의미
+          <ul>
+            <li>{}</li>
+          </ul>
+          <pre><code class="language-js">// 같은 의미
 &quot;caaaandy&quot;.match(/a+/);
 &quot;caaaandy&quot;.match(/a{1,}/);
 
@@ -586,14 +676,14 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 &quot;caaaandy&quot;.match(/a?/);
 &quot;caaaandy&quot;.match(/a{0,1}/);
 </code></pre>
-<ul>
-<li>문자셋
-<ul>
-<li>a 또는 b 또는 c 와 일치하는 하나의 문자와 대응되는 패턴</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-js">&quot;abcdef&quot;.match(/[abc]/);
+          <ul>
+            <li>문자셋
+              <ul>
+                <li>a 또는 b 또는 c 와 일치하는 하나의 문자와 대응되는 패턴</li>
+              </ul>
+            </li>
+          </ul>
+          <pre><code class="language-js">&quot;abcdef&quot;.match(/[abc]/);
 &quot;abcdef&quot;.match(/[abc]+/);
 
 &quot;hello*.!'***...**!!!**wolrd&quot;.match(/[*.!]+/);
@@ -602,86 +692,92 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 &quot;hello*******world&quot;.match(/\*+/);
 &quot;hello*******world&quot;.match(/[*]+/);
 </code></pre>
-<h3>실습하기</h3>
-<ul>
-<li>이메일 아이디와 도메인 분리하기</li>
-</ul>
-<pre><code class="language-js">&quot;kbh@google.com&quot;.replace(/(.+?)@(.+)/, &quot;아이디: $1, 도메인: $2&quot;);
+          <h3>실습하기</h3>
+          <ul>
+            <li>이메일 아이디와 도메인 분리하기</li>
+          </ul>
+          <pre><code class="language-js">&quot;kbh@google.com&quot;.replace(/(.+?)@(.+)/, &quot;아이디: $1, 도메인: $2&quot;);
 </code></pre>
-<ul>
-<li>특정 패턴에 일치하는 문자열을 찾아서 바꾸기</li>
-</ul>
-<pre><code class="language-js">&quot;1234 abbbbc 1234&quot;.replace(/ab*c/, /{$&amp;}/);
+          <ul>
+            <li>특정 패턴에 일치하는 문자열을 찾아서 바꾸기</li>
+          </ul>
+          <pre><code class="language-js">&quot;1234 abbbbc 1234&quot;.replace(/ab*c/, /{$&amp;}/);
 
 // foo가 몇 번 등장하던, 그 패턴을 찾고 싶을 때
 &quot;foofoofoo&quot;.match(/(foo)+/);
 </code></pre>
-<ul>
-<li>연속된 소문자 알파벳 찾아내기</li>
-</ul>
-<pre><code class="language-js">&quot;hello world&quot;.match(/[a-z]+/);
+          <ul>
+            <li>연속된 소문자 알파벳 찾아내기</li>
+          </ul>
+          <pre><code class="language-js">&quot;hello world&quot;.match(/[a-z]+/);
 </code></pre>
-<ul>
-<li>연속된 대문자 알파벳 찾아내기</li>
-</ul>
-<pre><code class="language-js">&quot;hello WORLD&quot;.match(/[A-Z]+/);
+          <ul>
+            <li>연속된 대문자 알파벳 찾아내기</li>
+          </ul>
+          <pre><code class="language-js">&quot;hello WORLD&quot;.match(/[A-Z]+/);
 </code></pre>
-<ul>
-<li>연속된 한글 찾아내기</li>
-</ul>
-<pre><code class="language-js">&quot;hello 안녕하세요&quot;.match(/[가-힣]+/);
+          <ul>
+            <li>연속된 한글 찾아내기</li>
+          </ul>
+          <pre><code class="language-js">&quot;hello 안녕하세요&quot;.match(/[가-힣]+/);
 </code></pre>
-<ul>
-<li>연속된 숫자 찾아내기</li>
-</ul>
-<pre><code class="language-js">&quot;hello 012345&quot;.match(/[0-9]+/);
+          <ul>
+            <li>연속된 숫자 찾아내기</li>
+          </ul>
+          <pre><code class="language-js">&quot;hello 012345&quot;.match(/[0-9]+/);
 </code></pre>
-<ul>
-<li>문자 공백 제거</li>
-</ul>
-<pre><code class="language-js">&quot;hello world java script&quot;.replace(/\s/g, &quot;&quot;);
+          <ul>
+            <li>문자 공백 제거</li>
+          </ul>
+          <pre><code class="language-js">&quot;hello world java script&quot;.replace(/\s/g, &quot;&quot;);
 </code></pre>
-<h3>참고 자료</h3>
-<p><a href="https://regexr.com/3cpbs">정규표현식 예제</a></p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation#Validating_against_a_regular_expression">Form data validation</a></p>
-<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D">mdn 정규표현식</a></p>
+          <h3>참고 자료</h3>
+          <p>
+            <a href="https://regexr.com/3cpbs">정규표현식 예제</a>
+          </p>
+          <p>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation#Validating_against_a_regular_expression">Form data validation</a>
+          </p>
+          <p>
+            <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D">mdn 정규표현식</a>
+          </p>
 
-    </div>
-
-    
+        </div>
 
 
-      
 
-  
-    <div class="article">
-      <div class="article__value">
 
-        <h1>
 
-          <span>
-            0716TIL
-          </span>
-          <span>
-            2018-7-16T24:00:00-00:00
-          </span>
 
-        </h1>
-        <h1>
-        </h1>
 
-      </div>
-      <h1>오늘 한 일</h1>
-<h2>node.js</h2>
-<ul>
-<li>
-<p>node.js 란 자바스크립트를 os 위에서 구동할 수 있게 하는 것.</p>
-</li>
-<li>
-<p>node.js 를 사용하여 로컬에 있는 폴더와 파일을 읽어서 html 에 리스트형식으로 렌더링해보자.</p>
-</li>
-</ul>
-<pre><code class="language-js">const path = require(&quot;path&quot;);
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                0716TIL
+              </span>
+              <span>
+                2018-7-16T24:00:00-00:00
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>오늘 한 일</h1>
+          <h2>node.js</h2>
+          <ul>
+            <li>
+              <p>node.js 란 자바스크립트를 os 위에서 구동할 수 있게 하는 것.</p>
+            </li>
+            <li>
+              <p>node.js 를 사용하여 로컬에 있는 폴더와 파일을 읽어서 html 에 리스트형식으로 렌더링해보자.</p>
+            </li>
+          </ul>
+          <pre><code class="language-js">const path = require(&quot;path&quot;);
 const http = require(&quot;http&quot;);
 const fs = require(&quot;fs&quot;);
 
@@ -703,376 +799,453 @@ html = ejs.render(indexHtmlFormat, {
 });
 fs.writeFileSync(&quot;./deploy/index.html&quot;, html);
 </code></pre>
-<ul>
-<li>template engine 을 사용하여 client 에서 node.js 의 data 를 렌더링 할 수 있도록 했다.</li>
-<li><code>readfile</code>을 한 후 html 형식의 string 을 변수에 대입 한다. 그 값에 data 를 넣어준다.</li>
-<li>html file 을 ejs 형식으로 작성하고 넣어진 값을 deploy/index.html 에 생성해 준다.</li>
-<li>'readdir' 'readfFile'은 값이 채워질 때까지 다른 작업을 실행하지 않도록 동기식으로 처리한다.</li>
-</ul>
-<h2>algorithm</h2>
-<ul>
-<li>3sum closest 알고리즘 문제를 풀었다.</li>
-<li>무작정 풀기 보다는 좀 더 효율적인 방법을 잘 생각해봐야 겠다.</li>
-</ul>
-<h1>오늘의 느낀점</h1>
-<p>마구잡이로 검색을 하고, 이것저것 해보다가 express 를 사용헤서 서버를 띄웠다. 알고 보니 내가 하려던 일에서는 전혀 필요가 없는 작업이었다.</p>
-<p>express 가 무엇인지, 내가 어떤 것을 하고 싶은 지는 고려하지 않고 무조건 검색해서 예제만 따라했다.
-내가 하고 싶은 일이 무엇인지, 내가 지금 어떤 것을 쓰려고 하는지, 정확히 알아야겠다.</p>
-<p>아직 node.js 에 대해서 잘 모르겠다. 서버와 클라이언트 이런 기초적인 개념에 대해서 잘 모르는 것 같다.</p>
-<ul>
-<li>문서를 끝까지 읽자!</li>
-<li>내가 하려고 하는 일과 내가 지금 작성하고 있는 코드를 말로 풀어서 설명하는 연습을 하자!</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
-<li>
-<p>계속해서 블로그 만들기 😱</p>
-<ul>
-<li>폴더별로 리스트를 정리한다.</li>
-<li>리스트 클릭 시 html 파일 렌더링 해주기.</li>
-<li>...</li>
-</ul>
-</li>
-<li>
-<p>수업 들으면서 어려웠던 Javascript 주제 하나 정해서 공부하기.</p>
-</li>
-<li>
-<p>알고리즘 문제 풀기.</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="article__value">
-
-        <h1>
-
-          <span>
-            0717TIL
-          </span>
-          <span>
-            2018-7-17T24:00:00-00:00
-          </span>
-
-        </h1>
-        <h1>
-        </h1>
-
-      </div>
-      <h1>오늘 한 일</h1>
-<h2>node.js 와 ejs</h2>
-<ul>
-<li>node.js 와 ejs template 을 써서 폴더의 목록 리스트가 있는 사이드바를 만들었다.</li>
-<li>메인에 있는 폴더 리스트를 클릭하면 해당 html 파일로 이동한다.</li>
-<li>사이드 바에 있는 메뉴를 클릭 시에 해당 폴더의 파일들의 목록을 메인에 동적으로 렌더링 해주고 싶었다.</li>
-<li>동적으로 화면을 바꾸는 것이 잘 안되었다.</li>
-<li>동적으로 바꿔주기 위해서는 리액트를 써야 하는 것 같다.</li>
-<li>동적으로 바꿔주는 것이 아니라, html 페이지를 여러 개를 만들어서 클릭 시 이동하는 방식으로 다시 만들어 봐야 겠다.</li>
-</ul>
-<h2>algorithm</h2>
-<ul>
-<li>버블 정렬을 사용하여 알고리즘 문제를 풀었다.</li>
-<li>버블 정렬을 시간이 오래걸린다.</li>
-<li>다른 사람의 풀이를 참조하여 다시 정리해봐야겠다.</li>
-</ul>
-<h1>오늘의 느낀점</h1>
-<ul>
-<li>오늘 좀 늦게 일어나서 공부를 많이 하진 못하였다.</li>
-<li>내일은 자바스크립트 공부도 꼭 해야겠다.</li>
-<li>블로그 만들기를 처음 시작했을 때는 어떻게 시작해야 할 지 너무 막막했는데 이제는 어떤 것을 해야 할지는 알 것 같다.</li>
-<li>아직도 어떤 것이 불가능한 작업인지 구분하는 것이 어렵다.😭</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
-<li>블로그페이지를 리액트 컴포넌트로 나누듯이 html 파일로 분할해서 필요에 따라서 렌더링해주는 작업.</li>
-<li>오늘 푼 sort colors 문제를 다른 방법으로 풀어보기.</li>
-<li>자바스크립트 공부!</li>
-<li>http 공부!</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="article__value">
-
-        <h1>
-
-          <span>
-            0718TIL
-          </span>
-          <span>
-            2018-7-18T22:00:00-00:00
-          </span>
-
-        </h1>
-        <h1>
-        </h1>
-
-      </div>
-      <h1>오늘 한 일</h1>
-<h2>create-blog-project</h2>
-<ul>
-<li>sidebar main, home 을 분리하여 재사용할 수 있도록 만들었다.</li>
-<li><code>&lt;%- sidebar %&gt;</code>이렇게 써줘야 이스케이프 처리를 하지 않는다. 변환되지 않고 입력한대로 사용할 수 있다!</li>
-<li>markdown parser markdown-it 을 사용하여 사용자가 content 폴더에 md 파일을 추가하면 html 파일로 변환해서 보여준다.</li>
-<li>폴더 리스트나, 파일 리스트를 읽어올 때 사용자가 입력한 폴더에서 읽어와야 하는지, 내가 새로 변환해서 만들어놓은 폴더에서 읽어와야 하는지 잘 모르겠다.</li>
-<li>지금은 변환하기 전에 사용자가 입력한 폴더에서 리스트와 파일들의 목록을 불러와서 변환하고 변환한 파일을 화면에서 보여주고 있다.</li>
-<li>폴더를 어떻게 정리해야 할 지 잘 모르겠다.</li>
-</ul>
-<h2>Algorithm</h2>
-<ul>
-<li>어제 푼 sort colors 알고리즘 문제를 다른 사람 풀이를 참조하여 다시 풀어보았다.</li>
-</ul>
-<h2>javascript</h2>
-<ul>
-<li>javascript 교재 객체 복습 중</li>
-<li>객체, 프로토타입, bind, this, 화살표 함수에대해 정리해야겠다.</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
-<li>자바스크립트 공부</li>
-<li>algorithm 문제 풀기</li>
-<li>blog 만들기</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="article__value">
-
-        <h1>
-
-          <span>
-            0719TIL
-          </span>
-          <span>
-            2018-7-19T22:00:00-00:00
-          </span>
-
-        </h1>
-        <h1>
-        </h1>
-
-      </div>
-      <p>이 내용을 뺴고 html 파일을 만들 것</p>
-<ul>
-<li>
-<p>날짜 순서대로 home 화면에서 정렬하여 보여주기</p>
-</li>
-<li>
-<p>사이드바에 있는 폴더 클릭 시에 보여주는 파일리스트를 사용자에게 받은 title 로 바꾸기</p>
-</li>
-<li>
-<p>블로그 디자인 예쁘게 하기</p>
-</li>
-<li>
-<p>검색기능 만들어보기</p>
-</li>
-<li>
-<p>javascript 공부하기</p>
-</li>
-<li>
-<p>algorithm 문제 풀기</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="article__value">
-
-        <h1>
-
-          <span>
-            djangogirls!
-          </span>
-          <span>
-            2018-7-21T22:23:00-00:00
-          </span>
-
-        </h1>
-        <h1>
-        </h1>
-
-      </div>
-      <h1>오늘 한 일</h1>
-<h2>장고로 블로그 만들기!</h2>
-<p>어제 오늘, 이틀동안 장고걸스 워크숍에 참여하였다.</p>
-<p><a href="https://tutorial.djangogirls.org/ko/">장고걸스 튜토리얼</a>을 따라하면서 블로그를 만들었다!</p>
-<p>장고란?</p>
-<ul>
-<li>
-<p>파이썬으로 서버를 쉽고 빠르게 만들 수 있게 해주는 프레임워크이다.</p>
-</li>
-<li>
-<p>MVC 패턴 기반의 MVT(Model-View-Controller 를 기반한 프레임워크)</p>
-<ul>
-<li>Model: 데이터를 의미.</li>
-<li>View: 데이터를 입력 받거나 표시하는 컴포넌트(MVC 패턴의 Controller 에 속한다)</li>
-<li>Template: 사용자에게 보여주는 부분 MVC 패턴의 View 에 속한다.</li>
-</ul>
-</li>
-</ul>
-<p><a href="http://koobohyeon.pythonanywhere.com/">오늘 만든 블로그</a></p>
-<p>몇 시간 동안 튜토리얼만 따라했는데 관리자 계정 기능과 글쓰기, 수정하기 기능이 있는 블로그가 완성되었다!</p>
-<p>장고는 정말 쉽고 빠르게 서버를 만드는 프레임워크라는 것을 몸소 느끼게 되었다.</p>
-<p>몇 줄의 코드만 추가했는데 블로그가 만들어지다니 😱</p>
-<p>파이썬 언어를 처음 사용해봤는데 자바스크립트와 정말 비슷해서 큰 어려움 없이 이해할 수 있었다.</p>
-<p>이틀동안 새로운 사람들도 만나고 장고와 파이썬, 새로운 것들도 배울 수 있어서 너무 좋았다.</p>
-<h1>오늘의 느낀점</h1>
-<ul>
-<li>서버를 어느정도는 이해할 수 있는 프론트엔드 개발자가 되자!</li>
-<li>파이썬 언어를 배워보자!</li>
-<li>request, response, http, server, client 에 대한 개념이 부족한 것 같다. 공부하자!</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
-<li>그림을 배우는 http network basic 읽기</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="article__value">
-
-        <h1>
-
-          <span>
-            블로그만들기
-          </span>
-          <span>
-            0722
-          </span>
-
-        </h1>
-        <h1>
-        </h1>
-
-      </div>
-      <h1>오늘 한 일</h1>
-<ul>
-<li>블로그를 만들어서 기존의 블로그를 내가 만든 블로그로 옮겼다.</li>
-<li>정규 표현식에서 .는 엔터 문자를 제외했기 때문에 기존의 코드가 잘 작동되지 않았던 것이다.</li>
-<li>정규 표현식을 사용해서 마크다운에 있는 글에 대한 정보를 받을 수 있게 하였다.</li>
-<li>아직은 title 과 date 만 받고 있다.</li>
-<li>실제로 블로그를 사용하면서 발전시키면 좋을 것 같다.</li>
-<li>고쳐야 할 점이 많은 것 같다.</li>
-<li>github page 에서 프론트 페이지는 index.html 파일이 있어야 하며, 가장 상위에 위치해야 한다.</li>
-<li>다른 html 파일이 함께 있으면 프론트페이지로 잘 나오지가 않았다.</li>
-<li>그래서 처음 나오는 index.html 을 제외하고 다른 파일로 옮겼다.</li>
-</ul>
-<h1>오늘 느낀점</h1>
-<ul>
-<li>실제로 블로그로 사용하려고 하다보니 이것저것 해야 할 일이 많은 것 같다.</li>
-<li>이번주까지를 목표로 잡고 디자인까지 완성하고 싶다.</li>
-<li>정규 표현식 사용하기 어렵다 😭</li>
-<li>영어로 잘 하고 싶다.</li>
-<li>내일 더 열공해야지</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
-<li>
-<p>블로그 만들기</p>
-<ul>
-<li>태그 받아서 메인화면에서 태그 사용해보기</li>
-<li>디자인하기</li>
-<li>날짜로 정렬하기</li>
-</ul>
-</li>
-<li>
-<p>알고리즘 문제풀기</p>
-</li>
-<li>
-<p>통신 공부하기</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-
-
-      
+          <ul>
+            <li>template engine 을 사용하여 client 에서 node.js 의 data 를 렌더링 할 수 있도록 했다.</li>
+            <li>
+              <code>readfile</code>을 한 후 html 형식의 string 을 변수에 대입 한다. 그 값에 data 를 넣어준다.</li>
+            <li>html file 을 ejs 형식으로 작성하고 넣어진 값을 deploy/index.html 에 생성해 준다.</li>
+            <li>'readdir' 'readfFile'은 값이 채워질 때까지 다른 작업을 실행하지 않도록 동기식으로 처리한다.</li>
+          </ul>
+          <h2>algorithm</h2>
+          <ul>
+            <li>3sum closest 알고리즘 문제를 풀었다.</li>
+            <li>무작정 풀기 보다는 좀 더 효율적인 방법을 잘 생각해봐야 겠다.</li>
+          </ul>
+          <h1>오늘의 느낀점</h1>
+          <p>마구잡이로 검색을 하고, 이것저것 해보다가 express 를 사용헤서 서버를 띄웠다. 알고 보니 내가 하려던 일에서는 전혀 필요가 없는 작업이었다.</p>
+          <p>express 가 무엇인지, 내가 어떤 것을 하고 싶은 지는 고려하지 않고 무조건 검색해서 예제만 따라했다. 내가 하고 싶은 일이 무엇인지, 내가 지금 어떤 것을 쓰려고 하는지, 정확히 알아야겠다.</p>
+          <p>아직 node.js 에 대해서 잘 모르겠다. 서버와 클라이언트 이런 기초적인 개념에 대해서 잘 모르는 것 같다.</p>
+          <ul>
+            <li>문서를 끝까지 읽자!</li>
+            <li>내가 하려고 하는 일과 내가 지금 작성하고 있는 코드를 말로 풀어서 설명하는 연습을 하자!</li>
+          </ul>
+          <h1>내일 할 일</h1>
+          <ul>
+            <li>
+              <p>계속해서 블로그 만들기 😱</p>
+              <ul>
+                <li>폴더별로 리스트를 정리한다.</li>
+                <li>리스트 클릭 시 html 파일 렌더링 해주기.</li>
+                <li>...</li>
+              </ul>
+            </li>
+            <li>
+              <p>수업 들으면서 어려웠던 Javascript 주제 하나 정해서 공부하기.</p>
+            </li>
+            <li>
+              <p>알고리즘 문제 풀기.</p>
+            </li>
+          </ul>
 
         </div>
+
+
+
+
+
+
+
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                0717TIL
+              </span>
+              <span>
+                2018-7-17T24:00:00-00:00
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>오늘 한 일</h1>
+          <h2>node.js 와 ejs</h2>
+          <ul>
+            <li>node.js 와 ejs template 을 써서 폴더의 목록 리스트가 있는 사이드바를 만들었다.</li>
+            <li>메인에 있는 폴더 리스트를 클릭하면 해당 html 파일로 이동한다.</li>
+            <li>사이드 바에 있는 메뉴를 클릭 시에 해당 폴더의 파일들의 목록을 메인에 동적으로 렌더링 해주고 싶었다.</li>
+            <li>동적으로 화면을 바꾸는 것이 잘 안되었다.</li>
+            <li>동적으로 바꿔주기 위해서는 리액트를 써야 하는 것 같다.</li>
+            <li>동적으로 바꿔주는 것이 아니라, html 페이지를 여러 개를 만들어서 클릭 시 이동하는 방식으로 다시 만들어 봐야 겠다.</li>
+          </ul>
+          <h2>algorithm</h2>
+          <ul>
+            <li>버블 정렬을 사용하여 알고리즘 문제를 풀었다.</li>
+            <li>버블 정렬을 시간이 오래걸린다.</li>
+            <li>다른 사람의 풀이를 참조하여 다시 정리해봐야겠다.</li>
+          </ul>
+          <h1>오늘의 느낀점</h1>
+          <ul>
+            <li>오늘 좀 늦게 일어나서 공부를 많이 하진 못하였다.</li>
+            <li>내일은 자바스크립트 공부도 꼭 해야겠다.</li>
+            <li>블로그 만들기를 처음 시작했을 때는 어떻게 시작해야 할 지 너무 막막했는데 이제는 어떤 것을 해야 할지는 알 것 같다.</li>
+            <li>아직도 어떤 것이 불가능한 작업인지 구분하는 것이 어렵다.😭</li>
+          </ul>
+          <h1>내일 할 일</h1>
+          <ul>
+            <li>블로그페이지를 리액트 컴포넌트로 나누듯이 html 파일로 분할해서 필요에 따라서 렌더링해주는 작업.</li>
+            <li>오늘 푼 sort colors 문제를 다른 방법으로 풀어보기.</li>
+            <li>자바스크립트 공부!</li>
+            <li>http 공부!</li>
+          </ul>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                0718TIL
+              </span>
+              <span>
+                2018-7-18T22:00:00-00:00
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>오늘 한 일</h1>
+          <h2>create-blog-project</h2>
+          <ul>
+            <li>sidebar main, home 을 분리하여 재사용할 수 있도록 만들었다.</li>
+            <li>
+              <code>&lt;%- sidebar %&gt;</code>이렇게 써줘야 이스케이프 처리를 하지 않는다. 변환되지 않고 입력한대로 사용할 수 있다!</li>
+            <li>markdown parser markdown-it 을 사용하여 사용자가 content 폴더에 md 파일을 추가하면 html 파일로 변환해서 보여준다.</li>
+            <li>폴더 리스트나, 파일 리스트를 읽어올 때 사용자가 입력한 폴더에서 읽어와야 하는지, 내가 새로 변환해서 만들어놓은 폴더에서 읽어와야 하는지 잘 모르겠다.</li>
+            <li>지금은 변환하기 전에 사용자가 입력한 폴더에서 리스트와 파일들의 목록을 불러와서 변환하고 변환한 파일을 화면에서 보여주고 있다.</li>
+            <li>폴더를 어떻게 정리해야 할 지 잘 모르겠다.</li>
+          </ul>
+          <h2>Algorithm</h2>
+          <ul>
+            <li>어제 푼 sort colors 알고리즘 문제를 다른 사람 풀이를 참조하여 다시 풀어보았다.</li>
+          </ul>
+          <h2>javascript</h2>
+          <ul>
+            <li>javascript 교재 객체 복습 중</li>
+            <li>객체, 프로토타입, bind, this, 화살표 함수에대해 정리해야겠다.</li>
+          </ul>
+          <h1>내일 할 일</h1>
+          <ul>
+            <li>자바스크립트 공부</li>
+            <li>algorithm 문제 풀기</li>
+            <li>blog 만들기</li>
+          </ul>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                0719TIL
+              </span>
+              <span>
+                2018-7-19T22:00:00-00:00
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <p>이 내용을 뺴고 html 파일을 만들 것</p>
+          <ul>
+            <li>
+              <p>날짜 순서대로 home 화면에서 정렬하여 보여주기</p>
+            </li>
+            <li>
+              <p>사이드바에 있는 폴더 클릭 시에 보여주는 파일리스트를 사용자에게 받은 title 로 바꾸기</p>
+            </li>
+            <li>
+              <p>블로그 디자인 예쁘게 하기</p>
+            </li>
+            <li>
+              <p>검색기능 만들어보기</p>
+            </li>
+            <li>
+              <p>javascript 공부하기</p>
+            </li>
+            <li>
+              <p>algorithm 문제 풀기</p>
+            </li>
+          </ul>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                djangogirls!
+              </span>
+              <span>
+                2018-7-21T22:23:00-00:00
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>오늘 한 일</h1>
+          <h2>장고로 블로그 만들기!</h2>
+          <p>어제 오늘, 이틀동안 장고걸스 워크숍에 참여하였다.</p>
+          <p>
+            <a href="https://tutorial.djangogirls.org/ko/">장고걸스 튜토리얼</a>을 따라하면서 블로그를 만들었다!</p>
+          <p>장고란?</p>
+          <ul>
+            <li>
+              <p>파이썬으로 서버를 쉽고 빠르게 만들 수 있게 해주는 프레임워크이다.</p>
+            </li>
+            <li>
+              <p>MVC 패턴 기반의 MVT(Model-View-Controller 를 기반한 프레임워크)</p>
+              <ul>
+                <li>Model: 데이터를 의미.</li>
+                <li>View: 데이터를 입력 받거나 표시하는 컴포넌트(MVC 패턴의 Controller 에 속한다)</li>
+                <li>Template: 사용자에게 보여주는 부분 MVC 패턴의 View 에 속한다.</li>
+              </ul>
+            </li>
+          </ul>
+          <p>
+            <a href="http://koobohyeon.pythonanywhere.com/">오늘 만든 블로그</a>
+          </p>
+          <p>몇 시간 동안 튜토리얼만 따라했는데 관리자 계정 기능과 글쓰기, 수정하기 기능이 있는 블로그가 완성되었다!</p>
+          <p>장고는 정말 쉽고 빠르게 서버를 만드는 프레임워크라는 것을 몸소 느끼게 되었다.</p>
+          <p>몇 줄의 코드만 추가했는데 블로그가 만들어지다니 😱</p>
+          <p>파이썬 언어를 처음 사용해봤는데 자바스크립트와 정말 비슷해서 큰 어려움 없이 이해할 수 있었다.</p>
+          <p>이틀동안 새로운 사람들도 만나고 장고와 파이썬, 새로운 것들도 배울 수 있어서 너무 좋았다.</p>
+          <h1>오늘의 느낀점</h1>
+          <ul>
+            <li>서버를 어느정도는 이해할 수 있는 프론트엔드 개발자가 되자!</li>
+            <li>파이썬 언어를 배워보자!</li>
+            <li>request, response, http, server, client 에 대한 개념이 부족한 것 같다. 공부하자!</li>
+          </ul>
+          <h1>내일 할 일</h1>
+          <ul>
+            <li>그림을 배우는 http network basic 읽기</li>
+          </ul>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                블로그만들기
+              </span>
+              <span>
+                0722
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>오늘 한 일</h1>
+          <ul>
+            <li>블로그를 만들어서 기존의 블로그를 내가 만든 블로그로 옮겼다.</li>
+            <li>정규 표현식에서 .는 엔터 문자를 제외했기 때문에 기존의 코드가 잘 작동되지 않았던 것이다.</li>
+            <li>정규 표현식을 사용해서 마크다운에 있는 글에 대한 정보를 받을 수 있게 하였다.</li>
+            <li>아직은 title 과 date 만 받고 있다.</li>
+            <li>실제로 블로그를 사용하면서 발전시키면 좋을 것 같다.</li>
+            <li>고쳐야 할 점이 많은 것 같다.</li>
+            <li>github page 에서 프론트 페이지는 index.html 파일이 있어야 하며, 가장 상위에 위치해야 한다.</li>
+            <li>다른 html 파일이 함께 있으면 프론트페이지로 잘 나오지가 않았다.</li>
+            <li>그래서 처음 나오는 index.html 을 제외하고 다른 파일로 옮겼다.</li>
+          </ul>
+          <h1>오늘 느낀점</h1>
+          <ul>
+            <li>실제로 블로그로 사용하려고 하다보니 이것저것 해야 할 일이 많은 것 같다.</li>
+            <li>이번주까지를 목표로 잡고 디자인까지 완성하고 싶다.</li>
+            <li>정규 표현식 사용하기 어렵다 😭</li>
+            <li>영어로 잘 하고 싶다.</li>
+            <li>내일 더 열공해야지</li>
+          </ul>
+          <h1>내일 할 일</h1>
+          <ul>
+            <li>
+              <p>블로그 만들기</p>
+              <ul>
+                <li>태그 받아서 메인화면에서 태그 사용해보기</li>
+                <li>디자인하기</li>
+                <li>날짜로 정렬하기</li>
+              </ul>
+            </li>
+            <li>
+              <p>알고리즘 문제풀기</p>
+            </li>
+            <li>
+              <p>통신 공부하기</p>
+            </li>
+          </ul>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="article">
+          <div class="article__value">
+
+            <h1>
+
+              <span>
+                7월23일TIL
+              </span>
+              <span>
+                20180723
+              </span>
+
+            </h1>
+            <h1>
+            </h1>
+
+          </div>
+          <h1>오늘 한 일</h1>
+          <ul>
+            <li>
+              <p>블로그 만들기</p>
+              <ul>
+                <li>헤더, 사이드바, 메인 레이아웃을 구상했다.</li>
+                <li>메인 페이지에서 글의 내용을 보이게 하였다.</li>
+                <li>category 를 입력받아서 카테고리 폴더를 생성하였고 그 안에 파일을 생성하였다.</li>
+                <li>사용자에게 auth 를 md 파일로 받아서 블로그 이름, 소개, 이미지를 받아서 헤더에 보여주게 하였다.</li>
+                <li>나눴던 html 컴포넌트?를 다시 정의하여 index.html 에서만 조합하도록 하였다. 큰 틀을 header, sidebar, main 으로하였고 main 의 내용만 변경하는 식으로 템플릿을
+                  사용하였다.</li>
+                <li>gihub page 에서 css 폴더 안에다 css 파일을 넣으니 제대로 작동하지 않았다. 찾아보니 style 폴더 안에 넣으면 된다고 style 폴더에 넣었더니 제대로 작동되었다.</li>
+                <li>github 에서 특정 형식에 맞춰 쓴 폴더만 읽게 하는 걸까?</li>
+              </ul>
+            </li>
+            <li>
+              <p>알고리즘 문제 풀이</p>
+              <ul>
+                <li>Best Time to Buy and Sell Stock</li>
+              </ul>
+            </li>
+          </ul>
+          <h1>오늘의 느낀점</h1>
+          <ul>
+            <li>실제 블로그를 쓰려고 하니, 이것저것 수정하고 덧붙여야 할 것들이 많아졌다.</li>
+            <li>디자인을 빨리 마무리해서 깔끔한 블로그를 만들고 싶다.</li>
+            <li>자바스크립트 파일이 점점 지저분해지고 있다. 처음에 막 만들고 수정하기를 반복하다보니, 깔끔하게 작성하기가 힘든 것 같다. 조금씩 수정하면서 개선해야겠다.</li>
+            <li>사용자가 어느정도 내 README 파일을 자세히 읽어줄까?</li>
+            <li>대충 읽어도 잘 사용할 수 있도록 개선해나가야겠다.</li>
+            <li>블로그 만들기를 하니까 시간이 훅훅가서 다른 공부는 잘 못했다. 해야 할 것들이 많은데...</li>
+          </ul>
+          <h1>내일 할 일 / 앞으로 할 일</h1>
+          <ul>
+            <li>블로그
+              <ul>
+                <li>카테고리별로 분류하 듯 태그별로도 분류 할 수 있도록</li>
+                <li>디자인 하기.</li>
+                <li>javascript highlight 를 어떻게 해줘야 할까.</li>
+                <li>날짜순으로 정렬하기.</li>
+                <li>포스팅 수와 카테고리 수 표시해주기.</li>
+              </ul>
+            </li>
+            <li>알고리즘 문제풀기</li>
+            <li>내일 깃헙 특강들으러 가기</li>
+          </ul>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="sidebar">
         <div class="sidebar">
-          <div class="sidebar">
-  <!-- folder name -->
+          <!-- folder name -->
+          <div>
+            Category
+          </div>
+          <ul>
 
-  <ul>
 
-    
-      
-        <a href="/deploy/category/Algorithm.html">
-          <li>
-            Algorithm
-          </li>
-        </a>
 
-        
-          
-      
-        <a href="/deploy/category/Javascript.html">
-          <li>
-            Javascript
-          </li>
-        </a>
+            <a href="/deploy/category/Algorithm.html">
+              <li>
+                Algorithm
+              </li>
+            </a>
 
-        
-          
-      
-        <a href="/deploy/category/TIL.html">
-          <li>
-            TIL
-          </li>
-        </a>
 
-        
-          
-      
-          
-  </ul>
 
-</div>
+
+            <a href="/deploy/category/Javascript.html">
+              <li>
+                Javascript
+              </li>
+            </a>
+
+
+
+
+            <a href="/deploy/category/TIL.html">
+              <li>
+                TIL
+              </li>
+            </a>
+
+
+
+
+
+          </ul>
 
         </div>
-      </main>
+
+      </div>
+    </main>
 
   </div>
   </div>
