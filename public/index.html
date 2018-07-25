@@ -37,7 +37,24 @@
   </div>
 
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js">
+  </script>
+  <script>
+    const categoryEl = document.querySelector('.category')
+    const navCategoryEl = document.querySelector('.nav__category')
+    navCategoryEl.addEventListener('click', e => {
+      if (!categoryEl.classList.contains('show')) {
+        categoryEl.classList.add('show')
+        console.log('sldkng')
+
+      } else {
+        categoryEl.classList.remove('show');
+
+        console.log('remove')
+      }
+    })
+
+  </script>
 
 </body>
 

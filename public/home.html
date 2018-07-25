@@ -1,19 +1,27 @@
-<% articles.forEach(article => { %>
+<% articles.forEach((article, index) => { %>
 
   <% if(article.value.category !== undefined) { %>
     <div class="article">
-      <div class="article__value">
+      <div class="value">
+        <div class="value__title">
 
-        <h1>
+          <a href="/deploy/<%= files[index].category %>/<%= files[index].file %>">
+            <h1>
 
-          <span>
-            <%= article.value.title %>
-          </span>
+
+              <%= article.value.title %>
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__title">
           <span>
             <%= article.value.date %>
           </span>
 
-        </h1>
+        </div>
+
         <h1>
         </h1>
 

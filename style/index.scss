@@ -1,3 +1,10 @@
+//color
+$point-font-color: #91a8d0; // 민트색
+$main-font-color: #333;
+$sub-font-color: #565a5e;
+$sub-bg-color: #f7f7f7;
+$main-bg-color: #fff;
+$point-bg-color: rgb(190, 190, 190);
 // mixin 정의
 @mixin bp-tablet {
   @media only screen and (min-width: 401px) and (max-width: 960px) {
@@ -14,6 +21,13 @@
 html,
 body {
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  color: $main-font-color;
+}
+
+img {
+  width: 100%;
 }
 
 //mixin 사용
@@ -21,70 +35,113 @@ body {
   font-size: 4vw;
 }
 
-img {
-  width: 100%;
+.content {
+  background: $sub-bg-color;
 }
 
-.content {
-  background: lawngreen;
+.header {
+  height: 25vw;
+  position: relative;
+  background: $main-bg-color;
+  display: flex;
+  flex-direction: column;
+  .user {
+    padding: 0 1rem;
+    height: 15vw;
+    display: flex;
+    align-items: center;
+    &__img {
+      img {
+        width: 12vw;
+        height: 12vw;
+        border: 1px solid $sub-bg-color;
+        border-radius: 50%;
+        &:hover {
+          border-color: $point-bg-color;
+        }
+      }
+    }
+    &__username {
+      padding-left: 1rem;
+      color: $main-font-color;
+    }
+    &__social {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-right: 1rem;
+      i {
+        line-height: 15vw;
+        color: $point-bg-color;
+        &:hover {
+          color: $point-font-color;
+        }
+      }
+    }
+  }
+  .nav {
+    background: $main-bg-color;
+    color: $main-font-color;
+    border-top: 0.1rem solid $sub-bg-color;
+    height: 10vw;
+    ul {
+      margin: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      a {
+        text-decoration: none;
+        li {
+          list-style-type: none;
+          color: $main-font-color;
+          &:hover {
+            color: $point-font-color;
+          }
+        }
+      }
+    }
+    .category {
+      display: none;
+      &.show {
+        margin: 0;
+        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 15rem;
+        background: rgba(255, 255, 255, 0.9);
+      }
+    }
+  }
 }
 
 .main {
-  background: lightpink;
   .hljs {
     overflow: scroll;
     .code__content {
       width: 100%;
     }
   }
-  .sidebar {
-    background: teal;
-  }
-  .articleList {
-    display: flex;
-  }
-  .header {
-    background: mediumaquamarine;
-    width: 95%;
-    margin: 0 auto;
-    background: #ffa500;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .user {
-      display: flex;
-      &__img {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        img {
-          width: 10vw;
-          height: 10vw;
-          border-radius: 50%;
+  .article {
+    background: $main-bg-color;
+    padding: 0 1rem;
+    margin: 3rem 0;
+    .value {
+      padding-top: 1rem;
+      h1 {
+        margin: 0;
+        font-size: 7vw;
+        &:hover {
+          color: $point-font-color;
         }
       }
-      &__username {
-        background: rebeccapurple;
-        line-height: 13vw;
-        margin-left: 1vw;
+      span {
+        color: $sub-font-color;
+        font-size: 3vw;
       }
     }
-  }
-  .nav {
-    background: navajowhite;
-    padding: 0 1rem;
-    display: flex;
-    justify-content: space-between;
-  }
-  .article {
-    border: 1px solid black;
-  }
-  .article:after {
-    content: "";
-    height: 3rem;
-    width: 100%;
-    background: red;
-    display: block;
   }
 }
 

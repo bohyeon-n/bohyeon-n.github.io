@@ -30,10 +30,10 @@
   <div class="user__social">
     
       <a href="https://github.com/bohyeon-n">
-        <div class="github">
-          <i class="fab fa-github fa-2x"></i>
 
-        </div>
+        <i class="fab fa-github-alt fa-2x"></i>
+
+
 
       </a>
 
@@ -43,20 +43,60 @@
 
 </div>
 <div class="nav ">
-  <div class="nav__home">
-    Home
-  </div>
-  <div class="nav__category">
-    Category
-  </div>
-  <div class="nav__about">
-    About
-  </div>
-  <div class="nav__search ">
-    Search
+  <ul>
+    <a href="/index.html">
+      <li class="nav__home">
+        Home
+      </li>
+    </a>
+    <a href="#">
+      <li class="nav__category">
+        Category
+      </li>
 
+    </a>
+    <a href="#">
+      <li class="nav__about">
+        About
+      </li>
 
-  </div>
+    </a>
+
+    <li class="nav__search ">
+      Search
+    </li>
+  </ul>
+  <ul class="category">
+    
+      <a href="">
+        <li>
+          Algorithm
+
+        </li>
+      </a>
+      
+      <a href="">
+        <li>
+          Javascript
+
+        </li>
+      </a>
+      
+      <a href="">
+        <li>
+          TIL
+
+        </li>
+      </a>
+      
+      <a href="">
+        <li>
+          author
+
+        </li>
+      </a>
+      
+</div>
 </div>
 
     </div>
@@ -168,7 +208,24 @@
   </div>
 
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js">
+  </script>
+  <script>
+    const categoryEl = document.querySelector('.category')
+    const navCategoryEl = document.querySelector('.nav__category')
+    navCategoryEl.addEventListener('click', e => {
+      if (!categoryEl.classList.contains('show')) {
+        categoryEl.classList.add('show')
+        console.log('sldkng')
+
+      } else {
+        categoryEl.classList.remove('show');
+
+        console.log('remove')
+      }
+    })
+
+  </script>
 
 </body>
 

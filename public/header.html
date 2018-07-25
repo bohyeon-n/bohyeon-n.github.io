@@ -11,10 +11,10 @@
   <div class="user__social">
     <% if(author.github){ %>
       <a href="<%=author.github %>">
-        <div class="github">
-          <i class="fab fa-github fa-2x"></i>
 
-        </div>
+        <i class="fab fa-github-alt fa-2x"></i>
+
+
 
       </a>
 
@@ -28,18 +28,37 @@
 
 </div>
 <div class="nav ">
-  <div class="nav__home">
-    Home
-  </div>
-  <div class="nav__category">
-    Category
-  </div>
-  <div class="nav__about">
-    About
-  </div>
-  <div class="nav__search ">
-    Search
+  <ul>
+    <a href="/index.html">
+      <li class="nav__home">
+        Home
+      </li>
+    </a>
+    <a href="#">
+      <li class="nav__category">
+        Category
+      </li>
 
+    </a>
+    <a href="#">
+      <li class="nav__about">
+        About
+      </li>
 
-  </div>
+    </a>
+
+    <li class="nav__search ">
+      Search
+    </li>
+  </ul>
+  <ul class="category">
+    <%categories.forEach(category => { %>
+      <a href="">
+        <li>
+          <%=category %>
+
+        </li>
+      </a>
+      <%})%>
+</div>
 </div>

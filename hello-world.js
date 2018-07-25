@@ -82,7 +82,8 @@ let directories = fs.readdirSync(directoryPath);
 
 // header
 const header = ejs.render(headerHtmlFormat, {
-  author: authorValue
+  author: authorValue,
+  categories: directories
 });
 // sidebar
 const sidebar = ejs.render(sidebarHtmlFormat, {
@@ -90,7 +91,7 @@ const sidebar = ejs.render(sidebarHtmlFormat, {
 });
 // articles
 let articles = [];
-
+let fileList = [];
 directories.forEach((directory, index) => {
   let files = fs.readdirSync(`./content/${directory}`);
   let articleValue = [];
@@ -127,8 +128,12 @@ directories.forEach((directory, index) => {
     }
 
     articles.push({ convertedFile, value });
-
     // ./deploy에 카테고리별로 파일을 생성한다.
+  });
+  files.forEach(file => {
+    let fileName = file.slice(0, file.indexOf("."));
+    file = `${fileName}.html`;
+    fileList.push({ category: directory, file: file });
   });
 
   let main = ejs.render(listHtmlFormat, {
@@ -149,8 +154,10 @@ directories.forEach((directory, index) => {
 });
 
 // 홈화면
+
 main = ejs.render(homeHtmlFormat, {
-  articles: articles
+  articles: articles,
+  files: fileList
 });
 html = ejs.render(indexHtmlFormat, {
   main,
