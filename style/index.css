@@ -1,29 +1,29 @@
 body {
-  background: slategray;
+  background: red;
+  font-size: 2vw;
+  margin: 0;
+  width: 100vw;
 }
 
-.content {
-  background: tomato;
-  width: 70%;
-  margin: 0 auto;
-}
-
-main {
-  display: flex;
+img {
   width: 100%;
 }
 
+.content {
+  background: lawngreen;
+}
+
 .main {
-  width: 70%;
   background: lightpink;
 }
 
 .sidebar {
-  width: 30%;
   background: teal;
 }
 
 .articleList {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -32,30 +32,54 @@ header {
   width: 100%;
 }
 
-.header {
-  height: 8rem;
-  margin: 1rem auto;
-  background: orange;
+header .header {
+  height: 13vw;
+  background: #ffa500;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.user__img img {
-  width: 7rem;
-  height: 7rem;
+header .header .user__img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header .header .user__img img {
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
 }
 
-.user {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+header .header .user__username {
+  background: rebeccapurple;
+  line-height: 13vw;
+  margin-left: 1vw;
 }
 
-.user__post-num:after {
-  content: "";
-  border: 0.5px solid black;
-  margin: 0 0.5rem;
+header .header .user__post {
+  display: none;
+}
+
+header .header .user__description {
+  display: none;
+}
+
+header .header .search {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .article {
@@ -69,3 +93,73 @@ header {
   background: red;
   display: block;
 }
+
+/* tablet style */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  body {
+    background-color: yellow;
+  }
+}
+
+/* desktop style */
+@media only screen and (min-width: 961px) {
+  /* body {
+  background: slategray;
+}
+.content {
+  width: 70%;
+  margin: 0 auto;
+}
+main {
+  display: flex;
+  width: 100%;
+}
+.main {
+  width: 70%;
+  background: lightpink;
+}
+.user__img img {
+  max-width: 7rem;
+  max-height: auto;
+  border-radius: 50%;
+}
+.sidebar {
+  width: 30%;
+  background: teal;
+}
+.articleList {
+  display: flex;
+}
+header {
+  background: mediumaquamarine;
+  width: 100%;
+}
+.header {
+  height: 8rem;
+  margin: 1rem auto;
+  background: orange;
+  display: flex;
+  justify-content: space-around;
+}
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.user__post-num:after {
+  content: "";
+  border: 0.5px solid black;
+  margin: 0 0.5rem;
+}
+.article {
+  border: 1px solid black;
+}
+.article:after {
+  content: "";
+  height: 3rem;
+  width: 100%;
+  background: red;
+  display: block;
+} */
+}
+/*# sourceMappingURL=index.css.map */
