@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding");
 html,
 body {
   overflow-x: hidden;
@@ -82,11 +83,19 @@ li {
   border-radius: 50%;
 }
 
+@media only screen and (min-width: 961px) {
+  .header .user__img img {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
 .header .user__img img:hover {
   border-color: #bebebe;
 }
 
 .header .user__username {
+  font-family: "Nanum Gothic Coding", monospace;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -95,6 +104,12 @@ li {
           align-items: center;
   padding-left: 1rem;
   color: #333;
+}
+
+@media only screen and (min-width: 961px) {
+  .header .user__username {
+    font-size: 2rem;
+  }
 }
 
 .header .user__username div {
@@ -201,6 +216,7 @@ li {
 
 .main .hljs .code__content {
   width: 100%;
+  font-family: "Nanum Gothic Coding", monospace;
 }
 
 .main .article {

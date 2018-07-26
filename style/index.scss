@@ -1,253 +1,268 @@
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding");
 //color
 $point-font-color: #3cb371;
 $main-font-color: #333;
 $sub-font-color: #565a5e;
 $sub-bg-color: #f7f7f7;
 $main-bg-color: #fff;
-$point-bg-color: rgb(190, 190, 190);
+$point-bg-color: rgb(190,
+190,
+190);
+//font
+$font: "Nanum Gothic Coding",
+monospace;
 // mixin 정의
 @mixin bp-tablet {
-  @media only screen and (min-width: 401px) and (max-width: 960px) {
-    @content;
-  }
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        @content;
+    }
 }
 
 @mixin bp-pc {
-  @media only screen and (min-width: 961px) {
-    @content;
-  }
+    @media only screen and (min-width: 961px) {
+        @content;
+    }
 }
 
 html,
 body {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  color: $main-font-color;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    color: $main-font-color;
 }
 
 img {
-  width: 100%;
+    width: 100%;
 }
 
 //mixin 사용
 body {
-  font-size: 1rem;
-  @include bp-pc {
-    font-size: 1.3rem;
-    line-height: 2rem;
-  }
+    font-size: 1rem;
+    @include bp-pc {
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
 }
 
 a {
-  color: $main-font-color;
-  text-decoration: none;
-  &:hover {
-    color: $point-font-color;
-  }
+    color: $main-font-color;
+    text-decoration: none;
+    &:hover {
+        color: $point-font-color;
+    }
 }
 
 li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .header {
-  position: relative;
-  background: $main-bg-color;
-  display: flex;
-  flex-direction: column;
-  .user {
-    display: flex;
-    justify-content: space-between;
-    &__content {
-      display: flex;
-    }
-    @include bp-pc {
-      width: 80%;
-      margin: 0 auto;
-      height: 10rem;
-    }
-    height: 4rem;
-    padding: 0 1rem;
-    display: flex;
-    align-items: center;
-    &__img {
-      img {
-        width: 3rem;
-        height: 3rem;
-        border: 1px solid $sub-bg-color;
-        border-radius: 50%;
-        &:hover {
-          border-color: $point-bg-color;
-        }
-      }
-    }
-    &__username {
-      display: flex;
-      align-items: center;
-      padding-left: 1rem;
-      color: $main-font-color;
-      div {
-        display: inline-block;
-      }
-    }
-    &__social {
-      i {
-        line-height: 4rem;
-        color: $main-font-color;
-        @include bp-pc {
-          line-height: 10rem;
-        }
-        &:hover {
-          color: $point-font-color;
-        }
-      }
-    }
-  }
-  .nav {
-    height: 3rem;
-    padding: 0 1rem;
+    position: relative;
     background: $main-bg-color;
-    color: $main-font-color;
-    border-top: 0.1rem solid $sub-bg-color;
-    ul {
-      @include bp-pc {
-        padding: 0 15%;
-      }
-      padding: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .category {
-      display: none;
-      &.show {
-        height: 10rem;
-        margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    .user {
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
+        &__content {
+            display: flex;
+        }
+        @include bp-pc {
+            width: 80%;
+            margin: 0 auto;
+            height: 10rem;
+        }
+        height: 4rem;
+        padding: 0 1rem;
+        display: flex;
         align-items: center;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.9);
-      }
+        &__img {
+            img {
+                @include bp-pc {
+                    width: 5rem;
+                    height: 5rem;
+                }
+                width: 3rem;
+                height: 3rem;
+                border: 1px solid $sub-bg-color;
+                border-radius: 50%;
+                &:hover {
+                    border-color: $point-bg-color;
+                }
+            }
+        }
+        &__username {
+            @include bp-pc {
+                font-size: 2rem;
+            }
+            font-family: $font;
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+            color: $main-font-color;
+            div {
+                display: inline-block;
+            }
+        }
+        &__social {
+            i {
+                line-height: 4rem;
+                color: $main-font-color;
+                @include bp-pc {
+                    line-height: 10rem;
+                }
+                &:hover {
+                    color: $point-font-color;
+                }
+            }
+        }
     }
-  }
+    .nav {
+        height: 3rem;
+        padding: 0 1rem;
+        background: $main-bg-color;
+        color: $main-font-color;
+        border-top: 0.1rem solid $sub-bg-color;
+        ul {
+            @include bp-pc {
+                padding: 0 15%;
+            }
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .category {
+            display: none;
+            &.show {
+                height: 10rem;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+    }
 }
 
 .content {
-  @include bp-pc {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-  }
+    @include bp-pc {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+    }
 }
 
 .sidebar {
-  background: $sub-bg-color;
-  padding: 4rem 1.5rem;
-  @include bp-pc {
-    margin: 2rem 0 0 2rem;
-    width: 25%;
-    text-align: left;
-  }
+    background: $sub-bg-color;
+    padding: 4rem 1.5rem;
+    @include bp-pc {
+        margin: 2rem 0 0 2rem;
+        width: 25%;
+        text-align: left;
+    }
 }
 
 .main {
-  @include bp-pc {
-    width: 75%;
-  }
-  .hljs {
-    overflow: scroll;
-    .code__content {
-      width: 100%;
-    }
-  }
-  .article {
-    border-bottom: 1px solid $sub-bg-color;
-    padding: 1rem;
     @include bp-pc {
-      padding: 4rem 0;
+        width: 75%;
     }
-    .value {
-      h1 {
-        @include bp-pc {
-          font-size: 2rem;
+    .hljs {
+        overflow: scroll;
+        .code__content {
+            width: 100%;
+            font-family: $font;
         }
-        margin: 0;
-        font-size: 1rem;
-        &:hover {
-          color: $point-font-color;
-        }
-      }
-      span {
-        color: $sub-font-color;
-        font-size: 0.5rem;
-        @include bp-pc {
-          font-size: 1rem;
-        }
-      }
     }
-  }
+    .article {
+        border-bottom: 1px solid $sub-bg-color;
+        padding: 1rem;
+        @include bp-pc {
+            padding: 4rem 0;
+        }
+        .value {
+            h1 {
+                @include bp-pc {
+                    font-size: 2rem;
+                }
+                margin: 0;
+                font-size: 1rem;
+                &:hover {
+                    color: $point-font-color;
+                }
+            }
+            span {
+                color: $sub-font-color;
+                font-size: 0.5rem;
+                @include bp-pc {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
 }
 
 .list {
-  padding: 3rem 1rem;
-  .title {
-    font-size: 1rem;
-    @include bp-pc {
-      font-size: 2rem;
-    }
-    i {
-      @include bp-pc {
-        font-size: 2.5rem;
-      }
-      color: $point-font-color;
-    }
-  }
-  li {
-    margin: 2vw 0;
-    display: flex;
-    i {
-      padding-right: 1rem;
-      align-self: center;
-      color: $point-font-color;
-      background: #fff;
-      font-size: 3vw;
-      @include bp-pc {
-        font-size: 1.2rem;
-        padding-right: 0;
-      }
-    }
-    .content {
-      display: flex;
-      flex-direction: column;
-      @include bp-pc {
-        margin: 0 2rem;
-      }
-      span:nth-child(2) {
-        color: $sub-font-color;
-        font-size: 0.5rem;
+    padding: 3rem 1rem;
+    .title {
+        font-size: 1rem;
         @include bp-pc {
-          font-size: 1rem;
+            font-size: 2rem;
         }
-      }
+        i {
+            @include bp-pc {
+                font-size: 2.5rem;
+            }
+            color: $point-font-color;
+        }
     }
-  }
+    li {
+        margin: 2vw 0;
+        display: flex;
+        i {
+            padding-right: 1rem;
+            align-self: center;
+            color: $point-font-color;
+            background: #fff;
+            font-size: 3vw;
+            @include bp-pc {
+                font-size: 1.2rem;
+                padding-right: 0;
+            }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            @include bp-pc {
+                margin: 0 2rem;
+            }
+            span:nth-child(2) {
+                color: $sub-font-color;
+                font-size: 0.5rem;
+                @include bp-pc {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
 }
 
 #goUp {
-  border: none;
-  background: none;
-  display: none;
-  position: fixed;
-  bottom: 10px;
-  z-index: 99;
-  left: 1rem;
-  font-size: 2.5rem;
-  @include bp-pc {
-    left: 72%;
-    bottom: 2rem;
-    font-size: 4rem;
-  }
+    border: none;
+    background: none;
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    z-index: 99;
+    left: 1rem;
+    font-size: 2.5rem;
+    @include bp-pc {
+        left: 72%;
+        bottom: 2rem;
+        font-size: 4rem;
+    }
 }
