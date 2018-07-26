@@ -1,9 +1,20 @@
-<div class="article__title">
-  <%=value.title %>
-</div>
-<div class="article__date">
-  <%=value.date %>
-</div>
-<div class="article__body">
-  <%-body %>
+<div class="article">
+
+
+  <div class="value">
+    <h1 style="color:#333">
+      <%=value.title %>
+
+    </h1>
+    <span>
+      <%=value.date %>
+
+    </span>
+  </div>
+
+
+  <div class="article__body">
+    <%-body %>
+  </div>
+
 </div>

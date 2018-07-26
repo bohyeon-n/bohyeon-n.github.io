@@ -1,19 +1,16 @@
-<div class="sidebar">
-  <!-- folder name -->
-  <div>
-    Category
-  </div>
-  <ul>
-
-    <% categories.forEach(category => { %>
-
-      <a href="/deploy/category/<%=category.category%>.html">
-        <li>
-          <%=category.category %>
-        </li>
-      </a>
-
-      <% }) %>
-  </ul>
-
+<!-- folder name -->
+<div>
+  Category
 </div>
+<ul>
+
+  <% categories.forEach(category => { %>
+
+    <a href="/deploy/category/<%=category.category%>.html">
+      <li>
+        <%=category.category %>
+      </li>
+    </a>
+
+    <% }) %>
+</ul>

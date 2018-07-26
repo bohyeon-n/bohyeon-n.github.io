@@ -1,18 +1,28 @@
-<h2>
+<div class="list">
+  <div class="title">
+    <i class="far fa-lemon"></i>
+    <%=category %>
 
-  <%=category %>
-</h2>
-<ul>
-  <% files.forEach(file => { %>
-    <li>
-      <a href="/deploy/<%=category %>/<%=file.fileName %>">
-        <span>
-          <%=file.value.title %>
-        </span>
-        <span>
-          <%= file.value.date %>
-        </span>
-      </a>
-    </li>
-    <% }) %>
-</ul>
+  </div>
+
+
+  <ul>
+    <% files.forEach(file => { %>
+      <li>
+        <i class="far fa-lemon"></i>
+        <div class="content">
+          <a href="/deploy/<%=category %>/<%=file.fileName %>">
+            <span>
+              <%=file.value.title %>
+            </span>
+          </a>
+          <span>
+            <%= file.value.date %>
+          </span>
+
+        </div>
+      </li>
+      <% }) %>
+  </ul>
+
+</div>

@@ -1,5 +1,5 @@
 //color
-$point-font-color: #91a8d0; // 민트색
+$point-font-color: #fff44f;
 $main-font-color: #333;
 $sub-font-color: #565a5e;
 $sub-bg-color: #f7f7f7;
@@ -32,28 +32,49 @@ img {
 
 //mixin 사용
 body {
-  font-size: 4vw;
+  font-size: 1rem;
+  @include bp-pc {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
 }
 
-.content {
-  background: $sub-bg-color;
+a {
+  color: $main-font-color;
+  text-decoration: none;
+  &:hover {
+    color: $point-font-color;
+  }
+}
+
+li {
+  list-style-type: none;
 }
 
 .header {
-  height: 25vw;
   position: relative;
   background: $main-bg-color;
   display: flex;
   flex-direction: column;
   .user {
+    display: flex;
+    justify-content: space-between;
+    &__content {
+      display: flex;
+    }
+    @include bp-pc {
+      width: 80%;
+      margin: 0 auto;
+      height: 10rem;
+    }
+    height: 4rem;
     padding: 0 1rem;
-    height: 15vw;
     display: flex;
     align-items: center;
     &__img {
       img {
-        width: 12vw;
-        height: 12vw;
+        width: 3rem;
+        height: 3rem;
         border: 1px solid $sub-bg-color;
         border-radius: 50%;
         &:hover {
@@ -62,17 +83,21 @@ body {
       }
     }
     &__username {
+      display: flex;
+      align-items: center;
       padding-left: 1rem;
       color: $main-font-color;
+      div {
+        display: inline-block;
+      }
     }
     &__social {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding-right: 1rem;
       i {
-        line-height: 15vw;
-        color: $point-bg-color;
+        line-height: 4rem;
+        color: $main-font-color;
+        @include bp-pc {
+          line-height: 10rem;
+        }
         &:hover {
           color: $point-font-color;
         }
@@ -80,44 +105,58 @@ body {
     }
   }
   .nav {
+    @include bp-pc {
+      padding: 0 15%;
+    }
+    height: 3rem;
+    padding: 0 1rem;
     background: $main-bg-color;
     color: $main-font-color;
     border-top: 0.1rem solid $sub-bg-color;
-    height: 10vw;
     ul {
       padding: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      a {
-        text-decoration: none;
-        li {
-          list-style-type: none;
-          color: $main-font-color;
-          &:hover {
-            color: $point-font-color;
-          }
-        }
-      }
     }
     .category {
       display: none;
       &.show {
+        height: 10rem;
         margin: 0;
-        display: block;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
         width: 100%;
-        height: 15rem;
         background: rgba(255, 255, 255, 0.9);
       }
     }
   }
 }
 
+.content {
+  @include bp-pc {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.sidebar {
+  background: $sub-bg-color;
+  padding: 4rem 1.5rem;
+  @include bp-pc {
+    margin: 2rem 0 0 2rem;
+    width: 25%;
+    text-align: left;
+  }
+}
+
 .main {
+  @include bp-pc {
+    width: 75%;
+  }
   .hljs {
     overflow: scroll;
     .code__content {
@@ -125,29 +164,58 @@ body {
     }
   }
   .article {
-    background: $main-bg-color;
-    padding: 0 1rem;
-    margin: 3rem 0;
+    border-bottom: 1px solid $sub-bg-color;
+    padding: 1rem;
+    @include bp-pc {
+      padding: 4rem 0;
+    }
     .value {
-      padding-top: 1rem;
       h1 {
+        @include bp-pc {
+          font-size: 2rem;
+        }
         margin: 0;
-        font-size: 7vw;
+        font-size: 1rem;
         &:hover {
           color: $point-font-color;
         }
       }
       span {
         color: $sub-font-color;
-        font-size: 3vw;
+        font-size: 0.5rem;
+        @include bp-pc {
+          font-size: 1rem;
+        }
       }
     }
   }
 }
 
-// /* tablet style */
-// @media only screen and (min-width: 401px) and (max-width: 960px) {
-//     body
-// }
-// /* desktop style */
-// @media only screen and (min-width: 961px) {}
+.list {
+  padding: 3rem 1rem;
+  .title {
+    font-size: 5vw;
+    i {
+      color: $point-font-color;
+    }
+  }
+  li {
+    margin: 2vw 0;
+    display: flex;
+    i {
+      padding-right: 2vw;
+      align-self: center;
+      color: $point-font-color;
+      background: #fff;
+      font-size: 3vw;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      span:nth-child(2) {
+        color: $sub-font-color;
+        font-size: 3vw;
+      }
+    }
+  }
+}

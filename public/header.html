@@ -1,29 +1,38 @@
 <div class="user">
-  <div class="user__img">
-    <a href="/">
-      <img src="<%= author.image %>" alt="">
-    </a>
-  </div>
-
-  <div class="user__username">
-    <%= author.username %>
-  </div>
-  <div class="user__social">
-    <% if(author.github){ %>
-      <a href="<%=author.github %>">
-
-        <i class="fab fa-github-alt fa-2x"></i>
-
-
-
+  <div class="user__content">
+    <div class="user__img">
+      <a href="/">
+        <img src="<%= author.image %>" alt="">
       </a>
+    </div>
 
-      <%}%>
-        <% if(author.facebook) { %>
-          <div class=" facebook ">
-            페이스북
-          </div>
-          <%}%>
+    <div class="user__username">
+      <div>
+        <%= author.username %>
+
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div class="user__social">
+      <% if(author.github){ %>
+        <a href="<%=author.github %>">
+
+          <i class="fab fa-github-alt fa-2x"></i>
+
+
+
+        </a>
+
+        <%}%>
+          <% if(author.facebook) { %>
+            <div class=" facebook ">
+              페이스북
+            </div>
+            <%}%>
+    </div>
+
   </div>
 
 </div>
@@ -51,7 +60,7 @@
       Search
     </li>
   </ul>
-  <ul class="category">
+  <div class="category">
     <%categories.forEach(category => { %>
       <a href="/deploy/category/<%=category.category %>.html">
         <li>
@@ -60,5 +69,5 @@
         </li>
       </a>
       <%})%>
-</div>
+  </div>
 </div>

@@ -16,30 +16,38 @@
 </head>
 
 <body>
-  <div class="content">
-    <div class="header">
-      <div class="user">
-  <div class="user__img">
-    <a href="/">
-      <img src="https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
-    </a>
-  </div>
-
-  <div class="user__username">
-    구보현블로그
-  </div>
-  <div class="user__social">
-    
-      <a href="https://github.com/bohyeon-n">
-
-        <i class="fab fa-github-alt fa-2x"></i>
-
-
-
+  <div class="header">
+    <div class="user">
+  <div class="user__content">
+    <div class="user__img">
+      <a href="/">
+        <img src="https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
       </a>
+    </div>
 
+    <div class="user__username">
+      <div>
+        구보현블로그
+
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div class="user__social">
       
+        <a href="https://github.com/bohyeon-n">
+
+          <i class="fab fa-github-alt fa-2x"></i>
+
+
+
+        </a>
+
         
+          
+    </div>
+
   </div>
 
 </div>
@@ -67,7 +75,7 @@
       Search
     </li>
   </ul>
-  <ul class="category">
+  <div class="category">
     
       <a href="/deploy/category/Algorithm.html">
         <li>
@@ -90,13 +98,14 @@
         </li>
       </a>
       
+  </div>
 </div>
-</div>
 
-    </div>
-
+  </div>
 
 
+
+  <div class="content">
 
     <div class="main">
       
@@ -116,7 +125,7 @@
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             2018-4-01T16:59:13-04:00
           </span>
@@ -229,7 +238,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             20180723
           </span>
@@ -295,7 +304,7 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             2018-4-01T16:59:13-04:00
           </span>
@@ -419,7 +428,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             2018-7-18T23:59:13-04:00
           </span>
@@ -518,7 +527,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             2018-7-19T22:59:13-04:00
           </span>
@@ -811,7 +820,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             2018-7-16T24:00:00-00:00
           </span>
@@ -914,7 +923,7 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             2018-7-17T24:00:00-00:00
           </span>
@@ -978,7 +987,7 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             2018-7-18T22:00:00-00:00
           </span>
@@ -1037,7 +1046,7 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             2018-7-19T22:00:00-00:00
           </span>
@@ -1092,7 +1101,7 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             2018-7-21T22:23:00-00:00
           </span>
@@ -1160,7 +1169,7 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             0722
           </span>
@@ -1231,7 +1240,7 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             20180723
           </span>
@@ -1309,7 +1318,7 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
           </a>
 
         </div>
-        <div class="value__title">
+        <div class="value__date">
           <span>
             20180725
           </span>
@@ -1390,41 +1399,38 @@ git push origin &lt;branch&gt; -f
 
     </div>
     <div class="sidebar">
-      <div class="sidebar">
-  <!-- folder name -->
-  <div>
-    Category
-  </div>
-  <ul>
+      <!-- folder name -->
+<div>
+  Category
+</div>
+<ul>
+
+  
+
+    <a href="/deploy/category/Algorithm.html">
+      <li>
+        Algorithm
+      </li>
+    </a>
 
     
 
-      <a href="/deploy/category/Algorithm.html">
-        <li>
-          Algorithm
-        </li>
-      </a>
+    <a href="/deploy/category/JavaScript.html">
+      <li>
+        JavaScript
+      </li>
+    </a>
 
-      
+    
 
-      <a href="/deploy/category/JavaScript.html">
-        <li>
-          JavaScript
-        </li>
-      </a>
+    <a href="/deploy/category/TIL.html">
+      <li>
+        TIL
+      </li>
+    </a>
 
-      
-
-      <a href="/deploy/category/TIL.html">
-        <li>
-          TIL
-        </li>
-      </a>
-
-      
-  </ul>
-
-</div>
+    
+</ul>
 
     </div>
 
