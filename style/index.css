@@ -27,7 +27,7 @@ a {
 }
 
 a:hover {
-  color: #fff44f;
+  color: #3cb371;
 }
 
 li {
@@ -113,7 +113,7 @@ li {
 }
 
 .header .user__social i:hover {
-  color: #fff44f;
+  color: #3cb371;
 }
 
 .header .nav {
@@ -122,12 +122,6 @@ li {
   background: #fff;
   color: #333;
   border-top: 0.1rem solid #f7f7f7;
-}
-
-@media only screen and (min-width: 961px) {
-  .header .nav {
-    padding: 0 15%;
-  }
 }
 
 .header .nav ul {
@@ -143,13 +137,19 @@ li {
           align-items: center;
 }
 
+@media only screen and (min-width: 961px) {
+  .header .nav ul {
+    padding: 0 15%;
+  }
+}
+
 .header .nav .category {
   display: none;
 }
 
 .header .nav .category.show {
   height: 10rem;
-  margin: 0;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -226,7 +226,7 @@ li {
 }
 
 .main .article .value h1:hover {
-  color: #fff44f;
+  color: #3cb371;
 }
 
 .main .article .value span {
@@ -245,11 +245,23 @@ li {
 }
 
 .list .title {
-  font-size: 5vw;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 961px) {
+  .list .title {
+    font-size: 2rem;
+  }
 }
 
 .list .title i {
-  color: #fff44f;
+  color: #3cb371;
+}
+
+@media only screen and (min-width: 961px) {
+  .list .title i {
+    font-size: 2.5rem;
+  }
 }
 
 .list li {
@@ -260,13 +272,20 @@ li {
 }
 
 .list li i {
-  padding-right: 2vw;
+  padding-right: 1rem;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  color: #fff44f;
+  color: #3cb371;
   background: #fff;
   font-size: 3vw;
+}
+
+@media only screen and (min-width: 961px) {
+  .list li i {
+    font-size: 1.2rem;
+    padding-right: 0;
+  }
 }
 
 .list li .content {
@@ -279,8 +298,39 @@ li {
           flex-direction: column;
 }
 
+@media only screen and (min-width: 961px) {
+  .list li .content {
+    margin: 0 2rem;
+  }
+}
+
 .list li .content span:nth-child(2) {
   color: #565a5e;
-  font-size: 3vw;
+  font-size: 0.5rem;
+}
+
+@media only screen and (min-width: 961px) {
+  .list li .content span:nth-child(2) {
+    font-size: 1rem;
+  }
+}
+
+#goUp {
+  border: none;
+  background: none;
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  z-index: 99;
+  left: 1rem;
+  font-size: 2.5rem;
+}
+
+@media only screen and (min-width: 961px) {
+  #goUp {
+    left: 72%;
+    bottom: 2rem;
+    font-size: 4rem;
+  }
 }
 /*# sourceMappingURL=index.css.map */

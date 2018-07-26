@@ -110,7 +110,7 @@
     <div class="main">
       <div class="list">
   <div class="title">
-    <i class="far fa-lemon"></i>
+    <i class="far fa-folder"></i>
     TIL
 
   </div>
@@ -119,7 +119,7 @@
   <ul>
     
       <li>
-        <i class="far fa-lemon"></i>
+        <i class="fas fa-circle"></i>
         <div class="content">
           <a href="/deploy/TIL/0716.html">
             <span>
@@ -134,7 +134,7 @@
       </li>
       
       <li>
-        <i class="far fa-lemon"></i>
+        <i class="fas fa-circle"></i>
         <div class="content">
           <a href="/deploy/TIL/0717.html">
             <span>
@@ -149,7 +149,7 @@
       </li>
       
       <li>
-        <i class="far fa-lemon"></i>
+        <i class="fas fa-circle"></i>
         <div class="content">
           <a href="/deploy/TIL/0718.html">
             <span>
@@ -164,7 +164,7 @@
       </li>
       
       <li>
-        <i class="far fa-lemon"></i>
+        <i class="fas fa-circle"></i>
         <div class="content">
           <a href="/deploy/TIL/0719.html">
             <span>
@@ -179,7 +179,7 @@
       </li>
       
       <li>
-        <i class="far fa-lemon"></i>
+        <i class="fas fa-circle"></i>
         <div class="content">
           <a href="/deploy/TIL/0721.html">
             <span>
@@ -194,7 +194,7 @@
       </li>
       
       <li>
-        <i class="far fa-lemon"></i>
+        <i class="fas fa-circle"></i>
         <div class="content">
           <a href="/deploy/TIL/0722.html">
             <span>
@@ -209,7 +209,7 @@
       </li>
       
       <li>
-        <i class="far fa-lemon"></i>
+        <i class="fas fa-circle"></i>
         <div class="content">
           <a href="/deploy/TIL/0723.html">
             <span>
@@ -224,7 +224,7 @@
       </li>
       
       <li>
-        <i class="far fa-lemon"></i>
+        <i class="fas fa-circle"></i>
         <div class="content">
           <a href="/deploy/TIL/0725.html">
             <span>
@@ -281,7 +281,9 @@
 
 
   </div>
-
+  <button id="goUp" onclick="topFunction()">
+    <i class="fas fa-arrow-circle-up"></i>
+  </button>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js">
   </script>
@@ -299,6 +301,20 @@
         console.log('remove')
       }
     })
+    window.onscroll = function () {
+      scrollFunction()
+    }
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('goUp').style.display = "block";
+      } else {
+        document.getElementById('goUp').style.display = 'none';
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
 
   </script>
 

@@ -200,7 +200,9 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
 
 
   </div>
-
+  <button id="goUp" onclick="topFunction()">
+    <i class="fas fa-arrow-circle-up"></i>
+  </button>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js">
   </script>
@@ -218,6 +220,20 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
         console.log('remove')
       }
     })
+    window.onscroll = function () {
+      scrollFunction()
+    }
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('goUp').style.display = "block";
+      } else {
+        document.getElementById('goUp').style.display = 'none';
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
 
   </script>
 

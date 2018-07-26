@@ -1,5 +1,5 @@
 //color
-$point-font-color: #fff44f;
+$point-font-color: #3cb371;
 $main-font-color: #333;
 $sub-font-color: #565a5e;
 $sub-bg-color: #f7f7f7;
@@ -105,15 +105,15 @@ li {
     }
   }
   .nav {
-    @include bp-pc {
-      padding: 0 15%;
-    }
     height: 3rem;
     padding: 0 1rem;
     background: $main-bg-color;
     color: $main-font-color;
     border-top: 0.1rem solid $sub-bg-color;
     ul {
+      @include bp-pc {
+        padding: 0 15%;
+      }
       padding: 0;
       display: flex;
       justify-content: space-between;
@@ -123,7 +123,7 @@ li {
       display: none;
       &.show {
         height: 10rem;
-        margin: 0;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -194,8 +194,14 @@ li {
 .list {
   padding: 3rem 1rem;
   .title {
-    font-size: 5vw;
+    font-size: 1rem;
+    @include bp-pc {
+      font-size: 2rem;
+    }
     i {
+      @include bp-pc {
+        font-size: 2.5rem;
+      }
       color: $point-font-color;
     }
   }
@@ -203,19 +209,45 @@ li {
     margin: 2vw 0;
     display: flex;
     i {
-      padding-right: 2vw;
+      padding-right: 1rem;
       align-self: center;
       color: $point-font-color;
       background: #fff;
       font-size: 3vw;
+      @include bp-pc {
+        font-size: 1.2rem;
+        padding-right: 0;
+      }
     }
     .content {
       display: flex;
       flex-direction: column;
+      @include bp-pc {
+        margin: 0 2rem;
+      }
       span:nth-child(2) {
         color: $sub-font-color;
-        font-size: 3vw;
+        font-size: 0.5rem;
+        @include bp-pc {
+          font-size: 1rem;
+        }
       }
     }
+  }
+}
+
+#goUp {
+  border: none;
+  background: none;
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  z-index: 99;
+  left: 1rem;
+  font-size: 2.5rem;
+  @include bp-pc {
+    left: 72%;
+    bottom: 2rem;
+    font-size: 4rem;
   }
 }
