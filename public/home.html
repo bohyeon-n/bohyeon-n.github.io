@@ -5,7 +5,7 @@
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/<%= files[index].category %>/<%= files[index].file %>">
+          <a href="/deploy/<%= article.value.category%>/<%= article.fileName %>">
             <h1>
 
 
@@ -26,7 +26,7 @@
         </h1>
 
       </div>
-      <%- article.convertedFile %>
+      <%- article.body %>
     </div>
 
     <% } %>

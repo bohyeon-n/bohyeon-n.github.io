@@ -74,90 +74,105 @@ if (!fs.existsSync(dir)) {
 }
 
 // 사용자 정보 읽기
-const author = fs.readFileSync("./content/author/author.md", "utf8");
+const author = fs.readFileSync("./author/author.md", "utf8");
 const authorValue = extractedValue(author);
-console.log(authorValue);
+
 // content 안에 있는 directories 읽기
 let directories = fs.readdirSync(directoryPath);
 
-// header
-const header = ejs.render(headerHtmlFormat, {
-  author: authorValue,
-  categories: directories
-});
-// sidebar
-const sidebar = ejs.render(sidebarHtmlFormat, {
-  categories: directories
-});
-// articles
 let articles = [];
-let fileList = [];
+let categoryByfiles = [];
+
 directories.forEach((directory, index) => {
-  let files = fs.readdirSync(`./content/${directory}`);
-  let articleValue = [];
-  files.forEach(file => {
-    // markdown to html file article
+  const fileList = fs.readdirSync(`./content/${directory}`);
+  // 파일에서 value 와 body를 변환해서 categoryByfiles에 푸시해줌.
+  let files = [];
+  fileList.forEach(file => {
     const markdownFile = fs.readFileSync(
       `./content/${directories[index]}/${file}`,
       "utf-8"
     );
 
     let value = extractedValue(markdownFile);
-    let body = extractedBody(markdownFile);
+    let body = md.render(extractedBody(markdownFile));
+    let category = value.category;
+    let fileName = file.slice(0, file.indexOf(".")) + `.html`;
 
-    let convertedFile = md.render(body);
-    articleValue.push(value);
+    let i = files.findIndex(o => o.category === category);
+    let fileObj = {
+      fileName,
+      body,
+      value
+    };
+    if (i < 0) {
+      files.push({
+        category: value.category,
+        files: [fileObj]
+      });
+    } else {
+      files[i].files.push(fileObj);
+    }
+    articles.push(fileObj);
+  });
 
-    let article = ejs.render(articleHtmlFormat, {
-      body: convertedFile,
-      article: value
+  categoryByfiles.push(...files);
+});
+
+// 컴포넌트, 파일 만들기
+// articles : 모든 post를 모아 놓음 [{value: ..., body:..., fileName: ...html}]형식임
+// categoryByfiles : 카테고리 별로 post를 모아 놓음 [{category:..., files:[{value:..., body: ..., fileName:...,}, {}, {}, {}]}, {category2}...]
+// header
+const header = ejs.render(headerHtmlFormat, {
+  author: authorValue,
+  categories: categoryByfiles
+});
+// sidebar
+const sidebar = ejs.render(sidebarHtmlFormat, {
+  categories: categoryByfiles
+});
+
+//
+categoryByfiles.forEach(category => {
+  // category page 생성
+
+  if (category.category !== undefined) {
+    let dir = `./deploy/${category.category}`;
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+  }
+  // category별로 file의 리스트를 보여주는 category 페이지 생성
+
+  const main = ejs.render(listHtmlFormat, {
+    files: category.files,
+    category: category.category
+  });
+  const indexHtml = ejs.render(indexHtmlFormat, {
+    header: header,
+    main: main,
+    sidebar: sidebar
+  });
+  fs.writeFileSync(`./deploy/category/${category.category}.html`, indexHtml);
+  // 파일 별로 post page를 생성
+  category.files.forEach(file => {
+    const article = ejs.render(articleHtmlFormat, {
+      body: file.body,
+      value: file.value,
+      fileName: file.fileName
     });
-    let html = ejs.render(indexHtmlFormat, {
+    const html = ejs.render(indexHtmlFormat, {
       main: article,
       sidebar: sidebar,
       header: header
     });
-    let n = file.indexOf(".");
-    let fileName = file.slice(0, n);
-    if (value.category !== undefined) {
-      let dir = `./deploy/${value.category}`;
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir);
-      }
-      fs.writeFileSync(`./deploy/${value.category}/${fileName}.html`, html);
-    }
-
-    articles.push({ convertedFile, value });
-    // ./deploy에 카테고리별로 파일을 생성한다.
+    fs.writeFileSync(`./deploy/${category.category}/${file.fileName}`, html);
   });
-  files.forEach(file => {
-    let fileName = file.slice(0, file.indexOf("."));
-    file = `${fileName}.html`;
-    fileList.push({ category: directory, file: file });
-  });
-
-  let main = ejs.render(listHtmlFormat, {
-    fileList: files,
-    category: directory,
-    articles: articleValue
-  });
-  let indexHtml = ejs.render(indexHtmlFormat, {
-    header: header,
-    folderList: directories,
-    main: main,
-    sidebar: sidebar
-  });
-
-  fs.writeFileSync(`./deploy/category/${directory}.html`, indexHtml);
-
-  // articlesValue.push(...articleValue);
 });
 
-// 홈화면
+//홈화면 생성
 
 main = ejs.render(homeHtmlFormat, {
-  articles: articles,
-  files: fileList
+  articles: articles
 });
 html = ejs.render(indexHtmlFormat, {
   main,

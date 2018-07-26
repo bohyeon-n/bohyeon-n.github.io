@@ -3,19 +3,16 @@
   <%=category %>
 </h2>
 <ul>
-  <% fileList.forEach((file,index) => { %>
-    <% let fileName = file.slice(0, file.indexOf(".")) %>
-      <li>
-        <a href="/deploy/<%=articles[index].category %>/<%=fileName %>.html">
-          <span>
-            <%=articles[index].title %>
-          </span>
-          <span>
-            <%= articles[index].date %>
-          </span>
-        </a>
-      </li>
-
-
-      <% }) %>
+  <% files.forEach(file => { %>
+    <li>
+      <a href="/deploy/<%=category %>/<%=file.fileName %>">
+        <span>
+          <%=file.value.title %>
+        </span>
+        <span>
+          <%= file.value.date %>
+        </span>
+      </a>
+    </li>
+    <% }) %>
 </ul>
