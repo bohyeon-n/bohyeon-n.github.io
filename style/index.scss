@@ -8,9 +8,6 @@ $main-bg-color: #fff;
 $point-bg-color: rgb(190,
 190,
 190);
-//font
-$font: "Nanum Gothic Coding",
-monospace;
 // mixin 정의
 @mixin bp-tablet {
     @media only screen and (min-width: 401px) and (max-width: 960px) {

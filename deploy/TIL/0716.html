@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
   <link rel="stylesheet" href="/style/index.css">
@@ -135,7 +135,7 @@
 <p>node.js 를 사용하여 로컬에 있는 폴더와 파일을 읽어서 html 에 리스트형식으로 렌더링해보자.</p>
 </li>
 </ul>
-<pre class="hljs "><code class="html"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
 <span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);
 <span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
 
@@ -271,6 +271,8 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
+
+
 
   </script>
 
