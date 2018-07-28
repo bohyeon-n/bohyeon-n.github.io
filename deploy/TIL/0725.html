@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
   <link rel="stylesheet" href="/style/index.css">
@@ -131,19 +132,19 @@
 <ul>
 <li>일단은 모바일 버전으로 디자인을 하고 있다.</li>
 <li>홈 화면만 하는데도 시간이 오래 걸린다.😭</li>
-<li>화면 전체적으로 수평으로 스크롤바가 생김<pre class="hljs "><code><div class="code__content">overflow-x: hidden
-</div></code></pre>
+<li>화면 전체적으로 수평으로 스크롤바가 생김<pre class="hljs "><code class="html">overflow-x: hidden
+</code></pre>
 </li>
 <li>node.modules 를 gitigonre 안해줬더니 github page 빌드가 안되었다.</li>
 <li>push 취소를 하고 gitigonre 해서 다시 push 함</li>
 </ul>
 </li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-comment">// git push 취소하기</span>
+<pre class="hljs "><code class="html"><span class="hljs-comment">// git push 취소하기</span>
 <span class="hljs-comment">//(여러 번 하면 계속해서 취소된다.)</span>
 git reset HEAD~<span class="hljs-number">1</span>
 git push origin &lt;branch&gt; -f
-</div></code></pre>
+</code></pre>
 <pre class="hljs"><code>- highlight.js 적용
 
 ```js
@@ -231,10 +232,8 @@ git push origin &lt;branch&gt; -f
   <button id="goUp" onclick="topFunction()">
     <i class="fas fa-arrow-circle-up"></i>
   </button>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js">
-  </script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
   <script>
     const categoryEl = document.querySelector('.category')
     const navCategoryEl = document.querySelector('.nav__category')

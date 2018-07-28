@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
   <link rel="stylesheet" href="/style/index.css">
@@ -139,10 +140,10 @@
       <h1>3Sum Closest</h1>
 <p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
 <p>Example:</p>
-<pre class="hljs "><code><div class="code__content">Given array nums = [<span class="hljs-number">-1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-4</span>], and target = <span class="hljs-number">1.</span>
+<pre class="hljs "><code class="html">Given array nums = [<span class="hljs-number">-1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-4</span>], and target = <span class="hljs-number">1.</span>
 
 The sum that is closest to the target is <span class="hljs-number">2.</span> (<span class="hljs-number">-1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">1</span> = <span class="hljs-number">2</span>).
-</div></code></pre>
+</code></pre>
 <h3>나의 풀이</h3>
 <ol>
 <li>반복문을 돌면서 배열의 세 정수의 조합을 모두 확인한다.</li>
@@ -152,7 +153,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
 <ul>
 <li>sort 를 사용해서 정렬을 한 후 문제를 풀어보려고 했지만, 잘 되지 않아서 일단은 반복문으로 모든 숫자의 조합을 생각하기로 하였다.</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-comment">//	80 ms</span>
+<pre class="hljs "><code class="html"><span class="hljs-comment">//	80 ms</span>
 <span class="hljs-keyword">var</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
   <span class="hljs-keyword">let</span> closestSum;
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
@@ -172,7 +173,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
   }
   <span class="hljs-keyword">return</span> closestSum;
 };
-</div></code></pre>
+</code></pre>
 <h2>다른 사람 풀이</h2>
 <ol>
 <li>nums.length 가 3 보다 작으면 바로 리턴한다.</li>
@@ -188,7 +189,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
 <li>target 과의 차이를 줄여갈 수 있기 때문에</li>
 <li>첫 번째 방식보다 빠르게 찾아낼 수 있다.</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-keyword">let</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
+<pre class="hljs "><code class="html"><span class="hljs-keyword">let</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
   <span class="hljs-keyword">let</span> result;
   <span class="hljs-keyword">if</span> (nums.length &lt;= <span class="hljs-number">3</span>) {
     result = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>] + nums[<span class="hljs-number">2</span>];
@@ -214,7 +215,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
   }
   <span class="hljs-keyword">return</span> result;
 };
-</div></code></pre>
+</code></pre>
 
     </div>
 
@@ -253,11 +254,11 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
 <p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
 <p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
 <p>Note that you cannot sell a stock before you buy one.</p>
-<pre class="hljs "><code><div class="code__content">Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
+<pre class="hljs "><code class="html">Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
 Output: <span class="hljs-number">5</span>
 Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class="hljs-number">1</span>) and sell on day <span class="hljs-number">5</span> (price = <span class="hljs-number">6</span>), profit = <span class="hljs-number">6</span><span class="hljs-number">-1</span> = <span class="hljs-number">5.</span>
              Not <span class="hljs-number">7</span><span class="hljs-number">-1</span> = <span class="hljs-number">6</span>, <span class="hljs-keyword">as</span> selling price needs to be larger than buying price.
-</div></code></pre>
+</code></pre>
 <h2>나의 풀이</h2>
 <ol>
 <li>prices 배열을 반복문을 돌면서 확인한다.</li>
@@ -265,7 +266,7 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
 <li>그렇지 않다면 buy 보다 큰 수이다. 큰 수 이면서 기존 profit 의 값보다 profit 이 크다면, profit 에 buy 와 현재 배열 요소의 차를 재대입한다.</li>
 <li>profit 을 리턴한다.</li>
 </ol>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>{
+<pre class="hljs "><code class="html"><span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>{
   <span class="hljs-keyword">let</span> profit = <span class="hljs-number">0</span>;
   <span class="hljs-keyword">let</span> buy;
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; prices.length + <span class="hljs-number">1</span>; i++) {
@@ -280,7 +281,7 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
   }
   <span class="hljs-keyword">return</span> profit;
 };
-</div></code></pre>
+</code></pre>
 
     </div>
 
@@ -330,7 +331,7 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
 <p>그 다음 n 번 째 피보나치 수는 (n-1 번 째 피보나치 수)+(n-2 번 째 피보나치 수)입니다.</p>
 <h2>재귀함수로 피보나치 수 구현하기</h2>
 <p>피보나치 수를 재귀함수로 구현하면 다음과 같습니다.</p>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
+<pre class="hljs "><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
   <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) {
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
   }
@@ -339,16 +340,16 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
   }
   <span class="hljs-keyword">return</span> fibonacci(num - <span class="hljs-number">1</span>) + fibonacci(num - <span class="hljs-number">2</span>);
 }
-</div></code></pre>
+</code></pre>
 <p>5 번째 피보나치 수를 계산하는 과정을 그림으로 표현하면 다음과 같습니다.</p>
-<pre class="hljs "><code><div class="code__content">                         fib(<span class="hljs-number">5</span>)
+<pre class="hljs "><code class="html">                         fib(<span class="hljs-number">5</span>)
                      /
                fib(<span class="hljs-number">4</span>)                fib(<span class="hljs-number">3</span>)
              /                      <span class="hljs-regexp">/
          fib(3)      fib(2)         fib(2)    fib(1)
         /</span>
   fib(<span class="hljs-number">2</span>)   fib(<span class="hljs-number">1</span>)
-</div></code></pre>
+</code></pre>
 <p>fibonacci(5)는 fibonacci(4) + fibonacci(3)을 계산하기 위해 fibonacci(4)를 호출합니다.
 이처럼 자기 자신을 호출하는 함수를 재귀함수라고 합니다.</p>
 <p>fibonacci(4)는 fibonacci(3) + fibonacci(2)를 호출합니다.</p>
@@ -378,7 +379,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 재귀함수를 사용하는 것 보다 훨씬 더 효율적입니다.
 이제 100 번 째 1000 번째 피보나치수를 구하더라도 브라우저가 멈추지 않을 것 입니다.</p>
 <p>반복문을 사용한 피보나치 함수를 구현하면 다음과 같습니다.</p>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
+<pre class="hljs "><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
   <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) {
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
   }
@@ -395,7 +396,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
   }
   <span class="hljs-keyword">return</span> fib;
 }
-</div></code></pre>
+</code></pre>
 <p>지금까지 재귀함수와 반복문, 두 가지 방법으로 피보나치 수를 구현해 보았습니다.</p>
 <p>재귀함수를 사용하는 방법이 직관적이고 이해하기 쉬운 방식이지만 수가 커질수록 스택의 깊이는 깊어지고 함수 실행 시 많은 시간이 소요됩니다.
 이런 문제점 때문에 재귀함수를 사용하는 대신, 반복문을 사용하여 필요한 값을 계속해서 변수에 저장하는 방식으로 피보나치 수를 구현하였습니다.</p>
@@ -455,7 +456,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 </ul>
 </li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
+<pre class="hljs "><code class="html"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; nums.length - i; j++) {
       <span class="hljs-keyword">if</span> (nums[j] &gt; nums[j + <span class="hljs-number">1</span>]) {
@@ -466,7 +467,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
     }
   }
 };
-</div></code></pre>
+</code></pre>
 <h1>다른 사람 풀이</h1>
 <ul>
 <li>low, high, index 변수가 있다.</li>
@@ -482,7 +483,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <ul>
 <li>나는 언제쯤 이런 생각을 할 수 있을까... 😱</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
+<pre class="hljs "><code class="html"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
   <span class="hljs-keyword">let</span> temp,
     lo = <span class="hljs-number">0</span>,
     hi = nums.length - <span class="hljs-number">1</span>;
@@ -503,7 +504,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
     }
   }
 };
-</div></code></pre>
+</code></pre>
 
     </div>
 
@@ -549,8 +550,8 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <ol>
 <li><code>/</code>로 감싸는 패턴</li>
 </ol>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-keyword">let</span> re = <span class="hljs-regexp">/ab+c/</span>;
-</div></code></pre>
+<pre class="hljs "><code class="html"><span class="hljs-keyword">let</span> re = <span class="hljs-regexp">/ab+c/</span>;
+</code></pre>
 <ul>
 <li>문자열이 아니다.</li>
 <li>즉시 정규식 객체로 변환되어 대입된다.</li>
@@ -558,8 +559,8 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <ol start="2">
 <li>RegExp 객체의 생성자 함수를 호출하는 방법</li>
 </ol>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-keyword">let</span> re = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"ab+c"</span>);
-</div></code></pre>
+<pre class="hljs "><code class="html"><span class="hljs-keyword">let</span> re = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"ab+c"</span>);
+</code></pre>
 <ul>
 <li>
 <p>문자열을 정규식 객체로 변환하는 과정을 거친다. (문자열 리터럴이 메모리에 올라가는 과정이 추가로 필요하다.)</p>
@@ -587,12 +588,12 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <ul>
 <li>문자열을 있는 그대로 대응시키고자 할 때 사용된다.</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"Hi, do you know your abc"</span>.search(<span class="hljs-regexp">/abc/</span>);
+<pre class="hljs "><code class="html"><span class="hljs-string">"Hi, do you know your abc"</span>.search(<span class="hljs-regexp">/abc/</span>);
 
 <span class="hljs-string">"Hi, do you know your abc"</span>.search(<span class="hljs-string">"abc"</span>);
 
 <span class="hljs-comment">// 단순히 문자열을 그대로 찾아주는 것이므로 실행결과는 동일하다.</span>
-</div></code></pre>
+</code></pre>
 <h3>특수 문자 사용하기</h3>
 <ol>
 <li><code>\</code></li>
@@ -619,18 +620,18 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <li>입력의 시작 부분에 대응된다.</li>
 <li>문자열 시작부분에 있지 않으면 대응되는 패턴이 있을 수 없다.</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"a1234f g"</span>.match(<span class="hljs-regexp">/^g/</span>); <span class="hljs-comment">//null</span>
+<pre class="hljs "><code class="html"><span class="hljs-string">"a1234f g"</span>.match(<span class="hljs-regexp">/^g/</span>); <span class="hljs-comment">//null</span>
 <span class="hljs-string">"An B"</span>.match(<span class="hljs-regexp">/^A/</span>);
-</div></code></pre>
+</code></pre>
 <ol start="3">
 <li><code>$</code></li>
 </ol>
 <ul>
 <li>입력의 끝 부분과 대응된다.</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"eat"</span>.match(<span class="hljs-regexp">/t$/</span>);
+<pre class="hljs "><code class="html"><span class="hljs-string">"eat"</span>.match(<span class="hljs-regexp">/t$/</span>);
 <span class="hljs-string">"eat"</span>.match(<span class="hljs-regexp">/a$/</span>); <span class="hljs-comment">//null</span>
-</div></code></pre>
+</code></pre>
 <ol start="4">
 <li><code>*</code></li>
 </ol>
@@ -645,9 +646,9 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <li>1 회 이상 반복을 의미</li>
 <li>하나 이상은 있어야 대응된다.</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"ac"</span>.match(<span class="hljs-regexp">/ab*c/</span>);
+<pre class="hljs "><code class="html"><span class="hljs-string">"ac"</span>.match(<span class="hljs-regexp">/ab*c/</span>);
 <span class="hljs-string">"ac"</span>.match(<span class="hljs-regexp">/ab+c/</span>); <span class="hljs-comment">//null</span>
-</div></code></pre>
+</code></pre>
 <ol start="6">
 <li><code>?</code></li>
 </ol>
@@ -663,10 +664,10 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 </ul>
 </li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"ac"</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//ac</span>
+<pre class="hljs "><code class="html"><span class="hljs-string">"ac"</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//ac</span>
 <span class="hljs-string">"abc"</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//abc</span>
 <span class="hljs-string">"abbbbc"</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//null</span>
-</div></code></pre>
+</code></pre>
 <ol start="7">
 <li><code>.</code></li>
 </ol>
@@ -674,15 +675,15 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <li>개행 문자를 제외한 모든 단일 문자와 대응된다.</li>
 <li>다만 엔터는 제외한다.</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"ba"</span>.match(<span class="hljs-regexp">/./</span>);
+<pre class="hljs "><code class="html"><span class="hljs-string">"ba"</span>.match(<span class="hljs-regexp">/./</span>);
 <span class="hljs-string">"&lt;hello&gt;world"</span>.match(<span class="hljs-regexp">/\&lt;.+\&gt;/</span>);
-</div></code></pre>
+</code></pre>
 <ul>
 <li>정규 표현식 패턴과 맞는 부분이 있는지 확인하 수 있다.</li>
 <li>여는 꺽쇠괄호 뒤에 1 개 이상의 문자가 오고, 그 다음에 닫는 꺽쇠 괄호가 나오는 패턴.</li>
 <li><code>.</code> 쓸모가 많음, 사이에 들어오는 문자는 무엇이든 상관없다.</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-comment">// 숫자만 있고 싶다면,</span>
+<pre class="hljs "><code class="html"><span class="hljs-comment">// 숫자만 있고 싶다면,</span>
 <span class="hljs-string">"&lt;hello&gt;world"</span>.match(<span class="hljs-regexp">/\&lt;\d+\&gt;/</span>); <span class="hljs-comment">//null</span>
 <span class="hljs-string">"&lt;1234&gt;world"</span>.match(<span class="hljs-regexp">/\&lt;\d+\&gt;/</span>);
 
@@ -690,7 +691,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <span class="hljs-string">"&lt;hello&gt;world &lt;java&gt;script"</span>.match(<span class="hljs-regexp">/\&lt;.+\&gt;/</span>); <span class="hljs-comment">//&lt;hello&gt;world&lt;java&gt; 탐욕적이다.</span>
 <span class="hljs-string">"&lt;hello&gt;world &lt;java&gt;script"</span>.match(<span class="hljs-regexp">/\&lt;.+?\&gt;/</span>);
 <span class="hljs-comment">// ? 가능한 한 적게 일치시켜라.</span>
-</div></code></pre>
+</code></pre>
 <h3>괄호를 사용하기</h3>
 <ul>
 <li>
@@ -707,14 +708,14 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 </ul>
 </li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"foo"</span>.match(<span class="hljs-regexp">/(foo)/</span>);
+<pre class="hljs "><code class="html"><span class="hljs-string">"foo"</span>.match(<span class="hljs-regexp">/(foo)/</span>);
 <span class="hljs-string">"foo foo"</span>.match(<span class="hljs-regexp">/(foo) \1/</span>);
 <span class="hljs-string">"foooo foooo"</span>.match(<span class="hljs-regexp">/(fo+) \1/</span>);
 <span class="hljs-string">"foooo foooo foooo"</span>.match(<span class="hljs-regexp">/(fo+) \1/</span>);
 <span class="hljs-string">"foo bar foo bar"</span>.match(<span class="hljs-regexp">/(foo) (bar) /</span>);
 <span class="hljs-string">"foo bar foo bar"</span>.match(<span class="hljs-regexp">/(foo) (bar) \1/</span>);
 <span class="hljs-string">"foo bar foo bar"</span>.match(<span class="hljs-regexp">/(foo) (bar) \2/</span>); <span class="hljs-comment">//null</span>
-</div></code></pre>
+</code></pre>
 <ul>
 <li>비포획괄호
 <ul>
@@ -723,12 +724,12 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 </ul>
 </li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"foofoofoo"</span>.match(<span class="hljs-regexp">/(?:foo)*/</span>);
-</div></code></pre>
+<pre class="hljs "><code class="html"><span class="hljs-string">"foofoofoo"</span>.match(<span class="hljs-regexp">/(?:foo)*/</span>);
+</code></pre>
 <ul>
 <li>{}</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-comment">// 같은 의미</span>
+<pre class="hljs "><code class="html"><span class="hljs-comment">// 같은 의미</span>
 <span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a+/</span>);
 <span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a{1,}/</span>);
 
@@ -737,7 +738,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 
 <span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a?/</span>);
 <span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a{0,1}/</span>);
-</div></code></pre>
+</code></pre>
 <ul>
 <li>문자셋
 <ul>
@@ -745,7 +746,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 </ul>
 </li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"abcdef"</span>.match(<span class="hljs-regexp">/[abc]/</span>);
+<pre class="hljs "><code class="html"><span class="hljs-string">"abcdef"</span>.match(<span class="hljs-regexp">/[abc]/</span>);
 <span class="hljs-string">"abcdef"</span>.match(<span class="hljs-regexp">/[abc]+/</span>);
 
 <span class="hljs-string">"hello*.!'***...**!!!**wolrd"</span>.match(<span class="hljs-regexp">/[*.!]+/</span>);
@@ -753,46 +754,46 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <span class="hljs-comment">// 특수문자를 찾을 때에도 사용할 수 있다.</span>
 <span class="hljs-string">"hello*******world"</span>.match(<span class="hljs-regexp">/\*+/</span>);
 <span class="hljs-string">"hello*******world"</span>.match(<span class="hljs-regexp">/[*]+/</span>);
-</div></code></pre>
+</code></pre>
 <h3>실습하기</h3>
 <ul>
 <li>이메일 아이디와 도메인 분리하기</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"kbh@google.com"</span>.replace(<span class="hljs-regexp">/(.+?)@(.+)/</span>, <span class="hljs-string">"아이디: $1, 도메인: $2"</span>);
-</div></code></pre>
+<pre class="hljs "><code class="html"><span class="hljs-string">"kbh@google.com"</span>.replace(<span class="hljs-regexp">/(.+?)@(.+)/</span>, <span class="hljs-string">"아이디: $1, 도메인: $2"</span>);
+</code></pre>
 <ul>
 <li>특정 패턴에 일치하는 문자열을 찾아서 바꾸기</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"1234 abbbbc 1234"</span>.replace(<span class="hljs-regexp">/ab*c/</span>, /{$&amp;}/);
+<pre class="hljs "><code class="html"><span class="hljs-string">"1234 abbbbc 1234"</span>.replace(<span class="hljs-regexp">/ab*c/</span>, /{$&amp;}/);
 
 <span class="hljs-comment">// foo가 몇 번 등장하던, 그 패턴을 찾고 싶을 때</span>
 <span class="hljs-string">"foofoofoo"</span>.match(<span class="hljs-regexp">/(foo)+/</span>);
-</div></code></pre>
+</code></pre>
 <ul>
 <li>연속된 소문자 알파벳 찾아내기</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"hello world"</span>.match(<span class="hljs-regexp">/[a-z]+/</span>);
-</div></code></pre>
+<pre class="hljs "><code class="html"><span class="hljs-string">"hello world"</span>.match(<span class="hljs-regexp">/[a-z]+/</span>);
+</code></pre>
 <ul>
 <li>연속된 대문자 알파벳 찾아내기</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"hello WORLD"</span>.match(<span class="hljs-regexp">/[A-Z]+/</span>);
-</div></code></pre>
+<pre class="hljs "><code class="html"><span class="hljs-string">"hello WORLD"</span>.match(<span class="hljs-regexp">/[A-Z]+/</span>);
+</code></pre>
 <ul>
 <li>연속된 한글 찾아내기</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"hello 안녕하세요"</span>.match(<span class="hljs-regexp">/[가-힣]+/</span>);
-</div></code></pre>
+<pre class="hljs "><code class="html"><span class="hljs-string">"hello 안녕하세요"</span>.match(<span class="hljs-regexp">/[가-힣]+/</span>);
+</code></pre>
 <ul>
 <li>연속된 숫자 찾아내기</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"hello 012345"</span>.match(<span class="hljs-regexp">/[0-9]+/</span>);
-</div></code></pre>
+<pre class="hljs "><code class="html"><span class="hljs-string">"hello 012345"</span>.match(<span class="hljs-regexp">/[0-9]+/</span>);
+</code></pre>
 <ul>
 <li>문자 공백 제거</li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-string">"hello world java script"</span>.replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">""</span>);
-</div></code></pre>
+<pre class="hljs "><code class="html"><span class="hljs-string">"hello world java script"</span>.replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">""</span>);
+</code></pre>
 <h3>참고 자료</h3>
 <p><a href="https://regexr.com/3cpbs">정규표현식 예제</a></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation#Validating_against_a_regular_expression">Form data validation</a></p>
@@ -841,7 +842,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
 <p>node.js 를 사용하여 로컬에 있는 폴더와 파일을 읽어서 html 에 리스트형식으로 렌더링해보자.</p>
 </li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
+<pre class="hljs "><code class="html"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
 <span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);
 <span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
 
@@ -862,7 +863,7 @@ html = ejs.render(indexHtmlFormat, {
   <span class="hljs-attr">fileList</span>: directoryFiles
 });
 fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
-</div></code></pre>
+</code></pre>
 <ul>
 <li>template engine 을 사용하여 client 에서 node.js 의 data 를 렌더링 할 수 있도록 했다.</li>
 <li><code>readfile</code>을 한 후 html 형식의 string 을 변수에 대입 한다. 그 값에 data 를 넣어준다.</li>
@@ -1336,19 +1337,19 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
 <ul>
 <li>일단은 모바일 버전으로 디자인을 하고 있다.</li>
 <li>홈 화면만 하는데도 시간이 오래 걸린다.😭</li>
-<li>화면 전체적으로 수평으로 스크롤바가 생김<pre class="hljs "><code><div class="code__content">overflow-x: hidden
-</div></code></pre>
+<li>화면 전체적으로 수평으로 스크롤바가 생김<pre class="hljs "><code class="html">overflow-x: hidden
+</code></pre>
 </li>
 <li>node.modules 를 gitigonre 안해줬더니 github page 빌드가 안되었다.</li>
 <li>push 취소를 하고 gitigonre 해서 다시 push 함</li>
 </ul>
 </li>
 </ul>
-<pre class="hljs "><code><div class="code__content"><span class="hljs-comment">// git push 취소하기</span>
+<pre class="hljs "><code class="html"><span class="hljs-comment">// git push 취소하기</span>
 <span class="hljs-comment">//(여러 번 하면 계속해서 취소된다.)</span>
 git reset HEAD~<span class="hljs-number">1</span>
 git push origin &lt;branch&gt; -f
-</div></code></pre>
+</code></pre>
 <pre class="hljs"><code>- highlight.js 적용
 
 ```js
@@ -1516,10 +1517,8 @@ git push origin &lt;branch&gt; -f
   <button id="goUp" onclick="topFunction()">
     <i class="fas fa-arrow-circle-up"></i>
   </button>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js">
-  </script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
   <script>
     const categoryEl = document.querySelector('.category')
     const navCategoryEl = document.querySelector('.nav__category')
