@@ -160,50 +160,48 @@ li {
         width: 80%;
         margin: 0 auto;
     }
-}
-
-.sidebar {
-    background: $sub-bg-color;
-    padding: 4rem 1.5rem;
-    @include bp-pc {
-        margin: 2rem 0 0 2rem;
-        width: 25%;
-        text-align: left;
-    }
-}
-
-.main {
-    @include bp-pc {
-        width: 75%;
-        padding-top: 5rem;
-    }
-    .hljs {
-        overflow: scroll;
-        .code__content {
-            width: 100%;
-            font-family: $font;
+    .sidebar {
+        background: $sub-bg-color;
+        padding: 4rem 1.5rem;
+        @include bp-pc {
+            margin: 2rem 0 0 2rem;
+            width: 25%;
+            text-align: left;
         }
     }
-    .article {
-        border-bottom: 1px solid $sub-bg-color;
-        padding: 1rem;
-        @include bp-pc {}
-        .value {
-            h1 {
-                @include bp-pc {
-                    font-size: 2rem;
-                }
-                margin: 0;
-                font-size: 1rem;
-                &:hover {
-                    color: $point-font-color;
-                }
+    .main {
+        @include bp-pc {
+            width: 75%;
+            padding-top: 5rem;
+        }
+        .hljs {
+            overflow: scroll;
+            .code__content {
+                width: 100%;
+                font-family: $font;
             }
-            span {
-                color: $sub-font-color;
-                font-size: 0.5rem;
-                @include bp-pc {
+        }
+        .article {
+            border-bottom: 1px solid $sub-bg-color;
+            padding: 1rem;
+            @include bp-pc {}
+            .value {
+                h1 {
+                    @include bp-pc {
+                        font-size: 2rem;
+                    }
+                    margin: 0;
                     font-size: 1rem;
+                    &:hover {
+                        color: $point-font-color;
+                    }
+                }
+                span {
+                    color: $sub-font-color;
+                    font-size: 0.5rem;
+                    @include bp-pc {
+                        font-size: 1rem;
+                    }
                 }
             }
         }

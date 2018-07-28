@@ -197,13 +197,13 @@ li {
   }
 }
 
-.sidebar {
+.content .sidebar {
   background: #f7f7f7;
   padding: 4rem 1.5rem;
 }
 
 @media only screen and (min-width: 961px) {
-  .sidebar {
+  .content .sidebar {
     margin: 2rem 0 0 2rem;
     width: 25%;
     text-align: left;
@@ -211,48 +211,48 @@ li {
 }
 
 @media only screen and (min-width: 961px) {
-  .main {
+  .content .main {
     width: 75%;
     padding-top: 5rem;
   }
 }
 
-.main .hljs {
+.content .main .hljs {
   overflow: scroll;
 }
 
-.main .hljs .code__content {
+.content .main .hljs .code__content {
   width: 100%;
   font-family: "Nanum Gothic Coding", monospace;
 }
 
-.main .article {
+.content .main .article {
   border-bottom: 1px solid #f7f7f7;
   padding: 1rem;
 }
 
-.main .article .value h1 {
+.content .main .article .value h1 {
   margin: 0;
   font-size: 1rem;
 }
 
 @media only screen and (min-width: 961px) {
-  .main .article .value h1 {
+  .content .main .article .value h1 {
     font-size: 2rem;
   }
 }
 
-.main .article .value h1:hover {
+.content .main .article .value h1:hover {
   color: #3cb371;
 }
 
-.main .article .value span {
+.content .main .article .value span {
   color: #565a5e;
   font-size: 0.5rem;
 }
 
 @media only screen and (min-width: 961px) {
-  .main .article .value span {
+  .content .main .article .value span {
     font-size: 1rem;
   }
 }
