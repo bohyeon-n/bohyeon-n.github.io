@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/style/index.css">
+
+  <title>
+    blog
+  </title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="user">
+  <div class="user__content">
+    <div class="user__img">
+      <a href="/">
+        <img src="https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
+      </a>
+    </div>
+
+    <div class="user__username">
+      <div>
+        구보현블로그
+
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div class="user__social">
+      
+        <a href="https://github.com/bohyeon-n">
+
+          <i class="fab fa-github-alt fa-2x"></i>
+
+
+
+        </a>
+
+        
+          
+    </div>
+
+  </div>
+
+</div>
+<div class="nav ">
+  <ul>
+    <a href="/index.html">
+      <li class="nav__home">
+        Home
+      </li>
+    </a>
+    <a href="#">
+      <li class="nav__category">
+        Category
+      </li>
+
+    </a>
+    <a href="#">
+      <li class="nav__about">
+        About
+      </li>
+
+    </a>
+
+    <li class="nav__search ">
+      Search
+    </li>
+  </ul>
+  <div class="category">
+    
+      <a href="/deploy/category/algorithm.html">
+        <li>
+          Algorithm
+
+        </li>
+      </a>
+      
+      <a href="/deploy/category/javascript.html">
+        <li>
+          JavaScript
+
+        </li>
+      </a>
+      
+      <a href="/deploy/category/til.html">
+        <li>
+          TIL
+
+        </li>
+      </a>
+      
+  </div>
+</div>
+
+  </div>
+
+
+
+  <div class="content">
+
+    <div class="main">
+      <div class="article">
+
+
+  <div class="value">
+    <h1 style="color:#333">
+      7월23일TIL
+
+    </h1>
+    <span>
+      20180723
+
+    </span>
+  </div>
+
+
+  <div class="article__body">
+    <h1>오늘 한 일</h1>
+<ul>
+<li>
+<p>블로그 만들기</p>
+<ul>
+<li>헤더, 사이드바, 메인 레이아웃을 구상했다.</li>
+<li>메인 페이지에서 글의 내용을 보이게 하였다.</li>
+<li>category 를 입력받아서 카테고리 폴더를 생성하였고 그 안에 파일을 생성하였다.</li>
+<li>사용자에게 auth 를 md 파일로 받아서 블로그 이름, 소개, 이미지를 받아서 헤더에 보여주게 하였다.</li>
+<li>나눴던 html 컴포넌트?를 다시 정의하여 index.html 에서만 조합하도록 하였다. 큰 틀을 header, sidebar, main 으로하였고 main 의 내용만 변경하는 식으로 템플릿을 사용하였다.</li>
+<li>gihub page 에서 css 폴더 안에다 css 파일을 넣으니 제대로 작동하지 않았다. 찾아보니 style 폴더 안에 넣으면 된다고 style 폴더에 넣었더니 제대로 작동되었다.</li>
+<li>github 에서 특정 형식에 맞춰 쓴 폴더만 읽게 하는 걸까?</li>
+</ul>
+</li>
+<li>
+<p>알고리즘 문제 풀이</p>
+<ul>
+<li>Best Time to Buy and Sell Stock</li>
+</ul>
+</li>
+</ul>
+<h1>오늘의 느낀점</h1>
+<ul>
+<li>실제 블로그를 쓰려고 하니, 이것저것 수정하고 덧붙여야 할 것들이 많아졌다.</li>
+<li>디자인을 빨리 마무리해서 깔끔한 블로그를 만들고 싶다.</li>
+<li>자바스크립트 파일이 점점 지저분해지고 있다. 처음에 막 만들고 수정하기를 반복하다보니, 깔끔하게 작성하기가 힘든 것 같다. 조금씩 수정하면서 개선해야겠다.</li>
+<li>사용자가 어느정도 내 README 파일을 자세히 읽어줄까?</li>
+<li>대충 읽어도 잘 사용할 수 있도록 개선해나가야겠다.</li>
+<li>블로그 만들기를 하니까 시간이 훅훅가서 다른 공부는 잘 못했다. 해야 할 것들이 많은데...</li>
+</ul>
+<h1>내일 할 일 / 앞으로 할 일</h1>
+<ul>
+<li>블로그
+<ul>
+<li>카테고리별로 분류하 듯 태그별로도 분류 할 수 있도록</li>
+<li>디자인 하기.</li>
+<li>javascript highlight 를 어떻게 해줘야 할까.</li>
+<li>날짜순으로 정렬하기.</li>
+<li>포스팅 수와 카테고리 수 표시해주기.</li>
+</ul>
+</li>
+<li>알고리즘 문제풀기</li>
+<li>내일 깃헙 특강들으러 가기</li>
+</ul>
+
+  </div>
+
+</div>
+
+    </div>
+    <div class="sidebar">
+      <!-- folder name -->
+<div>
+  Category
+</div>
+<ul>
+
+  
+
+    <a href="/deploy/category/algorithm.html">
+      <li>
+        Algorithm
+      </li>
+    </a>
+
+    
+
+    <a href="/deploy/category/javascript.html">
+      <li>
+        JavaScript
+      </li>
+    </a>
+
+    
+
+    <a href="/deploy/category/til.html">
+      <li>
+        TIL
+      </li>
+    </a>
+
+    
+</ul>
+
+    </div>
+
+
+  </div>
+  <button id="goUp" onclick="topFunction()">
+    <i class="fas fa-arrow-circle-up"></i>
+  </button>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js">
+  </script>
+  <script>
+    const categoryEl = document.querySelector('.category')
+    const navCategoryEl = document.querySelector('.nav__category')
+    navCategoryEl.addEventListener('click', e => {
+      if (!categoryEl.classList.contains('show')) {
+        categoryEl.classList.add('show')
+        console.log('sldkng')
+
+      } else {
+        categoryEl.classList.remove('show');
+
+        console.log('remove')
+      }
+    })
+    window.onscroll = function () {
+      scrollFunction()
+    }
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('goUp').style.display = "block";
+      } else {
+        document.getElementById('goUp').style.display = 'none';
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+  </script>
+
+</body>
+
+</html>
