@@ -139,6 +139,12 @@ li {
   border-top: 0.1rem solid #f7f7f7;
 }
 
+@media only screen and (min-width: 961px) {
+  .header .nav__category {
+    display: none;
+  }
+}
+
 .header .nav ul {
   padding: 0;
   display: -webkit-box;
@@ -154,7 +160,7 @@ li {
 
 @media only screen and (min-width: 961px) {
   .header .nav ul {
-    padding: 0 15%;
+    padding: 0 10%;
   }
 }
 
@@ -207,6 +213,7 @@ li {
 @media only screen and (min-width: 961px) {
   .main {
     width: 75%;
+    padding-top: 5rem;
   }
 }
 
@@ -222,12 +229,6 @@ li {
 .main .article {
   border-bottom: 1px solid #f7f7f7;
   padding: 1rem;
-}
-
-@media only screen and (min-width: 961px) {
-  .main .article {
-    padding: 4rem 0;
-  }
 }
 
 .main .article .value h1 {
@@ -258,6 +259,12 @@ li {
 
 .list {
   padding: 3rem 1rem;
+}
+
+@media only screen and (min-width: 961px) {
+  .list {
+    padding: 0;
+  }
 }
 
 .list .title {

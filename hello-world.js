@@ -73,10 +73,6 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
 
-// 사용자 정보 읽기
-const author = fs.readFileSync("./author/author.md", "utf8");
-const authorValue = extractedValue(author);
-
 // content 안에 있는 directories 읽기
 let directories = fs.readdirSync(directoryPath);
 
@@ -124,6 +120,10 @@ console.log(categoryByfiles);
 // 컴포넌트, 파일 만들기
 // articles : 모든 post를 모아 놓음 [{value: ..., body:..., fileName: ...html}]형식임
 // categoryByfiles : 카테고리 별로 post를 모아 놓음 [{category:..., files:[{value:..., body: ..., fileName:...,}, {}, {}, {}]}, {category2}...]
+// 사용자 정보 읽기
+const author = fs.readFileSync("./author/author.md", "utf8");
+const authorValue = extractedValue(author);
+
 // header
 const header = ejs.render(headerHtmlFormat, {
   author: authorValue,
@@ -133,7 +133,17 @@ const header = ejs.render(headerHtmlFormat, {
 const sidebar = ejs.render(sidebarHtmlFormat, {
   categories: categoryByfiles
 });
-
+const authorMain = md.render(extractedBody(author));
+const authorHtml = ejs.render(indexHtmlFormat, {
+  header,
+  sidebar,
+  main: authorMain
+});
+dir = `./deploy/author`;
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
+}
+fs.writeFileSync("./deploy/author/author.html", authorHtml);
 //
 categoryByfiles.forEach(category => {
   // category page 생성

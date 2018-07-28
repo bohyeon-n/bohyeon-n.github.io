@@ -124,9 +124,14 @@ li {
         background: $main-bg-color;
         color: $main-font-color;
         border-top: 0.1rem solid $sub-bg-color;
+        &__category {
+            @include bp-pc {
+                display: none;
+            }
+        }
         ul {
             @include bp-pc {
-                padding: 0 15%;
+                padding: 0 10%;
             }
             padding: 0;
             display: flex;
@@ -170,6 +175,7 @@ li {
 .main {
     @include bp-pc {
         width: 75%;
+        padding-top: 5rem;
     }
     .hljs {
         overflow: scroll;
@@ -181,9 +187,7 @@ li {
     .article {
         border-bottom: 1px solid $sub-bg-color;
         padding: 1rem;
-        @include bp-pc {
-            padding: 4rem 0;
-        }
+        @include bp-pc {}
         .value {
             h1 {
                 @include bp-pc {
@@ -208,6 +212,9 @@ li {
 
 .list {
     padding: 3rem 1rem;
+    @include bp-pc {
+        padding: 0;
+    }
     .title {
         font-size: 1rem;
         @include bp-pc {
