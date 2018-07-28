@@ -95,10 +95,12 @@ directories.forEach((directory, index) => {
 
     let value = extractedValue(markdownFile);
     let body = md.render(extractedBody(markdownFile));
-    let category = value.category;
-    let fileName = file.slice(0, file.indexOf(".")) + `.html`;
+    let categoryName = value.category;
+    let folder = value.category.toLocaleLowerCase();
+    let fileName =
+      file.slice(0, file.indexOf(".")).toLocaleLowerCase() + `.html`;
 
-    let i = files.findIndex(o => o.category === category);
+    let i = files.findIndex(o => o.categoryName === categoryName);
     let fileObj = {
       fileName,
       body,
@@ -106,7 +108,8 @@ directories.forEach((directory, index) => {
     };
     if (i < 0) {
       files.push({
-        category: value.category,
+        categoryName,
+        folder,
         files: [fileObj]
       });
     } else {
@@ -117,7 +120,7 @@ directories.forEach((directory, index) => {
 
   categoryByfiles.push(...files);
 });
-
+console.log(categoryByfiles);
 // 컴포넌트, 파일 만들기
 // articles : 모든 post를 모아 놓음 [{value: ..., body:..., fileName: ...html}]형식임
 // categoryByfiles : 카테고리 별로 post를 모아 놓음 [{category:..., files:[{value:..., body: ..., fileName:...,}, {}, {}, {}]}, {category2}...]
@@ -135,8 +138,8 @@ const sidebar = ejs.render(sidebarHtmlFormat, {
 categoryByfiles.forEach(category => {
   // category page 생성
 
-  if (category.category !== undefined) {
-    let dir = `./deploy/${category.category}`;
+  if (category.categoryName !== undefined) {
+    let dir = `./deploy/${category.categoryName}`;
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }
@@ -145,14 +148,16 @@ categoryByfiles.forEach(category => {
 
   const main = ejs.render(listHtmlFormat, {
     files: category.files,
-    category: category.category
+    category: category.categoryName,
+    folder: category.folder
   });
   const indexHtml = ejs.render(indexHtmlFormat, {
     header: header,
     main: main,
     sidebar: sidebar
   });
-  fs.writeFileSync(`./deploy/category/${category.category}.html`, indexHtml);
+
+  fs.writeFileSync(`./deploy/category/${category.folder}.html`, indexHtml);
   // 파일 별로 post page를 생성
   category.files.forEach(file => {
     const article = ejs.render(articleHtmlFormat, {
@@ -165,7 +170,10 @@ categoryByfiles.forEach(category => {
       sidebar: sidebar,
       header: header
     });
-    fs.writeFileSync(`./deploy/${category.category}/${file.fileName}`, html);
+    fs.writeFileSync(
+      `./deploy/${category.categoryName}/${file.fileName}`,
+      html
+    );
   });
 });
 
@@ -181,3 +189,5 @@ html = ejs.render(indexHtmlFormat, {
 });
 
 fs.writeFileSync("./index.html", html);
+
+console.log(categoryByfiles);
