@@ -50,11 +50,10 @@ a {
     }
 }
 
-li {
-    list-style-type: none;
-}
-
 .header {
+    li {
+        list-style-type: none;
+    }
     position: relative;
     background: $main-bg-color;
     display: flex;
@@ -93,7 +92,6 @@ li {
             @include bp-pc {
                 font-size: 2rem;
             }
-            font-family: $font;
             display: flex;
             align-items: center;
             padding-left: 1rem;
@@ -158,6 +156,9 @@ li {
         margin: 0 auto;
     }
     .sidebar {
+        li {
+            list-style-type: none;
+        }
         background: $sub-bg-color;
         padding: 4rem 1.5rem;
         @include bp-pc {
@@ -175,7 +176,6 @@ li {
             overflow: scroll;
             .code__content {
                 width: 100%;
-                font-family: $font;
             }
         }
         .article {

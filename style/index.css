@@ -31,10 +31,6 @@ a:hover {
   color: #3cb371;
 }
 
-li {
-  list-style-type: none;
-}
-
 .header {
   position: relative;
   background: #fff;
@@ -45,6 +41,10 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.header li {
+  list-style-type: none;
 }
 
 .header .user {
@@ -95,7 +95,6 @@ li {
 }
 
 .header .user__username {
-  font-family: "Nanum Gothic Coding", monospace;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -202,6 +201,10 @@ li {
   padding: 4rem 1.5rem;
 }
 
+.content .sidebar li {
+  list-style-type: none;
+}
+
 @media only screen and (min-width: 961px) {
   .content .sidebar {
     margin: 2rem 0 0 2rem;
@@ -223,7 +226,6 @@ li {
 
 .content .main .hljs .code__content {
   width: 100%;
-  font-family: "Nanum Gothic Coding", monospace;
 }
 
 .content .main .article {
