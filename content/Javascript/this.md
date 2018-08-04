@@ -98,4 +98,33 @@ getBalance 가 외부에서 실행되면 this 는 account 입니다. 그러나, 
 
 ## bind
 
-bind 함수는 this 의 문맥을 유지할 때 사용합니다.
+[bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) 함수는 this 의 문맥을 유지할 때 사용합니다.
+
+```js
+const account = {
+  username: "bohyeon",
+  balance: 10000,
+  getBalance: function() {
+    innerFunc = function() {
+      console.log(this === window); // false
+      return `${this.username}님의 잔액은 ${this.balance}입니다.`; //undefined님의 잔액은 undefined입니다.
+    }.bind(this);
+    console.log(innerFunc());
+  }
+};
+account.getBalance(); //bohyeon님의 잔액은 10000입니다.
+```
+
+이렇게 bind 를 사용하여 this 를 원하는 값으로 설정할 수 있습니다.
+
+bind 는 원하는 this 문맥을 가진 새로운 함수를 생성합니다. 첫 번째 매개변수를 bind 에 넘겨줌으로써 this 를 명확하게 설정할 수 있습니다.
+
+그런데, 이렇게 this 의 문맥을 정해주고 싶을 때 마다 bind 를 사용해야 한다면 좀 불편하겠죠?
+
+ES6 문법에서는 화살표 함수(Arrow function)을 제공합니다.
+
+## 화살표 함수
+
+화살표 함수의 이점 중에서도 가장 큰 이점은 this 를 binding 하지 않아도 된다는 것입니다.
+
+https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26
