@@ -8,7 +8,7 @@ description = "프로젝트 정리"
 ## 프로젝트 관리 서비스
 
 [github](https://github.com/bohyeon-n/final-project)
-[](/img/project-manager.png)
+![](/img/project-manager.png)
 
 - 기능
 
