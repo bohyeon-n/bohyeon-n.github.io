@@ -100,13 +100,6 @@
         </li>
       </a>
       
-      <a href="/deploy/category/algorithm.html">
-        <li>
-          Algorithm
-
-        </li>
-      </a>
-      
   </div>
 </div>
 
@@ -1829,11 +1822,11 @@ git push origin &lt;branch&gt; -f
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/Algorithm/project.html">
+          <a href="/deploy/TIL/project.html">
             <h1>
 
 
-              3sumClosest
+              프로젝트
 
             </h1>
           </a>
@@ -1841,7 +1834,7 @@ git push origin &lt;branch&gt; -f
         </div>
         <div class="value__date">
           <span>
-            20180803
+            20180805
           </span>
 
         </div>
@@ -1850,55 +1843,87 @@ git push origin &lt;branch&gt; -f
         </h1>
 
       </div>
-      <pre class="hljs"><code>
-</code></pre>
+      <h2>프로젝트 관리 서비스</h2>
+<p><a href="https://github.com/bohyeon-n/final-project">github</a>
+<a href="/img/project-manager.png"></a></p>
+<ul>
+<li>
+<p>기능</p>
+<ul>
+<li>
+<p>프로젝트를 등록할 수 있으며 프로젝트에 해당하는 이슈를 등록할 수 있습니다.</p>
+</li>
+<li>
+<p>이슈의 상태를 수정할 수 있습니다.</p>
+</li>
+<li>
+<p>프로젝트 멤버들은 이슈를 열람할 수 있으며 코멘트를 작성 할 수 있습니다.</p>
+</li>
+<li>
+<p>기한이 임박한 이슈를 볼 수 있는 기능을 재공하였습니다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>개발 환경</p>
+<ul>
+<li>create-react-app</li>
+<li>axios</li>
+<li>react context</li>
+<li>semantic ui</li>
+</ul>
+</li>
+</ul>
+<h2>블로그 생성 프로그램</h2>
+<p><a href="https://github.com/bohyeon-n/bohyeon-n.github.io">github</a></p>
+<ul>
+<li>
+<p>기능</p>
+<ul>
+<li>
+<p>content 안에 폴더를 만들고 마크다운 파일을 넣는다. node hello-world.js 를 실행하면 deploy 폴더 안에 마크다운 파일이 html 파일로 변환되어 생성됩니다.</p>
+</li>
+<li>
+<p>마크다운 파일 안에서 글에 대한 정보를 넣으면 글의 제목과 날짜 카테고리를 설정할 수 있습니다.</p>
+</li>
+<li>
+<p>마찬가지로 <a href="http://author.md">author.md</a> 에 사용자의 정보를 입력하면 이를 기반으로 about 페이지와 header 를 구성합니다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>개발 환경</p>
+<ul>
+<li>node.js</li>
+<li>ejs template</li>
+<li>scss</li>
+<li>markdown-it</li>
+<li>highlight.js</li>
+</ul>
+</li>
+</ul>
 <p>파일 구조</p>
-<p>blog</p>
-<ul>
-<li>
-<p>index.html</p>
-</li>
-<li>
-<p>author</p>
-<ul>
-<li><a href="http://author.md">author.md</a></li>
-</ul>
-</li>
-<li>
-<p>content</p>
-<ul>
-<li>folder1
-<ul>
-<li><a href="http://hello.md">hello.md</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>deploy</p>
-<ul>
-<li>category1
-<ul>
-<li>hello.html</li>
-</ul>
-</li>
-<li>author
-<ul>
-<li>author.html</li>
-</ul>
-</li>
-<li>category
-<ul>
-<li>category1.html</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>hello-world.js</p>
-</li>
-</ul>
-<pre class="hljs"><code></code></pre>
+<pre class="hljs"><code>blog
+
+- index.html
+- author
+  - author.md
+- content
+
+  - folder1
+    - hello.md
+
+- deploy
+
+  - category1
+    - hello.html
+  - author
+    - author.html
+  - category
+    - category1.html
+
+- hello-world.js
+</code></pre>
 
     </div>
 
@@ -1936,14 +1961,6 @@ git push origin &lt;branch&gt; -f
     <a href="/deploy/category/til.html">
       <li>
         TIL
-      </li>
-    </a>
-
-    
-
-    <a href="/deploy/category/algorithm.html">
-      <li>
-        Algorithm
       </li>
     </a>
 

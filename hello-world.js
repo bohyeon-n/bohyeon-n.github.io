@@ -47,6 +47,7 @@ function extractedValue(md) {
     return value;
   } else {
     str = string[2].match(/[^\r\n]+/g);
+    console.log(str);
     let extractedValue = {};
     str.forEach(value => {
       if (value !== " ") {
@@ -116,7 +117,7 @@ directories.forEach((directory, index) => {
 
   categoryByfiles.push(...files);
 });
-console.log(categoryByfiles);
+
 // 컴포넌트, 파일 만들기
 // articles : 모든 post를 모아 놓음 [{value: ..., body:..., fileName: ...html}]형식임
 // categoryByfiles : 카테고리 별로 post를 모아 놓음 [{category:..., files:[{value:..., body: ..., fileName:...,}, {}, {}, {}]}, {category2}...]
