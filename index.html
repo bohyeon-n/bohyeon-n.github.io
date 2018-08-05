@@ -117,11 +117,11 @@
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/Algorithm/3sumclosest.html">
+          <a href="/deploy/TIL/project.html">
             <h1>
 
 
-              3sumClosest
+              프로젝트
 
             </h1>
           </a>
@@ -129,7 +129,7 @@
         </div>
         <div class="value__date">
           <span>
-            2018-4-01T16:59:13-04:00
+            20180805
           </span>
 
         </div>
@@ -138,85 +138,599 @@
         </h1>
 
       </div>
-      <h1>3Sum Closest</h1>
-<p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
-<p>Example:</p>
-<pre class="hljs block"><code class="html">Given array nums = [<span class="hljs-number">-1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-4</span>], and target = <span class="hljs-number">1.</span>
+      <h2>프로젝트 관리 서비스</h2>
+<p><a href="https://github.com/bohyeon-n/final-project">github</a>
+<img src="/img/project-manager.png" alt=""></p>
+<ul>
+<li>
+<p>기능</p>
+<ul>
+<li>
+<p>프로젝트를 등록할 수 있으며 프로젝트에 해당하는 이슈를 등록할 수 있습니다.</p>
+</li>
+<li>
+<p>이슈의 상태를 수정할 수 있습니다.</p>
+</li>
+<li>
+<p>프로젝트 멤버들은 이슈를 열람할 수 있으며 코멘트를 작성 할 수 있습니다.</p>
+</li>
+<li>
+<p>기한이 임박한 이슈를 볼 수 있는 기능을 제공하였습니다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>개발 환경</p>
+<ul>
+<li>create-react-app</li>
+<li>axios</li>
+<li>react context</li>
+<li>semantic ui</li>
+</ul>
+</li>
+</ul>
+<h2>블로그 생성 프로그램</h2>
+<p><a href="https://github.com/bohyeon-n/bohyeon-n.github.io">github</a></p>
+<ul>
+<li>
+<p>기능</p>
+<ul>
+<li>
+<p>content 안에 폴더를 만들고 마크다운 파일을 넣는다. node hello-world.js 를 실행하면 deploy 폴더 안에 마크다운 파일이 html 파일로 변환되어 생성됩니다.</p>
+</li>
+<li>
+<p>마크다운 파일 안에서 글에 대한 정보를 넣으면 글의 제목과 날짜 카테고리를 설정할 수 있습니다.</p>
+</li>
+<li>
+<p>마찬가지로 <a href="http://author.md">author.md</a> 에 사용자의 정보를 입력하면 이를 기반으로 about 페이지와 header 를 구성합니다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>개발 환경</p>
+<ul>
+<li>node.js</li>
+<li>ejs template</li>
+<li>scss</li>
+<li>markdown-it</li>
+<li>highlight.js</li>
+</ul>
+</li>
+</ul>
+<p>파일 구조</p>
+<pre class="hljs"><code>blog
 
-The sum that is closest to the target is <span class="hljs-number">2.</span> (<span class="hljs-number">-1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">1</span> = <span class="hljs-number">2</span>).
+- index.html
+- author
+  - author.md
+- content
+
+  - folder1
+    - hello.md
+
+- deploy
+
+  - category1
+    - hello.html
+  - author
+    - author.html
+  - category
+    - category1.html
+
+- hello-world.js
 </code></pre>
-<h3>나의 풀이</h3>
-<ol>
-<li>반복문을 돌면서 배열의 세 정수의 조합을 모두 확인한다.</li>
-<li>target 수와 세 정수의 합이 같으면 return 해서 반복문을 종료한다.</li>
-<li>sum 과 target 숫자의 차가 현재 closestSum 과 target 의 숫자의 차보다 작으면 sum 을 closestSum 에 대입한다.</li>
-</ol>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/TIL/0804.html">
+            <h1>
+
+
+              180804TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180804
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>오늘 한 일</h2>
+<p>이력서 작성</p>
+<h2>오늘의 느낀점</h2>
+<p>이력서를 쓰다보니 생각보다 내가 한 일이 없었다. 프로그래밍을 배운 지 5 달 정도 됐는데 딱히 쓸만한 프로젝트도 없는 것 같다.
+좀 더 열심히 공부해야 겟다.
+그런데 집에 내려오니까 공부가 잘 안된다. 에어컨 바람 쐬면서 누워있으니 아무것도 하기가 싫다.
+다시 더운 집으로 가야 겠다.</p>
+<h2>내일 할 일</h2>
 <ul>
-<li>sort 를 사용해서 정렬을 한 후 문제를 풀어보려고 했지만, 잘 되지 않아서 일단은 반복문으로 모든 숫자의 조합을 생각하기로 하였다.</li>
+<li>this 글 마무리하기</li>
+<li>http 책 읽기</li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-comment">//	80 ms</span>
-<span class="hljs-keyword">var</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
-  <span class="hljs-keyword">let</span> closestSum;
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = i + <span class="hljs-number">1</span>; j &lt; nums.length; j++) {
-      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> t = j + <span class="hljs-number">1</span>; t &lt; nums.length; t++) {
-        <span class="hljs-keyword">let</span> sum = nums[i] + nums[j] + nums[t];
-        <span class="hljs-keyword">if</span> (sum === target) {
-          <span class="hljs-keyword">return</span> sum;
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (
-          !closestSum ||
-          <span class="hljs-built_in">Math</span>.abs(closestSum - target) &gt; <span class="hljs-built_in">Math</span>.abs(sum - target)
-        ) {
-          closestSum = sum;
-        }
-      }
-    }
-  }
-  <span class="hljs-keyword">return</span> closestSum;
-};
-</code></pre>
-<h2>다른 사람 풀이</h2>
-<ol>
-<li>nums.length 가 3 보다 작으면 바로 리턴한다.</li>
-<li>nums 배열을 sort 메소드를 사용하여 작은 수 부터 정렬한다.</li>
-<li>반복문을 돈다.</li>
-<li>첫 번 째 숫자를 고정시킨다.</li>
-<li>고정시킨 배열의 첫 번째 숫자와 두 번 째 숫자, 맨 마지막 숫자를 더해준다.</li>
-<li>현재 result 의 값이 없거나, result 와 target 의 차이가 현재 sum 과 target 의 차이값보다 크다면, sum 을 result 에 대입해준다.</li>
-<li>result 값이 target 값보다 작으면, 더 큰 수를 더해줘야 하므로, 정렬된 배열의 두번째 숫자의 인덱스를 ++ 해준다. 반대의 경우라면, 더 작은 수를 더해줘야 하므로 마지막 숫자의 인덱스를 -- 해준다.</li>
-</ol>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/TIL/0802.html">
+            <h1>
+
+
+              180802TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180802
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>오늘 한 일</h2>
 <ul>
-<li>조건에 맞는 정수의 합을 찾기 위해서 반복문을 도는 것은 첫 번째 방식과 비슷하지만, target 과 일치하는 세 정수의 합이 있다면,</li>
-<li>target 과의 차이를 줄여갈 수 있기 때문에</li>
-<li>첫 번째 방식보다 빠르게 찾아낼 수 있다.</li>
+<li>
+<p>글쓰기</p>
+<ul>
+<li>this 와 bind 에 대해서 마무리 하였고 화살표 함수에 대해서 쓰고 있다.</li>
+<li>이번주 주말까지는 완성할 수 있도록 해야 겠다.</li>
+<li>내 생각을 잘 표현하는 것은 어느 곳에서도 중요한 것 같다.</li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">let</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
-  <span class="hljs-keyword">let</span> result;
-  <span class="hljs-keyword">if</span> (nums.length &lt;= <span class="hljs-number">3</span>) {
-    result = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>] + nums[<span class="hljs-number">2</span>];
-    <span class="hljs-keyword">return</span> result;
-  }
-  nums.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length - <span class="hljs-number">2</span>; i++) {
-    <span class="hljs-keyword">let</span> lo = i + <span class="hljs-number">1</span>,
-      hi = nums.length - <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">while</span> (lo &lt; hi) {
-      <span class="hljs-keyword">let</span> sum = nums[i] + nums[lo] + nums[hi];
-      <span class="hljs-keyword">if</span> (sum === target) {
-        <span class="hljs-keyword">return</span> sum;
-      }
-      <span class="hljs-keyword">if</span> (
-        <span class="hljs-keyword">typeof</span> result === <span class="hljs-string">"undefined"</span> ||
-        <span class="hljs-built_in">Math</span>.abs(target - sum) &lt; <span class="hljs-built_in">Math</span>.abs(target - result)
-      ) {
-        result = sum;
-      }
-      sum &gt; target ? hi-- : lo++;
-    }
-  }
-  <span class="hljs-keyword">return</span> result;
-};
+</li>
+<li>
+<p>python 강의 lesson2 완료</p>
+<ul>
+<li>tuples</li>
+<li>sets</li>
+<li>dictionaries</li>
+</ul>
+</li>
+<li>
+<p>http 책</p>
+<ul>
+<li>part5 까지 읽었다.</li>
+</ul>
+</li>
+</ul>
+<h2>오늘의 느낀점</h2>
+<ul>
+<li>이력서에 쓸 프로젝트가 뭐가 있는지 보려고 github 저장소를 살펴보았는데 포트폴리오로 쓸 만한 프로젝트가 없는 것 같았다.</li>
+<li>내일부터 이력서를 쓰면서 정리를 해봐야겠다.</li>
+</ul>
+<h2>내일 할 일</h2>
+<ul>
+<li>이력서 쓰기</li>
+<li>http 책 읽기</li>
+</ul>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/TIL/0801.html">
+            <h1>
+
+
+              180801TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180801
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>오늘 한 일</h2>
+<ul>
+<li>
+<p>프로젝트 구상하기</p>
+<ul>
+<li>개인 강습 강사를 위한 CRM 서비스</li>
+<li>가장 기본적인 기능과 추가적인 기능을 생각했다.</li>
+</ul>
+</li>
+<li>
+<p>HTTP 책 읽기</p>
+<ul>
+<li>request 의 종류까지 읽었다.</li>
+<li>옛날 책이라 http 1.1 에 대해서 설명하고 있다.</li>
+</ul>
+</li>
+<li>
+<p>python 기본 강의</p>
+<ul>
+<li>intergers and floats</li>
+<li>booleans</li>
+<li>string</li>
+<li>type</li>
+<li>string method</li>
+<li>list</li>
+<li>javascript 로 길게 쓰던 것을 string method 를 사용하면 쉽게 할 수 있었다.</li>
+</ul>
+</li>
+<li>
+<p>글 쓰기</p>
+<ul>
+<li>this 와 bind 에 대해서 글을 쓰고 있다.</li>
+<li>확실히 알지 못하는 개념에 대해 글을 쓰려다 보니까 내가 쓴 문장에 대해 확신도 안가고 어렵다.</li>
+<li>그래도 그냥 공부하는 것 보다는 좀 더 많이 알아야 글을 쓸 수 있어서 공부하기에 좋은 것 같다.</li>
+</ul>
+</li>
+</ul>
+<h2>오늘의 느낀점</h2>
+<p>하루에 여러 개를 이것저것 하려다 보니까 딱히 한 게 없는 것 같은 기분이다.
+프로젝트를 금요일까지는 데이터 구조, 기능, 화면, 스토리를 구상해서 시작해야 겠다.
+일단은 기본적인 기능을 완성하는 데도 어려울 것 같아서 일단은 최소한의 기능 구현을 목표로 해야겠다.</p>
+<h2>내일 할 일</h2>
+<ul>
+<li>
+<p>프로젝트 데이터 구조 설계</p>
+</li>
+<li>
+<p>확실히 어떤 서비스까지 제공할 것인지 정하기</p>
+</li>
+<li>
+<p>대략적인 화면 구상하기</p>
+</li>
+<li>
+<p>http 책 읽기</p>
+</li>
+<li>
+<p>python lesson2 완료하기</p>
+</li>
+</ul>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/JavaScript/this.html">
+            <h1>
+
+
+              this,javascript
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180731
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <p>서론: this 란 무엇인가?
+본론:</p>
+<ul>
+<li>this 의 동작 방식? 규칙</li>
+<li>해결 방법
+<ul>
+<li>bind</li>
+<li>arrow function</li>
+</ul>
+</li>
+</ul>
+<p>결론:
+...</p>
+<h2>this</h2>
+<p>this 는 생성자 혹은 메소드에서 객체를 가리킬 때 사용하는 키워드입니다.</p>
+<p>this 는 이럴 때 사용합니다!</p>
+<ol>
+<li>새로 만들어지는 객체에 생성자의 속성을 넣어줄 때 사용합니다.</li>
+<li>객체의 속성에 접근(메소드에서 사용하는 this)할 때 사용합니다.</li>
+</ol>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">username, balance</span>) </span>{
+  <span class="hljs-comment">// 속성</span>
+  <span class="hljs-keyword">this</span>.username = username;
+  <span class="hljs-keyword">this</span>.balance = balance;
+  <span class="hljs-comment">// 메소드</span>
+  <span class="hljs-keyword">this</span>.getBalance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+  };
+  <span class="hljs-keyword">this</span>.deposit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
+    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
+  };
+}
+
+account = <span class="hljs-keyword">new</span> Account(<span class="hljs-string">"bohyeon"</span>, <span class="hljs-number">20000</span>);
+account.getBalance();
+account.deposit(<span class="hljs-number">2000</span>);
+account.getBalance();
 </code></pre>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//this키워드를 사용하여 객체의 속성이 username과 balance에 접근하고 있다.</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+  },
+  <span class="hljs-attr">deposit</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
+    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
+  }
+};
+
+account.getBalance();
+account.deposit(<span class="hljs-number">20000</span>);
+account.getBalance();
+</code></pre>
+<p>this 는 때에 따라 다른 값을 가리킨다. 어떠한 문맥이냐에 따라서 그 값이 바뀝니다.</p>
+<ol>
+<li>Global scope 에서 사용될 때 this 는 전역 객체를 가리킵니다.(window 객체)</li>
+<li>함수에서 사용될 때에도 this 는 전역 객체를 가리킵니다.</li>
+<li>객체에 속한 메소드에서 사용될 때 this 는 메소드가 속한 객체를 가리킵니다.</li>
+<li>객체에 속한 메소드의 내부함수에서 사용될 때 this 는 <strong>전역 객체</strong>를 가리킵니다.</li>
+<li>생성자에서 사용될 때 this 는 이 생성자로 인해 생성된 새로운 객체를 가리킵니다.</li>
+</ol>
+<p>4 번, 객체에 속한 메소드의 내부함수에서 사용되는 경우를 자세히 살펴보도록 하겠습니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
+    };
+    <span class="hljs-built_in">console</span>.log(innerFunc());
+  }
+};
+account.getBalance();
+</code></pre>
+<p>getBalance 가 외부에서 실행되면 this 는 account 입니다. 그러나, getBalance 함수 내부에서 innerFunc 를 호출 할 때는 그 어떤 문맥도 지정하지 않았기 때문에 innerFunc 의 this 가 window 가 됩니다.</p>
+<h2>bind</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> 함수는 this 의 문맥을 유지할 때 사용합니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
+    }.bind(<span class="hljs-keyword">this</span>);
+    <span class="hljs-built_in">console</span>.log(innerFunc());
+  }
+};
+account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
+</code></pre>
+<p>이렇게 bind 를 사용하여 this 를 원하는 값으로 설정할 수 있습니다.</p>
+<p>bind 는 원하는 this 문맥을 가진 새로운 함수를 생성합니다. 첫 번째 매개변수를 bind 에 넘겨줌으로써 this 를 명확하게 설정할 수 있습니다.</p>
+<p>그런데, 이렇게 this 의 문맥을 정해주고 싶을 때 마다 bind 를 사용해야 한다면 좀 불편하겠죠?</p>
+<p>ES6 문법에서는 화살표 함수(Arrow function)을 제공합니다.</p>
+<h2>화살표 함수</h2>
+<p>화살표 함수의 이점 중에서도 가장 큰 이점은 this 를 binding 하지 않아도 된다는 것입니다.</p>
+<p><a href="https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26">https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26</a></p>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/TIL/0728.html">
+            <h1>
+
+
+              0728TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180728
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>오늘 한 일</h2>
+<ul>
+<li>
+<p>블로그 만들기</p>
+</li>
+<li>
+<p>파일 이름이 대문자에서 소문자, 소문자에서 대문자로 바뀌면 인식하지 못해서 파일명을 바꿔주지 않았다.</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/10523849/changing-capitalization-of-filenames-in-git">Changing capitalization of filenames in Git / stack overflow</a></li>
+</ul>
+</li>
+<li>
+<p>파일 이름을 소문자로 생성하기로 하였다.</p>
+</li>
+</ul>
+<p><strong>HTML Naming Rules</strong></p>
+<ul>
+<li>
+<p>index.html 은 브라우저의 defualt 문서이다. home page 는 index.html 파일명을 사용한다.</p>
+</li>
+<li>
+<p><code>-</code>(dash), <code>_</code>(underscore)와 <code>~</code>(tilde)를 제외하고 파일 이름은 알파벳과 숫자 등 문자로 이루어져야 한다.</p>
+</li>
+<li>
+<p>스페이스를 사용하지 않는다.</p>
+</li>
+<li>
+<p>소문자를 사용한다.</p>
+</li>
+<li>
+<p>폰트사이즈와 사이드바 에러</p>
+<ul>
+<li>로컬에 서버를 띄우고 블로그를 보면 폰트와 사이드바의 width 가 일정하게 유지되는데</li>
+<li>github page 에서 보면 페이지마다 sidebar 의 width 가 달라지고 font 의 크기가 더 커진다.</li>
+<li>개발자 도구로 확인할 떄는 폰트 사이즈가 똑같은데, 보이기에는 달라보인다.</li>
+<li>폰트 사이즈 때문에 사이드바의 넓이가 달라지는 것이었다.</li>
+<li>main 과 sidebar 의 크기를 75% 25%로 주었는데</li>
+</ul>
+</li>
+<li>
+<p>프로젝트 구상하기</p>
+</li>
+</ul>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/TIL/0725.html">
+            <h1>
+
+
+              0725TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180725
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h1>오늘 한 일</h1>
+<ul>
+<li>
+<p>블로그 반응형으로 만들기</p>
+<ul>
+<li>일단은 모바일 버전으로 디자인을 하고 있다.</li>
+<li>홈 화면만 하는데도 시간이 오래 걸린다.😭</li>
+<li>화면 전체적으로 수평으로 스크롤바가 생김<pre class="hljs block"><code class="html">overflow-x: hidden
+</code></pre>
+</li>
+<li>node.modules 를 gitigonre 안해줬더니 github page 빌드가 안되었다.</li>
+<li>push 취소를 하고 gitigonre 해서 다시 push 함</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-comment">// git push 취소하기</span>
+<span class="hljs-comment">//(여러 번 하면 계속해서 취소된다.)</span>
+git reset HEAD~<span class="hljs-number">1</span>
+git push origin &lt;branch&gt; -f
+</code></pre>
+<pre class="hljs"><code>- highlight.js 적용
+
+```js
+//index.html에 script추가
+&lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js&quot; /&gt;
+
+// markdown을 require할 때 highlight 설정을 해줌
+</code></pre>
+<ul>
+<li>
+<p>모바일 버전에서는 sidebar 가 없이 category 로 제공하는 것이 좋을 것 같다고 생각함</p>
+</li>
+<li>
+<p>sass 를 이용해서 toggle 로 category 를 보여줌</p>
+</li>
+<li>
+<p>fontawesome 에서 icon 을 받았는데 github 에 올리니까 github page 에서는 렌더링이 안됨.</p>
+<ul>
+<li>node.modules 폴더를 ignore 해서 그런 것 같다.</li>
+</ul>
+</li>
+</ul>
+<h1>오늘의 느낀점</h1>
+<ul>
+<li>데스크탑에서는 사이드바가 있는 것이 더 좋은걸까? 잘 모르겠다.</li>
+<li>이번주까지는 블로그를 끝내자!!!!!!!!</li>
+<li>너무 더워 😱😱</li>
+</ul>
+<h1>내일 할 일 &amp; 앞으로 할 일</h1>
+<ul>
+<li>디자인 마무리 하기.
+<ul>
+<li>category 별 화면 디자인하기</li>
+</ul>
+</li>
+<li>about 화면 만들기</li>
+<li>홈 화면에서 pagination</li>
+<li>댓글 기능</li>
+<li>책읽기</li>
+</ul>
 
     </div>
 
@@ -296,11 +810,11 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/Algorithm/fibonacci.html">
+          <a href="/deploy/TIL/0723.html">
             <h1>
 
 
-              피보나치수구현하기
+              7월23일TIL
 
             </h1>
           </a>
@@ -308,7 +822,7 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
         </div>
         <div class="value__date">
           <span>
-            2018-4-01T16:59:13-04:00
+            20180723
           </span>
 
         </div>
@@ -317,95 +831,49 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
         </h1>
 
       </div>
-      <h1>피보나치 수 구현하기</h1>
-<p>피보나치 수를 구현하는 방법에는 두 가지가 있습니다.</p>
+      <h1>오늘 한 일</h1>
 <ul>
-<li>재귀함수를 사용하는 방법</li>
-<li>반복문을 사용하는 방법</li>
+<li>
+<p>블로그 만들기</p>
+<ul>
+<li>헤더, 사이드바, 메인 레이아웃을 구상했다.</li>
+<li>메인 페이지에서 글의 내용을 보이게 하였다.</li>
+<li>category 를 입력받아서 카테고리 폴더를 생성하였고 그 안에 파일을 생성하였다.</li>
+<li>사용자에게 auth 를 md 파일로 받아서 블로그 이름, 소개, 이미지를 받아서 헤더에 보여주게 하였다.</li>
+<li>나눴던 html 컴포넌트?를 다시 정의하여 index.html 에서만 조합하도록 하였다. 큰 틀을 header, sidebar, main 으로하였고 main 의 내용만 변경하는 식으로 템플릿을 사용하였다.</li>
+<li>gihub page 에서 css 폴더 안에다 css 파일을 넣으니 제대로 작동하지 않았다. 찾아보니 style 폴더 안에 넣으면 된다고 style 폴더에 넣었더니 제대로 작동되었다.</li>
+<li>github 에서 특정 형식에 맞춰 쓴 폴더만 읽게 하는 걸까?</li>
 </ul>
-<h2>피보나치 수란?</h2>
-<p>피보나치 수는 다음과 같이 정의되는 수열입니다.</p>
-<p><img src="/img/fibonacci-definition.png" alt="피보나치 수 정의"></p>
-<p>fibonacci 수열은 0 1 1 2 3 5 8 13... 입니다.
-앞에 있는 두 수를 더하여 그 다음의 수를 얻을 수 있습니다.</p>
-<p>첫 번째 수와 두 번째 수는 0 과 1 로 정해져있습니다.</p>
-<p>그 다음 n 번 째 피보나치 수는 (n-1 번 째 피보나치 수)+(n-2 번 째 피보나치 수)입니다.</p>
-<h2>재귀함수로 피보나치 수 구현하기</h2>
-<p>피보나치 수를 재귀함수로 구현하면 다음과 같습니다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
-  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-  }
-  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">2</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-  }
-  <span class="hljs-keyword">return</span> fibonacci(num - <span class="hljs-number">1</span>) + fibonacci(num - <span class="hljs-number">2</span>);
-}
-</code></pre>
-<p>5 번째 피보나치 수를 계산하는 과정을 그림으로 표현하면 다음과 같습니다.</p>
-<pre class="hljs block"><code class="html">                         fib(<span class="hljs-number">5</span>)
-                     /
-               fib(<span class="hljs-number">4</span>)                fib(<span class="hljs-number">3</span>)
-             /                      <span class="hljs-regexp">/
-         fib(3)      fib(2)         fib(2)    fib(1)
-        /</span>
-  fib(<span class="hljs-number">2</span>)   fib(<span class="hljs-number">1</span>)
-</code></pre>
-<p>fibonacci(5)는 fibonacci(4) + fibonacci(3)을 계산하기 위해 fibonacci(4)를 호출합니다.
-이처럼 자기 자신을 호출하는 함수를 재귀함수라고 합니다.</p>
-<p>fibonacci(4)는 fibonacci(3) + fibonacci(2)를 호출합니다.</p>
-<p>fibonacci(3)은 fibonacci(2) + fibonacci(1)를 호출합니다.
-여기서 fibonacci(2) 와 fibonacci(1)의 값은 1 과 0 으로 정하였으므로 더이상 함수를 부르지 않고 값이 계산되어 나오게 됩니다.
-fibonacci(3)은 0+1 인 1 이 됩니다.</p>
-<p>그 다음 fibonacci(4)를 계산하려고 호출했던 fobonacci(2)를 계산합니다.
-fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
-위와 같은 과정을 거쳐야 fibonacci(5)를 구할 수 있습니다.</p>
-<p>만약 fibonacci(5)가 아닌 fibonacci(100), fibonacci(1000)이면 어떨까요?</p>
-<p>5 번째 피보나치 수를 구하기 위해서는 함수를 9 번 호출해야 합니다. 10 번째 피보나치 수는 109 번, 20 번 째 피보나치 수는 13529 번, 30 번 째 피보나치 수는 1664079 번 함수를 호출해야 합니다.</p>
-<p>다음은 피보나치 수를 구하는 함수의 실행시간 그래프입니다.
-구하려는 피보나치 수가 커질수록 급격하게 그래프가 치솟는 것을 볼 수 있습니다.</p>
-<p><img src="/img/fibonaccitime.png" alt="실행시간"></p>
-<h2>함수 스택</h2>
-<p>피보나치 수가 커질수록 함수 실행시간이 급격히 증가하는 이유는 무엇일까요
-함수가 계산되는 방식때문입니다.</p>
-<p>함수가 호출 될 때 메모리블록을 할당받게 됩니다. 이 블록들이 쌓이는 곳을 스택프레임이라고 합니다.
-함수가 return 되면 할당받았던 메모리블록은 스텍프레임에서 사라지게 됩니다. 함수는 가장 나중에 넣은 메모리블록이 가장 먼저 나오는 LIFO(last in first out)의 구조입니다.</p>
-<p><img src="/img/Call-stack-of-Fibonacci.jpg" alt="stack"></p>
-<p><a href="http://knowledge-cess.com/recursion-vs-iteration-an-analysis-fibonacci-and-factorial/">이미지 출처</a></p>
-<p>n 번 째 피보나치 수를 계산 할 때 스텍프레임에 메모리블록들이 쌓이다가 fibonacci(2)와 fibonaci(1)이 나와야만 미리 약속한 값인 0 과 1 로 꺼낼 수 있습니다.
-그러나 한 번 꺼낸 값이 스택에 저장되는 것이 아닙니다. 계산이 끝나 return 하게 되면 기존에 선언한 변수는 스택에서 사라지게 됩니다. 그렇기 때문에 그 전에 fibonacci(3)을 계산하였어도 다시 한번 함수를 불러 계산해야 합니다.</p>
-<h2>반복문으로 피보나치수 구하기</h2>
-<p>피보나치 수를 구하는 또다른 방법은 반복문을 사용하는 것 입니다.
-반복문을 이용하여 n 번째 피보나치 수를 구하면 대략 n 번만 반복하여 결과를 얻을 수 있습니다.
-재귀함수를 사용하는 것 보다 훨씬 더 효율적입니다.
-이제 100 번 째 1000 번째 피보나치수를 구하더라도 브라우저가 멈추지 않을 것 입니다.</p>
-<p>반복문을 사용한 피보나치 함수를 구현하면 다음과 같습니다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
-  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-  }
-  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">2</span>) {
-    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-  }
-  <span class="hljs-keyword">var</span> prepre = <span class="hljs-number">0</span>;
-  <span class="hljs-keyword">var</span> pre = <span class="hljs-number">1</span>;
-  <span class="hljs-keyword">var</span> fib;
-  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">2</span>; i &lt; num; i++) {
-    fib = pre + prepre;
-    prepre = pre;
-    pre = fib;
-  }
-  <span class="hljs-keyword">return</span> fib;
-}
-</code></pre>
-<p>지금까지 재귀함수와 반복문, 두 가지 방법으로 피보나치 수를 구현해 보았습니다.</p>
-<p>재귀함수를 사용하는 방법이 직관적이고 이해하기 쉬운 방식이지만 수가 커질수록 스택의 깊이는 깊어지고 함수 실행 시 많은 시간이 소요됩니다.
-이런 문제점 때문에 재귀함수를 사용하는 대신, 반복문을 사용하여 필요한 값을 계속해서 변수에 저장하는 방식으로 피보나치 수를 구현하였습니다.</p>
-<p>단순히 함수를 구현하여 결과를 얻는 것뿐만 아니라 그 과정의 비용도 생각해야 합니다.</p>
-<h2>참고자료</h2>
+</li>
+<li>
+<p>알고리즘 문제 풀이</p>
 <ul>
-<li><a href="https://ko.wikipedia.org/wiki/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98_%EC%88%98">위키백과 피보나치 수</a></li>
-<li><a href="https://homoefficio.github.io/2015/07/27/%EC%9E%AC%EA%B7%80-%EB%B0%98%EB%B3%B5-Tail-Recursion/">HomoEfficio 님의 블로그/재귀, 반복, Tail Recursion</a></li>
+<li>Best Time to Buy and Sell Stock</li>
+</ul>
+</li>
+</ul>
+<h1>오늘의 느낀점</h1>
+<ul>
+<li>실제 블로그를 쓰려고 하니, 이것저것 수정하고 덧붙여야 할 것들이 많아졌다.</li>
+<li>디자인을 빨리 마무리해서 깔끔한 블로그를 만들고 싶다.</li>
+<li>자바스크립트 파일이 점점 지저분해지고 있다. 처음에 막 만들고 수정하기를 반복하다보니, 깔끔하게 작성하기가 힘든 것 같다. 조금씩 수정하면서 개선해야겠다.</li>
+<li>사용자가 어느정도 내 README 파일을 자세히 읽어줄까?</li>
+<li>대충 읽어도 잘 사용할 수 있도록 개선해나가야겠다.</li>
+<li>블로그 만들기를 하니까 시간이 훅훅가서 다른 공부는 잘 못했다. 해야 할 것들이 많은데...</li>
+</ul>
+<h1>내일 할 일 / 앞으로 할 일</h1>
+<ul>
+<li>블로그
+<ul>
+<li>카테고리별로 분류하 듯 태그별로도 분류 할 수 있도록</li>
+<li>디자인 하기.</li>
+<li>javascript highlight 를 어떻게 해줘야 할까.</li>
+<li>날짜순으로 정렬하기.</li>
+<li>포스팅 수와 카테고리 수 표시해주기.</li>
+</ul>
+</li>
+<li>알고리즘 문제풀기</li>
+<li>내일 깃헙 특강들으러 가기</li>
 </ul>
 
     </div>
@@ -420,11 +888,11 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/Algorithm/sortcolor.html">
+          <a href="/deploy/TIL/0722.html">
             <h1>
 
 
-              sortcolors
+              블로그만들기
 
             </h1>
           </a>
@@ -432,7 +900,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
         </div>
         <div class="value__date">
           <span>
-            2018-7-18T23:59:13-04:00
+            20180722
           </span>
 
         </div>
@@ -441,71 +909,166 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
         </h1>
 
       </div>
-      <h1>sort colors</h1>
-<p>Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
-<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
-<h1>나의 풀이</h1>
+      <h1>오늘 한 일</h1>
+<ul>
+<li>블로그를 만들어서 기존의 블로그를 내가 만든 블로그로 옮겼다.</li>
+<li>정규 표현식에서 .는 엔터 문자를 제외했기 때문에 기존의 코드가 잘 작동되지 않았던 것이다.</li>
+<li>정규 표현식을 사용해서 마크다운에 있는 글에 대한 정보를 받을 수 있게 하였다.</li>
+<li>아직은 title 과 date 만 받고 있다.</li>
+<li>실제로 블로그를 사용하면서 발전시키면 좋을 것 같다.</li>
+<li>고쳐야 할 점이 많은 것 같다.</li>
+<li>github page 에서 프론트 페이지는 index.html 파일이 있어야 하며, 가장 상위에 위치해야 한다.</li>
+<li>다른 html 파일이 함께 있으면 프론트페이지로 잘 나오지가 않았다.</li>
+<li>그래서 처음 나오는 index.html 을 제외하고 다른 파일로 옮겼다.</li>
+</ul>
+<h1>오늘 느낀점</h1>
+<ul>
+<li>실제로 블로그로 사용하려고 하다보니 이것저것 해야 할 일이 많은 것 같다.</li>
+<li>이번주까지를 목표로 잡고 디자인까지 완성하고 싶다.</li>
+<li>정규 표현식 사용하기 어렵다 😭</li>
+<li>영어로 잘 하고 싶다.</li>
+<li>내일 더 열공해야지</li>
+</ul>
+<h1>내일 할 일</h1>
 <ul>
 <li>
-<p>in-place 알고리즘이란 원소들의 개에 비해서 충분히 무시할 만한 저장 공간만을 더 사용하여 정렬 알고리즘들을 의미한다.</p>
+<p>블로그 만들기</p>
+<ul>
+<li>태그 받아서 메인화면에서 태그 사용해보기</li>
+<li>디자인하기</li>
+<li>날짜로 정렬하기</li>
+</ul>
 </li>
 <li>
-<p>버블 정렬</p>
+<p>알고리즘 문제풀기</p>
+</li>
+<li>
+<p>통신 공부하기</p>
+</li>
+</ul>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/TIL/0721.html">
+            <h1>
+
+
+              djangogirls!
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180721
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h1>오늘 한 일</h1>
+<h2>장고로 블로그 만들기!</h2>
+<p>어제 오늘, 이틀동안 장고걸스 워크숍에 참여하였다.</p>
+<p><a href="https://tutorial.djangogirls.org/ko/">장고걸스 튜토리얼</a>을 따라하면서 블로그를 만들었다!</p>
+<p>장고란?</p>
 <ul>
-<li>두 인접한 원소를 검사하여 큰 수를 뒤로 보내는 간단한 알고리즘</li>
-<li>다른 정렬 알고리즘에 비해 속도가 상당히 느리다.</li>
+<li>
+<p>파이썬으로 서버를 쉽고 빠르게 만들 수 있게 해주는 프레임워크이다.</p>
+</li>
+<li>
+<p>MVC 패턴 기반의 MVT(Model-View-Controller 를 기반한 프레임워크)</p>
+<ul>
+<li>Model: 데이터를 의미.</li>
+<li>View: 데이터를 입력 받거나 표시하는 컴포넌트(MVC 패턴의 Controller 에 속한다)</li>
+<li>Template: 사용자에게 보여주는 부분 MVC 패턴의 View 에 속한다.</li>
 </ul>
 </li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; nums.length - i; j++) {
-      <span class="hljs-keyword">if</span> (nums[j] &gt; nums[j + <span class="hljs-number">1</span>]) {
-        <span class="hljs-keyword">let</span> temp = nums[j];
-        nums[j] = nums[j + <span class="hljs-number">1</span>];
-        nums[j + <span class="hljs-number">1</span>] = temp;
-      }
-    }
-  }
-};
-</code></pre>
-<h1>다른 사람 풀이</h1>
+<p><a href="http://koobohyeon.pythonanywhere.com/">오늘 만든 블로그</a></p>
+<p>몇 시간 동안 튜토리얼만 따라했는데 관리자 계정 기능과 글쓰기, 수정하기 기능이 있는 블로그가 완성되었다!</p>
+<p>장고는 정말 쉽고 빠르게 서버를 만드는 프레임워크라는 것을 몸소 느끼게 되었다.</p>
+<p>몇 줄의 코드만 추가했는데 블로그가 만들어지다니 😱</p>
+<p>파이썬 언어를 처음 사용해봤는데 자바스크립트와 정말 비슷해서 큰 어려움 없이 이해할 수 있었다.</p>
+<p>이틀동안 새로운 사람들도 만나고 장고와 파이썬, 새로운 것들도 배울 수 있어서 너무 좋았다.</p>
+<h1>오늘의 느낀점</h1>
 <ul>
-<li>low, high, index 변수가 있다.</li>
-<li>nums 배열을 돌면서 확인한다.</li>
-<li>0 이면, nums[low]에 위치한다.</li>
-<li>low++ index++ 를 해준다. 0, 가장 낮은 수 이므로 고정시키면 되기 때문에 이제 더 이상 볼 필요가 없어졌다.</li>
-<li>다시 nums[index]를 확인한다.</li>
-<li>1 이면, index++ 를 해서 다음 숫자를 확인한다.</li>
-<li>2 이면, nums[high] nums 배열의 끝에 위치하고, 2 도 가장 큰 수이므로, 더이상 확인할 필요가 없으므로, nums[high]에 고정시키면 된다. high-- 해준다.</li>
-<li>계속해서 반복하다보면, 0 과 2 는 앞 뒤로 위치된다.</li>
-<li>1 은 자동으로 그 사이에 위치된다.</li>
+<li>서버를 어느정도는 이해할 수 있는 프론트엔드 개발자가 되자!</li>
+<li>파이썬 언어를 배워보자!</li>
+<li>request, response, http, server, client 에 대한 개념이 부족한 것 같다. 공부하자!</li>
 </ul>
+<h1>내일 할 일</h1>
 <ul>
-<li>나는 언제쯤 이런 생각을 할 수 있을까... 😱</li>
+<li>그림을 배우는 http network basic 읽기</li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
-  <span class="hljs-keyword">let</span> temp,
-    lo = <span class="hljs-number">0</span>,
-    hi = nums.length - <span class="hljs-number">1</span>;
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;= hi; ) {
-    <span class="hljs-keyword">if</span> (nums[i] === <span class="hljs-number">0</span>) {
-      temp = nums[i];
-      nums[i] = nums[lo];
-      nums[lo] = temp;
-      lo++;
-      i++;
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums[i] === <span class="hljs-number">2</span>) {
-      temp = nums[i];
-      nums[i] = nums[hi];
-      nums[hi] = temp;
-      hi--;
-    } <span class="hljs-keyword">else</span> {
-      i++;
-    }
-  }
-};
-</code></pre>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/TIL/0719.html">
+            <h1>
+
+
+              0719TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180719
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <p>이 내용을 뺴고 html 파일을 만들 것</p>
+<ul>
+<li>
+<p>날짜 순서대로 home 화면에서 정렬하여 보여주기</p>
+</li>
+<li>
+<p>사이드바에 있는 폴더 클릭 시에 보여주는 파일리스트를 사용자에게 받은 title 로 바꾸기</p>
+</li>
+<li>
+<p>블로그 디자인 예쁘게 하기</p>
+</li>
+<li>
+<p>검색기능 만들어보기</p>
+</li>
+<li>
+<p>javascript 공부하기</p>
+</li>
+<li>
+<p>algorithm 문제 풀기</p>
+</li>
+</ul>
 
     </div>
 
@@ -531,7 +1094,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
         </div>
         <div class="value__date">
           <span>
-            2018-7-19T22:59:13-04:00
+            20180719
           </span>
 
         </div>
@@ -812,11 +1375,11 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/JavaScript/this.html">
+          <a href="/deploy/TIL/0718.html">
             <h1>
 
 
-              this,javascript
+              0718TIL
 
             </h1>
           </a>
@@ -824,7 +1387,7 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
         </div>
         <div class="value__date">
           <span>
-            20180731
+            20180718
           </span>
 
         </div>
@@ -833,105 +1396,194 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
         </h1>
 
       </div>
-      <p>서론: this 란 무엇인가?
-본론:</p>
+      <h1>오늘 한 일</h1>
+<h2>create-blog-project</h2>
 <ul>
-<li>this 의 동작 방식? 규칙</li>
-<li>해결 방법
+<li>sidebar main, home 을 분리하여 재사용할 수 있도록 만들었다.</li>
+<li><code>&lt;%- sidebar %&gt;</code>이렇게 써줘야 이스케이프 처리를 하지 않는다. 변환되지 않고 입력한대로 사용할 수 있다!</li>
+<li>markdown parser markdown-it 을 사용하여 사용자가 content 폴더에 md 파일을 추가하면 html 파일로 변환해서 보여준다.</li>
+<li>폴더 리스트나, 파일 리스트를 읽어올 때 사용자가 입력한 폴더에서 읽어와야 하는지, 내가 새로 변환해서 만들어놓은 폴더에서 읽어와야 하는지 잘 모르겠다.</li>
+<li>지금은 변환하기 전에 사용자가 입력한 폴더에서 리스트와 파일들의 목록을 불러와서 변환하고 변환한 파일을 화면에서 보여주고 있다.</li>
+<li>폴더를 어떻게 정리해야 할 지 잘 모르겠다.</li>
+</ul>
+<h2>Algorithm</h2>
 <ul>
-<li>bind</li>
-<li>arrow function</li>
+<li>어제 푼 sort colors 알고리즘 문제를 다른 사람 풀이를 참조하여 다시 풀어보았다.</li>
+</ul>
+<h2>javascript</h2>
+<ul>
+<li>javascript 교재 객체 복습 중</li>
+<li>객체, 프로토타입, bind, this, 화살표 함수에대해 정리해야겠다.</li>
+</ul>
+<h1>내일 할 일</h1>
+<ul>
+<li>자바스크립트 공부</li>
+<li>algorithm 문제 풀기</li>
+<li>blog 만들기</li>
+</ul>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/Algorithm/sortcolor.html">
+            <h1>
+
+
+              sortcolors
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180718
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h1>sort colors</h1>
+<p>Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
+<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
+<h1>나의 풀이</h1>
+<ul>
+<li>
+<p>in-place 알고리즘이란 원소들의 개에 비해서 충분히 무시할 만한 저장 공간만을 더 사용하여 정렬 알고리즘들을 의미한다.</p>
+</li>
+<li>
+<p>버블 정렬</p>
+<ul>
+<li>두 인접한 원소를 검사하여 큰 수를 뒤로 보내는 간단한 알고리즘</li>
+<li>다른 정렬 알고리즘에 비해 속도가 상당히 느리다.</li>
 </ul>
 </li>
 </ul>
-<p>결론:
-...</p>
-<h2>this</h2>
-<p>this 는 생성자 혹은 메소드에서 객체를 가리킬 때 사용하는 키워드입니다.</p>
-<p>this 는 이럴 때 사용합니다!</p>
-<ol>
-<li>새로 만들어지는 객체에 생성자의 속성을 넣어줄 때 사용합니다.</li>
-<li>객체의 속성에 접근(메소드에서 사용하는 this)할 때 사용합니다.</li>
-</ol>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">username, balance</span>) </span>{
-  <span class="hljs-comment">// 속성</span>
-  <span class="hljs-keyword">this</span>.username = username;
-  <span class="hljs-keyword">this</span>.balance = balance;
-  <span class="hljs-comment">// 메소드</span>
-  <span class="hljs-keyword">this</span>.getBalance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-  };
-  <span class="hljs-keyword">this</span>.deposit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
-    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
-  };
-}
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; nums.length - i; j++) {
+      <span class="hljs-keyword">if</span> (nums[j] &gt; nums[j + <span class="hljs-number">1</span>]) {
+        <span class="hljs-keyword">let</span> temp = nums[j];
+        nums[j] = nums[j + <span class="hljs-number">1</span>];
+        nums[j + <span class="hljs-number">1</span>] = temp;
+      }
+    }
+  }
+};
+</code></pre>
+<h1>다른 사람 풀이</h1>
+<ul>
+<li>low, high, index 변수가 있다.</li>
+<li>nums 배열을 돌면서 확인한다.</li>
+<li>0 이면, nums[low]에 위치한다.</li>
+<li>low++ index++ 를 해준다. 0, 가장 낮은 수 이므로 고정시키면 되기 때문에 이제 더 이상 볼 필요가 없어졌다.</li>
+<li>다시 nums[index]를 확인한다.</li>
+<li>1 이면, index++ 를 해서 다음 숫자를 확인한다.</li>
+<li>2 이면, nums[high] nums 배열의 끝에 위치하고, 2 도 가장 큰 수이므로, 더이상 확인할 필요가 없으므로, nums[high]에 고정시키면 된다. high-- 해준다.</li>
+<li>계속해서 반복하다보면, 0 과 2 는 앞 뒤로 위치된다.</li>
+<li>1 은 자동으로 그 사이에 위치된다.</li>
+</ul>
+<ul>
+<li>나는 언제쯤 이런 생각을 할 수 있을까... 😱</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
+  <span class="hljs-keyword">let</span> temp,
+    lo = <span class="hljs-number">0</span>,
+    hi = nums.length - <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;= hi; ) {
+    <span class="hljs-keyword">if</span> (nums[i] === <span class="hljs-number">0</span>) {
+      temp = nums[i];
+      nums[i] = nums[lo];
+      nums[lo] = temp;
+      lo++;
+      i++;
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums[i] === <span class="hljs-number">2</span>) {
+      temp = nums[i];
+      nums[i] = nums[hi];
+      nums[hi] = temp;
+      hi--;
+    } <span class="hljs-keyword">else</span> {
+      i++;
+    }
+  }
+};
+</code></pre>
 
-account = <span class="hljs-keyword">new</span> Account(<span class="hljs-string">"bohyeon"</span>, <span class="hljs-number">20000</span>);
-account.getBalance();
-account.deposit(<span class="hljs-number">2000</span>);
-account.getBalance();
-</code></pre>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-comment">//this키워드를 사용하여 객체의 속성이 username과 balance에 접근하고 있다.</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-  },
-  <span class="hljs-attr">deposit</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
-    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
-  }
-};
+    </div>
 
-account.getBalance();
-account.deposit(<span class="hljs-number">20000</span>);
-account.getBalance();
-</code></pre>
-<p>this 는 때에 따라 다른 값을 가리킨다. 어떠한 문맥이냐에 따라서 그 값이 바뀝니다.</p>
-<ol>
-<li>Global scope 에서 사용될 때 this 는 전역 객체를 가리킵니다.(window 객체)</li>
-<li>함수에서 사용될 때에도 this 는 전역 객체를 가리킵니다.</li>
-<li>객체에 속한 메소드에서 사용될 때 this 는 메소드가 속한 객체를 가리킵니다.</li>
-<li>객체에 속한 메소드의 내부함수에서 사용될 때 this 는 <strong>전역 객체</strong>를 가리킵니다.</li>
-<li>생성자에서 사용될 때 this 는 이 생성자로 인해 생성된 새로운 객체를 가리킵니다.</li>
-</ol>
-<p>4 번, 객체에 속한 메소드의 내부함수에서 사용되는 경우를 자세히 살펴보도록 하겠습니다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
-    };
-    <span class="hljs-built_in">console</span>.log(innerFunc());
-  }
-};
-account.getBalance();
-</code></pre>
-<p>getBalance 가 외부에서 실행되면 this 는 account 입니다. 그러나, getBalance 함수 내부에서 innerFunc 를 호출 할 때는 그 어떤 문맥도 지정하지 않았기 때문에 innerFunc 의 this 가 window 가 됩니다.</p>
-<h2>bind</h2>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> 함수는 this 의 문맥을 유지할 때 사용합니다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
-    }.bind(<span class="hljs-keyword">this</span>);
-    <span class="hljs-built_in">console</span>.log(innerFunc());
-  }
-};
-account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
-</code></pre>
-<p>이렇게 bind 를 사용하여 this 를 원하는 값으로 설정할 수 있습니다.</p>
-<p>bind 는 원하는 this 문맥을 가진 새로운 함수를 생성합니다. 첫 번째 매개변수를 bind 에 넘겨줌으로써 this 를 명확하게 설정할 수 있습니다.</p>
-<p>그런데, 이렇게 this 의 문맥을 정해주고 싶을 때 마다 bind 를 사용해야 한다면 좀 불편하겠죠?</p>
-<p>ES6 문법에서는 화살표 함수(Arrow function)을 제공합니다.</p>
-<h2>화살표 함수</h2>
-<p>화살표 함수의 이점 중에서도 가장 큰 이점은 this 를 binding 하지 않아도 된다는 것입니다.</p>
-<p><a href="https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26">https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26</a></p>
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/TIL/0717.html">
+            <h1>
+
+
+              0717TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180717
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h1>오늘 한 일</h1>
+<h2>node.js 와 ejs</h2>
+<ul>
+<li>node.js 와 ejs template 을 써서 폴더의 목록 리스트가 있는 사이드바를 만들었다.</li>
+<li>메인에 있는 폴더 리스트를 클릭하면 해당 html 파일로 이동한다.</li>
+<li>사이드 바에 있는 메뉴를 클릭 시에 해당 폴더의 파일들의 목록을 메인에 동적으로 렌더링 해주고 싶었다.</li>
+<li>동적으로 화면을 바꾸는 것이 잘 안되었다.</li>
+<li>동적으로 바꿔주기 위해서는 리액트를 써야 하는 것 같다.</li>
+<li>동적으로 바꿔주는 것이 아니라, html 페이지를 여러 개를 만들어서 클릭 시 이동하는 방식으로 다시 만들어 봐야 겠다.</li>
+</ul>
+<h2>algorithm</h2>
+<ul>
+<li>버블 정렬을 사용하여 알고리즘 문제를 풀었다.</li>
+<li>버블 정렬을 시간이 오래걸린다.</li>
+<li>다른 사람의 풀이를 참조하여 다시 정리해봐야겠다.</li>
+</ul>
+<h1>오늘의 느낀점</h1>
+<ul>
+<li>오늘 좀 늦게 일어나서 공부를 많이 하진 못하였다.</li>
+<li>내일은 자바스크립트 공부도 꼭 해야겠다.</li>
+<li>블로그 만들기를 처음 시작했을 때는 어떻게 시작해야 할 지 너무 막막했는데 이제는 어떤 것을 해야 할지는 알 것 같다.</li>
+<li>아직도 어떤 것이 불가능한 작업인지 구분하는 것이 어렵다.😭</li>
+</ul>
+<h1>내일 할 일</h1>
+<ul>
+<li>블로그페이지를 리액트 컴포넌트로 나누듯이 html 파일로 분할해서 필요에 따라서 렌더링해주는 작업.</li>
+<li>오늘 푼 sort colors 문제를 다른 방법으로 풀어보기.</li>
+<li>자바스크립트 공부!</li>
+<li>http 공부!</li>
+</ul>
 
     </div>
 
@@ -957,7 +1609,7 @@ account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000
         </div>
         <div class="value__date">
           <span>
-            2018-7-16T24:00:00-00:00
+            20180716
           </span>
 
         </div>
@@ -1048,11 +1700,11 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/TIL/0717.html">
+          <a href="/deploy/Algorithm/3sumclosest.html">
             <h1>
 
 
-              0717TIL
+              3sumClosest
 
             </h1>
           </a>
@@ -1060,7 +1712,7 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
         </div>
         <div class="value__date">
           <span>
-            2018-7-17T24:00:00-00:00
+            20180716
           </span>
 
         </div>
@@ -1069,461 +1721,85 @@ fs.writeFileSync(<span class="hljs-string">"./deploy/index.html"</span>, html);
         </h1>
 
       </div>
-      <h1>오늘 한 일</h1>
-<h2>node.js 와 ejs</h2>
-<ul>
-<li>node.js 와 ejs template 을 써서 폴더의 목록 리스트가 있는 사이드바를 만들었다.</li>
-<li>메인에 있는 폴더 리스트를 클릭하면 해당 html 파일로 이동한다.</li>
-<li>사이드 바에 있는 메뉴를 클릭 시에 해당 폴더의 파일들의 목록을 메인에 동적으로 렌더링 해주고 싶었다.</li>
-<li>동적으로 화면을 바꾸는 것이 잘 안되었다.</li>
-<li>동적으로 바꿔주기 위해서는 리액트를 써야 하는 것 같다.</li>
-<li>동적으로 바꿔주는 것이 아니라, html 페이지를 여러 개를 만들어서 클릭 시 이동하는 방식으로 다시 만들어 봐야 겠다.</li>
-</ul>
-<h2>algorithm</h2>
-<ul>
-<li>버블 정렬을 사용하여 알고리즘 문제를 풀었다.</li>
-<li>버블 정렬을 시간이 오래걸린다.</li>
-<li>다른 사람의 풀이를 참조하여 다시 정리해봐야겠다.</li>
-</ul>
-<h1>오늘의 느낀점</h1>
-<ul>
-<li>오늘 좀 늦게 일어나서 공부를 많이 하진 못하였다.</li>
-<li>내일은 자바스크립트 공부도 꼭 해야겠다.</li>
-<li>블로그 만들기를 처음 시작했을 때는 어떻게 시작해야 할 지 너무 막막했는데 이제는 어떤 것을 해야 할지는 알 것 같다.</li>
-<li>아직도 어떤 것이 불가능한 작업인지 구분하는 것이 어렵다.😭</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
-<li>블로그페이지를 리액트 컴포넌트로 나누듯이 html 파일로 분할해서 필요에 따라서 렌더링해주는 작업.</li>
-<li>오늘 푼 sort colors 문제를 다른 방법으로 풀어보기.</li>
-<li>자바스크립트 공부!</li>
-<li>http 공부!</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/0718.html">
-            <h1>
-
-
-              0718TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            2018-7-18T22:00:00-00:00
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h1>오늘 한 일</h1>
-<h2>create-blog-project</h2>
-<ul>
-<li>sidebar main, home 을 분리하여 재사용할 수 있도록 만들었다.</li>
-<li><code>&lt;%- sidebar %&gt;</code>이렇게 써줘야 이스케이프 처리를 하지 않는다. 변환되지 않고 입력한대로 사용할 수 있다!</li>
-<li>markdown parser markdown-it 을 사용하여 사용자가 content 폴더에 md 파일을 추가하면 html 파일로 변환해서 보여준다.</li>
-<li>폴더 리스트나, 파일 리스트를 읽어올 때 사용자가 입력한 폴더에서 읽어와야 하는지, 내가 새로 변환해서 만들어놓은 폴더에서 읽어와야 하는지 잘 모르겠다.</li>
-<li>지금은 변환하기 전에 사용자가 입력한 폴더에서 리스트와 파일들의 목록을 불러와서 변환하고 변환한 파일을 화면에서 보여주고 있다.</li>
-<li>폴더를 어떻게 정리해야 할 지 잘 모르겠다.</li>
-</ul>
-<h2>Algorithm</h2>
-<ul>
-<li>어제 푼 sort colors 알고리즘 문제를 다른 사람 풀이를 참조하여 다시 풀어보았다.</li>
-</ul>
-<h2>javascript</h2>
-<ul>
-<li>javascript 교재 객체 복습 중</li>
-<li>객체, 프로토타입, bind, this, 화살표 함수에대해 정리해야겠다.</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
-<li>자바스크립트 공부</li>
-<li>algorithm 문제 풀기</li>
-<li>blog 만들기</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/0719.html">
-            <h1>
-
-
-              0719TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            2018-7-19T22:00:00-00:00
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <p>이 내용을 뺴고 html 파일을 만들 것</p>
-<ul>
-<li>
-<p>날짜 순서대로 home 화면에서 정렬하여 보여주기</p>
-</li>
-<li>
-<p>사이드바에 있는 폴더 클릭 시에 보여주는 파일리스트를 사용자에게 받은 title 로 바꾸기</p>
-</li>
-<li>
-<p>블로그 디자인 예쁘게 하기</p>
-</li>
-<li>
-<p>검색기능 만들어보기</p>
-</li>
-<li>
-<p>javascript 공부하기</p>
-</li>
-<li>
-<p>algorithm 문제 풀기</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/0721.html">
-            <h1>
-
-
-              djangogirls!
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            2018-7-21T22:23:00-00:00
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h1>오늘 한 일</h1>
-<h2>장고로 블로그 만들기!</h2>
-<p>어제 오늘, 이틀동안 장고걸스 워크숍에 참여하였다.</p>
-<p><a href="https://tutorial.djangogirls.org/ko/">장고걸스 튜토리얼</a>을 따라하면서 블로그를 만들었다!</p>
-<p>장고란?</p>
-<ul>
-<li>
-<p>파이썬으로 서버를 쉽고 빠르게 만들 수 있게 해주는 프레임워크이다.</p>
-</li>
-<li>
-<p>MVC 패턴 기반의 MVT(Model-View-Controller 를 기반한 프레임워크)</p>
-<ul>
-<li>Model: 데이터를 의미.</li>
-<li>View: 데이터를 입력 받거나 표시하는 컴포넌트(MVC 패턴의 Controller 에 속한다)</li>
-<li>Template: 사용자에게 보여주는 부분 MVC 패턴의 View 에 속한다.</li>
-</ul>
-</li>
-</ul>
-<p><a href="http://koobohyeon.pythonanywhere.com/">오늘 만든 블로그</a></p>
-<p>몇 시간 동안 튜토리얼만 따라했는데 관리자 계정 기능과 글쓰기, 수정하기 기능이 있는 블로그가 완성되었다!</p>
-<p>장고는 정말 쉽고 빠르게 서버를 만드는 프레임워크라는 것을 몸소 느끼게 되었다.</p>
-<p>몇 줄의 코드만 추가했는데 블로그가 만들어지다니 😱</p>
-<p>파이썬 언어를 처음 사용해봤는데 자바스크립트와 정말 비슷해서 큰 어려움 없이 이해할 수 있었다.</p>
-<p>이틀동안 새로운 사람들도 만나고 장고와 파이썬, 새로운 것들도 배울 수 있어서 너무 좋았다.</p>
-<h1>오늘의 느낀점</h1>
-<ul>
-<li>서버를 어느정도는 이해할 수 있는 프론트엔드 개발자가 되자!</li>
-<li>파이썬 언어를 배워보자!</li>
-<li>request, response, http, server, client 에 대한 개념이 부족한 것 같다. 공부하자!</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
-<li>그림을 배우는 http network basic 읽기</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/0722.html">
-            <h1>
-
-
-              블로그만들기
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            0722
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h1>오늘 한 일</h1>
-<ul>
-<li>블로그를 만들어서 기존의 블로그를 내가 만든 블로그로 옮겼다.</li>
-<li>정규 표현식에서 .는 엔터 문자를 제외했기 때문에 기존의 코드가 잘 작동되지 않았던 것이다.</li>
-<li>정규 표현식을 사용해서 마크다운에 있는 글에 대한 정보를 받을 수 있게 하였다.</li>
-<li>아직은 title 과 date 만 받고 있다.</li>
-<li>실제로 블로그를 사용하면서 발전시키면 좋을 것 같다.</li>
-<li>고쳐야 할 점이 많은 것 같다.</li>
-<li>github page 에서 프론트 페이지는 index.html 파일이 있어야 하며, 가장 상위에 위치해야 한다.</li>
-<li>다른 html 파일이 함께 있으면 프론트페이지로 잘 나오지가 않았다.</li>
-<li>그래서 처음 나오는 index.html 을 제외하고 다른 파일로 옮겼다.</li>
-</ul>
-<h1>오늘 느낀점</h1>
-<ul>
-<li>실제로 블로그로 사용하려고 하다보니 이것저것 해야 할 일이 많은 것 같다.</li>
-<li>이번주까지를 목표로 잡고 디자인까지 완성하고 싶다.</li>
-<li>정규 표현식 사용하기 어렵다 😭</li>
-<li>영어로 잘 하고 싶다.</li>
-<li>내일 더 열공해야지</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
-<li>
-<p>블로그 만들기</p>
-<ul>
-<li>태그 받아서 메인화면에서 태그 사용해보기</li>
-<li>디자인하기</li>
-<li>날짜로 정렬하기</li>
-</ul>
-</li>
-<li>
-<p>알고리즘 문제풀기</p>
-</li>
-<li>
-<p>통신 공부하기</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/0723.html">
-            <h1>
-
-
-              7월23일TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            20180723
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h1>오늘 한 일</h1>
-<ul>
-<li>
-<p>블로그 만들기</p>
-<ul>
-<li>헤더, 사이드바, 메인 레이아웃을 구상했다.</li>
-<li>메인 페이지에서 글의 내용을 보이게 하였다.</li>
-<li>category 를 입력받아서 카테고리 폴더를 생성하였고 그 안에 파일을 생성하였다.</li>
-<li>사용자에게 auth 를 md 파일로 받아서 블로그 이름, 소개, 이미지를 받아서 헤더에 보여주게 하였다.</li>
-<li>나눴던 html 컴포넌트?를 다시 정의하여 index.html 에서만 조합하도록 하였다. 큰 틀을 header, sidebar, main 으로하였고 main 의 내용만 변경하는 식으로 템플릿을 사용하였다.</li>
-<li>gihub page 에서 css 폴더 안에다 css 파일을 넣으니 제대로 작동하지 않았다. 찾아보니 style 폴더 안에 넣으면 된다고 style 폴더에 넣었더니 제대로 작동되었다.</li>
-<li>github 에서 특정 형식에 맞춰 쓴 폴더만 읽게 하는 걸까?</li>
-</ul>
-</li>
-<li>
-<p>알고리즘 문제 풀이</p>
-<ul>
-<li>Best Time to Buy and Sell Stock</li>
-</ul>
-</li>
-</ul>
-<h1>오늘의 느낀점</h1>
-<ul>
-<li>실제 블로그를 쓰려고 하니, 이것저것 수정하고 덧붙여야 할 것들이 많아졌다.</li>
-<li>디자인을 빨리 마무리해서 깔끔한 블로그를 만들고 싶다.</li>
-<li>자바스크립트 파일이 점점 지저분해지고 있다. 처음에 막 만들고 수정하기를 반복하다보니, 깔끔하게 작성하기가 힘든 것 같다. 조금씩 수정하면서 개선해야겠다.</li>
-<li>사용자가 어느정도 내 README 파일을 자세히 읽어줄까?</li>
-<li>대충 읽어도 잘 사용할 수 있도록 개선해나가야겠다.</li>
-<li>블로그 만들기를 하니까 시간이 훅훅가서 다른 공부는 잘 못했다. 해야 할 것들이 많은데...</li>
-</ul>
-<h1>내일 할 일 / 앞으로 할 일</h1>
-<ul>
-<li>블로그
-<ul>
-<li>카테고리별로 분류하 듯 태그별로도 분류 할 수 있도록</li>
-<li>디자인 하기.</li>
-<li>javascript highlight 를 어떻게 해줘야 할까.</li>
-<li>날짜순으로 정렬하기.</li>
-<li>포스팅 수와 카테고리 수 표시해주기.</li>
-</ul>
-</li>
-<li>알고리즘 문제풀기</li>
-<li>내일 깃헙 특강들으러 가기</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/0725.html">
-            <h1>
-
-
-              0725TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            20180725
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h1>오늘 한 일</h1>
-<ul>
-<li>
-<p>블로그 반응형으로 만들기</p>
-<ul>
-<li>일단은 모바일 버전으로 디자인을 하고 있다.</li>
-<li>홈 화면만 하는데도 시간이 오래 걸린다.😭</li>
-<li>화면 전체적으로 수평으로 스크롤바가 생김<pre class="hljs block"><code class="html">overflow-x: hidden
+      <h1>3Sum Closest</h1>
+<p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
+<p>Example:</p>
+<pre class="hljs block"><code class="html">Given array nums = [<span class="hljs-number">-1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-4</span>], and target = <span class="hljs-number">1.</span>
+
+The sum that is closest to the target is <span class="hljs-number">2.</span> (<span class="hljs-number">-1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">1</span> = <span class="hljs-number">2</span>).
 </code></pre>
-</li>
-<li>node.modules 를 gitigonre 안해줬더니 github page 빌드가 안되었다.</li>
-<li>push 취소를 하고 gitigonre 해서 다시 push 함</li>
+<h3>나의 풀이</h3>
+<ol>
+<li>반복문을 돌면서 배열의 세 정수의 조합을 모두 확인한다.</li>
+<li>target 수와 세 정수의 합이 같으면 return 해서 반복문을 종료한다.</li>
+<li>sum 과 target 숫자의 차가 현재 closestSum 과 target 의 숫자의 차보다 작으면 sum 을 closestSum 에 대입한다.</li>
+</ol>
+<ul>
+<li>sort 를 사용해서 정렬을 한 후 문제를 풀어보려고 했지만, 잘 되지 않아서 일단은 반복문으로 모든 숫자의 조합을 생각하기로 하였다.</li>
 </ul>
-</li>
-</ul>
-<pre class="hljs block"><code class="html"><span class="hljs-comment">// git push 취소하기</span>
-<span class="hljs-comment">//(여러 번 하면 계속해서 취소된다.)</span>
-git reset HEAD~<span class="hljs-number">1</span>
-git push origin &lt;branch&gt; -f
+<pre class="hljs block"><code class="html"><span class="hljs-comment">//	80 ms</span>
+<span class="hljs-keyword">var</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
+  <span class="hljs-keyword">let</span> closestSum;
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = i + <span class="hljs-number">1</span>; j &lt; nums.length; j++) {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> t = j + <span class="hljs-number">1</span>; t &lt; nums.length; t++) {
+        <span class="hljs-keyword">let</span> sum = nums[i] + nums[j] + nums[t];
+        <span class="hljs-keyword">if</span> (sum === target) {
+          <span class="hljs-keyword">return</span> sum;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (
+          !closestSum ||
+          <span class="hljs-built_in">Math</span>.abs(closestSum - target) &gt; <span class="hljs-built_in">Math</span>.abs(sum - target)
+        ) {
+          closestSum = sum;
+        }
+      }
+    }
+  }
+  <span class="hljs-keyword">return</span> closestSum;
+};
 </code></pre>
-<pre class="hljs"><code>- highlight.js 적용
-
-```js
-//index.html에 script추가
-&lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js&quot; /&gt;
-
-// markdown을 require할 때 highlight 설정을 해줌
+<h2>다른 사람 풀이</h2>
+<ol>
+<li>nums.length 가 3 보다 작으면 바로 리턴한다.</li>
+<li>nums 배열을 sort 메소드를 사용하여 작은 수 부터 정렬한다.</li>
+<li>반복문을 돈다.</li>
+<li>첫 번 째 숫자를 고정시킨다.</li>
+<li>고정시킨 배열의 첫 번째 숫자와 두 번 째 숫자, 맨 마지막 숫자를 더해준다.</li>
+<li>현재 result 의 값이 없거나, result 와 target 의 차이가 현재 sum 과 target 의 차이값보다 크다면, sum 을 result 에 대입해준다.</li>
+<li>result 값이 target 값보다 작으면, 더 큰 수를 더해줘야 하므로, 정렬된 배열의 두번째 숫자의 인덱스를 ++ 해준다. 반대의 경우라면, 더 작은 수를 더해줘야 하므로 마지막 숫자의 인덱스를 -- 해준다.</li>
+</ol>
+<ul>
+<li>조건에 맞는 정수의 합을 찾기 위해서 반복문을 도는 것은 첫 번째 방식과 비슷하지만, target 과 일치하는 세 정수의 합이 있다면,</li>
+<li>target 과의 차이를 줄여갈 수 있기 때문에</li>
+<li>첫 번째 방식보다 빠르게 찾아낼 수 있다.</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">let</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
+  <span class="hljs-keyword">let</span> result;
+  <span class="hljs-keyword">if</span> (nums.length &lt;= <span class="hljs-number">3</span>) {
+    result = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>] + nums[<span class="hljs-number">2</span>];
+    <span class="hljs-keyword">return</span> result;
+  }
+  nums.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length - <span class="hljs-number">2</span>; i++) {
+    <span class="hljs-keyword">let</span> lo = i + <span class="hljs-number">1</span>,
+      hi = nums.length - <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">while</span> (lo &lt; hi) {
+      <span class="hljs-keyword">let</span> sum = nums[i] + nums[lo] + nums[hi];
+      <span class="hljs-keyword">if</span> (sum === target) {
+        <span class="hljs-keyword">return</span> sum;
+      }
+      <span class="hljs-keyword">if</span> (
+        <span class="hljs-keyword">typeof</span> result === <span class="hljs-string">"undefined"</span> ||
+        <span class="hljs-built_in">Math</span>.abs(target - sum) &lt; <span class="hljs-built_in">Math</span>.abs(target - result)
+      ) {
+        result = sum;
+      }
+      sum &gt; target ? hi-- : lo++;
+    }
+  }
+  <span class="hljs-keyword">return</span> result;
+};
 </code></pre>
-<ul>
-<li>
-<p>모바일 버전에서는 sidebar 가 없이 category 로 제공하는 것이 좋을 것 같다고 생각함</p>
-</li>
-<li>
-<p>sass 를 이용해서 toggle 로 category 를 보여줌</p>
-</li>
-<li>
-<p>fontawesome 에서 icon 을 받았는데 github 에 올리니까 github page 에서는 렌더링이 안됨.</p>
-<ul>
-<li>node.modules 폴더를 ignore 해서 그런 것 같다.</li>
-</ul>
-</li>
-</ul>
-<h1>오늘의 느낀점</h1>
-<ul>
-<li>데스크탑에서는 사이드바가 있는 것이 더 좋은걸까? 잘 모르겠다.</li>
-<li>이번주까지는 블로그를 끝내자!!!!!!!!</li>
-<li>너무 더워 😱😱</li>
-</ul>
-<h1>내일 할 일 &amp; 앞으로 할 일</h1>
-<ul>
-<li>디자인 마무리 하기.
-<ul>
-<li>category 별 화면 디자인하기</li>
-</ul>
-</li>
-<li>about 화면 만들기</li>
-<li>홈 화면에서 pagination</li>
-<li>댓글 기능</li>
-<li>책읽기</li>
-</ul>
 
     </div>
 
@@ -1537,11 +1813,11 @@ git push origin &lt;branch&gt; -f
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/TIL/0728.html">
+          <a href="/deploy/Algorithm/fibonacci.html">
             <h1>
 
 
-              0728TIL
+              피보나치수구현하기
 
             </h1>
           </a>
@@ -1549,7 +1825,7 @@ git push origin &lt;branch&gt; -f
         </div>
         <div class="value__date">
           <span>
-            20180728
+            20180710
           </span>
 
         </div>
@@ -1558,372 +1834,96 @@ git push origin &lt;branch&gt; -f
         </h1>
 
       </div>
-      <h2>오늘 한 일</h2>
+      <h1>피보나치 수 구현하기</h1>
+<p>피보나치 수를 구현하는 방법에는 두 가지가 있습니다.</p>
 <ul>
-<li>
-<p>블로그 만들기</p>
-</li>
-<li>
-<p>파일 이름이 대문자에서 소문자, 소문자에서 대문자로 바뀌면 인식하지 못해서 파일명을 바꿔주지 않았다.</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/10523849/changing-capitalization-of-filenames-in-git">Changing capitalization of filenames in Git / stack overflow</a></li>
+<li>재귀함수를 사용하는 방법</li>
+<li>반복문을 사용하는 방법</li>
 </ul>
-</li>
-<li>
-<p>파일 이름을 소문자로 생성하기로 하였다.</p>
-</li>
-</ul>
-<p><strong>HTML Naming Rules</strong></p>
-<ul>
-<li>
-<p>index.html 은 브라우저의 defualt 문서이다. home page 는 index.html 파일명을 사용한다.</p>
-</li>
-<li>
-<p><code>-</code>(dash), <code>_</code>(underscore)와 <code>~</code>(tilde)를 제외하고 파일 이름은 알파벳과 숫자 등 문자로 이루어져야 한다.</p>
-</li>
-<li>
-<p>스페이스를 사용하지 않는다.</p>
-</li>
-<li>
-<p>소문자를 사용한다.</p>
-</li>
-<li>
-<p>폰트사이즈와 사이드바 에러</p>
-<ul>
-<li>로컬에 서버를 띄우고 블로그를 보면 폰트와 사이드바의 width 가 일정하게 유지되는데</li>
-<li>github page 에서 보면 페이지마다 sidebar 의 width 가 달라지고 font 의 크기가 더 커진다.</li>
-<li>개발자 도구로 확인할 떄는 폰트 사이즈가 똑같은데, 보이기에는 달라보인다.</li>
-<li>폰트 사이즈 때문에 사이드바의 넓이가 달라지는 것이었다.</li>
-<li>main 과 sidebar 의 크기를 75% 25%로 주었는데</li>
-</ul>
-</li>
-<li>
-<p>프로젝트 구상하기</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/0801.html">
-            <h1>
-
-
-              180801TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            20180801
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>
-<p>프로젝트 구상하기</p>
-<ul>
-<li>개인 강습 강사를 위한 CRM 서비스</li>
-<li>가장 기본적인 기능과 추가적인 기능을 생각했다.</li>
-</ul>
-</li>
-<li>
-<p>HTTP 책 읽기</p>
-<ul>
-<li>request 의 종류까지 읽었다.</li>
-<li>옛날 책이라 http 1.1 에 대해서 설명하고 있다.</li>
-</ul>
-</li>
-<li>
-<p>python 기본 강의</p>
-<ul>
-<li>intergers and floats</li>
-<li>booleans</li>
-<li>string</li>
-<li>type</li>
-<li>string method</li>
-<li>list</li>
-<li>javascript 로 길게 쓰던 것을 string method 를 사용하면 쉽게 할 수 있었다.</li>
-</ul>
-</li>
-<li>
-<p>글 쓰기</p>
-<ul>
-<li>this 와 bind 에 대해서 글을 쓰고 있다.</li>
-<li>확실히 알지 못하는 개념에 대해 글을 쓰려다 보니까 내가 쓴 문장에 대해 확신도 안가고 어렵다.</li>
-<li>그래도 그냥 공부하는 것 보다는 좀 더 많이 알아야 글을 쓸 수 있어서 공부하기에 좋은 것 같다.</li>
-</ul>
-</li>
-</ul>
-<h2>오늘의 느낀점</h2>
-<p>하루에 여러 개를 이것저것 하려다 보니까 딱히 한 게 없는 것 같은 기분이다.
-프로젝트를 금요일까지는 데이터 구조, 기능, 화면, 스토리를 구상해서 시작해야 겠다.
-일단은 기본적인 기능을 완성하는 데도 어려울 것 같아서 일단은 최소한의 기능 구현을 목표로 해야겠다.</p>
-<h2>내일 할 일</h2>
-<ul>
-<li>
-<p>프로젝트 데이터 구조 설계</p>
-</li>
-<li>
-<p>확실히 어떤 서비스까지 제공할 것인지 정하기</p>
-</li>
-<li>
-<p>대략적인 화면 구상하기</p>
-</li>
-<li>
-<p>http 책 읽기</p>
-</li>
-<li>
-<p>python lesson2 완료하기</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/0802.html">
-            <h1>
-
-
-              180802TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            20180802
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>
-<p>글쓰기</p>
-<ul>
-<li>this 와 bind 에 대해서 마무리 하였고 화살표 함수에 대해서 쓰고 있다.</li>
-<li>이번주 주말까지는 완성할 수 있도록 해야 겠다.</li>
-<li>내 생각을 잘 표현하는 것은 어느 곳에서도 중요한 것 같다.</li>
-</ul>
-</li>
-<li>
-<p>python 강의 lesson2 완료</p>
-<ul>
-<li>tuples</li>
-<li>sets</li>
-<li>dictionaries</li>
-</ul>
-</li>
-<li>
-<p>http 책</p>
-<ul>
-<li>part5 까지 읽었다.</li>
-</ul>
-</li>
-</ul>
-<h2>오늘의 느낀점</h2>
-<ul>
-<li>이력서에 쓸 프로젝트가 뭐가 있는지 보려고 github 저장소를 살펴보았는데 포트폴리오로 쓸 만한 프로젝트가 없는 것 같았다.</li>
-<li>내일부터 이력서를 쓰면서 정리를 해봐야겠다.</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>이력서 쓰기</li>
-<li>http 책 읽기</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/0804.html">
-            <h1>
-
-
-              180804TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            20180804
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<p>이력서 작성</p>
-<h2>오늘의 느낀점</h2>
-<p>이력서를 쓰다보니 생각보다 내가 한 일이 없었다. 프로그래밍을 배운 지 5 달 정도 됐는데 딱히 쓸만한 프로젝트도 없는 것 같다.
-좀 더 열심히 공부해야 겟다.
-그런데 집에 내려오니까 공부가 잘 안된다. 에어컨 바람 쐬면서 누워있으니 아무것도 하기가 싫다.
-다시 더운 집으로 가야 겠다.</p>
-<h2>내일 할 일</h2>
-<ul>
-<li>this 글 마무리하기</li>
-<li>http 책 읽기</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/TIL/project.html">
-            <h1>
-
-
-              프로젝트
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            20180805
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>프로젝트 관리 서비스</h2>
-<p><a href="https://github.com/bohyeon-n/final-project">github</a>
-<img src="/img/project-manager.png" alt=""></p>
-<ul>
-<li>
-<p>기능</p>
-<ul>
-<li>
-<p>프로젝트를 등록할 수 있으며 프로젝트에 해당하는 이슈를 등록할 수 있습니다.</p>
-</li>
-<li>
-<p>이슈의 상태를 수정할 수 있습니다.</p>
-</li>
-<li>
-<p>프로젝트 멤버들은 이슈를 열람할 수 있으며 코멘트를 작성 할 수 있습니다.</p>
-</li>
-<li>
-<p>기한이 임박한 이슈를 볼 수 있는 기능을 제공하였습니다.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>개발 환경</p>
-<ul>
-<li>create-react-app</li>
-<li>axios</li>
-<li>react context</li>
-<li>semantic ui</li>
-</ul>
-</li>
-</ul>
-<h2>블로그 생성 프로그램</h2>
-<p><a href="https://github.com/bohyeon-n/bohyeon-n.github.io">github</a></p>
-<ul>
-<li>
-<p>기능</p>
-<ul>
-<li>
-<p>content 안에 폴더를 만들고 마크다운 파일을 넣는다. node hello-world.js 를 실행하면 deploy 폴더 안에 마크다운 파일이 html 파일로 변환되어 생성됩니다.</p>
-</li>
-<li>
-<p>마크다운 파일 안에서 글에 대한 정보를 넣으면 글의 제목과 날짜 카테고리를 설정할 수 있습니다.</p>
-</li>
-<li>
-<p>마찬가지로 <a href="http://author.md">author.md</a> 에 사용자의 정보를 입력하면 이를 기반으로 about 페이지와 header 를 구성합니다.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>개발 환경</p>
-<ul>
-<li>node.js</li>
-<li>ejs template</li>
-<li>scss</li>
-<li>markdown-it</li>
-<li>highlight.js</li>
-</ul>
-</li>
-</ul>
-<p>파일 구조</p>
-<pre class="hljs"><code>blog
-
-- index.html
-- author
-  - author.md
-- content
-
-  - folder1
-    - hello.md
-
-- deploy
-
-  - category1
-    - hello.html
-  - author
-    - author.html
-  - category
-    - category1.html
-
-- hello-world.js
+<h2>피보나치 수란?</h2>
+<p>피보나치 수는 다음과 같이 정의되는 수열입니다.</p>
+<p><img src="/img/fibonacci-definition.png" alt="피보나치 수 정의"></p>
+<p>fibonacci 수열은 0 1 1 2 3 5 8 13... 입니다.
+앞에 있는 두 수를 더하여 그 다음의 수를 얻을 수 있습니다.</p>
+<p>첫 번째 수와 두 번째 수는 0 과 1 로 정해져있습니다.</p>
+<p>그 다음 n 번 째 피보나치 수는 (n-1 번 째 피보나치 수)+(n-2 번 째 피보나치 수)입니다.</p>
+<h2>재귀함수로 피보나치 수 구현하기</h2>
+<p>피보나치 수를 재귀함수로 구현하면 다음과 같습니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
+  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  }
+  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  }
+  <span class="hljs-keyword">return</span> fibonacci(num - <span class="hljs-number">1</span>) + fibonacci(num - <span class="hljs-number">2</span>);
+}
 </code></pre>
+<p>5 번째 피보나치 수를 계산하는 과정을 그림으로 표현하면 다음과 같습니다.</p>
+<pre class="hljs block"><code class="html">                         fib(<span class="hljs-number">5</span>)
+                     /
+               fib(<span class="hljs-number">4</span>)                fib(<span class="hljs-number">3</span>)
+             /                      <span class="hljs-regexp">/
+         fib(3)      fib(2)         fib(2)    fib(1)
+        /</span>
+  fib(<span class="hljs-number">2</span>)   fib(<span class="hljs-number">1</span>)
+</code></pre>
+<p>fibonacci(5)는 fibonacci(4) + fibonacci(3)을 계산하기 위해 fibonacci(4)를 호출합니다.
+이처럼 자기 자신을 호출하는 함수를 재귀함수라고 합니다.</p>
+<p>fibonacci(4)는 fibonacci(3) + fibonacci(2)를 호출합니다.</p>
+<p>fibonacci(3)은 fibonacci(2) + fibonacci(1)를 호출합니다.
+여기서 fibonacci(2) 와 fibonacci(1)의 값은 1 과 0 으로 정하였으므로 더이상 함수를 부르지 않고 값이 계산되어 나오게 됩니다.
+fibonacci(3)은 0+1 인 1 이 됩니다.</p>
+<p>그 다음 fibonacci(4)를 계산하려고 호출했던 fobonacci(2)를 계산합니다.
+fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
+위와 같은 과정을 거쳐야 fibonacci(5)를 구할 수 있습니다.</p>
+<p>만약 fibonacci(5)가 아닌 fibonacci(100), fibonacci(1000)이면 어떨까요?</p>
+<p>5 번째 피보나치 수를 구하기 위해서는 함수를 9 번 호출해야 합니다. 10 번째 피보나치 수는 109 번, 20 번 째 피보나치 수는 13529 번, 30 번 째 피보나치 수는 1664079 번 함수를 호출해야 합니다.</p>
+<p>다음은 피보나치 수를 구하는 함수의 실행시간 그래프입니다.
+구하려는 피보나치 수가 커질수록 급격하게 그래프가 치솟는 것을 볼 수 있습니다.</p>
+<p><img src="/img/fibonaccitime.png" alt="실행시간"></p>
+<h2>함수 스택</h2>
+<p>피보나치 수가 커질수록 함수 실행시간이 급격히 증가하는 이유는 무엇일까요
+함수가 계산되는 방식때문입니다.</p>
+<p>함수가 호출 될 때 메모리블록을 할당받게 됩니다. 이 블록들이 쌓이는 곳을 스택프레임이라고 합니다.
+함수가 return 되면 할당받았던 메모리블록은 스텍프레임에서 사라지게 됩니다. 함수는 가장 나중에 넣은 메모리블록이 가장 먼저 나오는 LIFO(last in first out)의 구조입니다.</p>
+<p><img src="/img/Call-stack-of-Fibonacci.jpg" alt="stack"></p>
+<p><a href="http://knowledge-cess.com/recursion-vs-iteration-an-analysis-fibonacci-and-factorial/">이미지 출처</a></p>
+<p>n 번 째 피보나치 수를 계산 할 때 스텍프레임에 메모리블록들이 쌓이다가 fibonacci(2)와 fibonaci(1)이 나와야만 미리 약속한 값인 0 과 1 로 꺼낼 수 있습니다.
+그러나 한 번 꺼낸 값이 스택에 저장되는 것이 아닙니다. 계산이 끝나 return 하게 되면 기존에 선언한 변수는 스택에서 사라지게 됩니다. 그렇기 때문에 그 전에 fibonacci(3)을 계산하였어도 다시 한번 함수를 불러 계산해야 합니다.</p>
+<h2>반복문으로 피보나치수 구하기</h2>
+<p>피보나치 수를 구하는 또다른 방법은 반복문을 사용하는 것 입니다.
+반복문을 이용하여 n 번째 피보나치 수를 구하면 대략 n 번만 반복하여 결과를 얻을 수 있습니다.
+재귀함수를 사용하는 것 보다 훨씬 더 효율적입니다.
+이제 100 번 째 1000 번째 피보나치수를 구하더라도 브라우저가 멈추지 않을 것 입니다.</p>
+<p>반복문을 사용한 피보나치 함수를 구현하면 다음과 같습니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fibonacci</span>(<span class="hljs-params">num</span>) </span>{
+  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  }
+  <span class="hljs-keyword">if</span> (num === <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  }
+  <span class="hljs-keyword">var</span> prepre = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">var</span> pre = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">var</span> fib;
+  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">2</span>; i &lt; num; i++) {
+    fib = pre + prepre;
+    prepre = pre;
+    pre = fib;
+  }
+  <span class="hljs-keyword">return</span> fib;
+}
+</code></pre>
+<p>지금까지 재귀함수와 반복문, 두 가지 방법으로 피보나치 수를 구현해 보았습니다.</p>
+<p>재귀함수를 사용하는 방법이 직관적이고 이해하기 쉬운 방식이지만 수가 커질수록 스택의 깊이는 깊어지고 함수 실행 시 많은 시간이 소요됩니다.
+이런 문제점 때문에 재귀함수를 사용하는 대신, 반복문을 사용하여 필요한 값을 계속해서 변수에 저장하는 방식으로 피보나치 수를 구현하였습니다.</p>
+<p>단순히 함수를 구현하여 결과를 얻는 것뿐만 아니라 그 과정의 비용도 생각해야 합니다.</p>
+<h2>참고자료</h2>
+<ul>
+<li><a href="https://ko.wikipedia.org/wiki/%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98_%EC%88%98">위키백과 피보나치 수</a></li>
+<li><a href="https://homoefficio.github.io/2015/07/27/%EC%9E%AC%EA%B7%80-%EB%B0%98%EB%B3%B5-Tail-Recursion/">HomoEfficio 님의 블로그/재귀, 반복, Tail Recursion</a></li>
+</ul>
 
     </div>
 

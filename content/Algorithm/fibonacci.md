@@ -1,7 +1,7 @@
 +++
 category = Algorithm
 comments = true
-date = "2018-4-01T16:59:13-04:00"
+date = "20180710"
 draft = false
 showpagemeta = true
 showcomments = false

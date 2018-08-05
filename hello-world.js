@@ -47,7 +47,7 @@ function extractedValue(md) {
     return value;
   } else {
     str = string[2].match(/[^\r\n]+/g);
-    console.log(str);
+
     let extractedValue = {};
     str.forEach(value => {
       if (value !== " ") {
@@ -190,6 +190,11 @@ categoryByfiles.forEach(category => {
 
 //홈화면 생성
 
+articles = articles.sort((a, b) => {
+  console.log(a.value.date, b.value.date);
+  return parseInt(b.value.date, 10) - parseInt(a.value.date, 10);
+});
+
 main = ejs.render(homeHtmlFormat, {
   articles: articles
 });
@@ -200,5 +205,3 @@ html = ejs.render(indexHtmlFormat, {
 });
 
 fs.writeFileSync("./index.html", html);
-
-console.log(categoryByfiles);

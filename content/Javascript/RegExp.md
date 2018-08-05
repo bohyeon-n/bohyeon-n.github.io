@@ -1,7 +1,7 @@
 +++
 category = JavaScript
 comments = true
-date = "2018-7-19T22:59:13-04:00"
+date = "20180719"
 draft = false
 showpagemeta = true
 showcomments = false
