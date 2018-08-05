@@ -117,6 +117,165 @@
       <div class="value">
         <div class="value__title">
 
+          <a href="/deploy/JavaScript/this.html">
+            <h1>
+
+
+              Javascriptthis,bindandarrowfunction
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180806
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>this</h2>
+<p>this 는 생성자 혹은 메소드에서 객체를 가리킬 때 사용하는 키워드입니다.</p>
+<p>this 는 이럴 때 사용합니다!</p>
+<ol>
+<li>새로 만들어지는 객체에 생성자의 속성을 넣어줄 때 사용합니다.</li>
+<li>객체의 속성에 접근(메소드에서 사용하는 this)할 때 사용합니다.</li>
+</ol>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">username, balance</span>) </span>{
+  <span class="hljs-comment">// 속성</span>
+  <span class="hljs-keyword">this</span>.username = username;
+  <span class="hljs-keyword">this</span>.balance = balance;
+  <span class="hljs-comment">// 메소드</span>
+  <span class="hljs-keyword">this</span>.getBalance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+  };
+  <span class="hljs-keyword">this</span>.deposit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
+    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
+  };
+}
+
+account = <span class="hljs-keyword">new</span> Account(<span class="hljs-string">"bohyeon"</span>, <span class="hljs-number">20000</span>);
+account.getBalance();
+account.deposit(<span class="hljs-number">2000</span>);
+account.getBalance();
+</code></pre>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//this키워드를 사용하여 객체의 속성이 username과 balance에 접근하고 있다.</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+  },
+  <span class="hljs-attr">deposit</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
+    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
+  }
+};
+
+account.getBalance();
+account.deposit(<span class="hljs-number">20000</span>);
+account.getBalance();
+</code></pre>
+<p>this 는 때에 따라 다른 값을 가리킵니다. 어떠한 문맥이냐에 따라서 <strong>그 값이 바뀝니다</strong>.</p>
+<ol>
+<li>global scope 에서 사용될 때 this 는 전역 객체를 가리킵니다.(window 객체)</li>
+<li>함수에서 사용될 때에도 this 는 전역 객체를 가리킵니다.</li>
+<li>객체에 속한 메소드에서 사용될 때 this 는 메소드가 속한 객체를 가리킵니다.</li>
+<li>객체에 속한 메소드의 내부함수에서 사용될 때 this 는 <strong>전역 객체</strong>를 가리킵니다.</li>
+<li>생성자에서 사용될 때 this 는 이 생성자로 인해 생성된 새로운 객체를 가리킵니다.</li>
+</ol>
+<p>4 번, 객체에 속한 메소드의 내부함수에서 사용되는 경우를 자세히 살펴보도록 하겠습니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+    };
+    <span class="hljs-built_in">console</span>.log(innerFunc());
+  }
+};
+account.getBalance(); <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
+</code></pre>
+<p>getBalance 가 외부에서 실행되면 this 는 account 입니다. 그러나, getBalance 함수 내부에서 innerFunc 를 호출 할 때는 그 어떤 문맥도 지정하지 않았기 때문에 innerFunc 의 this 는 window 가 됩니다.
+window 에는 username 이나 balance 속성이 없기 때문입니다.</p>
+<p>이렇게 함수가 언제 호출되는지에 따라서 this 의 값이 변한다면,</p>
+<h2>bind</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> 함수는 this 의 문맥을 유지할 때 사용합니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+    }.bind(<span class="hljs-keyword">this</span>);
+    <span class="hljs-built_in">console</span>.log(innerFunc());
+  }
+};
+account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
+</code></pre>
+<p>이렇게 bind 를 사용하여 this 를 원하는 값으로 설정할 수 있습니다.</p>
+<p>bind 는 원하는 this 문맥을 가진 새로운 함수를 생성합니다. 첫 번째 매개변수를 bind 에 넘겨줌으로써 this 를 명확하게 설정할 수 있습니다.</p>
+<p>그런데, 이렇게 this 의 문맥을 정해주고 싶을 때 마다 bind 를 사용해야 한다면 좀 불편하겠죠?</p>
+<p>ES6 문법에서는 화살표 함수(Arrow function)을 제공합니다.</p>
+<h2>화살표 함수</h2>
+<p>화살표 함수와 function 문법 함수는 완전히 다릅니다.
+화살표 함수는 다음과 같은 특징을 가지고 있습니다.</p>
+<ul>
+<li>화살표 함수는 익명 함수로만 만들 수 있다.</li>
+<li>화살표 함수는 생성자로 사용할 수 없다.</li>
+<li>화살표 함수는 스스로의 this, argument 를 가지지 않습니다.</li>
+<li>함수가 정의된 스코프에 존재하는 this 를 가리킵니다.</li>
+<li>화살표 함수는 생성될 때 this 가 결정됩니다.</li>
+<li>화살표 함수가 어떻게 사용되건, 호출되건, this 는 바뀌지 않습니다.</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// 화살표 함수를 사용</span>
+    innerFunc = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
+    };
+    <span class="hljs-built_in">console</span>.log(innerFunc());
+  }
+};
+account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
+</code></pre>
+<p>innerFunc 함수에서 화살표 함수를 사용하면 더이상 bind 를 사용해서 this 를 binding 하지 않아도 됩니다.</p>
+<p>화살표 함수는 this 를 바인딩 하지 않기 때문에, 둘러싸인 스코프에서 this 의 값을 찾을 수 있다.</p>
+<p>그러나 이러한 특징 때문에 객체의 메소드로 호출할 경우 적합하지 않습니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> person = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">greet</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`hi <span class="hljs-subst">${<span class="hljs-keyword">this</span>.name}</span>`</span>)
+};
+person.greet(); <span class="hljs-comment">// hi</span>
+</code></pre>
+<p>화살표 함수는 this 를 바인딩 하지 않기 때문에 외부 스코프에서 this 의 값을 계승받습니다.</p>
+<p>즉 메소드를 호출한 객체를 가리키지 않고 상위 컨텍스트인 전역 객체 window 를 가리키게 됩니다.</p>
+<p>객체의 메소드에서는 화살표 함수가 아닌, function 문법 함수를 사용해야 합니다.</p>
+<h2>결론</h2>
+<h2>참고 자료</h2>
+<p><a href="https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26">https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26</a></p>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
           <a href="/deploy/TIL/project.html">
             <h1>
 
@@ -219,6 +378,68 @@
 
 - hello-world.js
 </code></pre>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/TIL/0805.html">
+            <h1>
+
+
+              180805TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180805
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>오늘 한 일</h2>
+<ul>
+<li>
+<p>블로그 개선</p>
+<ul>
+<li>처음 화면에서 글의 순서를 가장 최근 순으로 정렬하게 하였다.</li>
+</ul>
+</li>
+<li>
+<p>글쓰기</p>
+<ul>
+<li>this, bind, arrow function 에 대해서 쓰고 있는데 여러가지 자료를 찾아보니 모르는 내용이 많았다.</li>
+<li>일단은 내가 이해할 수 있는 선에서만 정리해야겠다.</li>
+</ul>
+</li>
+</ul>
+<h2>오늘의 느낀점</h2>
+<ul>
+<li>이력서를 쓰고 포트폴리오를 준비하려고 하다보니까 너무 한 게 없다는 것을 느끼게 되었다.</li>
+<li>좀 더 열심히 공부하고 준비해야겠다.</li>
+</ul>
+<h2>내일 할 일</h2>
+<ul>
+<li>프로젝트 기획 문서로 정리하기</li>
+<li>글 마무리 하기</li>
+<li>python 강의 lesson3 반 듣기</li>
+<li>블로그 정규 표현식 수정하기</li>
+</ul>
 
     </div>
 
@@ -440,139 +661,6 @@
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/JavaScript/this.html">
-            <h1>
-
-
-              this,javascript
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            20180731
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <p>서론: this 란 무엇인가?
-본론:</p>
-<ul>
-<li>this 의 동작 방식? 규칙</li>
-<li>해결 방법
-<ul>
-<li>bind</li>
-<li>arrow function</li>
-</ul>
-</li>
-</ul>
-<p>결론:
-...</p>
-<h2>this</h2>
-<p>this 는 생성자 혹은 메소드에서 객체를 가리킬 때 사용하는 키워드입니다.</p>
-<p>this 는 이럴 때 사용합니다!</p>
-<ol>
-<li>새로 만들어지는 객체에 생성자의 속성을 넣어줄 때 사용합니다.</li>
-<li>객체의 속성에 접근(메소드에서 사용하는 this)할 때 사용합니다.</li>
-</ol>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">username, balance</span>) </span>{
-  <span class="hljs-comment">// 속성</span>
-  <span class="hljs-keyword">this</span>.username = username;
-  <span class="hljs-keyword">this</span>.balance = balance;
-  <span class="hljs-comment">// 메소드</span>
-  <span class="hljs-keyword">this</span>.getBalance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-  };
-  <span class="hljs-keyword">this</span>.deposit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
-    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
-  };
-}
-
-account = <span class="hljs-keyword">new</span> Account(<span class="hljs-string">"bohyeon"</span>, <span class="hljs-number">20000</span>);
-account.getBalance();
-account.deposit(<span class="hljs-number">2000</span>);
-account.getBalance();
-</code></pre>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-comment">//this키워드를 사용하여 객체의 속성이 username과 balance에 접근하고 있다.</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-  },
-  <span class="hljs-attr">deposit</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
-    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
-  }
-};
-
-account.getBalance();
-account.deposit(<span class="hljs-number">20000</span>);
-account.getBalance();
-</code></pre>
-<p>this 는 때에 따라 다른 값을 가리킨다. 어떠한 문맥이냐에 따라서 그 값이 바뀝니다.</p>
-<ol>
-<li>Global scope 에서 사용될 때 this 는 전역 객체를 가리킵니다.(window 객체)</li>
-<li>함수에서 사용될 때에도 this 는 전역 객체를 가리킵니다.</li>
-<li>객체에 속한 메소드에서 사용될 때 this 는 메소드가 속한 객체를 가리킵니다.</li>
-<li>객체에 속한 메소드의 내부함수에서 사용될 때 this 는 <strong>전역 객체</strong>를 가리킵니다.</li>
-<li>생성자에서 사용될 때 this 는 이 생성자로 인해 생성된 새로운 객체를 가리킵니다.</li>
-</ol>
-<p>4 번, 객체에 속한 메소드의 내부함수에서 사용되는 경우를 자세히 살펴보도록 하겠습니다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
-    };
-    <span class="hljs-built_in">console</span>.log(innerFunc());
-  }
-};
-account.getBalance();
-</code></pre>
-<p>getBalance 가 외부에서 실행되면 this 는 account 입니다. 그러나, getBalance 함수 내부에서 innerFunc 를 호출 할 때는 그 어떤 문맥도 지정하지 않았기 때문에 innerFunc 의 this 가 window 가 됩니다.</p>
-<h2>bind</h2>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> 함수는 this 의 문맥을 유지할 때 사용합니다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
-    }.bind(<span class="hljs-keyword">this</span>);
-    <span class="hljs-built_in">console</span>.log(innerFunc());
-  }
-};
-account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
-</code></pre>
-<p>이렇게 bind 를 사용하여 this 를 원하는 값으로 설정할 수 있습니다.</p>
-<p>bind 는 원하는 this 문맥을 가진 새로운 함수를 생성합니다. 첫 번째 매개변수를 bind 에 넘겨줌으로써 this 를 명확하게 설정할 수 있습니다.</p>
-<p>그런데, 이렇게 this 의 문맥을 정해주고 싶을 때 마다 bind 를 사용해야 한다면 좀 불편하겠죠?</p>
-<p>ES6 문법에서는 화살표 함수(Arrow function)을 제공합니다.</p>
-<h2>화살표 함수</h2>
-<p>화살표 함수의 이점 중에서도 가장 큰 이점은 this 를 binding 하지 않아도 된다는 것입니다.</p>
-<p><a href="https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26">https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26</a></p>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
           <a href="/deploy/TIL/0728.html">
             <h1>
 
@@ -744,72 +832,6 @@ git push origin &lt;branch&gt; -f
       <div class="value">
         <div class="value__title">
 
-          <a href="/deploy/Algorithm/besttimetobuyandsellstock.html">
-            <h1>
-
-
-              BestTimetoBuyandSellStock
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            20180723
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h1>Best Time to Buy and Sell Stock</h1>
-<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
-<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
-<p>Note that you cannot sell a stock before you buy one.</p>
-<pre class="hljs block"><code class="html">Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
-Output: <span class="hljs-number">5</span>
-Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class="hljs-number">1</span>) and sell on day <span class="hljs-number">5</span> (price = <span class="hljs-number">6</span>), profit = <span class="hljs-number">6</span><span class="hljs-number">-1</span> = <span class="hljs-number">5.</span>
-             Not <span class="hljs-number">7</span><span class="hljs-number">-1</span> = <span class="hljs-number">6</span>, <span class="hljs-keyword">as</span> selling price needs to be larger than buying price.
-</code></pre>
-<h2>나의 풀이</h2>
-<ol>
-<li>prices 배열을 반복문을 돌면서 확인한다.</li>
-<li>buy 값이 없거나, buy 보다 작은 값이면 buy 에 대입한다.</li>
-<li>그렇지 않다면 buy 보다 큰 수이다. 큰 수 이면서 기존 profit 의 값보다 profit 이 크다면, profit 에 buy 와 현재 배열 요소의 차를 재대입한다.</li>
-<li>profit 을 리턴한다.</li>
-</ol>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>{
-  <span class="hljs-keyword">let</span> profit = <span class="hljs-number">0</span>;
-  <span class="hljs-keyword">let</span> buy;
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; prices.length + <span class="hljs-number">1</span>; i++) {
-    <span class="hljs-keyword">if</span> (buy === <span class="hljs-literal">undefined</span> || buy &gt; prices[i]) {
-      buy = prices[i];
-    } <span class="hljs-keyword">else</span> {
-      <span class="hljs-keyword">if</span> (profit &lt; prices[i] - buy) {
-        profit = prices[i] - buy;
-      }
-    }
-    <span class="hljs-built_in">console</span>.log(buy, profit);
-  }
-  <span class="hljs-keyword">return</span> profit;
-};
-</code></pre>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
           <a href="/deploy/TIL/0723.html">
             <h1>
 
@@ -875,6 +897,72 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
 <li>알고리즘 문제풀기</li>
 <li>내일 깃헙 특강들으러 가기</li>
 </ul>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/Algorithm/besttimetobuyandsellstock.html">
+            <h1>
+
+
+              BestTimetoBuyandSellStock
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            20180723
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h1>Best Time to Buy and Sell Stock</h1>
+<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
+<p>Note that you cannot sell a stock before you buy one.</p>
+<pre class="hljs block"><code class="html">Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
+Output: <span class="hljs-number">5</span>
+Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class="hljs-number">1</span>) and sell on day <span class="hljs-number">5</span> (price = <span class="hljs-number">6</span>), profit = <span class="hljs-number">6</span><span class="hljs-number">-1</span> = <span class="hljs-number">5.</span>
+             Not <span class="hljs-number">7</span><span class="hljs-number">-1</span> = <span class="hljs-number">6</span>, <span class="hljs-keyword">as</span> selling price needs to be larger than buying price.
+</code></pre>
+<h2>나의 풀이</h2>
+<ol>
+<li>prices 배열을 반복문을 돌면서 확인한다.</li>
+<li>buy 값이 없거나, buy 보다 작은 값이면 buy 에 대입한다.</li>
+<li>그렇지 않다면 buy 보다 큰 수이다. 큰 수 이면서 기존 profit 의 값보다 profit 이 크다면, profit 에 buy 와 현재 배열 요소의 차를 재대입한다.</li>
+<li>profit 을 리턴한다.</li>
+</ol>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>{
+  <span class="hljs-keyword">let</span> profit = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">let</span> buy;
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; prices.length + <span class="hljs-number">1</span>; i++) {
+    <span class="hljs-keyword">if</span> (buy === <span class="hljs-literal">undefined</span> || buy &gt; prices[i]) {
+      buy = prices[i];
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">if</span> (profit &lt; prices[i] - buy) {
+        profit = prices[i] - buy;
+      }
+    }
+    <span class="hljs-built_in">console</span>.log(buy, profit);
+  }
+  <span class="hljs-keyword">return</span> profit;
+};
+</code></pre>
 
     </div>
 

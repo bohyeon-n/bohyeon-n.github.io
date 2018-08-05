@@ -115,31 +115,18 @@
 
   <div class="value">
     <h1 style="color:#333">
-      this,javascript
+      Javascriptthis,bindandarrowfunction
 
     </h1>
     <span>
-      20180731
+      20180806
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <p>서론: this 란 무엇인가?
-본론:</p>
-<ul>
-<li>this 의 동작 방식? 규칙</li>
-<li>해결 방법
-<ul>
-<li>bind</li>
-<li>arrow function</li>
-</ul>
-</li>
-</ul>
-<p>결론:
-...</p>
-<h2>this</h2>
+    <h2>this</h2>
 <p>this 는 생성자 혹은 메소드에서 객체를 가리킬 때 사용하는 키워드입니다.</p>
 <p>this 는 이럴 때 사용합니다!</p>
 <ol>
@@ -180,9 +167,9 @@ account.getBalance();
 account.deposit(<span class="hljs-number">20000</span>);
 account.getBalance();
 </code></pre>
-<p>this 는 때에 따라 다른 값을 가리킨다. 어떠한 문맥이냐에 따라서 그 값이 바뀝니다.</p>
+<p>this 는 때에 따라 다른 값을 가리킵니다. 어떠한 문맥이냐에 따라서 <strong>그 값이 바뀝니다</strong>.</p>
 <ol>
-<li>Global scope 에서 사용될 때 this 는 전역 객체를 가리킵니다.(window 객체)</li>
+<li>global scope 에서 사용될 때 this 는 전역 객체를 가리킵니다.(window 객체)</li>
 <li>함수에서 사용될 때에도 this 는 전역 객체를 가리킵니다.</li>
 <li>객체에 속한 메소드에서 사용될 때 this 는 메소드가 속한 객체를 가리킵니다.</li>
 <li>객체에 속한 메소드의 내부함수에서 사용될 때 this 는 <strong>전역 객체</strong>를 가리킵니다.</li>
@@ -195,14 +182,16 @@ account.getBalance();
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
     };
     <span class="hljs-built_in">console</span>.log(innerFunc());
   }
 };
-account.getBalance();
+account.getBalance(); <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
 </code></pre>
-<p>getBalance 가 외부에서 실행되면 this 는 account 입니다. 그러나, getBalance 함수 내부에서 innerFunc 를 호출 할 때는 그 어떤 문맥도 지정하지 않았기 때문에 innerFunc 의 this 가 window 가 됩니다.</p>
+<p>getBalance 가 외부에서 실행되면 this 는 account 입니다. 그러나, getBalance 함수 내부에서 innerFunc 를 호출 할 때는 그 어떤 문맥도 지정하지 않았기 때문에 innerFunc 의 this 는 window 가 됩니다.
+window 에는 username 이나 balance 속성이 없기 때문입니다.</p>
+<p>이렇게 함수가 언제 호출되는지에 따라서 this 의 값이 변한다면,</p>
 <h2>bind</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> 함수는 this 의 문맥을 유지할 때 사용합니다.</p>
 <pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
@@ -211,7 +200,7 @@ account.getBalance();
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
     }.bind(<span class="hljs-keyword">this</span>);
     <span class="hljs-built_in">console</span>.log(innerFunc());
   }
@@ -223,7 +212,44 @@ account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000
 <p>그런데, 이렇게 this 의 문맥을 정해주고 싶을 때 마다 bind 를 사용해야 한다면 좀 불편하겠죠?</p>
 <p>ES6 문법에서는 화살표 함수(Arrow function)을 제공합니다.</p>
 <h2>화살표 함수</h2>
-<p>화살표 함수의 이점 중에서도 가장 큰 이점은 this 를 binding 하지 않아도 된다는 것입니다.</p>
+<p>화살표 함수와 function 문법 함수는 완전히 다릅니다.
+화살표 함수는 다음과 같은 특징을 가지고 있습니다.</p>
+<ul>
+<li>화살표 함수는 익명 함수로만 만들 수 있다.</li>
+<li>화살표 함수는 생성자로 사용할 수 없다.</li>
+<li>화살표 함수는 스스로의 this, argument 를 가지지 않습니다.</li>
+<li>함수가 정의된 스코프에 존재하는 this 를 가리킵니다.</li>
+<li>화살표 함수는 생성될 때 this 가 결정됩니다.</li>
+<li>화살표 함수가 어떻게 사용되건, 호출되건, this 는 바뀌지 않습니다.</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// 화살표 함수를 사용</span>
+    innerFunc = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>; <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
+    };
+    <span class="hljs-built_in">console</span>.log(innerFunc());
+  }
+};
+account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
+</code></pre>
+<p>innerFunc 함수에서 화살표 함수를 사용하면 더이상 bind 를 사용해서 this 를 binding 하지 않아도 됩니다.</p>
+<p>화살표 함수는 this 를 바인딩 하지 않기 때문에, 둘러싸인 스코프에서 this 의 값을 찾을 수 있다.</p>
+<p>그러나 이러한 특징 때문에 객체의 메소드로 호출할 경우 적합하지 않습니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> person = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">greet</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`hi <span class="hljs-subst">${<span class="hljs-keyword">this</span>.name}</span>`</span>)
+};
+person.greet(); <span class="hljs-comment">// hi</span>
+</code></pre>
+<p>화살표 함수는 this 를 바인딩 하지 않기 때문에 외부 스코프에서 this 의 값을 계승받습니다.</p>
+<p>즉 메소드를 호출한 객체를 가리키지 않고 상위 컨텍스트인 전역 객체 window 를 가리키게 됩니다.</p>
+<p>객체의 메소드에서는 화살표 함수가 아닌, function 문법 함수를 사용해야 합니다.</p>
+<h2>결론</h2>
+<h2>참고 자료</h2>
 <p><a href="https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26">https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26</a></p>
 
   </div>
