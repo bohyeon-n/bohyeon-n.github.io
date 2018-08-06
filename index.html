@@ -100,6 +100,13 @@
         </li>
       </a>
       
+      <a href="/deploy/category/.html">
+        <li>
+          
+
+        </li>
+      </a>
+      
   </div>
 </div>
 
@@ -838,6 +845,72 @@ git push origin &lt;branch&gt; -f
       <div class="value">
         <div class="value__title">
 
+          <a href="/deploy/ Algorithm/besttimetobuyandsellstock.html">
+            <h1>
+
+
+               Best Time to Buy and Sell Stock
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180723
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h1>Best Time to Buy and Sell Stock</h1>
+<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
+<p>Note that you cannot sell a stock before you buy one.</p>
+<pre class="hljs block"><code class="html">Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
+Output: <span class="hljs-number">5</span>
+Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class="hljs-number">1</span>) and sell on day <span class="hljs-number">5</span> (price = <span class="hljs-number">6</span>), profit = <span class="hljs-number">6</span><span class="hljs-number">-1</span> = <span class="hljs-number">5.</span>
+             Not <span class="hljs-number">7</span><span class="hljs-number">-1</span> = <span class="hljs-number">6</span>, <span class="hljs-keyword">as</span> selling price needs to be larger than buying price.
+</code></pre>
+<h2>나의 풀이</h2>
+<ol>
+<li>prices 배열을 반복문을 돌면서 확인한다.</li>
+<li>buy 값이 없거나, buy 보다 작은 값이면 buy 에 대입한다.</li>
+<li>그렇지 않다면 buy 보다 큰 수이다. 큰 수 이면서 기존 profit 의 값보다 profit 이 크다면, profit 에 buy 와 현재 배열 요소의 차를 재대입한다.</li>
+<li>profit 을 리턴한다.</li>
+</ol>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>{
+  <span class="hljs-keyword">let</span> profit = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">let</span> buy;
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; prices.length + <span class="hljs-number">1</span>; i++) {
+    <span class="hljs-keyword">if</span> (buy === <span class="hljs-literal">undefined</span> || buy &gt; prices[i]) {
+      buy = prices[i];
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">if</span> (profit &lt; prices[i] - buy) {
+        profit = prices[i] - buy;
+      }
+    }
+    <span class="hljs-built_in">console</span>.log(buy, profit);
+  }
+  <span class="hljs-keyword">return</span> profit;
+};
+</code></pre>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
           <a href="/deploy/ TIL/0723.html">
             <h1>
 
@@ -903,72 +976,6 @@ git push origin &lt;branch&gt; -f
 <li>알고리즘 문제풀기</li>
 <li>내일 깃헙 특강들으러 가기</li>
 </ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/ Algorithm/besttimetobuyandsellstock.html">
-            <h1>
-
-
-               Best Time to Buy and Sell Stock
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180723
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h1>Best Time to Buy and Sell Stock</h1>
-<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
-<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
-<p>Note that you cannot sell a stock before you buy one.</p>
-<pre class="hljs block"><code class="html">Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
-Output: <span class="hljs-number">5</span>
-Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class="hljs-number">1</span>) and sell on day <span class="hljs-number">5</span> (price = <span class="hljs-number">6</span>), profit = <span class="hljs-number">6</span><span class="hljs-number">-1</span> = <span class="hljs-number">5.</span>
-             Not <span class="hljs-number">7</span><span class="hljs-number">-1</span> = <span class="hljs-number">6</span>, <span class="hljs-keyword">as</span> selling price needs to be larger than buying price.
-</code></pre>
-<h2>나의 풀이</h2>
-<ol>
-<li>prices 배열을 반복문을 돌면서 확인한다.</li>
-<li>buy 값이 없거나, buy 보다 작은 값이면 buy 에 대입한다.</li>
-<li>그렇지 않다면 buy 보다 큰 수이다. 큰 수 이면서 기존 profit 의 값보다 profit 이 크다면, profit 에 buy 와 현재 배열 요소의 차를 재대입한다.</li>
-<li>profit 을 리턴한다.</li>
-</ol>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>{
-  <span class="hljs-keyword">let</span> profit = <span class="hljs-number">0</span>;
-  <span class="hljs-keyword">let</span> buy;
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; prices.length + <span class="hljs-number">1</span>; i++) {
-    <span class="hljs-keyword">if</span> (buy === <span class="hljs-literal">undefined</span> || buy &gt; prices[i]) {
-      buy = prices[i];
-    } <span class="hljs-keyword">else</span> {
-      <span class="hljs-keyword">if</span> (profit &lt; prices[i] - buy) {
-        profit = prices[i] - buy;
-      }
-    }
-    <span class="hljs-built_in">console</span>.log(buy, profit);
-  }
-  <span class="hljs-keyword">return</span> profit;
-};
-</code></pre>
 
     </div>
 
@@ -1109,6 +1116,40 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
 <li>그림을 배우는 http network basic 읽기</li>
 </ul>
 
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy//0806.html">
+            <h1>
+
+
+              
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+            
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      
     </div>
 
     
@@ -1492,6 +1533,23 @@ value = { <span class="hljs-attr">title</span>: value[<span class="hljs-number">
 <li>문자 공백 제거</li>
 </ul>
 <pre class="hljs block"><code class="html"><span class="hljs-string">"hello world java script"</span>.replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">""</span>);
+</code></pre>
+<ul>
+<li>모든 따옴표 제거하기</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-string">"'string'"</span>.replace(<span class="hljs-regexp">/["']/g</span>, <span class="hljs-string">""</span>);
+<span class="hljs-comment">//g 따옴표를 모두 찾아서 바꾸겠다는 뜻이다.</span>
+<span class="hljs-comment">//gi 라고 써주면 대소문자와 관계없이 모두 찾겠다는 뜻이다.</span>
+</code></pre>
+<ul>
+<li>연속되는 문자를 써줄 때</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-string">"+++string+++"</span>.replace(<span class="hljs-regexp">/(\+{3})([\s|\S]+?)(\1)/</span>, <span class="hljs-string">"$2"</span>);
+<span class="hljs-comment">// \가 3번 연속된다.</span>
+<span class="hljs-comment">// [\s] 스페이스, 탭, 폼피드, 줄 바꿈 문자등을 포함한 하나의 공백 문자에 대응됩니다.</span>
+<span class="hljs-comment">// [\S] 공백 문자가 아닌 하나의 문자에 대응됩니다.</span>
+<span class="hljs-comment">// [\s|\S] 공백문자에거나(or) 공백문자가 아닌 문자</span>
+<span class="hljs-comment">// (\1) 첫 번째 괄호인 (\+{3})을 지칭합니다.</span>
 </code></pre>
 <h3>참고 자료</h3>
 <p><a href="https://regexr.com/3cpbs">정규표현식 예제</a></p>
@@ -2096,6 +2154,14 @@ fibonacci(4)는 계산이 완료 되고 다시 fibonacci(3)을 계산합니다.
     <a href="/deploy/category/ til.html">
       <li>
          TIL
+      </li>
+    </a>
+
+    
+
+    <a href="/deploy/category/.html">
+      <li>
+        
       </li>
     </a>
 

@@ -44,7 +44,7 @@ function extractedValue(md) {
   string = md.match(/(\+{3})([\s|\S]+?)\1/);
 
   if (string === null) {
-    value = { title: "", date: "" };
+    value = { title: "", date: "", category: "" };
     return value;
   } else {
     str = string[2].match(/[^\r\n]+/g);
