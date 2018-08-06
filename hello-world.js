@@ -195,7 +195,7 @@ categoryByfiles.forEach(category => {
 articles = articles.sort((a, b) => {
   return parseInt(b.value.date, 10) - parseInt(a.value.date, 10);
 });
-
+console.log(articles);
 main = ejs.render(homeHtmlFormat, {
   articles: articles
 });
