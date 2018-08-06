@@ -35,7 +35,7 @@ description = "프로젝트 정리"
 
   - content 안에 폴더를 만들고 마크다운 파일을 넣는다. node hello-world.js 를 실행하면 deploy 폴더 안에 마크다운 파일이 html 파일로 변환되어 생성됩니다.
 
-  - 마크다운 파일 안에서 글에 대한 정보를 넣으면 글의 제목과 날짜 카테고리를 설정할 수 있습니다.
+  - 마크다운 파일 안에서 `+++< 여기에! >+++`글에 대한 정보를 넣으면 글의 제목과 날짜 카테고리를 설정할 수 있습니다.
 
   - 마찬가지로 author.md 에 사용자의 정보를 입력하면 이를 기반으로 about 페이지와 header 를 구성합니다.
 
@@ -46,6 +46,14 @@ description = "프로젝트 정리"
   - scss
   - markdown-it
   - highlight.js
+
+```md
++++
+category = TIL
+date = "20180805"
+title = "180805 TIL"
++++
+```
 
 파일 구조
 

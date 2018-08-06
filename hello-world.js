@@ -40,7 +40,8 @@ const headerHtmlFormat = fs.readFileSync("./public/header.html", "utf8");
 
 // md파일에서 사용자가 입력한 값 추출하기
 function extractedValue(md) {
-  string = md.match(/\n*(\+\+\+)\n*([\s\S]+)\n*(\+\+\+)/);
+  // string = md.match(/\n*(\+\+\+)\n*([\s\S]+)\n*(\+\+\+)/);
+  string = md.match(/(\+{3})([\s|\S]+?)\1/);
 
   if (string === null) {
     value = { title: "", date: "" };
@@ -66,7 +67,7 @@ function extractedValue(md) {
 
 // md 파일에서 사용자가 입력한 값을 제외한 본문 추출하기
 function extractedBody(md) {
-  return md.replace(/\n*(\+\+\+)\n*([\s\S]+)\n*(\+\+\+)/, "");
+  return md.replace(/(\+{3})([\s\S]+?)(\1)/, "");
 }
 
 // 폴더 만들어주기
