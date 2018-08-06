@@ -7,7 +7,7 @@ showpagemeta = true
 showcomments = false
 slug = ""
 tags = [ "JS"]
-title = "Javascript this, bind and arrow function"
+title = "Javascript this, bind  and   arrow  function"
 description = "Javascript this, bind and arrow function"
 +++
 

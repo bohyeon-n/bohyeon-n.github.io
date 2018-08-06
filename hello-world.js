@@ -54,7 +54,8 @@ function extractedValue(md) {
         let valueline = value.match(/(.+)[=\n](.+)/);
         if (valueline != null) {
           key = valueline[1].replace(/\s/g, "");
-          value = valueline[2].replace(/['"]*/g, "").replace(/\s/g, "");
+
+          value = valueline[2].replace(/['"]/g, "");
           extractedValue[key] = value;
         }
       }
@@ -191,7 +192,6 @@ categoryByfiles.forEach(category => {
 //홈화면 생성
 
 articles = articles.sort((a, b) => {
-  console.log(a.value.date, b.value.date);
   return parseInt(b.value.date, 10) - parseInt(a.value.date, 10);
 });
 
