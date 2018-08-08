@@ -69,9 +69,13 @@ function extractedValue(md) {
 function extractedBody(md) {
   return md.replace(/(\+{3})([\s\S]+?)(\1)/, "");
 }
+let dir = "./deploy";
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
+}
 
 // 폴더 만들어주기
-let dir = "./deploy/category";
+dir = "./deploy/category";
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
@@ -116,7 +120,6 @@ directories.forEach((directory, index) => {
     }
     articles.push(fileObj);
   });
-
   categoryByfiles.push(...files);
 });
 
@@ -158,9 +161,12 @@ categoryByfiles.forEach(category => {
     }
   }
   // category별로 file의 리스트를 보여주는 category 페이지 생성
-
+  // files 최신순으로 정렬
+  const orderedFiles = category.files.sort((a, b) => {
+    return parseInt(b.value.date, 10) - parseInt(a.value.date, 10);
+  });
   const main = ejs.render(listHtmlFormat, {
-    files: category.files,
+    files: orderedFiles,
     category: category.categoryName,
     folder: category.folder
   });
@@ -171,7 +177,7 @@ categoryByfiles.forEach(category => {
   });
 
   fs.writeFileSync(`./deploy/category/${category.folder}.html`, indexHtml);
-  // 파일 별로 post page를 생성
+  // 파일 별로 article page를 생성
   category.files.forEach(file => {
     const article = ejs.render(articleHtmlFormat, {
       body: file.body,
@@ -195,7 +201,7 @@ categoryByfiles.forEach(category => {
 articles = articles.sort((a, b) => {
   return parseInt(b.value.date, 10) - parseInt(a.value.date, 10);
 });
-console.log(articles);
+
 main = ejs.render(homeHtmlFormat, {
   articles: articles
 });
