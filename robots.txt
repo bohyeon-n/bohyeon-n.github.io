@@ -1,2 +1,3 @@
 User-agent: *
-Allow: 
+Allow: /
+Sitemap: https://bohyeon-n.github.io/sitemap.xml
