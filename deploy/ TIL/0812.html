@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js">
+  <link rel="stylesheet" href="/style/index.css">
+
+  <title>
+    blog
+  </title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="user">
+  <div class="user__content">
+    <div class="user__img">
+      <a href="/">
+        <img src="  https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
+      </a>
+    </div>
+
+    <div class="user__username">
+      <div>
+         구보현 블로그 
+
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div class="user__social">
+      
+        <a href=" https://github.com/bohyeon-n">
+
+          <i class="fab fa-github-alt fa-2x"></i>
+
+
+
+        </a>
+
+        
+          
+    </div>
+
+  </div>
+
+</div>
+<div class="nav ">
+  <ul>
+    <a href="/index.html">
+      <li class="nav__home">
+        Home
+      </li>
+    </a>
+
+    <li class="nav__category">
+      Category
+    </li>
+
+
+    <a href="/deploy/author/author.html">
+      <li class="nav__about">
+        About
+      </li>
+
+    </a>
+
+    <li class="nav__search ">
+      Search
+    </li>
+  </ul>
+  <div class="category">
+    
+      <a href="/deploy/category/ algorithm.html">
+        <li>
+           Algorithm
+
+        </li>
+      </a>
+      
+      <a href="/deploy/category/ javascript.html">
+        <li>
+           JavaScript
+
+        </li>
+      </a>
+      
+      <a href="/deploy/category/ til.html">
+        <li>
+           TIL
+
+        </li>
+      </a>
+      
+      <a href="/deploy/category/ development.html">
+        <li>
+           Development
+
+        </li>
+      </a>
+      
+  </div>
+</div>
+
+  </div>
+
+
+
+  <div class="content">
+
+    <div class="main">
+      <div class="article">
+
+
+  <div class="value">
+    <h1 style="color:#333">
+       180812 TIL
+
+    </h1>
+    <span>
+       20180812
+
+    </span>
+  </div>
+
+
+  <div class="article__body">
+    <h2>오늘 한 일</h2>
+<ul>
+<li>프로젝트
+<ul>
+<li>클라이언트 리스트 컴포넌트, 컨테이너를 작성하였다.</li>
+</ul>
+</li>
+<li>파이썬
+<ul>
+<li>anaconda 를 설치하려고 했는데 설치가 안된다.</li>
+<li>파이썬 3.6 을 설치해야 한다고 하는데 파이썬 3.6 을 설치해도 python --verson 을 하면 다른 버전이 나온다.</li>
+</ul>
+</li>
+</ul>
+<h2>오늘의 느낀점</h2>
+<p>이제 본격적으로 프로젝트도 시작하였으니, 공부하는 시간을 전보다 더 늘려야겠다.</p>
+<h2>내일 할 일</h2>
+<ul>
+<li>
+<p>프로젝트</p>
+<ul>
+<li>클라이언트 페이지 완성하기, 디자인을 다시 생각해봐야겠다.</li>
+</ul>
+</li>
+<li>
+<p>파이썬</p>
+<ul>
+<li>lesson5 완강</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+
+</div>
+
+    </div>
+    <div class="sidebar">
+      <!-- folder name -->
+<div>
+  Category
+</div>
+<ul>
+
+  
+
+    <a href="/deploy/category/ algorithm.html">
+      <li>
+         Algorithm
+      </li>
+    </a>
+
+    
+
+    <a href="/deploy/category/ javascript.html">
+      <li>
+         JavaScript
+      </li>
+    </a>
+
+    
+
+    <a href="/deploy/category/ til.html">
+      <li>
+         TIL
+      </li>
+    </a>
+
+    
+
+    <a href="/deploy/category/ development.html">
+      <li>
+         Development
+      </li>
+    </a>
+
+    
+</ul>
+
+    </div>
+
+
+  </div>
+  <button id="goUp" onclick="topFunction()">
+    <i class="fas fa-arrow-circle-up"></i>
+  </button>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.js"></script>
+  <script>
+    const categoryEl = document.querySelector('.category')
+    const navCategoryEl = document.querySelector('.nav__category')
+    navCategoryEl.addEventListener('click', e => {
+      if (!categoryEl.classList.contains('show')) {
+        categoryEl.classList.add('show')
+        console.log('sldkng')
+
+      } else {
+        categoryEl.classList.remove('show');
+
+        console.log('remove')
+      }
+    })
+    window.onscroll = function () {
+      scrollFunction()
+    }
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('goUp').style.display = "block";
+      } else {
+        document.getElementById('goUp').style.display = 'none';
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>
