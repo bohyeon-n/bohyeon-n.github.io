@@ -122,82 +122,91 @@
 
   <div class="value">
     <h1 style="color:#333">
-       sort colors
+       REST란?
 
     </h1>
     <span>
-       20180718
+       20180810
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h1>sort colors</h1>
-<p>Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
-<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
-<h1>나의 풀이</h1>
-<ul>
+    <h2>REST 란?</h2>
+<h3>REST</h3>
+<p><strong>REST</strong>(REpresentation State Transfer)</p>
+<p>REST API 란 웹에 존재하는 모든 자원(이미지, 동영상, DB)에 고유한 URI 를 부여해 활용하는 것으로, 자원을 정의하고 자원에 대한 주소를 지정하는 방법론을 의미한다.</p>
+<p><code>무엇을(HTTP URI 로 정의된 리소스) 어떻게 한다(HTTP Method + payload)로 잘 정의된 API 를 REST API 라고 할 수 있다.</code></p>
+<p>REST 를 더 알아보기 전에 두 가지 용어를 알아보도록 하자.</p>
+<ol>
 <li>
-<p>in-place 알고리즘이란 원소들의 개에 비해서 충분히 무시할 만한 저장 공간만을 더 사용하여 정렬 알고리즘들을 의미한다.</p>
+<p>클라이언트</p>
+<p>클라이언트란 API 를 사용하는 사람이다.
+클라이언트는 사람이 아닌 웹브라우저가 될 수도 있다. 트위터 웹사이트에 접속하면, 브라우저는 트위터 API 를 호출하는 클라이언트가 되고, 반환되는 데이터는 화면에 렌더된다.</p>
 </li>
 <li>
-<p>버블 정렬</p>
-<ul>
-<li>두 인접한 원소를 검사하여 큰 수를 뒤로 보내는 간단한 알고리즘</li>
-<li>다른 정렬 알고리즘에 비해 속도가 상당히 느리다.</li>
-</ul>
+<p>리소스</p>
+<p>리소스는 API 가 정보를 제공할 수 있는 모든 객체가 될 수 있다.
+예를 들어 인스타그램의 리소스는 사용자, 해시태그, 사진 등이 될 수 있고 각각의 리소스는 사용자 이름, 숫자 등 고유한 식별자를 가지고 있다.</p>
 </li>
-</ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; nums.length - i; j++) {
-      <span class="hljs-keyword">if</span> (nums[j] &gt; nums[j + <span class="hljs-number">1</span>]) {
-        <span class="hljs-keyword">let</span> temp = nums[j];
-        nums[j] = nums[j + <span class="hljs-number">1</span>];
-        nums[j + <span class="hljs-number">1</span>] = temp;
-      }
-    }
-  }
-};
-</code></pre>
-<h1>다른 사람 풀이</h1>
+</ol>
+<h3>REST 의 기본구조</h3>
+<p>REST API 는 다음의 세 가지 요소로 구성된다.</p>
 <ul>
-<li>low, high, index 변수가 있다.</li>
-<li>nums 배열을 돌면서 확인한다.</li>
-<li>0 이면, nums[low]에 위치한다.</li>
-<li>low++ index++ 를 해준다. 0, 가장 낮은 수 이므로 고정시키면 되기 때문에 이제 더 이상 볼 필요가 없어졌다.</li>
-<li>다시 nums[index]를 확인한다.</li>
-<li>1 이면, index++ 를 해서 다음 숫자를 확인한다.</li>
-<li>2 이면, nums[high] nums 배열의 끝에 위치하고, 2 도 가장 큰 수이므로, 더이상 확인할 필요가 없으므로, nums[high]에 고정시키면 된다. high-- 해준다.</li>
-<li>계속해서 반복하다보면, 0 과 2 는 앞 뒤로 위치된다.</li>
-<li>1 은 자동으로 그 사이에 위치된다.</li>
+<li>자원 - URI</li>
+<li>행위 - HTTML Method</li>
+<li>표현 - Representation</li>
 </ul>
+<p>REST 는 제어할 자원을 표시한 <strong>URI</strong> 로 수행 할 행위인 <strong>HTTP Method</strong> 를 보내어 그 결과를 <strong>표현</strong>한다.</p>
+<h4>URI</h4>
+<p><strong>URI</strong>(Uniform Resource Identifier)</p>
+<p>URI 는 웹 상에 존재하는 어떤 자원을 나타내는 유일한 주소이다.</p>
+<p><strong>URI 와 URL 의 차이</strong></p>
+<p>URI 는 Uniform Resource Identifier 이고,
+URL 은 Uniform Resource Locator 이다.</p>
+<p>URL 은 어떤 자원의 위치를 나타내고
+URI 는 어떤 자원을 식별하기까지 한다.</p>
+<p>URL 은 URI 의 하위 개념이다.</p>
+<h4>HTTP Method</h4>
 <ul>
-<li>나는 언제쯤 이런 생각을 할 수 있을까... 😱</li>
+<li>POST
+POST 를 통해 URI 를 요청하면 리소스를 생성한다.</li>
+<li>GET
+GET 을 통해 해당 리소스를 조회한다. 리소스를 조회하고 해당 도큐먼트에 대한 자세한 정보를 가져온다.</li>
+<li>PUT
+PUT 을 통해 해당 리소스를 수정한다.</li>
+<li>DELETE
+DELETE 를 통해 리소스를 삭제한다.</li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> sortColors = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
-  <span class="hljs-keyword">let</span> temp,
-    lo = <span class="hljs-number">0</span>,
-    hi = nums.length - <span class="hljs-number">1</span>;
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;= hi; ) {
-    <span class="hljs-keyword">if</span> (nums[i] === <span class="hljs-number">0</span>) {
-      temp = nums[i];
-      nums[i] = nums[lo];
-      nums[lo] = temp;
-      lo++;
-      i++;
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums[i] === <span class="hljs-number">2</span>) {
-      temp = nums[i];
-      nums[i] = nums[hi];
-      nums[hi] = temp;
-      hi--;
-    } <span class="hljs-keyword">else</span> {
-      i++;
-    }
-  }
-};
-</code></pre>
+<h4>Representation</h4>
+<p>가장 대표적인 representation 은 JSON 형식이다. 또한 xml html 형식이 될 수도 있다.</p>
+<h4>RESTful</h4>
+<p>REST API 의 설계 의도를 정확하게 지켜주는 API 를 <strong>RESTful</strong> 하다 라고 부른다.</p>
+<h5>REST API 중심 규칙</h5>
+<ol>
+<li>URI 는 정보의 자원을 표현해야 한다.
+<code>GET /members/delete/1</code>
+URI 는 자원을 표현하는 데 중점을 두어야 한다. delete 와 같은 행위에 대한 표현이 들어가서는 안된다.</li>
+<li>자원에 대한 행위는 HTTP Method 로 표현한다.
+<code>DELETE /member/1</code>
+URI 는 자원을 표현하는 데 집중하고 행위에 대한 정의는 HTTP Method 를 통해 설계한다.</li>
+</ol>
+<h5>URI 설계 원리</h5>
+<p>RESTful 한 API 를 설계하기 위해서는 URI 를 잘 정의하는 것이 중요하다.
+URI 설계 원리는 일반적으로 다음과 같다.</p>
+<ol>
+<li>슬래시 <code>/</code>는 계층 관계를 나타내는 데 사용한다.</li>
+<li><code>_</code> 언더 스코어 문자를 URI 에 사용하지 않도록 한다.</li>
+<li><code>-</code> 하이픈은 URI 가독성을 높이는 데 사용된다.</li>
+<li>소문자를 사용한다.</li>
+<li>파일 확장자는 URI 에 포함시키지 않는다.</li>
+<li>URI 에는 명사 위주로 쓴다.</li>
+</ol>
+<h3>참고자료</h3>
+<p><a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f">what is REST</a></p>
+<p><a href="https://nachwon.github.io/rest-1/">Che1's Blog</a></p>
+<p><a href="http://meetup.toast.com/posts/92">Toastmeetup Blog</a></p>
 
   </div>
 
