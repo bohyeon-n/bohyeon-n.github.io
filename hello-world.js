@@ -183,10 +183,14 @@ categoryByfiles.forEach(category => {
   fs.writeFileSync(`./deploy/category/${category.folder}.html`, indexHtml);
   // 파일 별로 article page를 생성
   category.files.forEach(file => {
+    path = `http://bohyeon-n.github.io/deploy/${category.folder}/${
+      file.fileName
+    }`;
+
     const article = ejs.render(articleHtmlFormat, {
       body: file.body,
       value: file.value,
-      fileName: file.fileName
+      path: path
     });
     const html = ejs.render(indexHtmlFormat, {
       main: article,
