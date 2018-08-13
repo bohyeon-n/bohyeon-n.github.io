@@ -117,9 +117,88 @@
   <div class="content">
 
     <div class="main">
-      <h3>안녕하세요. 개발자 구보현입니다.</h3>
-<p>개발자가 되기 위해 공부한 내용을 정리하는 블로그입니다.</p>
+      <div class="article">
 
+
+  <div class="value">
+    <h1 style="color:#333">
+       0719 TIL
+
+    </h1>
+    <span>
+       20180719
+
+    </span>
+  </div>
+
+
+  <div class="article__body">
+    <h1>오늘 한 일</h1>
+<ul>
+<li>article 에 sidebar 을 추가했다.</li>
+<li>blog 프로그램을 만들고 있는데 사용자에게 title 이나, 이미지 주소, 설명등을 받아서 파일을 만들어야 할 때</li>
+<li>hugo 에서 내가 받아 쓰는 프로그램에는 +++ 이안에! +++ 넣어주면 변환해서 파일을 만들어주고 있다.</li>
+<li>정규 표현식을 배우면 할 수 있지 않을까 싶어서 정규 표현식을 공부했다.</li>
+<li>home 화면에서 정규표현식으로 추출한 title 과 date 의 리스트를 뿌려주고, 해당 포스팅으로 이동할 수 있는 링크를 추가하였다.</li>
+<li>hugo 에서 어떻게 빌드하는지 생각해보았다. 어렵다 😱</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">let</span> mdFile = <span class="hljs-string">"+++ title: til date: 0819 +++ blah blah blah"</span>;
+
+<span class="hljs-keyword">let</span> extracted = mdFile.match(<span class="hljs-regexp">/\+\+\+(.+)\+\+\+/</span>)[<span class="hljs-number">1</span>];
+
+<span class="hljs-keyword">let</span> value = extracted.match(<span class="hljs-regexp">/title:(.+)date:(.+)/</span>);
+value = { <span class="hljs-attr">title</span>: value[<span class="hljs-number">1</span>], <span class="hljs-attr">date</span>: value[<span class="hljs-number">2</span>] };
+<span class="hljs-comment">// { title: ' til ', date: ' 0819 ' }</span>
+</code></pre>
+<ul>
+<li>사용자에게 받은 입력값을 제외한 나머지 md 파일은 아래와 같은 형식으로 markdown parser 에 넣어서 html 파일로 변환하면 될 것 같다.</li>
+</ul>
+<pre class="hljs block"><code class="html">mdFile.replace(<span class="hljs-regexp">/\+\+\+(.+)\+\+\+/</span>, <span class="hljs-string">""</span>);
+</code></pre>
+<ul>
+<li>하다가 줄바꿈이 들어가면 변환이 되지 않았다. 줄바꿈을 스페이스로 바꿔주는 코드를 추가했다.</li>
+<li>뭔가 잘 못 하고 있는 것 같다. 내일 다시 해봐야겠다.</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">let</span> mdFile = md.replace(<span class="hljs-regexp">/(\r\n|\n|\r)/gm</span>, <span class="hljs-string">" "</span>);
+</code></pre>
+<h1>오늘의 느낀점</h1>
+<ul>
+<li>공부 한 내용을 바로바로 실습해보니까 재밌다.</li>
+</ul>
+<h1>내일 할 일</h1>
+<ul>
+<li>
+<p>정규 표현식 수정하기</p>
+</li>
+<li>
+<p>순서대로 입력하지 않았을 때 문제가 되므로, 내가 key 를 넣어주는 것이 아니라 : 를 기준으로 입력한 대로 나눌 것</p>
+</li>
+<li>
+<p>본분에서 +++ +++ 이 내용을 뺴고 html 파일을 만들 것</p>
+</li>
+<li>
+<p>날짜 순서대로 home 화면에서 정렬하여 보여주기</p>
+</li>
+<li>
+<p>사이드바에 있는 폴더 클릭 시에 보여주는 파일리스트를 사용자에게 받은 title 로 바꾸기</p>
+</li>
+<li>
+<p>블로그 디자인 예쁘게 하기</p>
+</li>
+<li>
+<p>검색기능 만들어보기</p>
+</li>
+<li>
+<p>javascript 공부하기</p>
+</li>
+<li>
+<p>algorithm 문제 풀기</p>
+</li>
+</ul>
+
+  </div>
+
+</div>
 
     </div>
     <div class="sidebar">

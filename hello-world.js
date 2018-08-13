@@ -98,14 +98,18 @@ directories.forEach((directory, index) => {
 
     let value = extractedValue(markdownFile);
     let body = md.render(extractedBody(markdownFile));
-    let categoryName = value.category;
-    let folder = value.category.toLocaleLowerCase();
-    let fileName =
-      file.slice(0, file.indexOf(".")).toLocaleLowerCase() + `.html`;
+
+    let categoryName = value.category.replace(/(\s*)/g, "");
+    let folder = value.category.toLocaleLowerCase().replace(/(\s*)/g, "");
+
+    let fileName = (
+      file.slice(0, file.indexOf(".")).toLocaleLowerCase() + `.html`
+    ).replace(/(\s*)/g, "");
 
     let i = files.findIndex(o => o.categoryName === categoryName);
     let fileObj = {
       fileName,
+      folder,
       body,
       value
     };
@@ -125,7 +129,7 @@ directories.forEach((directory, index) => {
 
 // 컴포넌트, 파일 만들기
 // articles : 모든 post를 모아 놓음 [{value: ..., body:..., fileName: ...html}]형식임
-// categoryByfiles : 카테고리 별로 post를 모아 놓음 [{category:..., files:[{value:..., body: ..., fileName:...,}, {}, {}, {}]}, {category2}...]
+// categoryByfiles : 카테고리 별로 post를 모아 놓음 [{categoryName:..., folder, files:[{value:..., body: ..., fileName:...,folder: ...}, {}, {}, {}]}, {category2}...]
 // 사용자 정보 읽기
 const author = fs.readFileSync("./author/author.md", "utf8");
 const authorValue = extractedValue(author);
@@ -154,8 +158,8 @@ fs.writeFileSync("./deploy/author/author.html", authorHtml);
 categoryByfiles.forEach(category => {
   // category page 생성
 
-  if (category.categoryName !== undefined) {
-    let dir = `./deploy/${category.categoryName}`;
+  if (category.folder !== undefined) {
+    let dir = `./deploy/${category.folder}`;
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }
@@ -189,10 +193,7 @@ categoryByfiles.forEach(category => {
       sidebar: sidebar,
       header: header
     });
-    fs.writeFileSync(
-      `./deploy/${category.categoryName}/${file.fileName}`,
-      html
-    );
+    fs.writeFileSync(`./deploy/${category.folder}/${file.fileName}`, html);
   });
 });
 
