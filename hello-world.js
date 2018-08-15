@@ -183,7 +183,7 @@ categoryByfiles.forEach(category => {
   fs.writeFileSync(`./deploy/category/${category.folder}.html`, indexHtml);
   // 파일 별로 article page를 생성
   category.files.forEach(file => {
-    path = `http://bohyeon-n.github.io/deploy/${category.folder}/${
+    const path = `http://bohyeon-n.github.io/deploy/${category.folder}/${
       file.fileName
     }`;
 
