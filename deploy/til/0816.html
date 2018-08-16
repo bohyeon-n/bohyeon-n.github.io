@@ -117,7 +117,121 @@
   <div class="content">
 
     <div class="main">
-      
+      <div class="article">
+
+
+  <div class="value">
+    <h1 style="color:#333">
+       180816 TIL
+
+    </h1>
+    <span>
+       20180816
+
+    </span>
+  </div>
+
+
+  <div class="article__body">
+    <h2>오늘 한 일</h2>
+<ul>
+<li>프로젝트
+<ul>
+<li>header, navbar</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-comment">// layout 고차 함수 component</span>
+<span class="hljs-keyword">const</span> Layout = <span class="hljs-function">(<span class="hljs-params">component, activeItem</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span>;
+  header;
+  navbar; <span class="hljs-comment">//passing activeItem prop</span>
+  component;
+};
+
+<span class="hljs-comment">// clinets page</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Layout(ClientComponent, <span class="hljs-string">"clients"</span>);
+</code></pre>
+<p>이런식으로 navbar 와 header 를 만들었는데 맞는 방법인지는 잘 모르겠다.
+acitveItem 은 navbar 에서 현재 선택된 item 이 무엇인지 인데,
+이걸 상태관리처럼 store 에서 관리를 해야 하는지, 이런식으로 페이지마다 activeItem 을 넘겨줘서 짜맞추듯? 해야 하는건지 잘 모르겠다.</p>
+<p>hoc 를 언제 쓰는 지 찾아보았는데 이렇게 단순히 프리젠테이션을 위한 것도 hoc 로 사용하는지 잘 모르겠다.</p>
+<ul>
+<li>react-big-calendar</li>
+</ul>
+<p>react big calendar 에서 month 가 아무것도 나오지 않을 때</p>
+<p>=&gt; 높이를 정해줘야 한다.</p>
+<pre class="hljs block"><code class="html">&lt;div style={{ <span class="hljs-attr">height</span>: <span class="hljs-string">""</span> }}&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">BigCalendar</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+</code></pre>
+<ul>
+<li>
+<p>파이썬</p>
+<ul>
+<li>
+<p>Best Time to Buy and Sell Stock 파이썬으로 다시 풀었다.</p>
+</li>
+<li>
+<p>python introduction 완강</p>
+</li>
+</ul>
+</li>
+<li>
+<p>블로그</p>
+<ul>
+<li>블로그 속성에 front 가 true 로 설정되어 있으면 그 글은 front page 에 노출시킨다.</li>
+<li>front 속성이 없으면 기본적으로 노출되지 않는다.</li>
+</ul>
+</li>
+</ul>
+<h2>내일 할 일</h2>
+<ul>
+<li>
+<p>프로젝트</p>
+<ul>
+<li>calendar page</li>
+</ul>
+</li>
+<li>
+<p>python</p>
+<ul>
+<li>Programming Foundations with Python lesson1</li>
+<li>알고리즘 문제 풀기</li>
+</ul>
+</li>
+</ul>
+<h3>읽어보기</h3>
+<p><a href="https://d2.naver.com/helloworld/1848131">Naver D2 React 적용 가이드 - React 와 Redux</a></p>
+
+  </div>
+
+</div>
+
+  <div id="disqus_thread"></div>
+  <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+
+
+    // var disqus_config = function () {
+    //   this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    //   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // };
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://bohyeon-n.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
 
     </div>
     <div class="sidebar">

@@ -122,7 +122,9 @@ directories.forEach((directory, index) => {
     } else {
       files[i].files.push(fileObj);
     }
-    articles.push(fileObj);
+    if (value.front === true) {
+      articles.push(fileObj);
+    }
   });
   categoryByfiles.push(...files);
 });
