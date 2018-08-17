@@ -106,10 +106,8 @@ directories.forEach((directory, index) => {
     ).replace(/(\s*)/g, "");
     let front = value.front;
     if (front) {
-      console.log(front);
       front = front.replace(/(\s*)/g, "");
       front = /true/i.test(front);
-      console.log(front);
     }
     let i = files.findIndex(o => o.categoryName === categoryName);
     let fileObj = {

@@ -93,6 +93,13 @@
         </li>
       </a>
       
+      <a href="/deploy/category/javascript.html">
+        <li>
+          Javascript
+
+        </li>
+      </a>
+      
       <a href="/deploy/category/til.html">
         <li>
           TIL
@@ -117,6 +124,151 @@
   <div class="content">
 
     <div class="main">
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/algorithm/add_binary.html">
+            <h1>
+
+
+               Add Binary - Python
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180817
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <p>Given two binary strings, return their sum (also a binary string).</p>
+<p>The input strings are both non-empty and contains only characters 1 or 0.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addBinary</span><span class="hljs-params">(self, a, b)</span>:</span>
+    sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> idx,num <span class="hljs-keyword">in</span> enumerate(a):
+        sum += int(num)*<span class="hljs-number">2</span>**(len(a- (idx + <span class="hljs-number">1</span>))
+    <span class="hljs-keyword">for</span> idx, num <span class="hljs-keyword">in</span> enumerate(b):
+        sum += int(num)*<span class="hljs-number">2</span>**(len(b- (idx + <span class="hljs-number">1</span>))
+    quotient = sum
+    remainder = []
+    <span class="hljs-keyword">if</span> sum == <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> sum == <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">return</span> str(sum)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">while</span> quotient != <span class="hljs-number">1</span>:
+            remainder.appe(quotient%<span class="hljs-number">2</span>)
+            quotient = quotient//<span class="hljs-number">2</span>
+        remainder.append(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>.join(str(e) <span class="hljs-keyword">for</span> <span class="hljs-keyword">in</span> reversed(remainder))
+</code></pre>
+<p>하하...
+내일 다시 풀어봐야겠다 ㅠㅠ</p>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/til/0817.html">
+            <h1>
+
+
+               180817 TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180817
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>오늘 한 일</h2>
+<ul>
+<li>python</li>
+</ul>
+<p>3 초 뒤에 브라우저 열리기 3 번 반복하기</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">import</span> webbrowser <span class="hljs-keyword">as</span> web
+<span class="hljs-keyword">import</span> time
+total_breaks = <span class="hljs-number">3</span>
+break_count = <span class="hljs-number">0</span>
+print(<span class="hljs-string">'this program started on '</span> + time.ctime() )
+
+<span class="hljs-keyword">while</span>(break_count &lt; total_breaks):
+    break_count += <span class="hljs-number">1</span>
+    time.sleep(<span class="hljs-number">3</span>)
+    web.open(<span class="hljs-string">'https://www.youtube.com/watch?v=z6A2LHGx8_A'</span>)
+</code></pre>
+<p>folder 에서 file list 를 읽은 후 file name 을 변경하기</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">import</span> os
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rename_files</span><span class="hljs-params">()</span>:</span>
+    file_list = os.listdir(<span class="hljs-string">'../../Downloads/prank'</span>)
+    <span class="hljs-comment"># saved_path = os.getcwd()</span>
+    <span class="hljs-comment"># print('current working directory' + saved_path)</span>
+    <span class="hljs-comment"># os.chdir('../../Downloads/prank')</span>
+    <span class="hljs-keyword">for</span> file_name <span class="hljs-keyword">in</span> file_list:
+        new_file_name = file_name.translate(<span class="hljs-keyword">None</span>, <span class="hljs-string">'0123456789'</span>)
+        os.rename(file_name , new_file_name)
+    <span class="hljs-comment"># os.chdir(saved_path)</span>
+
+rename_files()
+</code></pre>
+<p>error: no such file or directory</p>
+<p>주석처리를 한 상태로 코드를 실행하면 에러가 발생한다.
+현재 작업 디렉토리와 파일 이름을 바꿔야 하는 디렉토리가 다르기 때문에 발생한 에러이다.
+os.chdir 로 현재 작업 디렉토리를 번경해야 한다.</p>
+<ul>
+<li>
+<p>프로젝트</p>
+<ul>
+<li>calendar fetchSchedules reducer , action, store 추가</li>
+</ul>
+</li>
+<li>
+<p>블로그 오류 수정</p>
+<ul>
+<li>어제 작업했던 부분에 오류가 발생해서 다시 수정하였다</li>
+<li>test 메소드를 사용해서 값이 true 인지 아닌지 확인 함
+<code>front = /true/i.test(front);</code></li>
+</ul>
+</li>
+<li>
+<p>알고리즘 문제</p>
+<ul>
+<li>내일 다시 풀어야 겠다...</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+
+
       
 
   
@@ -244,6 +396,14 @@ acitveItem 은 navbar 에서 현재 선택된 item 이 무엇인지 인데,
     <a href="/deploy/category/javascript.html">
       <li>
         JavaScript
+      </li>
+    </a>
+
+    
+
+    <a href="/deploy/category/javascript.html">
+      <li>
+        Javascript
       </li>
     </a>
 
