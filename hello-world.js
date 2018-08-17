@@ -101,11 +101,16 @@ directories.forEach((directory, index) => {
 
     let categoryName = value.category.replace(/(\s*)/g, "");
     let folder = value.category.toLocaleLowerCase().replace(/(\s*)/g, "");
-
     let fileName = (
       file.slice(0, file.indexOf(".")).toLocaleLowerCase() + `.html`
     ).replace(/(\s*)/g, "");
-
+    let front = value.front;
+    if (front) {
+      console.log(front);
+      front = front.replace(/(\s*)/g, "");
+      front = /true/i.test(front);
+      console.log(front);
+    }
     let i = files.findIndex(o => o.categoryName === categoryName);
     let fileObj = {
       fileName,
@@ -122,7 +127,7 @@ directories.forEach((directory, index) => {
     } else {
       files[i].files.push(fileObj);
     }
-    if (value.front === true) {
+    if (front) {
       articles.push(fileObj);
     }
   });
