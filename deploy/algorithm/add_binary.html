@@ -133,7 +133,7 @@
 
     </h1>
     <span>
-       20180817
+       20180818
 
     </span>
   </div>
@@ -142,8 +142,9 @@
   <div class="article__body">
     <p>Given two binary strings, return their sum (also a binary string).</p>
 <p>The input strings are both non-empty and contains only characters 1 or 0.</p>
+<h2>풀이 1</h2>
 <pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addBinary</span><span class="hljs-params">(self, a, b)</span>:</span>
-    sum = <span class="hljs-number">0</span>;
+    sum = <span class="hljs-number">0</span>
     <span class="hljs-keyword">for</span> idx,num <span class="hljs-keyword">in</span> enumerate(a):
         sum += int(num)*<span class="hljs-number">2</span>**(len(a- (idx + <span class="hljs-number">1</span>))
     <span class="hljs-keyword">for</span> idx, num <span class="hljs-keyword">in</span> enumerate(b):
@@ -159,8 +160,26 @@
         remainder.append(<span class="hljs-number">1</span>)
         <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>.join(str(e) <span class="hljs-keyword">for</span> <span class="hljs-keyword">in</span> reversed(remainder))
 </code></pre>
-<p>하하...
-내일 다시 풀어봐야겠다 ㅠㅠ</p>
+<h2>풀이 2</h2>
+<p><code>int()</code>함수와 <code>bin()</code>함수를 사용한 풀이</p>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addBinary</span><span class="hljs-params">(a,b)</span>:</span>
+    <span class="hljs-keyword">return</span> bin(int(a,<span class="hljs-number">2</span>) + int(b, <span class="hljs-number">2</span>))[<span class="hljs-number">2</span>:]
+</code></pre>
+<p><code>bin()</code> function converted an interger number to a binary string.
+<code>int(x, base=10)</code> 두 번째 매개변수는 number format 을 결정 default value 는 10 이다.
+<code>[2:]</code> 두 번째 부터 끝까지 자르기</p>
+<h2>풀이 3</h2>
+<p>재귀 함수를 사용한 풀이</p>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addBinary</span><span class="hljs-params">(self, a,b)</span>:</span>
+    <span class="hljs-keyword">if</span> len(a)==<span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> b
+    <span class="hljs-keyword">if</span> len(b)==<span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> a
+    <span class="hljs-keyword">if</span> a[<span class="hljs-number">-1</span>]== <span class="hljs-string">'1'</span> <span class="hljs-keyword">and</span> b[<span class="hljs-number">-1</span>] == <span class="hljs-string">'1'</span>:
+        <span class="hljs-keyword">return</span> self.addBinary( self.addBinary(a[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>], b[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>]), <span class="hljs-string">'1'</span>)
+    <span class="hljs-keyword">if</span> a[<span class="hljs-number">-1</span>] == <span class="hljs-string">'0'</span> <span class="hljs-keyword">and</span> b[<span class="hljs-number">-1</span>] == <span class="hljs-string">'0'</span>:
+        <span class="hljs-keyword">return</span> self.addBinary(a[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>], b[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>]) + <span class="hljs-string">'0'</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> self.addBinary(a[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>], b[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>]) + <span class="hljs-string">'1'</span>
+</code></pre>
 
   </div>
 
