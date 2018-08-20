@@ -1,5 +1,5 @@
 +++
-category = Javascript
+category = JavaScript
 comments = true
 date = "20180817"
 draft = false

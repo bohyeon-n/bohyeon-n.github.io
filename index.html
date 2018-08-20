@@ -93,13 +93,6 @@
         </li>
       </a>
       
-      <a href="/deploy/category/javascript.html">
-        <li>
-          Javascript
-
-        </li>
-      </a>
-      
       <a href="/deploy/category/til.html">
         <li>
           TIL
@@ -124,6 +117,206 @@
   <div class="content">
 
     <div class="main">
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/algorithm/jewels_and_stones.html">
+            <h1>
+
+
+               Jewels and Stones
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180820
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>문제</h2>
+<p>You're given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in S is a type of stone you have. You want to know how many of the stones you have are also jewels.</p>
+<p>The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;.</p>
+<h2>Python</h2>
+<h3>내 풀이</h3>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">import</span> functools
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+    jewels = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> jewel <span class="hljs-keyword">in</span> J:
+        jewels += S.count(jewel)
+    <span class="hljs-keyword">return</span> jewels
+</code></pre>
+<p>python count() method</p>
+<p>substring 이 정해진 범위에서 몇 번 나오는지 그 숫자를 반환해주는 함수
+<code>str.count(sub, start= 0,end=len(string))</code></p>
+<h3>다른 사람 풀이</h3>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+    <span class="hljs-keyword">return</span> sum(map(S.count, J))
+</code></pre>
+<p>map 함수를 써서 stone 에 포함 된 jewel 리스트 요소의 수를 새로운 리스트로 반환하고 sum 메소드를 사용하여 리스트 요소의 합을 구한다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+    <span class="hljs-keyword">return</span> sum(map(J.count, S))
+</code></pre>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+    <span class="hljs-keyword">return</span> sum(s <span class="hljs-keyword">in</span> J <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
+</code></pre>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+        setJ = set(J)
+        <span class="hljs-keyword">return</span> sum(s <span class="hljs-keyword">in</span> setJ <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
+</code></pre>
+<p>python 집합 자료형</p>
+<pre class="hljs block"><code class="html"><span class="hljs-meta">&gt;&gt;&gt; </span>s1 = set([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>s1
+{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>}
+
+<span class="hljs-comment"># 값 1 개 추가하기</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>s1.add(<span class="hljs-number">4</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>s1
+{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>}
+
+<span class="hljs-comment"># 값 여러 개 추가하기</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>s1.update([<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>s1
+{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>}
+
+<span class="hljs-comment"># 특정 값 제거하기</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>s1.remove(<span class="hljs-number">2</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>s1
+{<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>}
+</code></pre>
+<p>집합 자료형의 특징</p>
+<ul>
+<li><strong>중복을 허용하지 않는다.</strong></li>
+<li>순서가 없다. =&gt; 인덱싱을 제공하지 않는다.</li>
+<li>자료형의 중복을 제거하기 위한 필터 역할로 종종 사용되기도 한다.</li>
+</ul>
+<p>이 문제를 푼 사람은 jewels 가 중복된 문자열일 수도 있다고 생각했기 때문인 것 같다.</p>
+<p>하지만 이 문제에서는 jewels 가 중복되지 않는다고 되어있다.</p>
+<h2>Javascript</h2>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> numJewelsInStones = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">J, S</span>) </span>{
+  <span class="hljs-keyword">var</span> stones = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+
+  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; S.length; i++) {
+    <span class="hljs-keyword">if</span> (stones.has(S[i])) {
+      <span class="hljs-keyword">var</span> value = stones.get(S[i]) + <span class="hljs-number">1</span>;
+      stones.set(S[i], value);
+    } <span class="hljs-keyword">else</span> {
+      stones.set(S[i], <span class="hljs-number">1</span>);
+    }
+  }
+  <span class="hljs-keyword">var</span> jewles = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; J.length; i++) {
+    <span class="hljs-keyword">if</span> (stones.has(J[i])) {
+      jewles += stones.get(J[i]);
+    }
+  }
+  <span class="hljs-keyword">return</span> jewles;
+};
+</code></pre>
+<p>string 은 내부적으로 배열이기 때문에 J.split('')을 해주지 않아도 된다.</p>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/til/0820.html">
+            <h1>
+
+
+               180820 TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180820
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>오늘 한 일</h2>
+<ul>
+<li>
+<p>python
+Programming Foundations with Python
+lesson3</p>
+<ul>
+<li>터틀 그래픽으로 그림그리기</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">import</span> turtle
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_square</span><span class="hljs-params">(some_turtle)</span>:</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>):
+        some_turtle.forward(<span class="hljs-number">100</span>)
+        some_turtle.right(<span class="hljs-number">90</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_art</span><span class="hljs-params">()</span>:</span>
+    window = turtle.Screen()
+    window.bgcolor(<span class="hljs-string">'red'</span>)
+    brad =  turtle.Turtle()
+    brad.shape(<span class="hljs-string">'turtle'</span>)
+    brad.color(<span class="hljs-string">'yellow'</span>)
+    brad.speed(<span class="hljs-number">3</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">37</span>):
+        draw_square(brad)
+        brad.right(<span class="hljs-number">10</span>)
+draw_art()
+</code></pre>
+<p>webbrowser.open 은 이미 있는 인스턴스이다.
+turtle.Turtle() 은 init instance or object
+메모리를 갖게 된다.</p>
+<ul>
+<li>
+<p>알고리즘 문제 풀이</p>
+<ul>
+<li>Jewels and Stones - python, javascript</li>
+</ul>
+</li>
+<li>
+<p>프로젝트</p>
+<ul>
+<li>스케줄 추가 기능</li>
+</ul>
+</li>
+</ul>
+<h2>내일 할 일</h2>
+<ul>
+<li>python lesson4</li>
+<li>알고리즘 문제풀이</li>
+<li>프로젝트</li>
+<li>AMP</li>
+</ul>
+
+    </div>
+
+    
+
+
       
 
   
@@ -446,6 +639,171 @@ acitveItem 은 navbar 에서 현재 선택된 item 이 무엇인지 인데,
 
       
 
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/javascript/this.html">
+            <h1>
+
+
+               자바스크립트 this, bind 그리고 화살표 함수 
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180806
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>this</h2>
+<p>this 는 생성자 혹은 메소드에서 객체를 가리킬 때 사용하는 키워드입니다.</p>
+<p>this 는 이럴 때 사용합니다!</p>
+<ol>
+<li>새로 만들어지는 객체에 생성자의 속성을 넣어줄 때</li>
+<li>객체의 속성에 접근(메소드에서 사용하는 this)할 때</li>
+</ol>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">username, balance</span>) </span>{
+  <span class="hljs-comment">// 속성</span>
+  <span class="hljs-keyword">this</span>.username = username;
+  <span class="hljs-keyword">this</span>.balance = balance;
+  <span class="hljs-comment">// 메소드</span>
+  <span class="hljs-keyword">this</span>.getBalance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+  };
+  <span class="hljs-keyword">this</span>.deposit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
+    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
+  };
+}
+
+account = <span class="hljs-keyword">new</span> Account(<span class="hljs-string">"bohyeon"</span>, <span class="hljs-number">20000</span>);
+account.getBalance();
+account.deposit(<span class="hljs-number">2000</span>);
+account.getBalance();
+</code></pre>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//this키워드를 사용하여 객체의 속성인 username과 balance에 접근하고 있습니다.</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+  },
+  <span class="hljs-attr">deposit</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
+    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
+  }
+};
+
+account.getBalance();
+account.deposit(<span class="hljs-number">20000</span>);
+account.getBalance();
+</code></pre>
+<p>this 는 때에 따라 다른 값을 가리킵니다. 어떠한 문맥이냐에 따라서 <strong>그 값이 바뀝니다</strong>.</p>
+<ol>
+<li>global scope 에서 사용될 때 this 는 전역 객체를 가리킵니다.(window 객체)</li>
+<li>함수에서 사용될 때에도 this 는 전역 객체를 가리킵니다.</li>
+<li>객체에 속한 메소드에서 사용될 때 this 는 메소드가 속한 객체를 가리킵니다.</li>
+<li>객체에 속한 메소드의 내부함수에서 사용될 때 this 는 <strong>전역 객체</strong>를 가리킵니다.</li>
+<li>생성자에서 사용될 때 this 는 이 생성자로 인해 생성된 새로운 객체를 가리킵니다.</li>
+</ol>
+<p>4 번, 객체에 속한 메소드의 내부함수에서 사용되는 경우를 더 알아보도록 하겠습니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+    };
+    <span class="hljs-built_in">console</span>.log(innerFunc());
+  }
+};
+account.getBalance(); <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
+</code></pre>
+<p>getBalance 가 외부에서 실행되면 this 는 account 를 가리킵니다. 그러나 getBalance 함수 내부에서 innerFunc 를 호출 할 때는 그 어떤 문맥도 지정하지 않았기 때문에 innerFunc 의 this 는 window 가 됩니다.</p>
+<p>window, 전역객체에는 username 나 balance 속성이 없기 때문에 undefined 가 나오게 됩니다.</p>
+<p>this 를 바꾸고 싶거나, this 의 문맥을 유지하고 싶다면 어떻게 해야 할까요</p>
+<p>bind 메소드를 사용하면 호출을 어디에서 하는지 상관없이 this 가 무엇을 가리킬 지 정할 수 있습니다.</p>
+<h2>bind</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> 함수는 this 의 문맥을 유지할 때 사용합니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+    }.bind(<span class="hljs-keyword">this</span>);
+    <span class="hljs-built_in">console</span>.log(innerFunc());
+  }
+};
+account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
+</code></pre>
+<p>위와 같이 bind 를 사용하여 this 를 원하는 값으로 설정할 수 있습니다.</p>
+<p>bind 는 원하는 this 문맥을 가진 새로운 함수를 생성합니다. 첫 번째 매개변수를 bind 에 넘겨줌으로써 this 를 명확하게 설정할 수 있습니다.</p>
+<p>this 의 문맥을 정해주고 싶을 때 마다 bind 를 사용하는 방법 말고, 다른 방법으로도 this 의 문맥을 유지할 수 있습니다.</p>
+<p>화살표 함수를 사용하는 것입니다.</p>
+<p>ES6 화살표 함수(Arrow function)를 사용하면 this 는 lexical scope 를 갖게 됩니다. 즉 정의된 곳의 문맥을 사용합니다.</p>
+<h2>화살표 함수</h2>
+<p>화살표 함수는 다음과 같은 특징을 가지고 있습니다.</p>
+<ul>
+<li>화살표 함수는 익명 함수로만 만들 수 있습니다.</li>
+<li>화살표 함수는 생성자로 사용할 수 없습니다.</li>
+<li>화살표 함수는 스스로의 this, argument 를 가지지 않습니다.</li>
+<li>함수가 정의된 스코프에 존재하는 this 를 가리킵니다.</li>
+<li>화살표 함수는 생성될 때 this 가 결정됩니다.</li>
+<li>화살표 함수가 어떻게 사용되건, 호출되건, this 는 바뀌지 않습니다.</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//화살표 함수 사용</span>
+    <span class="hljs-comment">//화살표 함수는 return 하지 않아도 값이 반환됩니다.</span>
+    innerFunc = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+    <span class="hljs-built_in">console</span>.log(innerFunc());
+  }
+};
+account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
+</code></pre>
+<p>innerFunc 함수에서 화살표 함수를 사용하면 더이상 bind 를 사용하여 this 를 binding 하지 않아도 됩니다.</p>
+<p>화살표 함수는 자신만의 this 를 갖지 않기 때문에, 바깥 스코프에서 this 의 값을 계승받습니다.</p>
+<p>그러나 이러한 특징 때문에 객체의 메소드로 화살표 함수를 사용하는 것은 적합하지 않습니다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> person = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">greet</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`hi <span class="hljs-subst">${<span class="hljs-keyword">this</span>.name}</span>`</span>)
+};
+person.greet(); <span class="hljs-comment">// hi</span>
+</code></pre>
+<p>바깥 스코프에서 this 의 값을 계승받습니다. 즉 this 는 메소드를 호출한 객체를 가리키지 않고 상위 컨텍스트인 전역 객체, window 를 가리키게 됩니다.</p>
+<p>객체의 메소드에서는 화살표 함수가 아닌, function 문법 함수를 사용해야 합니다.</p>
+<h2>정리</h2>
+<p>객체의 메소드로는 화살표 함수보다 function 문법 함수를 사용해야 한다는 것만 유의한다면,
+화살표 함수를 사용하여 좀 더 직관적이고 편리하게 this 를 사용할 수 있습니다.</p>
+<p>function 문법에서 this 는 함수가 어떻게 실행되는가에 따라서 동적으로 바뀌게 됩니다.</p>
+<p>화살표 함수의 경우 화살표 함수가 정의된 곳의 문맥에 의해서 this 가 정의됩니다.</p>
+<p>this 가 예상한 대로 동작하지 않는다면 함수의 실행 환경을 생각해보아야 합니다.</p>
+<h2>참고 자료</h2>
+<p><a href="https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26">https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26</a></p>
+<p><a href="https://blueshw.github.io/2018/03/12/this/">https://blueshw.github.io/2018/03/12/this/</a></p>
+<p><a href="https://www.codementor.io/niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp">https://www.codementor.io/niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp</a></p>
+<p><a href="https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262">https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262</a></p>
+
+    </div>
+
+    
+
+
+      
+
     </div>
     <div class="sidebar">
       <!-- folder name -->
@@ -467,14 +825,6 @@ acitveItem 은 navbar 에서 현재 선택된 item 이 무엇인지 인데,
     <a href="/deploy/category/javascript.html">
       <li>
         JavaScript
-      </li>
-    </a>
-
-    
-
-    <a href="/deploy/category/javascript.html">
-      <li>
-        Javascript
       </li>
     </a>
 
