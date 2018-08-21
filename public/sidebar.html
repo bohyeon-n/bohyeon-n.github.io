@@ -5,12 +5,14 @@
 <ul>
 
   <% categories.forEach(category => { %>
+    <% length =  category.files.length %>
+      <a href="/deploy/category/<%=category.folder%>.html">
+        <li>
+          <%=category.categoryName %>
+            (
+            <%= length %>)
+        </li>
+      </a>
 
-    <a href="/deploy/category/<%=category.folder%>.html">
-      <li>
-        <%=category.categoryName %>
-      </li>
-    </a>
-
-    <% }) %>
+      <% }) %>
 </ul>
