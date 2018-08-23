@@ -100,6 +100,13 @@
         </li>
       </a>
       
+      <a href="/deploy/category/.html">
+        <li>
+          
+
+        </li>
+      </a>
+      
       <a href="/deploy/category/development.html">
         <li>
           Development
@@ -122,72 +129,70 @@
 
   <div class="value">
     <h1 style="color:#333">
-       호이스팅 - Javascript
+       180823 TIL
 
     </h1>
     <span>
-       20180817
+       20180823
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h2>호이스팅</h2>
-<p>호이스팅이란 변수와 함수 선언이 컴파일 단계에서 메모리 어디에 놓이는지에 대한 자바스크립트 메커니즘이다.
-함수와 변수의 선언이 어디서 이루어지던 간에 상관없이 그들의 스코프의 가장 위로 이동한다. 전역, 로컬 스코프에 관계없이</p>
-<p>그러나 값은 호이스팅되지 않는다.</p>
-<p>그들의 스코프에서 가장 최상위로 끌어올려진다는 의미는</p>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> x = <span class="hljs-string">'outter scope'</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(x)
-  <span class="hljs-keyword">var</span> x = <span class="hljs-string">'inner scope'</span>
-}
-
-<span class="hljs-keyword">var</span> x = <span class="hljs-string">'outter scope'</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">var</span> x;
-  conosle.log(x) <span class="hljs-comment">// 자신의 스코프에 최상위로 끌어올려짐 // undefinde</span>
-  <span class="hljs-keyword">var</span> x = <span class="hljs-string">'inner scope'</span>
-}
-<span class="hljs-string">``</span><span class="hljs-string">`js
-console.log(hoist);
-var hoist = "value"; //undefined
-
-var hoist;
-console.log(hoist); // undefinde
-hoist = "value";
-</span></code></pre>
-<p>또한 호이스팅은 함수 선언을 유발한다. 프로그램에서 선언되기 전에</p>
-<pre class="hljs block"><code class="html">myFunction(); <span class="hljs-comment">// No error, logs 'hello'</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"hello"</span>);
-}
-</code></pre>
-<p>그러나 변수에 할당된 함수 식은 주의해야 한다.</p>
-<pre class="hljs block"><code class="html">myFunction() <span class="hljs-comment">//Error: 'myFunction' is not a function</span>
-<span class="hljs-keyword">var</span> myFunction() {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello'</span>)
-}
-</code></pre>
-<p>정리
-호이스팅이란 자바스크립트의 선언을 상위로 끌어올리는 디폴트 특성이다.
-함수 선언은 호이스팅 된다. 변수가 선언되기 전에</p>
-<p>let/const
-let const 선언은 실행중인 실행 컨텍스트의 어휘적 환경으로 범위가 지정된 변수를 정의한다.
-lexical scope 는 변수나 함수가 정의 된 곳의 context 를 사용하며 dynamic scope 는 변수니 힘스기
-불려진 곳의 constext 를 사용한다.</p>
-<p>바인딩
-속성과 개체 사이 또는 연산과 기호 사이의 같은 연관이다.
-이름을 속성에 연관(바인드)시키는 과정이 바인딩이다.</p>
-<p>변수는 그들의 어휘적 환경에 포함될 때 생성된다.
-이는 새로운 스코프에 진입할 때 마다 지정된 범위에 속한 모든 let/const 가 호이스팅된다.
-그러나 어휘적 바인딩이 실행되기 전까지는 액세스 할 수 없다.</p>
-<p>let/const 선언 변수는 호이스팅되지 않는 것이 아니다. 스코프에 진입할 때 변수가 만들어지고 TDZ(Temporal Dead Zone) 가 생성되지만
-코드 실행이 변수가 실제 있는 위치에 도달할 때 까지 액세스 할 수 없다는 것이ㅏㄷ.
-let/const 변수가 선언된 시점에서 제어 흐름은 TDZ 를 떠난 상태가 되면, 변수를 사용할 수 있게 된다.</p>
-<p><a href="https://medium.com/korbit-engineering/let%EA%B3%BC-const%EB%8A%94-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85-%EB%90%A0%EA%B9%8C-72fcf2fac365">let 과 const 는 호이스팅 될까?</a></p>
-<p><a href="https://scotch.io/tutorials/understanding-hoisting-in-javascript">Understanding Hoisting in JavaScript</a></p>
+    <h2>오늘 한 일</h2>
+<ul>
+<li>
+<p>python twilio install error 해결</p>
+<p>스택오버플로우에 처음 질문해보았다. 엄청난 스피드로 댓글을 달아주셔서 설치를 완료할 수 있었다.
+영어실력이 너무 소박해서 걱정했는데 코드를 보여주면 되니까 큰 문제는 되지 않는 것 같다.</p>
+</li>
+<li>
+<p>프로젝트</p>
+<ul>
+<li>
+<p>프로젝트에서 client 를 추가할 때 운동 예약한 횟수와 트레이너를 설정할 수 있게 하였다.
+운동 횟수를 10 , 20 , 30 이런식으로 내가 정해주는 것이 좋을 지 아니면 사용자가 직접 넣을 수 있게 하는 것이 좋을 지 잘 모르겠다.</p>
+</li>
+<li>
+<p>모바일 번호를 받을 때 자동으로 하이픈을 넣어주는 함수를 추가하였다.
+모바일 번호는 하이픈 없이 저장해야겠지?</p>
+</li>
+<li>
+<p>프로젝트에서 리덕스를 쓰고 있는데 문제가 생겼다. 페이지에서 이미 trainer 의 리스트를 불러온다면, 다른 페이지에서 trainer 리스트를 사용할 때는 fetchTrainer 를 하지 않아도 될 것 같은데
+어떻게 해야될 지 모르겠다. state 에 있는지 확인하고 있으면 fetchClient 를 하지 않아도 되는걸까.
+더 찾아봐야겠다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>자바스크립트 호이스팅 공부</p>
+<ul>
+<li>호이스팅에 대해서 공부하였다.</li>
+<li>실행 컨텍스트를 이해하니까 클로저, 호이스팅도 이해하기가 더 쉬워졌다.</li>
+<li><a href="https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0">zerocho 블로그 실행 컨텍스트 </a></li>
+</ul>
+</li>
+</ul>
+<h2>내일 할 일</h2>
+<ul>
+<li>
+<p>블로그 개선하기</p>
+<ul>
+<li>블로그에서 아직 완성되지 않은 글을 일일이 reset 하는 것이 귀찮다.</li>
+<li>show 같은 값을 넣어서 렌더되지 않도록 해야겠다.</li>
+</ul>
+</li>
+<li>
+<p>프로젝트</p>
+</li>
+<li>
+<p>파이썬</p>
+</li>
+<li>
+<p>자바스크립트 공부하기</p>
+</li>
+</ul>
 
   </div>
 
@@ -252,7 +257,17 @@ let/const 변수가 선언된 시점에서 제어 흐름은 TDZ 를 떠난 상�
         <li>
           TIL
             (
-            27)
+            28)
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/.html">
+        <li>
+          
+            (
+            1)
         </li>
       </a>
 
