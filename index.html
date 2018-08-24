@@ -100,16 +100,16 @@
         </li>
       </a>
       
-      <a href="/deploy/category/.html">
+      <a href="/deploy/category/development.html">
         <li>
-          
+          Development
 
         </li>
       </a>
       
-      <a href="/deploy/category/development.html">
+      <a href="/deploy/category/python.html">
         <li>
-          Development
+          Python
 
         </li>
       </a>
@@ -124,6 +124,247 @@
   <div class="content">
 
     <div class="main">
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/python/sort.html">
+            <h1>
+
+
+               Sorting in Python 
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180824
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>Sorting in Python</h2>
+<h3>sorting function</h3>
+<ol>
+<li><code>list.sort()</code></li>
+</ol>
+<ul>
+<li>list 에서만 사용할 수 있다.</li>
+<li><code>None</code> 반환한다. in-place 로 입력 리스트 내부에서 정렬이 이루어진다.</li>
+<li>original list 가 필요하지 않다면, sorted 보다 sort 를 쓰는 것이 좀 더 효율적이다.</li>
+</ul>
+<ol start="2">
+<li><code>sorted(any iteralble)</code></li>
+</ol>
+<ul>
+<li>iterable 자료 구조형에 모두 사용할 수 있다.</li>
+<li>sorted 된 새로운 리스트를 반환한다.</li>
+</ul>
+<p><code>list.sort()</code> 와 <code>sorted()</code>는 <em>key</em> 라는 매개변수로 sort 하기 전에 각 요소에 대해 호출 할 함수를 지정할 수 있다.</p>
+<pre class="hljs block"><code class="html">student_tuples = [
+    (<span class="hljs-string">'john'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-number">15</span>),
+    (<span class="hljs-string">'jane'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-number">12</span>),
+    (<span class="hljs-string">'dave'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-number">10</span>),
+]
+sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>])
+
+<span class="hljs-comment"># 나이로 sort 하기  [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</span>
+</code></pre>
+<h4>내림차순 정렬</h4>
+<p>reverse default value False</p>
+<pre class="hljs block"><code class="html">sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>], reverse=<span class="hljs-keyword">True</span>)
+<span class="hljs-comment"># 내림차순 정렬 [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'C', 10)]</span>
+</code></pre>
+<h3>람다 사용하기</h3>
+<p>람다는 한 줄로 함수를 작성하는 방법이다. 식 형태로 되어 있다고 해서 람다 표현식이라고 부른다.
+람다는 함수를 간편하게 작성할 수 있어서 다른 함수의 인수로 (map, reduce, filter ... )넣을 때 주로 사용한다.</p>
+<p>fruites 리스트 재정렬하기</p>
+<p><code>apple</code> 이면 리스트 앞으로 정렬하기</p>
+<pre class="hljs block"><code class="html">fruites = [<span class="hljs-string">'apple'</span>, <span class="hljs-string">'banana'</span>, <span class="hljs-string">'orange'</span>,<span class="hljs-string">'apple'</span>]
+fruites.sort(key=<span class="hljs-keyword">lambda</span> fruite : <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> fruite == <span class="hljs-string">'apple'</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span> )
+print(fruites)
+<span class="hljs-comment"># ['apple', 'apple', 'banana', 'orange']</span>
+</code></pre>
+<p>참고자료</p>
+<p><a href="https://docs.python.org/3/howto/sorting.html">Python Documentation/ Sorting How To</a></p>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/algorithm/move_zeros.html">
+            <h1>
+
+
+               Move Zeroes
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180824
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>문제</h2>
+<p>Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.</p>
+<ol>
+<li>You must do this in-place without making a copy of the array.</li>
+<li>Minimize the total number of operations</li>
+</ol>
+<h2>풀이 1</h2>
+<ol>
+<li>리스트의 0 의 개수만큼 반복문</li>
+<li>remove(0)</li>
+<li>append(0)</li>
+</ol>
+<pre class="hljs block"><code class="html"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums)</span>:</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, nums.count(<span class="hljs-number">0</span>)):
+            nums.remove(<span class="hljs-number">0</span>)
+            nums.append(<span class="hljs-number">0</span>)
+</code></pre>
+<h2>풀이 2</h2>
+<ol>
+<li>리스트의 길이 만큼 반복문을 돈다.</li>
+<li>i 번 째 인수가 0 이 아니면, last_zero 보다 앞으로 가야 하므로 last_zero 와 자리를 바꾼다.</li>
+<li>last_zero 가 이동하였으므로 last_zero 자리 값을 1 증가시켜 준다.</li>
+</ol>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(nums)</span>:</span>
+    last_zero = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i range(<span class="hljs-number">0</span>, len(nums)):
+        <span class="hljs-keyword">if</span> nums[i] != <span class="hljs-number">0</span>:
+          nums[i], nums[last_zero] = nums[last_zero], nums[i]
+          last_zero += <span class="hljs-number">1</span>
+</code></pre>
+<h2>풀이 3</h2>
+<ol>
+<li>sort 함수를 사용한다.</li>
+<li>x 가 0 이면 1 을 리턴</li>
+<li>x 가 0 이 아니면 -1 을 리턴</li>
+</ol>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums)</span>:</span>
+    nums.sort(key=<span class="hljs-keyword">lambda</span> x: <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> x == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">-1</span>)
+</code></pre>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/til/0824.html">
+            <h1>
+
+
+               180824 TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180824
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>오늘 한 일</h2>
+<h3>python twilio 메시지 보내기</h3>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">from</span> twilio.rest <span class="hljs-keyword">import</span> Client
+
+account_sid = <span class="hljs-string">"sid 입력 "</span>
+auth_token = <span class="hljs-string">"token 입력 "</span>
+client = Client(account_sid, auth_token)
+message = client.messages.create(
+    body =<span class="hljs-string">'안녕! '</span>,
+    to =<span class="hljs-string">'+821025812807'</span>,
+    from_ =<span class="hljs-string">'+17792359212'</span>
+    )
+</code></pre>
+<ul>
+<li>
+<p>twilio 에 가입하고 토근과 sid 를 받고 번호를 등록하면 등록된 번호에 메시지를 전송할 수 있다.</p>
+</li>
+<li>
+<p>twilio 폴더 안에 rest 폴더가 있고 그 안에 Client 라는 클래스가 있다</p>
+</li>
+<li>
+<p>아래의 코드도 똑같이 동작한다.</p>
+</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-keyword">from</span> twilio <span class="hljs-keyword">import</span> rest
+client = rest.Client(account_sid, auth_token)
+</code></pre>
+<p><code>client = rest.Client()</code>는</p>
+<p>function init 을 호출하는것이다.</p>
+<p>initailizes create space memory</p>
+<p>인스턴스 혹은 객체를 만드는 것이다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Client</span><span class="hljs-params">()</span>:</span>
+  def__init__():
+</code></pre>
+<p>class</p>
+<pre class="hljs block"><code class="html"> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span>:</span>
+     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name, grade, age)</span>:</span>
+          self.name = name
+          self.grade = grade
+          self.age = age
+     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+         <span class="hljs-keyword">return</span> repr((self.name, self.grade, self.age))
+</code></pre>
+<p>instance or object</p>
+<pre class="hljs block"><code class="html">student = Student(<span class="hljs-string">'bohyeon'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-number">15</span>)
+</code></pre>
+<ul>
+<li>
+<p>python 알고리즘 문제</p>
+<p>move zeros</p>
+</li>
+<li>
+<p>프로젝트</p>
+</li>
+</ul>
+
+    </div>
+
+    
+
+
       
 
   
@@ -970,7 +1211,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           Algorithm
             (
-            6)
+            7)
         </li>
       </a>
 
@@ -980,7 +1221,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           JavaScript
             (
-            3)
+            2)
         </li>
       </a>
 
@@ -990,17 +1231,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           TIL
             (
-            28)
-        </li>
-      </a>
-
-      
-    
-      <a href="/deploy/category/.html">
-        <li>
-          
-            (
-            1)
+            29)
         </li>
       </a>
 
@@ -1009,6 +1240,16 @@ person.greet(); <span class="hljs-comment">// hi</span>
       <a href="/deploy/category/development.html">
         <li>
           Development
+            (
+            1)
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/python.html">
+        <li>
+          Python
             (
             1)
         </li>

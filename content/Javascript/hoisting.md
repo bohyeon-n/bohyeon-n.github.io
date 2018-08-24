@@ -10,6 +10,7 @@ tags = [ "JS"]
 title = "호이스팅 - Javascript"
 description = "호이스팅 - Javascript"
 front = false
+show = false 
 +++
 
 ## 호이스팅

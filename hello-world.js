@@ -85,7 +85,9 @@ let directories = fs.readdirSync(directoryPath);
 
 let articles = [];
 let categoryByfiles = [];
-
+function removeAllBlank(string) {
+  return string.replace(/(\s*)/g, "");
+}
 directories.forEach((directory, index) => {
   const fileList = fs.readdirSync(`./content/${directory}`);
   // 파일에서 value 와 body를 변환해서 categoryByfiles에 푸시해줌.
@@ -99,14 +101,16 @@ directories.forEach((directory, index) => {
     let value = extractedValue(markdownFile);
     let body = md.render(extractedBody(markdownFile));
 
-    let categoryName = value.category.replace(/(\s*)/g, "");
-    let folder = value.category.toLocaleLowerCase().replace(/(\s*)/g, "");
+    let categoryName = value.category && value.category.replace(/(\s*)/g, "");
+    let folder =
+      value.category &&
+      value.category.toLocaleLowerCase().replace(/(\s*)/g, "");
     let fileName = (
       file.slice(0, file.indexOf(".")).toLocaleLowerCase() + `.html`
     ).replace(/(\s*)/g, "");
     let front = value.front;
     if (front) {
-      front = front.replace(/(\s*)/g, "");
+      front = removeAllBlank(front);
       front = /true/i.test(front);
     }
     let i = files.findIndex(o => o.categoryName === categoryName);
@@ -116,17 +120,21 @@ directories.forEach((directory, index) => {
       body,
       value
     };
-    if (i < 0) {
-      files.push({
-        categoryName,
-        folder,
-        files: [fileObj]
-      });
-    } else {
-      files[i].files.push(fileObj);
-    }
-    if (front) {
-      articles.push(fileObj);
+    let show =
+      !value.show || (value.show && /true/i.test(removeAllBlank(value.show)));
+    if (value.category && show) {
+      if (i < 0) {
+        files.push({
+          categoryName,
+          folder,
+          files: [fileObj]
+        });
+      } else {
+        files[i].files.push(fileObj);
+      }
+      if (front) {
+        articles.push(fileObj);
+      }
     }
   });
   categoryByfiles.push(...files);
