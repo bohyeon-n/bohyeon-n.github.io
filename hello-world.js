@@ -84,6 +84,7 @@ if (!fs.existsSync(dir)) {
 let directories = fs.readdirSync(directoryPath);
 
 let articles = [];
+let allArticles = [];
 let categoryByfiles = [];
 function removeAllBlank(string) {
   return string.replace(/(\s*)/g, "");
@@ -123,6 +124,12 @@ directories.forEach((directory, index) => {
     let show =
       !value.show || (value.show && /true/i.test(removeAllBlank(value.show)));
     if (value.category && show) {
+      allArticles.push({
+        title: value.title.trim(),
+        date: value.date.trim(),
+        path: `/deploy/${folder}/${fileName}`
+      });
+
       if (i < 0) {
         files.push({
           categoryName,
@@ -150,7 +157,8 @@ const authorValue = extractedValue(author);
 // header
 const header = ejs.render(headerHtmlFormat, {
   author: authorValue,
-  categories: categoryByfiles
+  categories: categoryByfiles,
+  allArticles: allArticles
 });
 // sidebar
 const sidebar = ejs.render(sidebarHtmlFormat, {

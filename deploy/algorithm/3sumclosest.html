@@ -74,7 +74,7 @@
     </a>
 
     <li class="nav__search ">
-      Search
+      <input type="text" id="searchInput">
     </li>
   </ul>
   <div class="category">
@@ -116,6 +116,384 @@
       
   </div>
 </div>
+<div class="modal">
+  <div class="modal__wrapwww">
+    <div class="modal__content">
+      <div class="modal__content-input">
+        <input type="text" id="input" onkeyup="searchArticle()">
+
+      </div>
+      <div class="modal__content-list">
+        <ul id="articleUl">
+          
+            <li>
+              <a href="/deploy/algorithm/3sumclosest.html">
+                3sum Closest /
+                  20180716
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/besttimetobuyandsellstock.html">
+                Best Time to Buy and Sell Stock /
+                  20180816
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/add_binary.html">
+                Add Binary - Python /
+                  20180818
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fibonacci.html">
+                피보나치 수 구현하기 /
+                  20180710
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fizz_buzz.html">
+                FIZZ BUZZ in Python /
+                  20180825
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/jewels_and_stones.html">
+                Jewels and Stones /
+                  20180820
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/move_zeros.html">
+                Move Zeroes /
+                  20180824
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/sortcolor.html">
+                sort colors /
+                  20180718
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/regexp.html">
+                정규 표현식 /
+                  20180719
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/this.html">
+                자바스크립트 this, bind 그리고 화살표 함수 /
+                  20180806
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0716.html">
+                0716 TIL /
+                  20180716
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0717.html">
+                0717 TIL /
+                  20180717
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0718.html">
+                0718 TIL /
+                  20180718
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0719.html">
+                0719 TIL /
+                  20180719
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0721.html">
+                djangogirls! /
+                  20180721
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0722.html">
+                블로그 만들기 /
+                  20180722
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0723.html">
+                7월 23일 TIL /
+                  20180723
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0725.html">
+                0725 TIL /
+                  20180725
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0728.html">
+                0728 TIL /
+                  20180728
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0801.html">
+                180801 TIL /
+                  20180801
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0802.html">
+                180802 TIL /
+                  20180802
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0804.html">
+                180804 TIL /
+                  20180804
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0805.html">
+                180805 TIL /
+                  20180805
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0806.html">
+                180806 TIL /
+                  20180806
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0807.html">
+                180807 TIL /
+                  20180807
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0808.html">
+                180808 TIL /
+                  20180808
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0810.html">
+                180810 TIL /
+                  20180810
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0811.html">
+                180811 TIL /
+                  20180811
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0812.html">
+                180812 TIL /
+                  20180812
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0813.html">
+                180813 TIL /
+                  20180813
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0815.html">
+                180815 TIL /
+                  20180815
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0816.html">
+                180816 TIL /
+                  20180816
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0817.html">
+                180817 TIL /
+                  20180817
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0818.html">
+                180818 TIL /
+                  20180818
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0820.html">
+                180820 TIL /
+                  20180820
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0821.html">
+                180821 TIL /
+                  20180821
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0823.html">
+                180823 TIL /
+                  20180823
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0824.html">
+                180824 TIL /
+                  20180824
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0825.html">
+                180825 TIL /
+                  20180825
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/project.html">
+                프로젝트 /
+                  20180805
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/development/rest.html">
+                REST란? /
+                  20180810
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/python/sort.html">
+                Sorting in Python /
+                  20180824
+              </a>
+
+            </li>
+            
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script>  
+
+  document.querySelector('#searchInput').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+  }
+  )
+  function searchArticle() {
+    let input, filter, ul, li, a, i;
+    input = document.getElementById('input')
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('articleUl')
+    li = ul.getElementsByTagName('li');
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName('a')[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = '';
+      } else {
+        li[i].style.display = 'none'
+      }
+    }
+
+  }
+
+</script>
 
   </div>
 
@@ -263,7 +641,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
         <li>
           Algorithm
             (
-            7)
+            8 )
         </li>
       </a>
 
@@ -273,7 +651,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
         <li>
           JavaScript
             (
-            2)
+            2 )
         </li>
       </a>
 
@@ -283,7 +661,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
         <li>
           TIL
             (
-            29)
+            30 )
         </li>
       </a>
 
@@ -293,7 +671,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
         <li>
           Development
             (
-            1)
+            1 )
         </li>
       </a>
 
@@ -303,7 +681,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
         <li>
           Python
             (
-            1)
+            1 )
         </li>
       </a>
 

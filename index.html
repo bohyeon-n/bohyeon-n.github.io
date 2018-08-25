@@ -74,7 +74,7 @@
     </a>
 
     <li class="nav__search ">
-      Search
+      <input type="text" id="searchInput">
     </li>
   </ul>
   <div class="category">
@@ -116,6 +116,384 @@
       
   </div>
 </div>
+<div class="modal">
+  <div class="modal__wrapwww">
+    <div class="modal__content">
+      <div class="modal__content-input">
+        <input type="text" id="input" onkeyup="searchArticle()">
+
+      </div>
+      <div class="modal__content-list">
+        <ul id="articleUl">
+          
+            <li>
+              <a href="/deploy/algorithm/3sumclosest.html">
+                3sum Closest /
+                  20180716
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/besttimetobuyandsellstock.html">
+                Best Time to Buy and Sell Stock /
+                  20180816
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/add_binary.html">
+                Add Binary - Python /
+                  20180818
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fibonacci.html">
+                피보나치 수 구현하기 /
+                  20180710
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fizz_buzz.html">
+                FIZZ BUZZ in Python /
+                  20180825
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/jewels_and_stones.html">
+                Jewels and Stones /
+                  20180820
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/move_zeros.html">
+                Move Zeroes /
+                  20180824
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/sortcolor.html">
+                sort colors /
+                  20180718
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/regexp.html">
+                정규 표현식 /
+                  20180719
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/this.html">
+                자바스크립트 this, bind 그리고 화살표 함수 /
+                  20180806
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0716.html">
+                0716 TIL /
+                  20180716
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0717.html">
+                0717 TIL /
+                  20180717
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0718.html">
+                0718 TIL /
+                  20180718
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0719.html">
+                0719 TIL /
+                  20180719
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0721.html">
+                djangogirls! /
+                  20180721
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0722.html">
+                블로그 만들기 /
+                  20180722
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0723.html">
+                7월 23일 TIL /
+                  20180723
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0725.html">
+                0725 TIL /
+                  20180725
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0728.html">
+                0728 TIL /
+                  20180728
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0801.html">
+                180801 TIL /
+                  20180801
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0802.html">
+                180802 TIL /
+                  20180802
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0804.html">
+                180804 TIL /
+                  20180804
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0805.html">
+                180805 TIL /
+                  20180805
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0806.html">
+                180806 TIL /
+                  20180806
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0807.html">
+                180807 TIL /
+                  20180807
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0808.html">
+                180808 TIL /
+                  20180808
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0810.html">
+                180810 TIL /
+                  20180810
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0811.html">
+                180811 TIL /
+                  20180811
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0812.html">
+                180812 TIL /
+                  20180812
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0813.html">
+                180813 TIL /
+                  20180813
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0815.html">
+                180815 TIL /
+                  20180815
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0816.html">
+                180816 TIL /
+                  20180816
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0817.html">
+                180817 TIL /
+                  20180817
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0818.html">
+                180818 TIL /
+                  20180818
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0820.html">
+                180820 TIL /
+                  20180820
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0821.html">
+                180821 TIL /
+                  20180821
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0823.html">
+                180823 TIL /
+                  20180823
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0824.html">
+                180824 TIL /
+                  20180824
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0825.html">
+                180825 TIL /
+                  20180825
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/project.html">
+                프로젝트 /
+                  20180805
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/development/rest.html">
+                REST란? /
+                  20180810
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/python/sort.html">
+                Sorting in Python /
+                  20180824
+              </a>
+
+            </li>
+            
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script>  
+
+  document.querySelector('#searchInput').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+  }
+  )
+  function searchArticle() {
+    let input, filter, ul, li, a, i;
+    input = document.getElementById('input')
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('articleUl')
+    li = ul.getElementsByTagName('li');
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName('a')[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = '';
+      } else {
+        li[i].style.display = 'none'
+      }
+    }
+
+  }
+
+</script>
 
   </div>
 
@@ -124,6 +502,152 @@
   <div class="content">
 
     <div class="main">
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/til/0825.html">
+            <h1>
+
+
+               180825 TIL
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180825
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>오늘 한 일</h2>
+<ul>
+<li>파이썬 강의 lesson5</li>
+<li>text 에 욕이 있는지 확인하는 프로그램</li>
+</ul>
+<pre class="hljs block"><code class="html">check_profanity
+<span class="hljs-keyword">import</span> urllib
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_text</span><span class="hljs-params">()</span>:</span>
+    quotes = open(<span class="hljs-string">'./movie.txt'</span>)
+    contents_of_file = quotes.read()
+    print(contents_of_file)
+    quotes.close()
+    check_profanity(contents_of_file)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">check_profanity</span><span class="hljs-params">(text_to_check)</span>:</span>
+    connection = urllib.urlopen(<span class="hljs-string">"http://www.wdylike.appspot.com/?q= "</span>+text_to_check)
+    output = connection.read()
+    print(output)
+    connection.close()
+read_text()
+</code></pre>
+<p>class</p>
+<p><code>quotes = open(file)</code> -&gt; an object of file</p>
+<p><code>connection = urllib.urlopen()</code> -&gt; a file like object</p>
+<p><code>bard = turtle.Turtle</code> -&gt; an object of Turtle</p>
+<p>이번에 구현한 프로그램에서는 클래스를 사용하지 않는 것 처럼 보이지만 사실 object 를 반환하고 있고 이는 클래스의 init 과 같다...?</p>
+<ul>
+<li>프로젝트
+<ul>
+<li>메인페이지 만드는 중</li>
+</ul>
+</li>
+<li>Fizz Buzz 파이썬으로 풀이</li>
+</ul>
+<h3>css 단위</h3>
+<ul>
+<li>rem</li>
+<li>em</li>
+<li>vh
+<ul>
+<li>vh 요소는 높이값이 100 분의 1 의 단위이다. 브러우저 높이 값이 900px 이면 1vh 는 9px</li>
+</ul>
+</li>
+<li>vw
+<ul>
+<li>뷰포트의 너비값이 750px 이면 1vw 는 7.5px</li>
+</ul>
+</li>
+<li>vmin
+<ul>
+<li>vh 와 vw 이 늘 뷰포트의 너비값과 높이값에 상대적인 영향을 받는다면 vmin 과 vmax 는 너비값과 높이값에 따라 최대, 최소값을 지정할 수 있다.</li>
+<li>브라우저의 크기가 1100px 너비, 그리고 700px 높이일 때 1vmin 은 7px 이 되고 1vmax 는 11px 이 된다.</li>
+</ul>
+</li>
+</ul>
+<h2>내일 할 일</h2>
+<ul>
+<li>프로젝트를 좀 더 열심히 만들어야 겠다. 진도가 잘 안나가는 것 같다 ㅠㅠ
+<ul>
+<li>프로젝트에 필요한 기능 다 정리하기</li>
+<li>메인페이지 완성하기</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+
+
+      
+
+  
+    <div class="article">
+      <div class="value">
+        <div class="value__title">
+
+          <a href="/deploy/algorithm/fizz_buzz.html">
+            <h1>
+
+
+               FIZZ BUZZ in Python
+
+            </h1>
+          </a>
+
+        </div>
+        <div class="value__date">
+          <span>
+             20180825
+          </span>
+
+        </div>
+
+        <h1>
+        </h1>
+
+      </div>
+      <h2>문제</h2>
+<p>Write a program that outputs the string representation of numbers from 1 to n.</p>
+<p>But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.</p>
+<h2>풀이 1</h2>
+<pre class="hljs block"><code class="html"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fizzBuzz</span><span class="hljs-params">(self, n)</span>:</span>
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">'FizzBuzz'</span><span class="hljs-keyword">if</span> i % <span class="hljs-number">15</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'Fizz'</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'Buzz'</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> str(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>)]
+</code></pre>
+<h2>풀이 2</h2>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fizzBuzz</span><span class="hljs-params">(self, n)</span>:</span>
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">'Fizz'</span> * (<span class="hljs-keyword">not</span> i % <span class="hljs-number">3</span>) + <span class="hljs-string">'Buzz'</span> * (<span class="hljs-keyword">not</span> i % <span class="hljs-number">5</span>) <span class="hljs-keyword">or</span> str(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>)]
+</code></pre>
+<p>True or False 면 첫 번째 표현식을 반환</p>
+<p>False or True 면 두 번째 표현식을 반하므로 앞의 것이 빈 sequence(String, Tuple, List)일 때는 False 이기 때문에 두 번 째 표현식을 반환하게 된다.</p>
+<p>0 도 False 이기 때문에 0 일 때 1 을 반환하므로 Fizz 가 출력될 수 있다.</p>
+
+    </div>
+
+    
+
+
       
 
   
@@ -1211,7 +1735,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           Algorithm
             (
-            7)
+            8 )
         </li>
       </a>
 
@@ -1221,7 +1745,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           JavaScript
             (
-            2)
+            2 )
         </li>
       </a>
 
@@ -1231,7 +1755,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           TIL
             (
-            29)
+            30 )
         </li>
       </a>
 
@@ -1241,7 +1765,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           Development
             (
-            1)
+            1 )
         </li>
       </a>
 
@@ -1251,7 +1775,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           Python
             (
-            1)
+            1 )
         </li>
       </a>
 

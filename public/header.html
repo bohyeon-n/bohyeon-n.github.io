@@ -57,7 +57,7 @@
     </a>
 
     <li class="nav__search ">
-      Search
+      <input type="text" id="searchInput">
     </li>
   </ul>
   <div class="category">
@@ -71,3 +71,53 @@
       <%})%>
   </div>
 </div>
+<div class="modal">
+  <div class="modal__wrapwww">
+    <div class="modal__content">
+      <div class="modal__content-input">
+        <input type="text" id="input" onkeyup="searchArticle()">
+
+      </div>
+      <div class="modal__content-list">
+        <ul id="articleUl">
+          <% allArticles.forEach(article => { %>
+            <li>
+              <a href="<%=article.path%>">
+                <%=article.title %> /
+                  <%=article.date %>
+              </a>
+
+            </li>
+            <% })%>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script>  
+
+  document.querySelector('#searchInput').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+  }
+  )
+  function searchArticle() {
+    let input, filter, ul, li, a, i;
+    input = document.getElementById('input')
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('articleUl')
+    li = ul.getElementsByTagName('li');
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName('a')[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = '';
+      } else {
+        li[i].style.display = 'none'
+      }
+    }
+
+  }
+
+</script>

@@ -507,69 +507,32 @@
 
   <div class="value">
     <h1 style="color:#333">
-       180820 TIL
+       FIZZ BUZZ in Python
 
     </h1>
     <span>
-       20180820
+       20180825
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h2>오늘 한 일</h2>
-<ul>
-<li>
-<p>python
-Programming Foundations with Python
-lesson3</p>
-<ul>
-<li>터틀 그래픽으로 그림그리기</li>
-</ul>
-</li>
-</ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">import</span> turtle
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_square</span><span class="hljs-params">(some_turtle)</span>:</span>
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>):
-        some_turtle.forward(<span class="hljs-number">100</span>)
-        some_turtle.right(<span class="hljs-number">90</span>)
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_art</span><span class="hljs-params">()</span>:</span>
-    window = turtle.Screen()
-    window.bgcolor(<span class="hljs-string">'red'</span>)
-    brad =  turtle.Turtle()
-    brad.shape(<span class="hljs-string">'turtle'</span>)
-    brad.color(<span class="hljs-string">'yellow'</span>)
-    brad.speed(<span class="hljs-number">3</span>)
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">37</span>):
-        draw_square(brad)
-        brad.right(<span class="hljs-number">10</span>)
-draw_art()
+    <h2>문제</h2>
+<p>Write a program that outputs the string representation of numbers from 1 to n.</p>
+<p>But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.</p>
+<h2>풀이 1</h2>
+<pre class="hljs block"><code class="html"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fizzBuzz</span><span class="hljs-params">(self, n)</span>:</span>
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">'FizzBuzz'</span><span class="hljs-keyword">if</span> i % <span class="hljs-number">15</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'Fizz'</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'Buzz'</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> str(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>)]
 </code></pre>
-<p>webbrowser.open 은 이미 있는 인스턴스이다.
-turtle.Turtle() 은 init instance or object
-메모리를 갖게 된다.</p>
-<ul>
-<li>
-<p>알고리즘 문제 풀이</p>
-<ul>
-<li>Jewels and Stones - python, javascript</li>
-</ul>
-</li>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>스케줄 추가 기능</li>
-</ul>
-</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>python lesson4</li>
-<li>알고리즘 문제풀이</li>
-<li>프로젝트</li>
-<li>AMP</li>
-</ul>
+<h2>풀이 2</h2>
+<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fizzBuzz</span><span class="hljs-params">(self, n)</span>:</span>
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">'Fizz'</span> * (<span class="hljs-keyword">not</span> i % <span class="hljs-number">3</span>) + <span class="hljs-string">'Buzz'</span> * (<span class="hljs-keyword">not</span> i % <span class="hljs-number">5</span>) <span class="hljs-keyword">or</span> str(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>)]
+</code></pre>
+<p>True or False 면 첫 번째 표현식을 반환</p>
+<p>False or True 면 두 번째 표현식을 반하므로 앞의 것이 빈 sequence(String, Tuple, List)일 때는 False 이기 때문에 두 번 째 표현식을 반환하게 된다.</p>
+<p>0 도 False 이기 때문에 0 일 때 1 을 반환하므로 Fizz 가 출력될 수 있다.</p>
 
   </div>
 

@@ -507,11 +507,11 @@
 
   <div class="value">
     <h1 style="color:#333">
-       180820 TIL
+       180825 TIL
 
     </h1>
     <span>
-       20180820
+       20180825
 
     </span>
   </div>
@@ -520,55 +520,66 @@
   <div class="article__body">
     <h2>오늘 한 일</h2>
 <ul>
-<li>
-<p>python
-Programming Foundations with Python
-lesson3</p>
-<ul>
-<li>터틀 그래픽으로 그림그리기</li>
+<li>파이썬 강의 lesson5</li>
+<li>text 에 욕이 있는지 확인하는 프로그램</li>
 </ul>
-</li>
-</ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">import</span> turtle
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_square</span><span class="hljs-params">(some_turtle)</span>:</span>
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>):
-        some_turtle.forward(<span class="hljs-number">100</span>)
-        some_turtle.right(<span class="hljs-number">90</span>)
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_art</span><span class="hljs-params">()</span>:</span>
-    window = turtle.Screen()
-    window.bgcolor(<span class="hljs-string">'red'</span>)
-    brad =  turtle.Turtle()
-    brad.shape(<span class="hljs-string">'turtle'</span>)
-    brad.color(<span class="hljs-string">'yellow'</span>)
-    brad.speed(<span class="hljs-number">3</span>)
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">37</span>):
-        draw_square(brad)
-        brad.right(<span class="hljs-number">10</span>)
-draw_art()
+<pre class="hljs block"><code class="html">check_profanity
+<span class="hljs-keyword">import</span> urllib
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_text</span><span class="hljs-params">()</span>:</span>
+    quotes = open(<span class="hljs-string">'./movie.txt'</span>)
+    contents_of_file = quotes.read()
+    print(contents_of_file)
+    quotes.close()
+    check_profanity(contents_of_file)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">check_profanity</span><span class="hljs-params">(text_to_check)</span>:</span>
+    connection = urllib.urlopen(<span class="hljs-string">"http://www.wdylike.appspot.com/?q= "</span>+text_to_check)
+    output = connection.read()
+    print(output)
+    connection.close()
+read_text()
 </code></pre>
-<p>webbrowser.open 은 이미 있는 인스턴스이다.
-turtle.Turtle() 은 init instance or object
-메모리를 갖게 된다.</p>
+<p>class</p>
+<p><code>quotes = open(file)</code> -&gt; an object of file</p>
+<p><code>connection = urllib.urlopen()</code> -&gt; a file like object</p>
+<p><code>bard = turtle.Turtle</code> -&gt; an object of Turtle</p>
+<p>이번에 구현한 프로그램에서는 클래스를 사용하지 않는 것 처럼 보이지만 사실 object 를 반환하고 있고 이는 클래스의 init 과 같다...?</p>
 <ul>
-<li>
-<p>알고리즘 문제 풀이</p>
+<li>프로젝트
 <ul>
-<li>Jewels and Stones - python, javascript</li>
+<li>메인페이지 만드는 중</li>
 </ul>
 </li>
-<li>
-<p>프로젝트</p>
+<li>Fizz Buzz 파이썬으로 풀이</li>
+</ul>
+<h3>css 단위</h3>
 <ul>
-<li>스케줄 추가 기능</li>
+<li>rem</li>
+<li>em</li>
+<li>vh
+<ul>
+<li>vh 요소는 높이값이 100 분의 1 의 단위이다. 브러우저 높이 값이 900px 이면 1vh 는 9px</li>
+</ul>
+</li>
+<li>vw
+<ul>
+<li>뷰포트의 너비값이 750px 이면 1vw 는 7.5px</li>
+</ul>
+</li>
+<li>vmin
+<ul>
+<li>vh 와 vw 이 늘 뷰포트의 너비값과 높이값에 상대적인 영향을 받는다면 vmin 과 vmax 는 너비값과 높이값에 따라 최대, 최소값을 지정할 수 있다.</li>
+<li>브라우저의 크기가 1100px 너비, 그리고 700px 높이일 때 1vmin 은 7px 이 되고 1vmax 는 11px 이 된다.</li>
 </ul>
 </li>
 </ul>
 <h2>내일 할 일</h2>
 <ul>
-<li>python lesson4</li>
-<li>알고리즘 문제풀이</li>
-<li>프로젝트</li>
-<li>AMP</li>
+<li>프로젝트를 좀 더 열심히 만들어야 겠다. 진도가 잘 안나가는 것 같다 ㅠㅠ
+<ul>
+<li>프로젝트에 필요한 기능 다 정리하기</li>
+<li>메인페이지 완성하기</li>
+</ul>
+</li>
 </ul>
 
   </div>

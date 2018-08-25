@@ -357,4 +357,54 @@ a:hover {
     font-size: 4rem;
   }
 }
+
+.modal {
+  opacity: 0;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+.modal.show {
+  opacity: 1;
+  display: block;
+}
+
+.modal__wrap {
+  width: 100%;
+  height: 100%;
+  background: plum;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal__wrap .modal__content {
+  overflow: scroll;
+  background: rgba(255, 255, 255, 0.9);
+  width: 50%;
+  height: 70vh;
+}
+
+.modal__wrap .modal__content-input {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+
+.modal__wrap .modal__content-list a {
+  text-decoration: none;
+}
 /*# sourceMappingURL=index.css.map */
