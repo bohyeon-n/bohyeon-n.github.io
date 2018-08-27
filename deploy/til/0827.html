@@ -515,11 +515,11 @@
 
   <div class="value">
     <h1 style="color:#333">
-       180813 TIL
+       180827 TIL
 
     </h1>
     <span>
-       20180813
+       20180827
 
     </span>
   </div>
@@ -528,52 +528,52 @@
   <div class="article__body">
     <h2>오늘 한 일</h2>
 <ul>
-<li>
-<p>python</p>
-<ul>
-<li>
-<p>anaconda 설치</p>
-<p><code>conda --version</code> not found</p>
-<p><code>export PATH=~/anaconda3/bin:$PATH</code>로 해결함</p>
-</li>
-<li>
-<p>파이썬 강의</p>
-</li>
+<li>python lesson6 - movies page</li>
 </ul>
-</li>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>클라이언트 페이지 만들고 있는 중... 아직 완성 못함</li>
-</ul>
-</li>
-<li>
-<p>REST 정리</p>
-</li>
-<li>
-<p>블로그</p>
-<ul>
-<li>URI 공백 제거, 소문자로 바꿈</li>
-</ul>
-</li>
-</ul>
-<h2>오늘의 느낀점</h2>
-<p>할 게 많으니 시간이 부족하다. 내일은 좀 더 부지런히 움직여야겠다.</p>
-<h2>내일 할 일</h2>
-<ul>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>클라이언트 페이지 완성하기!!</li>
-</ul>
-</li>
-<li>
-<p>파이썬</p>
-<ul>
-<li>introduction to python programming 완강, 모르는 부분 다시 정리해보기</li>
-</ul>
-</li>
-</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-comment"># media.py</span>
+
+<span class="hljs-keyword">import</span> webbrowser
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Movie</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, movie_title, movie_stroyline, poster_image, trailer_youtube)</span>:</span>
+        self.title = movie_title
+        self.storyline = movie_stroyline
+        self.poster_image_url = poster_image
+        self.trailer_youtube_url = trailer_youtube
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_trailer</span><span class="hljs-params">(self)</span>:</span>
+        webbrowser.open(self.trailer_youtube_url)
+</code></pre>
+<p>fresh_tomatoes 를 다운로드하고 같은 폴더 안에 넣는다.</p>
+<pre class="hljs block"><code class="html"><span class="hljs-comment"># entertainment_center.py</span>
+
+<span class="hljs-keyword">import</span> fresh_tomatoes
+<span class="hljs-keyword">import</span> media
+
+toy_story = media.Movie(<span class="hljs-string">'Toy Story'</span>, <span class="hljs-string">"Toy Story is about the 'secret life of toys' when people are not around."</span>,
+                        <span class="hljs-string">"https://images-na.ssl-images-amazon.com/images/I/91q0UP6%2BUTL._SY606_.jpg"</span>, <span class="hljs-string">"https://www.youtube.com/watch?v=tN1A2mVnrOM"</span>)
+
+avatar = media.Movie(<span class="hljs-string">'Avatar'</span>, <span class="hljs-string">'A marine on an alien planet'</span>, <span class="hljs-string">"https://upload.wikimedia.org/wikipedia/en/b/b0/Avatar-Teaser-Poster.jpg"</span>,
+                     <span class="hljs-string">"https://www.youtube.com/watch?v=5PSNL1qE6VY&amp;t=13s"</span>)
+
+sing_street = media.Movie(<span class="hljs-string">'Sing Street'</span>, <span class="hljs-string">'A boy growing up in Dublin during the 1980s escapes his strained family life by starting a band to impress the mysterious girl he likes.'</span>,
+                          <span class="hljs-string">'https://upload.wikimedia.org/wikipedia/en/2/2c/Sing_Street_poster.jpeg'</span>, <span class="hljs-string">"https://www.youtube.com/watch?v=jYk2Vx1z6lk"</span>)
+
+harry_potter = media.Movie(<span class="hljs-string">'Harry Potter'</span>, <span class="hljs-string">'Harry Potter is The Boy Who Lived, singled out by Lord Voldemort at birth to be his greatest rival, and our hero'</span>,
+                           <span class="hljs-string">'https://images-na.ssl-images-amazon.com/images/I/71oFC5Z1vUL._SY679_.jpg'</span>, <span class="hljs-string">"https://www.youtube.com/watch?v=eKSB0gXl9dw"</span>)
+
+loved_before = media.Movie(<span class="hljs-string">"To All The Boys I've Loved Before"</span>, <span class="hljs-string">'american teen romance film'</span>,
+                           <span class="hljs-string">'https://upload.wikimedia.org/wikipedia/en/b/b8/To_All_the_Boys_I%27ve_Loved_Before_poster.jpg'</span>, <span class="hljs-string">'https://www.youtube.com/watch?v=mTLc_RzqaJc'</span>)
+
+bagdad_cafe = media.Movie(<span class="hljs-string">'Bagdad Cafe'</span>, <span class="hljs-string">'tow wonam who have recently seperated from their husbands, and blossoming friendship that ensues'</span>, <span class="hljs-string">'https://upload.wikimedia.org/wikipedia/en/3/3c/Bagdad_cafe_ver1.jpg'</span>,
+                          <span class="hljs-string">"https://www.youtube.com/watch?v=4G2MEszpox0"</span>)
+movies = [toy_story, avatar, sing_street,
+          harry_potter, loved_before, bagdad_cafe]
+
+
+fresh_tomatoes.open_movies_page(movies)
+</code></pre>
 
   </div>
 
