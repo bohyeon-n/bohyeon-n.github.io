@@ -72,19 +72,26 @@
   </div>
 </div>
 <div class="modal">
-  <div class="modal__wrapwww">
+  <div class="modal__wrap">
     <div class="modal__content">
       <div class="modal__content-input">
-        <input type="text" id="input" onkeyup="searchArticle()">
-
+        <input type="text" id="input" onkeyup="searchArticle()" placeholder="Type Something">
+        <i class="fas fa-times-circle fa-3x delete"></i>
       </div>
       <div class="modal__content-list">
         <ul id="articleUl">
           <% allArticles.forEach(article => { %>
             <li>
               <a href="<%=article.path%>">
-                <%=article.title %> /
+                <p>
+                  <%=article.title %>
+
+                </p>
+                <p>
+
                   <%=article.date %>
+
+                </p>
               </a>
 
             </li>
@@ -101,8 +108,14 @@
 
   document.querySelector('#searchInput').addEventListener('click', function () {
     document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
   }
   )
+  document.querySelector('.delete').addEventListener('click', function () {
+    console.log('slkdhf')
+
+    document.querySelector('.modal').classList.remove('show')
+  })
   function searchArticle() {
     let input, filter, ul, li, a, i;
     input = document.getElementById('input')

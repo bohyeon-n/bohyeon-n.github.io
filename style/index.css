@@ -378,7 +378,6 @@ a:hover {
 .modal__wrap {
   width: 100%;
   height: 100%;
-  background: plum;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -391,20 +390,76 @@ a:hover {
 }
 
 .modal__wrap .modal__content {
+  z-index: 2;
   overflow: scroll;
-  background: rgba(255, 255, 255, 0.9);
-  width: 50%;
-  height: 70vh;
+  background: #fff;
+  width: 100%;
+  height: 100vh;
+}
+
+@media only screen and (min-width: 961px) {
+  .modal__wrap .modal__content {
+    width: 50%;
+    height: 70vh;
+  }
 }
 
 .modal__wrap .modal__content-input {
   width: 100%;
-  font-size: 1.5rem;
-  padding: 1rem;
-  border: 1px solid #ddd;
 }
 
-.modal__wrap .modal__content-list a {
+.modal__wrap .modal__content-input input {
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 80%;
+  height: 2rem;
+  border: 0;
+}
+
+.modal__wrap .modal__content-input input:focus {
+  border: 0;
+  outline: none;
+}
+
+.modal__wrap .modal__content-input .fa-times-circle {
+  padding-top: 1rem;
+}
+
+.modal__wrap .modal__content-input .fa-times-circle:hover {
+  color: #617d8a;
+}
+
+.modal__wrap .modal__content-list ul {
+  padding: 0;
+}
+
+.modal__wrap .modal__content-list ul li {
+  background: #f1f1f1;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.modal__wrap .modal__content-list ul li:hover {
+  background: #617d8a;
+}
+
+.modal__wrap .modal__content-list ul li:hover p {
+  color: #fff;
+}
+
+.modal__wrap .modal__content-list ul li:hover p:nth-child(2) {
+  color: #fff;
+}
+
+.modal__wrap .modal__content-list ul li a {
   text-decoration: none;
+}
+
+.modal__wrap .modal__content-list ul li a p {
+  display: inline;
+}
+
+.modal__wrap .modal__content-list ul li a p:nth-child(2) {
+  color: gray;
 }
 /*# sourceMappingURL=index.css.map */
