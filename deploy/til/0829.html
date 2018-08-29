@@ -852,78 +852,126 @@
 
   <div class="value">
     <h1 style="color:#333">
-       Best Time to Buy and Sell Stock
+       180829 TIL
 
     </h1>
     <span>
-       20180816
+       20180829
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h1>Best Time to Buy and Sell Stock - Python, Javascript</h1>
-<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
-<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
-<p>Note that you cannot sell a stock before you buy one.</p>
-<pre class="hljs block"><code class="html">Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
-Output: <span class="hljs-number">5</span>
-Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class="hljs-number">1</span>) and sell on day <span class="hljs-number">5</span> (price = <span class="hljs-number">6</span>), profit = <span class="hljs-number">6</span><span class="hljs-number">-1</span> = <span class="hljs-number">5.</span>
-             Not <span class="hljs-number">7</span><span class="hljs-number">-1</span> = <span class="hljs-number">6</span>, <span class="hljs-keyword">as</span> selling price needs to be larger than buying price.
+    <h2>오늘 한 일</h2>
+<ul>
+<li>파이썬 Programming Foundation with Python 완강</li>
+</ul>
+<h3>python class</h3>
+<h4>docstring</h4>
+<pre class="hljs block"><code class="html"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Movie</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">""" doc """</span>
+    VALID_RATINGS = [<span class="hljs-string">'R'</span>,<span class="hljs-string">'G'</span>...]
 </code></pre>
-<h2>Javascript</h2>
-<h2>나의 풀이</h2>
-<ol>
-<li>prices 배열을 반복문을 돌면서 확인한다.</li>
-<li>buy 값이 없거나, buy 보다 작은 값이면 buy 에 대입한다.</li>
-<li>그렇지 않다면 buy 보다 큰 수이다. 큰 수 이면서 기존 profit 의 값보다 profit 이 크다면, profit 에 buy 와 현재 배열 요소의 차를 재대입한다.</li>
-<li>profit 을 리턴한다.</li>
-</ol>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>{
-  <span class="hljs-keyword">let</span> profit = <span class="hljs-number">0</span>;
-  <span class="hljs-keyword">let</span> buy;
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; prices.length + <span class="hljs-number">1</span>; i++) {
-    <span class="hljs-keyword">if</span> (buy === <span class="hljs-literal">undefined</span> || buy &gt; prices[i]) {
-      buy = prices[i];
-    } <span class="hljs-keyword">else</span> {
-      <span class="hljs-keyword">if</span> (profit &lt; prices[i] - buy) {
-        profit = prices[i] - buy;
-      }
-    }
-    <span class="hljs-built_in">console</span>.log(buy, profit);
-  }
-  <span class="hljs-keyword">return</span> profit;
-};
+<ul>
+<li>
+<p>상수로, 변수의 값을 바꿀 수 없다. 대문자로 작성하는 것이 좋다.
+module or file name . class name</p>
+</li>
+<li>
+<p>triple quotes 로 감싸면</p>
+</li>
+</ul>
+<pre class="hljs block"><code class="html">print(media.Movie.__doc__)
 </code></pre>
-<h2>Python</h2>
-<ol>
+<p>파이썬은 이런식으로 코드블록에 문서를 첨부하는 기능을 지원한다.
+프로그램 실행 중에 소스코드에 첨부한 문서에 직접 접근할 수 있다.</p>
+<ul>
+<li>모듈: 모듈의 내용과 모든 사용자가 알아둬야 할 중요한 클래스와 함수를 설명.</li>
+<li>클래스: class 문 다음의 docstring 에서 클래스의 동작, 중요한 속성, 서브클래스의 동작을 설명.</li>
+<li>함수와 메서드: def 문 다음의 docstring 에서 모든 인수, 반환 값, 일어나는 예외, 다른 동작들을 문서화.</li>
+</ul>
+<h4>inheritance</h4>
+<p>class Parent</p>
+<ul>
 <li>
-<p>max_profit, min_buy 초기값을 설정한다.</p>
+<p>last_name</p>
 </li>
 <li>
-<p>prices for 문을 돌면서 인수를 확인한다.</p>
+<p>eye_color
+class Child(inherits from Parent)
+-number_of_toys</p>
 </li>
-<li>
-<p>price 와 현재 min_buy 의 값 중 작은 값을 min_buy 에 대입한다.</p>
-</li>
-<li>
-<p>현재 price 에서 min_buy 의 차와 max_profit 값 중 큰 값을 max_profit 에 대입한다.</p>
-</li>
-<li>
-<p>min_buy 의 값을 가장 적은 값으로 대입한다고 하더라도, return 하는 값은 max_profit 이므로 실제로 min_buy 에 어떤 값이 있던 상관없다.</p>
-<p>[1,2,6,5,1,2] 이런식으로 prices list 가 주어졌다고 가정해보자</p>
-<p>4 번 째 인수 1 이 min_buy 에 대입되도 그 후 에 현재 max_profit 인 5(6 - 1) 보다 profit 을 크게 만들어 줄 인수가 나타나지 않는다면 max_profit 의 값은 변하지 않는다.</p>
-<p><code>float('inf')</code>는 파이썬에서 무한을 표현하는 식이다.</p>
-</li>
-</ol>
-<pre class="hljs block"><code class="html">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(self, prices)</span>:</span>
-        max_profit, min_buy = (<span class="hljs-number">0</span>, float(<span class="hljs-string">'inf'</span>)  )
-        <span class="hljs-keyword">for</span> price <span class="hljs-keyword">in</span> prices:
-            min_buy = min(min_buy, price)
-            max_profit = max(max_profit, price - min_buy )
-        <span class="hljs-keyword">return</span> max_profit
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, last_name, eye_color)</span>:</span>
+        print(<span class="hljs-string">'Parent Constuructor called'</span>)
+        self.last_name = last_name
+        self.eye_color= eye_color
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_info</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">'Last Name'</span> + self.last_name)
+        print(<span class="hljs-string">'Eye Color'</span> + self.eye_color)
+billy_cyrus = Parent(<span class="hljs-string">'Cyrus'</span>, <span class="hljs-string">'blue'</span>)
+print(billy_cyrus.last_name)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Child</span><span class="hljs-params">(Parent)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, last_name, eye_color, number_of_toys)</span>:</span>
+        print(<span class="hljs-string">'Child Constructor Called'</span>)
+        Parent.__init__(self, last_name, eye_color)
+        self.number_of_toys = number_of_toys
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_info</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">'Last Name: '</span> + self.last_name)
+        print(<span class="hljs-string">'Eye color:'</span> + self.eye_color)
+        print(<span class="hljs-string">'Number of toys:'</span> + self.number_of_toys)
+miley_cyrus = Child(<span class="hljs-string">'Cyrus'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'5'</span>)
+print(miley_cyrus.last_name,
+miley_cyrus.number_of_toys)
+miley_cyrus.show_info()
 </code></pre>
+<ul>
+<li>
+<p>show_info 가 명확하가 Child class 에 정의되어 있지 않아도, 상속받은 부모 class 의 메소드를 사용할 수 있다.</p>
+</li>
+<li>
+<p>부모와 자식의 클래스에 같은 이름의 메소드를 정의하면 어떻게 될까?</p>
+</li>
+<li>
+<p>override</p>
+</li>
+<li>
+<p>오버라이딩은 무시하다, 우선하다라는 뜻을 가지고 있다.</p>
+</li>
+<li>
+<p>말 그대로 기반 클래스의 메서드를 무시하고 새로운 메서드를 만든다는 뜻이다.</p>
+</li>
+<li>
+<p>보통 프로그램에서 어떤 기능이 같은 메서드 이름으로 계속 사용되어야 할 때 메서드 오버라이딩을 활용한다.</p>
+</li>
+<li>
+<p>메서드 오버라이딩은 원래 기능을 유지하면서 새로운 기능을 덧붙일 때 사용한다.</p>
+</li>
+</ul>
+<pre class="hljs block"><code class="html"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greeting</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">'안녕하세요.'</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span><span class="hljs-params">(Person)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greeting</span><span class="hljs-params">(self)</span>:</span>
+        super().greeting()                            <span class="hljs-comment"># 기반 클래스의 메서드 호출</span>
+        print(<span class="hljs-string">'저는 파이썬 코딩 도장 학생입니다.'</span>)    <span class="hljs-comment"># 중복되는 문구는 삭제</span>
+
+james = Student()
+james.greeting()
+</code></pre>
+<p><a href="https://dojang.io/mod/page/view.php?id=1085">코딩 도장 블로그</a></p>
+<h3>프로젝트</h3>
+<ul>
+<li>메인페이지 모바일 대응 화면 만드는 중</li>
+<li><code>width = window.innerWidth</code> 현재 화면에 width 를 알 수 있다.</li>
+<li>window 에 이벤트리스너를 걸어서 화면이 바뀔 때 마다 width 의 값을 얻을 수 있다.</li>
+<li>semantic ui react 에서도 grid 에서 <code>mobile={16}</code> <code>computer={4}</code>이런식으로 width 를 정해줄 수 있다.</li>
+</ul>
 
   </div>
 
