@@ -787,6 +787,21 @@
             </li>
             
             <li>
+              <a href="/deploy/til/0831.html">
+                <p>
+                  180831 TIL
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/til/project.html">
                 <p>
                   프로젝트
@@ -915,7 +930,7 @@
 <li>새로 만들어지는 객체에 생성자의 속성을 넣어줄 때</li>
 <li>객체의 속성에 접근(메소드에서 사용하는 this)할 때</li>
 </ol>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">username, balance</span>) </span>{
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">username, balance</span>) </span>{
   <span class="hljs-comment">// 속성</span>
   <span class="hljs-keyword">this</span>.username = username;
   <span class="hljs-keyword">this</span>.balance = balance;
@@ -933,7 +948,7 @@ account.getBalance();
 account.deposit(<span class="hljs-number">2000</span>);
 account.getBalance();
 </code></pre>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+<pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
   <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
   <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -958,7 +973,7 @@ account.getBalance();
 <li>생성자에서 사용될 때 this 는 이 생성자로 인해 생성된 새로운 객체를 가리킵니다.</li>
 </ol>
 <p>4 번, 객체에 속한 메소드의 내부함수에서 사용되는 경우를 더 알아보도록 하겠습니다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+<pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
   <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
   <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -977,7 +992,7 @@ account.getBalance(); <span class="hljs-comment">//undefined님의 잔액은 und
 <p>bind 메소드를 사용하면 호출을 어디에서 하는지 상관없이 this 가 무엇을 가리킬 지 정할 수 있습니다.</p>
 <h2>bind</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> 함수는 this 의 문맥을 유지할 때 사용합니다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+<pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
   <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
   <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -1005,7 +1020,7 @@ account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000
 <li>화살표 함수는 생성될 때 this 가 결정됩니다.</li>
 <li>화살표 함수가 어떻게 사용되건, 호출되건, this 는 바뀌지 않습니다.</li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> account = {
+<pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
   <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
   <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -1020,7 +1035,7 @@ account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000
 <p>innerFunc 함수에서 화살표 함수를 사용하면 더이상 bind 를 사용하여 this 를 binding 하지 않아도 됩니다.</p>
 <p>화살표 함수는 자신만의 this 를 갖지 않기 때문에, 바깥 스코프에서 this 의 값을 계승받습니다.</p>
 <p>그러나 이러한 특징 때문에 객체의 메소드로 화살표 함수를 사용하는 것은 적합하지 않습니다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> person = {
+<pre class="hljs"><code><span class="hljs-keyword">const</span> person = {
   <span class="hljs-attr">name</span>: <span class="hljs-string">"bohyeon"</span>,
   <span class="hljs-attr">greet</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`hi <span class="hljs-subst">${<span class="hljs-keyword">this</span>.name}</span>`</span>)
 };
@@ -1035,10 +1050,10 @@ person.greet(); <span class="hljs-comment">// hi</span>
 <p>화살표 함수의 경우 화살표 함수가 정의된 곳의 문맥에 의해서 this 가 정의됩니다.</p>
 <p>this 가 예상한 대로 동작하지 않는다면 함수의 실행 환경을 생각해보아야 합니다.</p>
 <h2>참고 자료</h2>
-<p><a href="https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26">https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26</a></p>
-<p><a href="https://blueshw.github.io/2018/03/12/this/">https://blueshw.github.io/2018/03/12/this/</a></p>
-<p><a href="https://www.codementor.io/niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp">https://www.codementor.io/niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp</a></p>
-<p><a href="https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262">https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262</a></p>
+<p>https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26</p>
+<p>https://blueshw.github.io/2018/03/12/this/</p>
+<p>https://www.codementor.io/niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp</p>
+<p>https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262</p>
 
   </div>
 
@@ -1103,7 +1118,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           TIL
             (
-            34 )
+            35 )
         </li>
       </a>
 

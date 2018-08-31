@@ -787,6 +787,21 @@
             </li>
             
             <li>
+              <a href="/deploy/til/0831.html">
+                <p>
+                  180831 TIL
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/til/project.html">
                 <p>
                   프로젝트
@@ -910,7 +925,7 @@
   <div class="article__body">
     <h2>오늘 한 일</h2>
 <h3>python twilio 메시지 보내기</h3>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">from</span> twilio.rest <span class="hljs-keyword">import</span> Client
+<pre class="hljs"><code><span class="hljs-keyword">from</span> twilio.rest <span class="hljs-keyword">import</span> Client
 
 account_sid = <span class="hljs-string">"sid 입력 "</span>
 auth_token = <span class="hljs-string">"token 입력 "</span>
@@ -932,18 +947,18 @@ message = client.messages.create(
 <p>아래의 코드도 똑같이 동작한다.</p>
 </li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">from</span> twilio <span class="hljs-keyword">import</span> rest
+<pre class="hljs"><code><span class="hljs-keyword">from</span> twilio <span class="hljs-keyword">import</span> rest
 client = rest.Client(account_sid, auth_token)
 </code></pre>
 <p><code>client = rest.Client()</code>는</p>
 <p>function init 을 호출하는것이다.</p>
 <p>initailizes create space memory</p>
 <p>인스턴스 혹은 객체를 만드는 것이다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Client</span><span class="hljs-params">()</span>:</span>
+<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Client</span><span class="hljs-params">()</span>:</span>
   def__init__():
 </code></pre>
 <p>class</p>
-<pre class="hljs block"><code class="html"> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span>:</span>
+<pre class="hljs"><code> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span>:</span>
      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name, grade, age)</span>:</span>
           self.name = name
           self.grade = grade
@@ -952,7 +967,7 @@ client = rest.Client(account_sid, auth_token)
          <span class="hljs-keyword">return</span> repr((self.name, self.grade, self.age))
 </code></pre>
 <p>instance or object</p>
-<pre class="hljs block"><code class="html">student = Student(<span class="hljs-string">'bohyeon'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-number">15</span>)
+<pre class="hljs"><code>student = Student(<span class="hljs-string">'bohyeon'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-number">15</span>)
 </code></pre>
 <ul>
 <li>
@@ -1027,7 +1042,7 @@ client = rest.Client(account_sid, auth_token)
         <li>
           TIL
             (
-            34 )
+            35 )
         </li>
       </a>
 

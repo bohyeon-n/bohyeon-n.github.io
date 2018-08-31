@@ -787,6 +787,21 @@
             </li>
             
             <li>
+              <a href="/deploy/til/0831.html">
+                <p>
+                  180831 TIL
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/til/project.html">
                 <p>
                   프로젝트
@@ -913,7 +928,7 @@
 <p>The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;.</p>
 <h2>Python</h2>
 <h3>내 풀이</h3>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">import</span> functools
+<pre class="hljs"><code><span class="hljs-keyword">import</span> functools
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
     jewels = <span class="hljs-number">0</span>
     <span class="hljs-keyword">for</span> jewel <span class="hljs-keyword">in</span> J:
@@ -924,22 +939,22 @@
 <p>substring 이 정해진 범위에서 몇 번 나오는지 그 숫자를 반환해주는 함수
 <code>str.count(sub, start= 0,end=len(string))</code></p>
 <h3>다른 사람 풀이</h3>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
     <span class="hljs-keyword">return</span> sum(map(S.count, J))
 </code></pre>
 <p>map 함수를 써서 stone 에 포함 된 jewel 리스트 요소의 수를 새로운 리스트로 반환하고 sum 메소드를 사용하여 리스트 요소의 합을 구한다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
     <span class="hljs-keyword">return</span> sum(map(J.count, S))
 </code></pre>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
     <span class="hljs-keyword">return</span> sum(s <span class="hljs-keyword">in</span> J <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
 </code></pre>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
         setJ = set(J)
         <span class="hljs-keyword">return</span> sum(s <span class="hljs-keyword">in</span> setJ <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
 </code></pre>
 <p>python 집합 자료형</p>
-<pre class="hljs block"><code class="html"><span class="hljs-meta">&gt;&gt;&gt; </span>s1 = set([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
+<pre class="hljs"><code><span class="hljs-meta">&gt;&gt;&gt; </span>s1 = set([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
 <span class="hljs-meta">&gt;&gt;&gt; </span>s1
 {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>}
 
@@ -967,7 +982,7 @@
 <p>이 문제를 푼 사람은 jewels 가 중복된 문자열일 수도 있다고 생각했기 때문인 것 같다.</p>
 <p>하지만 이 문제에서는 jewels 가 중복되지 않는다고 되어있다.</p>
 <h2>Javascript</h2>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> numJewelsInStones = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">J, S</span>) </span>{
+<pre class="hljs"><code><span class="hljs-keyword">var</span> numJewelsInStones = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">J, S</span>) </span>{
   <span class="hljs-keyword">var</span> stones = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
 
   <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; S.length; i++) {
@@ -1052,7 +1067,7 @@
         <li>
           TIL
             (
-            34 )
+            35 )
         </li>
       </a>
 

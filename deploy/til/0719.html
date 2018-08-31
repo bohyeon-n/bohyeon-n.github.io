@@ -787,6 +787,21 @@
             </li>
             
             <li>
+              <a href="/deploy/til/0831.html">
+                <p>
+                  180831 TIL
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/til/project.html">
                 <p>
                   프로젝트
@@ -917,7 +932,7 @@
 <li>home 화면에서 정규표현식으로 추출한 title 과 date 의 리스트를 뿌려주고, 해당 포스팅으로 이동할 수 있는 링크를 추가하였다.</li>
 <li>hugo 에서 어떻게 빌드하는지 생각해보았다. 어렵다 😱</li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">let</span> mdFile = <span class="hljs-string">"+++ title: til date: 0819 +++ blah blah blah"</span>;
+<pre class="hljs"><code><span class="hljs-keyword">let</span> mdFile = <span class="hljs-string">"+++ title: til date: 0819 +++ blah blah blah"</span>;
 
 <span class="hljs-keyword">let</span> extracted = mdFile.match(<span class="hljs-regexp">/\+\+\+(.+)\+\+\+/</span>)[<span class="hljs-number">1</span>];
 
@@ -928,13 +943,13 @@ value = { <span class="hljs-attr">title</span>: value[<span class="hljs-number">
 <ul>
 <li>사용자에게 받은 입력값을 제외한 나머지 md 파일은 아래와 같은 형식으로 markdown parser 에 넣어서 html 파일로 변환하면 될 것 같다.</li>
 </ul>
-<pre class="hljs block"><code class="html">mdFile.replace(<span class="hljs-regexp">/\+\+\+(.+)\+\+\+/</span>, <span class="hljs-string">""</span>);
+<pre class="hljs"><code>mdFile.replace(<span class="hljs-regexp">/\+\+\+(.+)\+\+\+/</span>, <span class="hljs-string">""</span>);
 </code></pre>
 <ul>
 <li>하다가 줄바꿈이 들어가면 변환이 되지 않았다. 줄바꿈을 스페이스로 바꿔주는 코드를 추가했다.</li>
 <li>뭔가 잘 못 하고 있는 것 같다. 내일 다시 해봐야겠다.</li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">let</span> mdFile = md.replace(<span class="hljs-regexp">/(\r\n|\n|\r)/gm</span>, <span class="hljs-string">" "</span>);
+<pre class="hljs"><code><span class="hljs-keyword">let</span> mdFile = md.replace(<span class="hljs-regexp">/(\r\n|\n|\r)/gm</span>, <span class="hljs-string">" "</span>);
 </code></pre>
 <h1>오늘의 느낀점</h1>
 <ul>
@@ -1034,7 +1049,7 @@ value = { <span class="hljs-attr">title</span>: value[<span class="hljs-number">
         <li>
           TIL
             (
-            34 )
+            35 )
         </li>
       </a>
 

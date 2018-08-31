@@ -787,6 +787,21 @@
             </li>
             
             <li>
+              <a href="/deploy/til/0831.html">
+                <p>
+                  180831 TIL
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/til/project.html">
                 <p>
                   프로젝트
@@ -928,7 +943,7 @@
 <p>함수 실행이 마무리되면 해당 컨텍스트는 사라지게 된다(클로저는 제외) 페이지가 종료되면 전역 컨텍스트가 사라진다.</p>
 </li>
 </ol>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> name = <span class="hljs-string">"bohyeon"</span>;
+<pre class="hljs"><code><span class="hljs-keyword">var</span> name = <span class="hljs-string">"bohyeon"</span>;
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greeting</span>(<span class="hljs-params">word</span>) </span>{
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${word}</span> <span class="hljs-subst">${name}</span>`</span>);
 }
@@ -941,7 +956,7 @@ say();
 <span class="hljs-comment">// pizza</span>
 <span class="hljs-comment">// hello bohyeon</span>
 </code></pre>
-<pre class="hljs block"><code class="html"><span class="hljs-string">'say 컨텍스트'</span> : {
+<pre class="hljs"><code><span class="hljs-string">'say 컨텍스트'</span> : {
   변수객체: {
     <span class="hljs-attr">arguments</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">variable</span>: [<span class="hljs-string">'name'</span>], <span class="hljs-comment">// pizza</span>
@@ -967,7 +982,7 @@ say();
 <p>변수 선언과 함수 선언식이 최상단으로 끌어올려졌기 때문이다.
 함수 선언식일 때 식 자체가 통째로 끌어올려진다.</p>
 <p>그러나, 함수 표현식일 때는 에러가 발생한다.</p>
-<pre class="hljs block"><code class="html">sayHello();
+<pre class="hljs"><code>sayHello();
 <span class="hljs-keyword">var</span> sayHello = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"hello"</span>);
 };
@@ -975,7 +990,7 @@ say();
 </code></pre>
 <p>함수 표현식에서는 대입되기 전에 호출되었기 때문에 에러가 발생하였다.</p>
 <p>함수 선언식은 컨텍스트 생성 후 바로 대입된다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-string">'전역 컨텍스트'</span>: {
+<pre class="hljs"><code><span class="hljs-string">'전역 컨텍스트'</span>: {
   변수객체: {
     <span class="hljs-attr">arguments</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">variable</span>: [{ <span class="hljs-attr">sayHello</span>: <span class="hljs-built_in">Function</span> }, <span class="hljs-string">'sayHello'</span>],
@@ -990,7 +1005,7 @@ say();
 <p>그렇다면, let 과 const 는 호이스팅이 일어날까? 일어난다.
 그러나 TDZ 에 의해 제약을 받는다.
 변수가 초기화되기 전에 액세스하려고 하면 에러가 발생한다.</p>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">const</span> x = <span class="hljs-string">"outer scope"</span>;
+<pre class="hljs"><code><span class="hljs-keyword">const</span> x = <span class="hljs-string">"outer scope"</span>;
 (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-built_in">console</span>.log(x);
   <span class="hljs-keyword">const</span> x = <span class="hljs-string">"inner scope"</span>;
@@ -1069,7 +1084,7 @@ say();
         <li>
           TIL
             (
-            34 )
+            35 )
         </li>
       </a>
 

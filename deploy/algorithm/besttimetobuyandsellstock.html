@@ -787,6 +787,21 @@
             </li>
             
             <li>
+              <a href="/deploy/til/0831.html">
+                <p>
+                  180831 TIL
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/til/project.html">
                 <p>
                   프로젝트
@@ -912,7 +927,7 @@
 <p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
 <p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
 <p>Note that you cannot sell a stock before you buy one.</p>
-<pre class="hljs block"><code class="html">Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
+<pre class="hljs"><code>Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
 Output: <span class="hljs-number">5</span>
 Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class="hljs-number">1</span>) and sell on day <span class="hljs-number">5</span> (price = <span class="hljs-number">6</span>), profit = <span class="hljs-number">6</span><span class="hljs-number">-1</span> = <span class="hljs-number">5.</span>
              Not <span class="hljs-number">7</span><span class="hljs-number">-1</span> = <span class="hljs-number">6</span>, <span class="hljs-keyword">as</span> selling price needs to be larger than buying price.
@@ -925,7 +940,7 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
 <li>그렇지 않다면 buy 보다 큰 수이다. 큰 수 이면서 기존 profit 의 값보다 profit 이 크다면, profit 에 buy 와 현재 배열 요소의 차를 재대입한다.</li>
 <li>profit 을 리턴한다.</li>
 </ol>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>{
+<pre class="hljs"><code><span class="hljs-keyword">var</span> maxProfit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>) </span>{
   <span class="hljs-keyword">let</span> profit = <span class="hljs-number">0</span>;
   <span class="hljs-keyword">let</span> buy;
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; prices.length + <span class="hljs-number">1</span>; i++) {
@@ -962,7 +977,7 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
 <p><code>float('inf')</code>는 파이썬에서 무한을 표현하는 식이다.</p>
 </li>
 </ol>
-<pre class="hljs block"><code class="html">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(self, prices)</span>:</span>
+<pre class="hljs"><code>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(self, prices)</span>:</span>
         max_profit, min_buy = (<span class="hljs-number">0</span>, float(<span class="hljs-string">'inf'</span>)  )
         <span class="hljs-keyword">for</span> price <span class="hljs-keyword">in</span> prices:
             min_buy = min(min_buy, price)
@@ -1033,7 +1048,7 @@ Explanation: Buy on day <span class="hljs-number">2</span> (price = <span class=
         <li>
           TIL
             (
-            34 )
+            35 )
         </li>
       </a>
 

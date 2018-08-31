@@ -787,6 +787,21 @@
             </li>
             
             <li>
+              <a href="/deploy/til/0831.html">
+                <p>
+                  180831 TIL
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/til/project.html">
                 <p>
                   프로젝트
@@ -911,7 +926,7 @@
     <h1>3Sum Closest</h1>
 <p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
 <p>Example:</p>
-<pre class="hljs block"><code class="html">Given array nums = [<span class="hljs-number">-1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-4</span>], and target = <span class="hljs-number">1.</span>
+<pre class="hljs"><code>Given array nums = [<span class="hljs-number">-1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-4</span>], and target = <span class="hljs-number">1.</span>
 
 The sum that is closest to the target is <span class="hljs-number">2.</span> (<span class="hljs-number">-1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">1</span> = <span class="hljs-number">2</span>).
 </code></pre>
@@ -924,7 +939,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
 <ul>
 <li>sort 를 사용해서 정렬을 한 후 문제를 풀어보려고 했지만, 잘 되지 않아서 일단은 반복문으로 모든 숫자의 조합을 생각하기로 하였다.</li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-comment">//	80 ms</span>
+<pre class="hljs"><code><span class="hljs-comment">//	80 ms</span>
 <span class="hljs-keyword">var</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
   <span class="hljs-keyword">let</span> closestSum;
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
@@ -960,7 +975,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
 <li>target 과의 차이를 줄여갈 수 있기 때문에</li>
 <li>첫 번째 방식보다 빠르게 찾아낼 수 있다.</li>
 </ul>
-<pre class="hljs block"><code class="html"><span class="hljs-keyword">let</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
+<pre class="hljs"><code><span class="hljs-keyword">let</span> threeSumClosest = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, target</span>) </span>{
   <span class="hljs-keyword">let</span> result;
   <span class="hljs-keyword">if</span> (nums.length &lt;= <span class="hljs-number">3</span>) {
     result = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>] + nums[<span class="hljs-number">2</span>];
@@ -1051,7 +1066,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
         <li>
           TIL
             (
-            34 )
+            35 )
         </li>
       </a>
 

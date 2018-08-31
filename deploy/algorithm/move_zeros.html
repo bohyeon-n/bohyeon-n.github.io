@@ -787,6 +787,21 @@
             </li>
             
             <li>
+              <a href="/deploy/til/0831.html">
+                <p>
+                  180831 TIL
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/til/project.html">
                 <p>
                   프로젝트
@@ -920,7 +935,7 @@
 <li>remove(0)</li>
 <li>append(0)</li>
 </ol>
-<pre class="hljs block"><code class="html"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span><span class="hljs-params">(object)</span>:</span>
+<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span><span class="hljs-params">(object)</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums)</span>:</span>
         <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, nums.count(<span class="hljs-number">0</span>)):
             nums.remove(<span class="hljs-number">0</span>)
@@ -932,7 +947,7 @@
 <li>i 번 째 인수가 0 이 아니면, last_zero 보다 앞으로 가야 하므로 last_zero 와 자리를 바꾼다.</li>
 <li>last_zero 가 이동하였으므로 last_zero 자리 값을 1 증가시켜 준다.</li>
 </ol>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(nums)</span>:</span>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(nums)</span>:</span>
     last_zero = <span class="hljs-number">0</span>
     <span class="hljs-keyword">for</span> i range(<span class="hljs-number">0</span>, len(nums)):
         <span class="hljs-keyword">if</span> nums[i] != <span class="hljs-number">0</span>:
@@ -945,7 +960,7 @@
 <li>x 가 0 이면 1 을 리턴</li>
 <li>x 가 0 이 아니면 -1 을 리턴</li>
 </ol>
-<pre class="hljs block"><code class="html"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums)</span>:</span>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums)</span>:</span>
     nums.sort(key=<span class="hljs-keyword">lambda</span> x: <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> x == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">-1</span>)
 </code></pre>
 
@@ -1012,7 +1027,7 @@
         <li>
           TIL
             (
-            34 )
+            35 )
         </li>
       </a>
 
