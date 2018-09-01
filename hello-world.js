@@ -141,7 +141,9 @@ directories.forEach((directory, index) => {
     let value = extractedValue(markdownFile);
     let body = md.render(extractedBody(markdownFile));
 
-    let categoryName = value.category && value.category.replace(/(\s*)/g, "");
+    let categoryName =
+      value.category && value.category.replace(/(^\s*)|(\s*$)/gi, "");
+
     let folder =
       value.category &&
       value.category.toLocaleLowerCase().replace(/(\s*)/g, "");

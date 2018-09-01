@@ -100,16 +100,16 @@
         </li>
       </a>
       
-      <a href="/deploy/category/development.html">
+      <a href="/deploy/category/computerscience.html">
         <li>
-          Development
+          Computer science
 
         </li>
       </a>
       
-      <a href="/deploy/category/python.html">
+      <a href="/deploy/category/development.html">
         <li>
-          Python
+          Development
 
         </li>
       </a>
@@ -794,6 +794,36 @@
             </li>
             
             <li>
+              <a href="/deploy/til/0831.html">
+                <p>
+                  180831 TIL
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/til/0901.html">
+                <p>
+                  180901 TIL
+
+                </p>
+                <p>
+
+                  20180901
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/til/project.html">
                 <p>
                   프로젝트
@@ -809,7 +839,7 @@
             </li>
             
             <li>
-              <a href="/deploy/development/computer.html">
+              <a href="/deploy/computerscience/computer.html">
                 <p>
                   컴퓨터의 작동원리
 
@@ -817,6 +847,21 @@
                 <p>
 
                   20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/computerscience/internet.html">
+                <p>
+                  인터넷이 작동하는 방법
+
+                </p>
+                <p>
+
+                  20180901
 
                 </p>
               </a>
@@ -832,21 +877,6 @@
                 <p>
 
                   20180810
-
-                </p>
-              </a>
-
-            </li>
-            
-            <li>
-              <a href="/deploy/python/blogindex.html">
-                <p>
-                  Sorting in Python
-
-                </p>
-                <p>
-
-                  20180901
 
                 </p>
               </a>
@@ -914,204 +944,49 @@
   <div class="content">
 
     <div class="main">
-      <div class="article">
-
-
-  <div class="value">
-    <h1 style="color:#333">
-       Sorting in Python 
-
-    </h1>
-    <span>
-       20180901
-
-    </span>
-  </div>
-
-
-  <div class="article__body">
-    <p><code>hi</code></p>
-<pre class="hljs"><code>hi
-</code></pre>
-<pre class="hljs"><code>hi;
-</code></pre>
-<blockquote>
-<p>hi</p>
-</blockquote>
-<p>비전공자도 할 수 있는 정적 블로그 생성기 만들기!</p>
-<ol>
-<li>정적 웹페이지란?</li>
-</ol>
-<p>정적 웹 페이지란 서버에 미리 저장된 파일이 그대로 전달되는 웹 페이지입니다.</p>
-<p>서버는 이미 완성된 HTML 파일을 클라이언트의 요청에 따라 보내주는 역할만 하게 됩니다.</p>
-<p>블로그는 문서를 보여주는 역할을 하는 웹페이지입니다.
-문서는 정적입니다. 블로그 페이지는 사용자가 글을 올리는 시점을 제외하고는 변하지 않습니다.
-블로그의 모든 페이지를 미리 생성할 수 있습니다.</p>
-<ol start="2">
-<li>정적 사이트 생성기를 만든다는 것은?</li>
-</ol>
-<p>우리가 하려고 하는 일은 정적 사이트 생성기를 만드는 것입니다.
-소스파일(.md) -&gt; 목적파일(.html)</p>
-<p>마크다운 파일에 글을 쓰고 변환하면 자동으로 블로그에 포스팅을 할 수 있도록 하는 작업을 하는 것 입니다. 글을 쓸 때 마다 html 파일을 작성하는 것은 매우 귀찮은 일이기 때문입니다. 이것을 편리하게 해주는 프로그램을 만드는 것 입니다.</p>
-<p>이미 Hexo, Hugo, Jekyll 등 정적 사이트 생성기가 있습니다. 빠르고 쉽게 멋있는 블로그를 싶다면 정적 블로그 프레임워크를 사용할 수 있습니다!</p>
-<ol start="3">
-<li>깃헙페이지 만들기</li>
-</ol>
-<p>github 에서는 github pages 라는 호스팅 서비스를 제공하고 있습니다. 이를 이용하면 개인 페이지를 무료로 생성할 수 있습니다.</p>
-<ul>
-<li>&lt;usernmae&gt;.github.io 로 저장소 만들면 자동으로 사이트가 만들어집니다.</li>
-</ul>
-<ul>
-<li>
-<p>만든 폴더에 index.html 파일을 만들어 내용을 넣습니다.</p>
-</li>
-<li>
-<p>제대로 사이트가 구축되었는지 확인합니다.</p>
-</li>
-</ul>
-<p>완성!</p>
-<p><img src="/img/create-github-page.png" alt="완성 이미지"></p>
-<ol start="4">
-<li>개발환경 구축하기</li>
-</ol>
-<ul>
-<li>node.js 와 npm 설치</li>
-</ul>
-<p><a href="https://kdydesign.github.io/2017/07/15/nodejs-npm-tutorial/">빠르게 배우는 Node.js 와 NPM 설치부터 개념잡기 - Dev.DY</a></p>
-<p>node.js 설치
-npm init -y
-package.json 파일이 생성되면 완성!</p>
-<ol start="4">
-<li>마크다운 파일을 html 파일로 변환하기</li>
-</ol>
-<p>우리가 index.html 을 만든 것 처럼 포스팅 하려고 할 때마다 html 파일을 만들기는 매우 어려울 것 입니다.</p>
-<p>지금부터 하려고 하는 일은
-마크다운 파일로 작성한 글을 html 파일로 변환하여 포스팅하는 것 입니다.</p>
-<p>일단 폴더를 하나 만듦니다.
-저는 contents 라는 폴더를 만들었습니다.
-contents 폴더 안에 마크다운 파일을 만들고 텍스트를 입력해주세요.</p>
-<p>저는 이렇게 만들었습니다!</p>
-<pre class="hljs"><code>- blog folder
-
-  - contents
-      - cat.md
-      - dog.md
-      - macaron.md
-</code></pre>
-<ol start="2">
-<li>새로 생성된 파일을 변환하려면 일단 내 폴더 안에 있는 폴더들과 파일들을 읽어야 합니다.</li>
-</ol>
-<p>이 작업을 해줄 자바스크립트 파일을 블로그 폴더에 하나 만듦니다.</p>
-<pre class="hljs"><code>- blog foler
-  - content
-  - hello-node.js &lt;- 파일을 만들어 줍니다.
-</code></pre>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
-<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
-<span class="hljs-comment">// contents폴더의 경로</span>
-<span class="hljs-keyword">const</span> directoryPath = path.join(__dirname, <span class="hljs-string">"contents"</span>);
-<span class="hljs-built_in">console</span>.log(directoryPath);
-<span class="hljs-comment">// 폴더에 있는 파일 읽기</span>
-<span class="hljs-keyword">const</span> contentFiles = fs.readdirSync(directoryPath);
-<span class="hljs-built_in">console</span>.log(contentFiles);
-</code></pre>
-<ul>
-<li>fs 모듈은 FileSystem 의 약자로 파일 처리와 관련된 모듈입니다.</li>
-<li>path 모듈은 파일의 경로를 다루기 위한 모듈입니다.</li>
-<li>sync 가 붙은 것은 동기적 읽기는 것으로 파일을 모두 읽은 후 forEach 문을 사용해야 하므로 다 읽기 전에는 다른 작업을 할 수 없도록 동기적 읽기를 사용하였습니다.</li>
-</ul>
-<p>이렇게 하면 contents 안에 있는 파일들의 목록을 배열형식으로 저장할 수 있습니다.</p>
-<p>참고로 node.js 를 실행하기 위해서는 커맨드창에 node hello-node.js 라고 입력해주세요</p>
-<p>이제 각각의 파일 내용을 읽어오도록 하겠습니다.</p>
-<pre class="hljs"><code>contentFiles.forEach(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
-  <span class="hljs-built_in">console</span>.log(body);
-});
-</code></pre>
-<p>fs.readFileSync(filename, [options])
-option 에는 보통 인코딩 방식이 오게 되며 웹에서는 utf8 을 주로 사용합니다.</p>
-<p>파일의 내용을 읽어왔다면, 이 파일의 내용을 마크다운 형식에서 html 형식으로 변환해주어야 합니다.
-단순히 텍스트만 있는 문서를 보여줄 것이라면 마크다운을 그대로 사용해도 되지만, 마크다운의 다양한 기능들을 사용하고 싶다면, 마크다운을 html 파일로 변환해 주어야 합니다.</p>
-<p>저는 markdown-it 을 설치해주세요</p>
-<p><code>npm install markdown-it --save</code></p>
-<p>설치가 완료되면 package.json 파일의 dependencies 에 markdown-it 이 추가된 것을 볼 수 있습니다.</p>
-<pre class="hljs"><code>  <span class="hljs-string">"dependencies"</span>: {
-    <span class="hljs-string">"markdown-it"</span>: <span class="hljs-string">"^8.4.2"</span>
-  }
-</code></pre>
-<p>markdown-it 을 사용해보도록 하겠습니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">var</span> MarkdownIt = <span class="hljs-built_in">require</span>(<span class="hljs-string">"markdown-it"</span>),
-  md = <span class="hljs-keyword">new</span> MarkdownIt();
-md.render(<span class="hljs-string">"여기에 마크다운 형식의 text를 넣어주면 html로 변환"</span>);
-</code></pre>
-<p>이제 forEach 문을 돌면서 마크다운 문서를 html 문서로 변환해보도록 하겠습니다.</p>
-<pre class="hljs"><code>contentFiles.forEach(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
-  result = md.render(body); <span class="hljs-comment">// 이 부분을 추가해주세요</span>
-  <span class="hljs-built_in">console</span>.log(result);
-});
-</code></pre>
-<p>node hello-node.js 실행해보면 커맨드 창에 html 형식으로 변환된 텍스트가 보일 것 입니다.</p>
-<pre class="hljs"><code>&lt;h1&gt;고양이&lt;<span class="hljs-regexp">/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;강아지&lt;/</span>li&gt;
-<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span>
-
-&lt;p&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>마카롱<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
-</code></pre>
-<ul>
-<li>마크다운잇설치해서 마크다운파일 html 형식으로 바꿔주기</li>
-<li>index.html 파일에 ejs 문법을 사용하여 파일 세 개의 파일이름을 리스트 형식으로 보여주기</li>
-<li>파일을 눌렀을 시에는 해당 마크다운내용을 html 로 변환한 페이지로 이동할 수 있도록</li>
-<li>article.html 파일을 만들고 마크다운 텍스트를 내용으로 집어넣은 ejs</li>
-<li>깃헙에 파일을 업로드해서 블로그 만들어보기</li>
-</ul>
-<ol start="5">
-<li>
-<p>정규 표현식 이용해서 title 이랑 날짜랑 카테고리 받기
-정규 표현식을 이용해서 사용자 페이지도 만들고, 사이드바, 포스팅 화면도 만든다.</p>
-</li>
-<li>
-<p>헤더 , 사이드바 완성하기 (블로그 운영자 정보 받기 ) (프레임워크를 써볼까?? 쌩으로 할까 )</p>
-</li>
-<li>
-<p>댓글기능 넣기</p>
-</li>
-<li>
-<p>여러가지 값을 받아서 다양하게 커스터마이징 할 수 있음을 말해줌(예: 작업중인 글은 show=&quot;false&quot;를 넣어준다. )</p>
-</li>
-</ol>
-<p>4 / 5,6/ 7</p>
+      <div class="list">
+  <div class="title">
+    <i class="far fa-folder"></i>
+    Computer science
 
   </div>
+
+
+  <ul>
+    
+      <li>
+        <i class="fas fa-circle"></i>
+        <div class="content">
+          <a href="/deploy/computerscience/internet.html">
+            <span>
+               인터넷이 작동하는 방법
+            </span>
+          </a>
+          <span>
+             20180901
+          </span>
+
+        </div>
+      </li>
+      
+      <li>
+        <i class="fas fa-circle"></i>
+        <div class="content">
+          <a href="/deploy/computerscience/computer.html">
+            <span>
+               컴퓨터의 작동원리
+            </span>
+          </a>
+          <span>
+             20180831
+          </span>
+
+        </div>
+      </li>
+      
+  </ul>
 
 </div>
-
-  <div id="disqus_thread"></div>
-  <script>
-
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-
-
-    // var disqus_config = function () {
-    //   this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    //   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    // };
-
-    (function () { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://bohyeon-n.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the
-    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-  </noscript>
 
     </div>
     <div class="sidebar">
@@ -1147,7 +1022,17 @@ md.render(<span class="hljs-string">"여기에 마크다운 형식의 text를 �
         <li>
           TIL
             (
-            34 )
+            36 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/computerscience.html">
+        <li>
+          Computer science
+            (
+            2 )
         </li>
       </a>
 
@@ -1156,16 +1041,6 @@ md.render(<span class="hljs-string">"여기에 마크다운 형식의 text를 �
       <a href="/deploy/category/development.html">
         <li>
           Development
-            (
-            2 )
-        </li>
-      </a>
-
-      
-    
-      <a href="/deploy/category/python.html">
-        <li>
-          Python
             (
             1 )
         </li>
