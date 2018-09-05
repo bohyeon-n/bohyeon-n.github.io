@@ -207,6 +207,7 @@ const sidebar = ejs.render(sidebarHtmlFormat, {
 });
 const authorMain = md.render(extractedBody(author));
 const authorHtml = ejs.render(indexHtmlFormat, {
+  title: `About | ${authorValue.usernmae}`,
   header,
   sidebar,
   main: authorMain
@@ -237,6 +238,7 @@ categoryByfiles.forEach(category => {
     folder: category.folder
   });
   const indexHtml = ejs.render(indexHtmlFormat, {
+    title: `Category: ${category.categoryName} | ${authorValue.username}`,
     header: header,
     main: main,
     sidebar: sidebar
@@ -255,6 +257,7 @@ categoryByfiles.forEach(category => {
       path: path
     });
     const html = ejs.render(indexHtmlFormat, {
+      title: `${file.value.title} | ${authorValue.username}`,
       main: article,
       sidebar: sidebar,
       header: header
@@ -273,6 +276,7 @@ main = ejs.render(homeHtmlFormat, {
   articles: articles
 });
 html = ejs.render(indexHtmlFormat, {
+  title: authorValue.username,
   main,
   sidebar,
   header
