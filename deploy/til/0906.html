@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/style/index.css">
 
   <title>
-     0725 TIL |  구보현 블로그 
+     180906 TIL |  구보현 블로그 
   </title>
 </head>
 
@@ -986,76 +986,43 @@
 
   <div class="value">
     <h1 style="color:#333">
-       0725 TIL
+       180906 TIL
 
     </h1>
     <span>
-       20180725
+       20180906
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h1>오늘 한 일</h1>
+    <h3>Ajax?</h3>
+<p>Ajax(Asynchronous Javascript and XML)은 개발 기술로, 웹사이트나 웹 어플리케이션의 빌딩을 위해 사용된다. Ajax 의 핵심 기능은 웹 컨텐츠를 비동기로 업데이트 하는 것이다. 클라이언트가 서버에 필요한 데이터를 요청할 때 클라이언트는 서버의 응답을 기다리지 않고 다른 동작을 할 수 있다.</p>
+<p>마크업언어 html, css 는 정적 웹 기능들(헤더, 폰트등) 자바스크립트는 이 특징들을 컨트롤한다. 자바스크립트는 이 요소들을 interactive 하게 동작하게 합니다.</p>
+<p>Update a web page without reloading the page
+Request data from a server - after the page has loaded
+Receive data from a server - after the page has loaded
+Send data to a server - in the background</p>
+<h3>리액트?</h3>
+<p>리액트는 유저인터페이스 라이브러리로서 개발자로 하여금 재사용이 가능한 UI 를 생성할 수 있게 해준다.
+Virtual DOM 이라는 개념을 사용하여 상태의 변함에 따라 선택적으로 유저 인터페이스를 렌더링한다.
+최소한의 DOM 처리로 컴포넌트들을 업데이트 할 수 있게 해준다.</p>
+<h3>DOM?</h3>
+<p>Document Object Model 의 약자이다.
+이는 객체를 통하여 구조화된 문서를 표현하는 방법이며, XML HTML 로 작성된다.
+DOM 은 트리 형태로 되어 있어서 특정 node 를 찾을 수 있고, 수정, 삭제, 삽입이 가능하다.
+DOM 은 동적 UI 에 최적화되어 있지 않다. 브라우저 단에서 DOM 의 변화가 일어나면, 브라우저가 css 를 다시 연산하고, 레이아웃을 구성하고, 웹 페이지를 리페인트 하는데 이 과정에서 시간이 허비된다.
+레이아웃을 새로 구성하면서 계산하는 것을 reflow 라고 하고, 색상변경과 같은 레이아웃에 관계없는 것들을 처리하는 건 repaint 라고 한다.</p>
+<p>DOM 작업을 가상화 하여 미리 처리한 다음에 한꺼번에 적용할 수 있는 방법이 있다면?
+Virtual DOM 을 사용하면, 실제 DOM 에 접근하여 조작하는 대신에, 이를 추상화시킨 자바스크립트 객체를 구성하여 사용한다.</p>
 <ul>
 <li>
-<p>블로그 반응형으로 만들기</p>
+<p>알고리즘 공부</p>
 <ul>
-<li>일단은 모바일 버전으로 디자인을 하고 있다.</li>
-<li>홈 화면만 하는데도 시간이 오래 걸린다.😭</li>
-<li>화면 전체적으로 수평으로 스크롤바가 생김<pre class="hljs"><code>overflow-x: hidden
-</code></pre>
-</li>
-<li>node.modules 를 gitigonre 안해줬더니 github page 빌드가 안되었다.</li>
-<li>push 취소를 하고 gitigonre 해서 다시 push 함</li>
+<li>이진 검색 공부함</li>
 </ul>
 </li>
-</ul>
-<pre class="hljs"><code><span class="hljs-comment">// git push 취소하기</span>
-<span class="hljs-comment">//(여러 번 하면 계속해서 취소된다.)</span>
-git reset HEAD~<span class="hljs-number">1</span>
-git push origin &lt;branch&gt; -f
-</code></pre>
-<pre class="hljs"><code>- highlight.js 적용
-
-```js
-//index.html에 script추가
-&lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js&quot; /&gt;
-
-// markdown을 require할 때 highlight 설정을 해줌
-</code></pre>
-<ul>
-<li>
-<p>모바일 버전에서는 sidebar 가 없이 category 로 제공하는 것이 좋을 것 같다고 생각함</p>
-</li>
-<li>
-<p>sass 를 이용해서 toggle 로 category 를 보여줌</p>
-</li>
-<li>
-<p>fontawesome 에서 icon 을 받았는데 github 에 올리니까 github page 에서는 렌더링이 안됨.</p>
-<ul>
-<li>node.modules 폴더를 ignore 해서 그런 것 같다.</li>
-</ul>
-</li>
-</ul>
-<h1>오늘의 느낀점</h1>
-<ul>
-<li>데스크탑에서는 사이드바가 있는 것이 더 좋은걸까? 잘 모르겠다.</li>
-<li>이번주까지는 블로그를 끝내자!!!!!!!!</li>
-<li>너무 더워 😱😱</li>
-</ul>
-<h1>내일 할 일 &amp; 앞으로 할 일</h1>
-<ul>
-<li>디자인 마무리 하기.
-<ul>
-<li>category 별 화면 디자인하기</li>
-</ul>
-</li>
-<li>about 화면 만들기</li>
-<li>홈 화면에서 pagination</li>
-<li>댓글 기능</li>
-<li>책읽기</li>
 </ul>
 
   </div>
