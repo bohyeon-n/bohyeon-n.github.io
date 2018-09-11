@@ -1029,38 +1029,46 @@
   <div class="article__body">
     <p>정적 블로그 생성기 만들기 첫 번째 글에서는 마크다운 파일을 HTML 로 변환하여 글 목록 페이지와 본문 페이지를 만들어 보았습니다. 이번 글에서는 글의 제목, 설명, 날짜등의 글의 정보를 받아 페이지에 추가하는 작업을 해보도록 하겠습니다.</p>
 <h2>글의 정보 받기</h2>
-<p>우리는 지금까지 글의 본문만을 마크다운 파일로 작성하여 HTML 포맷으로 변경해주었습니다. 글의 제목이나 설명, 작성한 날짜 등은 따로 작성하지 않았습니다.
-어떻게 하면 마크다운 파일 안에 우리가 원하는 정보를 넣을 수 있을까요?
-글의 정보를 마크다운에 넣기 위해서는 정해진 포맷안에 정보를 입력하고 마크다운 파일을 읽을 때 문자열에서 특정한 패턴을 찾아 글의 정보를 추출할 수 있습니다.
-저는 글의 정보를 <code>+++ &lt;글의 정보&gt; +++</code> 안에 입력하였습니다.
-마크다운 파일 상단에 아래와 같은 형식으로 contents 디렉토리의 의 마크다운 파일을 수정해주세요.</p>
+<p>우리는 지금까지 글의 본문만을 마크다운 파일로 작성하여 HTML 포맷으로 변경해주었습니다.그러나 작성한 글의 제목이나 설명, 작성한 날짜 등은 따로 작성하지 않았습니다.</p>
+<p>어떻게 하면 글의 정보를 받아서 페이지에 추가할 수 있을까요?</p>
+<h3>마크다운 파일에 글의 정보 넣기</h3>
+<p>마크다운 파일 하나는 블로그 글 하나에 해당됩니다. 그러므로 글의 제목, 글을 작성한 날짜등을 넣어주기 위해서는 마크다운 파일 안에 본문과 함께 작성해주어야 합니다. 그리고 글의 정보와 본문을 구분하기 위한 장치가 필요합니다. &quot;여기서부터 여기까지는 글의 정보를 담고있어&quot; 라고 표시를 하는 것 처럼요.</p>
+<p>저는 <code>+++ title =&quot;hi&quot; +++</code> 이런식으로 <code>+++</code> 패턴 안에 글의 정보를 넣어주었습니다.</p>
+<p>그리고 마크다운에 입력한 정보를 HTML 로 렌더할 때 가져오고 싶다면 파일을 읽어서 특정한 패턴을 찾은 후 그 안에 있는 텍스트를 가져오면 됩니다.</p>
+<p>그럼 글의 정보를 입력해봅시다. 마크다운 파일 상단에 아래와 같이 글의 정보를 추가해주세요.</p>
 <pre class="hljs"><code>+++
 title=<span class="hljs-string">"정적 블로그 생성기 만들기"</span>
 desc=<span class="hljs-string">"글의 정보 받기"</span>
 date=<span class="hljs-string">"20180909"</span>
 +++
 
+
 이번 글에서는 정적 블로그 생성기 만들어보겠습니다.
 </code></pre>
-<p>현재 마크다운 텍스트에는 우리가 입력한 정보가 포함되어 있습니다. 본문에는 글의 정보를 제외한 글의 내용만을 넣어주어야 합니다.
-마크다운 파일에서 <code>+++&lt;&gt;+++</code> 안에 있는 글의 정보 값을 제외한 본문을 가져오는 함수를 추가해 보겠습니다.</p>
-<p>매개변수로 text 를 받아서 replace 메서드를 실행한 값을 반환하는 함수입니다. 아래의 코드를 추가해주세요.</p>
+<hr>
+<h3>글의 정보를 제외한 텍스트 가져오기</h3>
+<p>현재 마크다운 파일의 텍스트에는 글의 정보와 본문이 함께 있습니다. 본문에는 본문만을 넣어주어야 합니다.</p>
+<p>즉 마크다운 파일에서 <code>+++&lt;&gt;+++</code>패턴을 제외한 텍스트를 가져와야 합니다. 이 작업을 해줄 함수를 만들어보겠습니다. 아래의 코드를 추가해주세요.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> extractBody = <span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> {
   <span class="hljs-keyword">return</span> text.replace(<span class="hljs-regexp">/(\+{3})([\s\S]+?)(\1)/</span>, <span class="hljs-string">""</span>);
 };
 </code></pre>
-<p>extracBody 함수는 text 문자열에서 <code>+++&lt;&gt;+++</code> 패턴이 일치하는 문자열을 빈 문자열로 교체한 새로운 문자열을 반환합니다.</p>
+<p>extracBody 매개변수로 받은 text 에서 <code>+++&lt;&gt;+++</code> 패턴과 일치하는 문자열을 빈 문자열로 교체한 새로운 문자열을 반환하는 함수입니다.</p>
 <p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/replace">str.replace(regexp|substr, newSubStr|function)</a> 메소드는 어떤 패턴에 일치하는 일부 또는 모든 부분이 교체된 새로운 문자열을 반환합니다. 그 패턴은 문자열이나, 정규식이 될 수 있습니다.</p>
-<p>위의 함수에서는 <code>+++&lt;&gt;+++</code>패턴을 찾기 위해 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D">정규 표현식</a>을 사용하였습니다. 정규 표현식이란 문자열을 처리하는 방법 중 하나로 정규표현식을 사용하면 특정한 조건에 맞는 문자를 검사, 검색 그리고 치환하는 과정을 매우 간편하게 처리할 수 있습니다.</p>
-<p><code>+{3}</code>은 <code>+</code> 가 세 번 반복된다는 뜻입니다. <code>[\s\S]+?</code> 의 <code>\s</code>는 공백문자 그리고 <code>\S</code>는 공백문자가 아닌 문자를 뜻하며 <code>+</code>는 1 회이상 반복된다는 의미의 수량자입니다.
-<code>+</code> 수량자는 탐욕스럽기 때문에 가능한 많이 대응시킵니다. 많이 대응시키게 되면 맨 처음 등장한 패턴 외의 본문에서 이러한 패턴이 등장했을 시 그 문자열도 포함하여 교체하기 때문에 <code>+</code>수량자를 탐욕스럽지 않게 바꿔주어야 합니다. <code>*, +, ?, {}</code>등의 수량자 뒤에 <code>?</code>를 사용하면 기본적으로 탐욕스러운 수량자를 탐욕스럽지 않게, 가능한 적은 문자을 대응시키게 만들 수 있습니다.
-<code>1</code> 은 첫 번째 괄호를 지칭할 때 사용합니다.</p>
-<p>이제 이전 글에서 작성하였던 map 메소드의 콜백 함수부분을 수정해야 합니다. 전체 text 가 아닌 글의 정보를 제외한 본문만을 렌더할 수 있도록 아래와 같이 기존 코드를 수정해주세요.</p>
+<p>위의 함수에서는 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D">정규 표현식</a>을 사용하였습니다. 정규 표현식이란 문자열을 처리하는 방법 중 하나로 정규표현식을 사용하면 특정한 조건에 맞는 문자를 검사, 검색 그리고 치환하는 과정을 매우 간편하게 처리할 수 있습니다.</p>
+<p>위의 함수에서 사용한 정규표현식을 자세히 알아보겠습니다.</p>
+<p><code>+{3}</code>는 <code>+</code> 가 세 번 반복된다는 뜻입니다. <code>[\s\S]+?</code> 의 <code>\s</code>는 공백문자 그리고 <code>\S</code>는 공백문자가 아닌 문자를 뜻하며 <code>+</code>는 1 회이상 반복된다는 의미의 수량자입니다.</p>
+<p><code>+</code> 수량자는 탐욕스럽기 때문에 가능한 많이 대응시킵니다. 많이 대응시킨다는 것은 맨 처음 등장한 패턴뿐만 아니라 그 후에 등장하는 패턴또한 대응시켜 메소드를 실행하기 때문에 <code>+</code>수량자를 탐욕스럽지 않게 바꿔주어야 합니다.</p>
+<p><code>*, +, ?, {}</code>등의 수량자 뒤에 <code>?</code>를 사용하면 기본적으로 탐욕스러운 수량자를 탐욕스럽지 않게, 가능한 적은 문자을 대응시키게 만들 수 있습니다.</p>
+<p><code>\1</code> 은 첫 번째 괄호를 지칭할 때 사용합니다.</p>
+<p>이제 이 함수를 사용하여 이전 글에서 작성하였던 map 메소드의 콜백 함수부분을 수정해봅시다. 전체 text 가 아닌 글의 정보를 제외한 본문만을 HTML 포멧으로 변환할 수 있도록 아래와 같이 기존 코드를 수정해주세요.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> text = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
 <span class="hljs-keyword">const</span> convertedBody = md.render(extractBody(text));
 </code></pre>
-<p>글의 정보와 본문을 담고있는 text 를 extractBody 함수에 인수로 넣어 글의 정보를 제외한 본문을 HTML 포맷으로 변경해주었습니다.</p>
-<p>그리고 이제 <code>+++&lt;&gt;+++</code> 안에 넣어주었던 글 정보를 반환하는 함수를 추가해보겠습니다.</p>
+<hr>
+<h3>글의 정보 가져오기</h3>
+<p>이제 <code>+++&lt;&gt;+++</code> 패턴 안에 넣어주었던 글의 정보를 가져와야 합니다.
+이 작업을 해줄 함수를 추가해보겠습니다.</p>
 <pre class="hljs"><code>extractValue = <span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> {
   <span class="hljs-keyword">const</span> string = text.match(<span class="hljs-regexp">/(\+{3})([\s|\S]+?)\1/</span>);
   <span class="hljs-keyword">if</span> (!string) {
@@ -1082,8 +1090,13 @@ date=<span class="hljs-string">"20180909"</span>
   }
 };
 </code></pre>
-<p>extractValue 함수는 매개변수인 text 의 <code>+++&lt;&gt;+++</code> 패턴안에 있는 문자열을 찾아서 = 를 기준으로 key 와 value 객체 쌍을 반환하는 함수입니다.</p>
-<p>콘솔로 확인해보면 아래와 같이 찍히는 것을 확인할 수 있습니다.</p>
+<p>extractValue 함수는 매개변수인 text 의 <code>+++&lt;&gt;+++</code> 패턴안에 있는 문자열을 찾아서 = 를 기준으로 key 와 value 를 찾아서 객체 쌍을 반환하는 함수입니다. 어떤 정규 표현식이 사용되었는지 자세히 알아보겠습니다.
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match">str.match(regexp)</a> 메소드는 정규식과 비교하여 일치 항목을 검색하는 메소드입니다. 문자열이 표현식과 일치하면 일치하는 전체 문자열을 배열 첫 번째 요소로 포함하고 그 다음 요소부터 괄호 안에 캡처 된 결과가 표시됩니다.</p>
+<p>매치가 되었다면 두 번째로 캡쳐된 <code>+++&lt;&gt;+++</code> 안에 있는 문자열을 다시 match 메소드를 사용하여 <code>=</code> 문자를 기준으로 나누어 캡쳐합니다. 매치된 결과가 있다면 <code>=</code>를 기준으로 오른쪽 문자열은 key, 왼쪽 문자열은 value 변수에 대입해줍니다.</p>
+<p>key 는 title, desc, date 등 프로그램을 만든 사람과 프로그램의 사용자가 미리 약속한 문자열로, 공백이 없이 한 단어로 이루어진 문자열이어야 합니다. 그러나 사용자가 입력할 때 실수로 공백을 추가하는 경우가 생길 수 있습니다. 이를 방지하기 위해서 key 로 사용될 문자의 모든 공백을 빈 문자열로 바꿔주는 처리를 해주었습니다.</p>
+<p>value 에는 프로그램 사용자가 입력한 제목이나, 글의 설명등이 들어있으므로, <a href="https://www.w3schools.com/jsref/jsref_trim_string.asp">trim 메소드</a>를 사용하여 앞과 뒤의 공백만 제거하였습니다. 또한 문자열을 감싸는 <code>'</code>, <code>&quot;</code>를 함께 입력할 수도 있으므로 <code>'</code> <code>&quot;</code> 문자를 빈문자열로 교체하는 처리를 해주었습니다.</p>
+<p>프로그램 사용자가 <code>+++</code> 패턴은 입력하였지만 글 정보를 입력하지 않았을 경우를 대비하여, 정보를 입력하였는지 확인하는 로직을 추가해주었습니다.</p>
+<p><code>console.log(extractValue(text))</code>를 실행하고 확인해보면 아래와 같이 찍히는 것을 확인할 수 있습니다.</p>
 <pre class="hljs"><code>{ title: '고양이', desc: '고양이 한마리', date: '20180901' }
 { title: '강아지', desc: '강아지 너무 귀여워', date: '20180902' }
 { title: '마카롱', desc: '마카롱 너무 맛있어', date: '20180904' }
@@ -1091,14 +1104,13 @@ date=<span class="hljs-string">"20180909"</span>
   desc: 'Sigrid Album [Raw] Tracklist',
   date: '20180909' }
 </code></pre>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match">str.match(regexp)</a> 메소드는 정규식과 비교하여 일치 항목을 검색하는 메소드입니다. 문자열이 표현식과 일치하면 일치하는 전체 문자열을 배열 첫 번째 요소로 포함하고 그 다음 요소부터 괄호 안에 캡처 된 결과가 표시됩니다.</p>
-<p>매치가 되었다면 배열을 순환하면서 두 번째로 캡쳐된 <code>+++&lt;&gt;+++</code> 안에 있는 문자열을 다시 match 메소드를 사용하여 <code>=</code> 문자를 기준으로 나누었습니다. 매치된 결과가 있다면 <code>=</code>를 기준으로 오른쪽 문자열을 key, 왼쪽 문자열을 value 변수에 대입해줍니다. key 는 정해진 문자열을 넣는 것이므로 모든 공백문자를 빈 문자열로 바꿔줍니다. value 에는 사용자가 입력한 제목이나, 글의 설명등이 들어있으므로, <a href="https://www.w3schools.com/jsref/jsref_trim_string.asp">trim 메소드</a>를 사용하여 앞과 뒤의 공백만 제거하였습니다. 또한 <code>'</code>, <code>&quot;</code>를 함께 입력할 수도 있으므로 <code>'</code> <code>&quot;</code> 문자를 빈문자열로 교체하였습니다.
-사용자가 값을 입력하지 않는 경우도 있으므로, 값이 있는지 확인하는 코드도 추가해주었습니다.</p>
-<p>이제 우리가 마크다운 파일에서 가져온 글의 정보들을 article 페이지를 렌더하는 데 사용해보도록 하겠습니다.</p>
+<hr>
+<h3>글의 정보 렌더하기</h3>
+<p>이제 우리가 마크다운 파일에서 가져온 글의 정보들을 article 페이지를 렌더하는 데 넣 도록 하겠습니다.</p>
 <p>일단, 템플릿에 title 과 date 의 빈 칸을 만들어보겠습니다.
-templates 디렉토리에 article_format.html 파일을 수정해보겠습니다.</p>
-<p>이런식으로 제목과 날짜를 추가해주세요.
-<img src="/img/article_add_title.png" alt="article template 제목, 날짜 추가"></p>
+<em>templates</em> 디렉토리에 <em>article_format.html</em> 파일을 수정해주세요.</p>
+<p>저는 이런식으로 제목과 날짜를 추가하였습니다.</p>
+<p><img src="/img/article_add_title.png" alt="article template 제목, 날짜 추가"></p>
 <p>이제 article page 를 생성했던 map 메소드의 콜백 함수를 수정해주세요.</p>
 <pre class="hljs"><code>contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
   <span class="hljs-keyword">const</span> text = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
@@ -1127,18 +1139,20 @@ value 값 중 title 과 date 를 사용자가 입력하지 않았을 때를 대�
 <p>완성된 모습입니다!
 아티클 페이지에 제목과 날짜가 추가되었습니다.
 <img src="/img/article_add_title_page.png" alt="아티클 페이지에 제목과 날짜 추가"></p>
-<p>이제 우리는 글의 제목과 다양한 정보를 알고 있습니다. 더이상 홈페이지에서 파일 이름으로 목록을 리스팅하지 않아도 됩니다. 글의 목록을 글의 제목과 설명 그리고 날짜로 리스팅하도록 수정해봅시다.</p>
-<p>templates 디렉토리의 list_format.html 파일을 열어 title, date, desc 을 넣을 수 있도록 수정해주세요.</p>
+<hr>
+<h3>글의 정보를 넣은 리스팅 페이지 만들기</h3>
+<p>이제 우리는 글의 제목과 날짜등 다양한 정보를 입력할 수있고 입력한 정보를 가져올 수 있습니다. 더이상 홈페이지에서 파일 이름으로 목록을 리스팅하지 않아도 됩니다. 글의 목록을 글의 제목과 설명 그리고 날짜로 리스팅하도록 수정해봅시다.</p>
+<p><em>templates</em> 디렉토리의 <em>list_format.html</em> 파일을 열어 title, date, desc 을 넣을 수 있도록 수정해주세요.</p>
 <p>저는 이렇게 작성하였습니다!</p>
 <p><img src="/img/list_add_title.png" alt="리스트 템플릿 제목, 날짜, 설명추가"></p>
-<p>홈페이지에 contents 디렉토리에 작성한 모든 글을 리스팅하기 위해서는 작성한 모든 글의 정보를 담은 객체를 배열에 넣어주어야 합니다.
-deployFiles 배열에 fileName 을 push 하던 로직을 수정해보겠습니다. fileName 은 path 로 넣어주고 title 과 date, desc 를 이름과 값 쌍으로 넣어주었습니다.</p>
-<p>desc 도 작성하지 않았을 때를 대비하여 title 과 date 처럼 desc 도 아래의 코드를 추가해줍시다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> desc = value.desc || <span class="hljs-string">" "</span>;
-</code></pre>
+<p>홈페이지에 <em>contents</em> 디렉토리에 작성한 모든 글을 리스팅하기 위해서는 작성한 모든 글의 정보를 담은 객체를 배열에 넣어주어야 합니다.
+deployFiles 배열에 fileName 을 푸시하던 로직을 수정해보겠습니다. fileName 은 path 로 넣어주고 title 과 date, desc 를 이름과 값 쌍으로 넣어주었습니다.</p>
 <pre class="hljs"><code>deployFiles.push({ <span class="hljs-attr">path</span>: <span class="hljs-string">`<span class="hljs-subst">${fileName}</span>.html`</span>, title, date, desc });
 </code></pre>
-<p>이제 deployFiles 에는 contents 안에 있는 모든 파일의 정보가 이름과 값 쌍으로 객체에 저장되었습니다.</p>
+<p>desc 도 title 과 date 와 마찬가지로 사용자가 작성하지 않았을 때를 대비하여 아래의 코드를 추가해줍시다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> desc = value.desc || <span class="hljs-string">" "</span>;
+</code></pre>
+<p>이제 deployFiles 에는 <em>contents</em>디렉토리 안에 있는 모든 파일의 정보가 이름과 값 쌍으로 객체에 저장되었습니다.</p>
 <p>deployFiles 를 커맨드에 찍어보면 이런식으로 나오는 것을 볼 수 있습니다!</p>
 <pre class="hljs"><code>[ { path: 'cat.html',
     title: '고양이',
@@ -1160,14 +1174,20 @@ deployFiles 배열에 fileName 을 push 하던 로직을 수정해보겠습니�
 <p>이제 nodejs 를 실행하면 글의 제목, 글을 작성한 날짜 그리고 글의 설명이 목록 페이지에 렌더됩니다.</p>
 <p>이렇게요!</p>
 <p><img src="/img/list_add_title_page.png" alt="리스팅 페이지에 글, 날짜, 설명추가"></p>
-<p>그런데, 이 페이지를 블로그에 그대로 쓰기에는 조금 지저분해보이죠? 그래서 스타일을 추가하는 작업을 해보겠습니다.</p>
-<h2>스타일링</h2>
-<p>저는 CSS extension 언어인 <a href="https://sass-lang.com/install">Sass</a>로 스타일링 해보겠습니다.
-Sass 의 자세한 사용법은 <a href="https://sass-lang.com/guide">Sass guid</a>를 참고해주세요.</p>
-<p>일단 sass 를 설치합니다.</p>
+<h2>스타일링하기</h2>
+<p>그런데, 이 페이지를 블로그에 그대로 쓰기에는 조금 지저분해보이겠죠? 스타일을 추가하는 작업을 해봅시다.
+저는 CSS extension 언어인 <a href="https://sass-lang.com/install">Sass</a>를 사용하여 스타일링 코드를 작성하였습니다.</p>
+<h3>Sass 란?</h3>
+<p>Sass 는 CSS 를 효율적으로 작성할 수 있도록 도와주는 프로그램입니다. Sass 문법에 맞게 CSS 를 작성하고 Sass 컴파일러를 사용하면 HTML 이 이해할 수 있는 문법으로 변환됩니다.</p>
+<p>Sass 의 자세한 문법은 <a href="https://sass-lang.com/guide">Sass guid</a>를 참고해주세요.</p>
+<hr>
+<h3>Sass 설치하기</h3>
+<p>Sass 를 설치해주세요.</p>
 <pre class="hljs"><code>npm install sass
 </code></pre>
-<p>style 폴더를 하나 만들고 <code>index.css</code> 파일과 <code>index.scss</code> 파일을 하나씩 만들어주세요.</p>
+<hr>
+<h3>Sass 사용하기</h3>
+<p><em>style</em> 디렉토리를 만들고 <code>index.css</code> 파일과 <code>index.scss</code> 파일을 하나씩 만들어주세요.</p>
 <p>그리고 <code>index.scss</code> 파일에 다음 코드를 입력해주세요.</p>
 <pre class="hljs"><code><span class="hljs-variable">$grey-lighter</span>: <span class="hljs-number">#dddddd</span>;
 <span class="hljs-variable">$black-darkest</span>: <span class="hljs-number">#262626</span>;
@@ -1195,19 +1215,22 @@ Sass 의 자세한 사용법은 <a href="https://sass-lang.com/guide">Sass guid<
   }
 }
 </code></pre>
-<p>scss 파일을 작성하였다면, sass 명령을 사용하여 sass 를 css 컴파일해야 힙니다. sass 에게 빌드할 파일과 css 를 출력할 위치를 알려줘야 합니다.</p>
+<hr>
+<h3>컴파일 하기</h3>
+<p>scss 파일을 작성하였다면, sass 명령을 사용하여 sass 를 css 로 컴파일해야 힙니다. sass 에게 빌드할 파일과 css 를 출력할 위치를 알려줘야 합니다.</p>
 <pre class="hljs"><code>sass --watch index.scss index.css
 </code></pre>
-<p>명령을 실행하면, sass 문법이 css 로 변환됩니다. 이를 편하게 해주는 확장 프로그램을 사용할 수도 있습니다. 저는 Visual Studio 에디터의 Live Sass Compiler 를 설치하여 사용하고 있습니다.
-css 를 적용하기 위해서 templates 폴더의 layout_format.html 파일에 style link 를 추가해주세요.</p>
+<p>명령을 실행하면, sass 문법이 css 로 변환됩니다. 컴파일을 편하게 해주는 확장 프로그램도 있습니다. 저는 Visual Studio 에디터의 Live Sass Compiler 를 설치하여 사용하고 있습니다.</p>
+<hr>
+<h3>적용하기</h3>
+<p>css 를 적용하기 위해서 templates 폴더의 layout_format.html 파일에 link 를 추가해주세요.</p>
 <pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/style/index.css"</span>&gt;</span>
 </code></pre>
-<p>nodejs 를 실행하고 로컬 서버를 띄워 확인해봅시다.</p>
+<p>nodejs 를 실행하고 로컬 서버를 띄워 확인해보겠습니다.</p>
 <p>처음보다는 깔끔해습니다!</p>
 <p><img src="/img/list_add_css.png" alt="리스트 페이지 css추가"></p>
-<h3>마무리</h3>
-<p>이번 글에서는 글의 제목과 설명, 글을 작성한 날짜를 받아서 이를 목록 페이지와 아티클 페이지에 추가해보았습니다.
-저도 실제로 제가 만든 블로그 생성기를 사용하면서 불편한 점들을 개선해나가고 있습니다. 혹시 이 글을 보시면서 틀린 정보가 있거나, 더 좋은 방향을 알고계시다면 언제든 알려주시면 감사하겠습니다 :)</p>
+<h2>마무리</h2>
+<p>이번 글에서는 글의 제목과 설명, 글을 작성한 날짜를 받아서 이를 목록 페이지와 아티클 페이지에 추가해보았습니다.</p>
 <p>다음 글은 블로그 사용자의 정보를 받아서 헤더와 About 페이지를 추가하는 작업을 해보도록 하겠습니다!</p>
 
   </div>
