@@ -1,3 +1,16 @@
++++
+category = Computer science
+comments = true
+date = "20180908"
+draft = false
+showpagemeta = true
+showcomments = false
+slug = ""
+
+title = "이진 검색"
+description = "이진 검색이 무엇인지 알아보고 자바스크립트로 구현해보기"
++++
+
 ## 알고리즘이란 무엇이며, 왜 중요한가요?
 
 주어진 일을 처리하기 위한 일련의 단계이다. 좋은 알고르즘을 찾고 언제 적용할지 아는 것은 흥미로운 프로그램을 만드는데 도움을 준다.

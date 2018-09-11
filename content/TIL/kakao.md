@@ -72,3 +72,5 @@ activity transition shared element
 curve animation x 값 조정
 
 ripplr effect
+
+[What is the difference between a native app and a hybrid app?](https://www.quora.com/What-is-the-difference-between-a-native-app-and-a-hybrid-app)

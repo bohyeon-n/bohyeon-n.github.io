@@ -1,17 +1,3 @@
-+++
-category = Computer science 
-comments = true
-date = "20180901"
-draft = false
-showpagemeta = true
-showcomments = false
-slug = ""
-
-title = "인터넷이 작동하는 방법"
-description = "인터넷"
-front = 'true'
-+++
-
 ## 와이어, 케이블 및 WIFI
 
 ### 인터넷은 어떻게 정보를 운반할 수 있을까?
