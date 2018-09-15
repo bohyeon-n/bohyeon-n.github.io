@@ -1,35 +1,16 @@
-<% articles.forEach((article, index) => { %>
-
-  <% if(article.value.category !== undefined) { %>
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/<%= article.folder%>/<%= article.fileName %>">
-            <h1>
-
-
-              <%= article.value.title %>
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-            <%= article.value.date %>
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <%- article.body %>
-    </div>
-
-    <% } %>
-
-
-      <% }) %>
+<% articles.map(article => {%>
+  <div class="home__list">
+    <span class="home__list-date">
+      <%=article.value.date %>
+    </span>
+    <a class="home__list-link" href="./deploy/<%=article.fileName%>">
+      <h2 class="title">
+        <%=article.value.title %>
+      </h2>
+      <p class="desc">
+        <% const desc = article.value.description || ' '%>
+          <%=desc %>
+      </p>
+    </a>
+  </div>
+  <% }) %>

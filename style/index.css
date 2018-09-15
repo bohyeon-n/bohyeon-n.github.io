@@ -462,4 +462,30 @@ a:hover {
 .modal__wrap .modal__content-list ul li a p:nth-child(2) {
   color: gray;
 }
+
+.home__list {
+  padding: 1.5rem;
+  border-bottom: 1px solid #dddddd;
+  font-size: 0.8rem;
+}
+
+.home__list-date {
+  color: #212121;
+  padding-bottom: 0.5rem;
+}
+
+.home__list-link {
+  text-decoration: none;
+}
+
+.home__list-link .title {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #262626;
+}
+
+.home__list-link .desc {
+  color: #424242;
+}
 /*# sourceMappingURL=index.css.map */
