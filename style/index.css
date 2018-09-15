@@ -115,6 +115,7 @@ a:hover {
 }
 
 .header .user__social i {
+  padding-right: 0.5rem;
   line-height: 4rem;
   color: #333;
 }
@@ -122,6 +123,12 @@ a:hover {
 @media only screen and (min-width: 961px) {
   .header .user__social i {
     line-height: 10rem;
+  }
+}
+
+@media only screen and (max-width: 401px) {
+  .header .user__social i {
+    font-size: 1.5rem;
   }
 }
 
@@ -159,6 +166,26 @@ a:hover {
 @media only screen and (min-width: 961px) {
   .header .nav ul {
     padding: 0 10%;
+  }
+}
+
+.header .nav ul a {
+  text-decoration: none;
+}
+
+.header .nav__search i {
+  display: none;
+}
+
+@media only screen and (max-width: 401px) {
+  .header .nav__search i {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 401px) {
+  .header .nav__search input {
+    display: none;
   }
 }
 

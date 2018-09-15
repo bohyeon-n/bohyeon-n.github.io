@@ -5,348 +5,375 @@ $main-font-color: #333;
 $sub-font-color: #565a5e;
 $sub-bg-color: #f7f7f7;
 $main-bg-color: #fff;
-$point-bg-color: rgb(190, 190, 190);
+$point-bg-color: rgb(190,
+190,
+190);
 // mixin 정의
 @mixin bp-tablet {
-  @media only screen and (min-width: 401px) and (max-width: 960px) {
-    @content;
-  }
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        @content;
+    }
 }
 
 @mixin bp-pc {
-  @media only screen and (min-width: 961px) {
-    @content;
-  }
+    @media only screen and (min-width: 961px) {
+        @content;
+    }
+}
+
+@mixin bp-mobile {
+    @media only screen and(max-width: 401px) {
+        @content;
+    }
 }
 
 html,
 body {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  color: $main-font-color;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    color: $main-font-color;
 }
 
 img {
-  width: 100%;
+    width: 100%;
 }
 
 //mixin 사용
 body {
-  font-size: 1rem;
-  @include bp-pc {
     font-size: 1rem;
-    line-height: 1.5rem;
-  }
+    @include bp-pc {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
 }
 
 a {
-  color: $main-font-color;
-  &:hover {
-    color: $point-font-color;
-  }
+    color: $main-font-color;
+    &:hover {
+        color: $point-font-color;
+    }
 }
 
 .header {
-  li {
-    list-style-type: none;
-  }
-  position: relative;
-  background: $main-bg-color;
-  display: flex;
-  flex-direction: column;
-  .user {
-    display: flex;
-    justify-content: space-between;
-    &__content {
-      display: flex;
+    li {
+        list-style-type: none;
     }
-    @include bp-pc {
-      width: 80%;
-      margin: 0 auto;
-      height: 10rem;
-    }
-    height: 4rem;
-    padding: 0 1rem;
-    display: flex;
-    align-items: center;
-    &__img {
-      img {
-        @include bp-pc {
-          width: 5rem;
-          height: 5rem;
-        }
-        width: 3rem;
-        height: 3rem;
-        border: 1px solid $sub-bg-color;
-        border-radius: 50%;
-        &:hover {
-          border-color: $point-bg-color;
-        }
-      }
-    }
-    &__username {
-      @include bp-pc {
-        font-size: 2rem;
-      }
-      display: flex;
-      align-items: center;
-      padding-left: 1rem;
-      color: $main-font-color;
-      div {
-        display: inline-block;
-      }
-    }
-    &__social {
-      i {
-        line-height: 4rem;
-        color: $main-font-color;
-        @include bp-pc {
-          line-height: 10rem;
-        }
-        &:hover {
-          color: $point-font-color;
-        }
-      }
-    }
-  }
-  .nav {
-    height: 3rem;
-    padding: 0 1rem;
+    position: relative;
     background: $main-bg-color;
-    color: $main-font-color;
-    border-top: 0.1rem solid $sub-bg-color;
-    &__category {
-      @include bp-pc {
-        display: none;
-      }
-    }
-    ul {
-      @include bp-pc {
-        padding: 0 10%;
-      }
-      padding: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .category {
-      display: none;
-      &.show {
-        height: 10rem;
-        margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    .user {
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
+        &__content {
+            display: flex;
+        }
+        @include bp-pc {
+            width: 80%;
+            margin: 0 auto;
+            height: 10rem;
+        }
+        height: 4rem;
+        padding: 0 1rem;
+        display: flex;
         align-items: center;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.9);
-      }
+        &__img {
+            img {
+                @include bp-pc {
+                    width: 5rem;
+                    height: 5rem;
+                }
+                width: 3rem;
+                height: 3rem;
+                border: 1px solid $sub-bg-color;
+                border-radius: 50%;
+                &:hover {
+                    border-color: $point-bg-color;
+                }
+            }
+        }
+        &__username {
+            @include bp-pc {
+                font-size: 2rem;
+            }
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+            color: $main-font-color;
+            div {
+                display: inline-block;
+            }
+        }
+        &__social {
+            i {
+                padding-right: 0.5rem;
+                line-height: 4rem;
+                color: $main-font-color;
+                @include bp-pc {
+                    line-height: 10rem;
+                }
+                @include bp-mobile {
+                    font-size: 1.5rem;
+                }
+                &:hover {
+                    color: $point-font-color;
+                }
+            }
+        }
     }
-  }
+    .nav {
+        height: 3rem;
+        padding: 0 1rem;
+        background: $main-bg-color;
+        color: $main-font-color;
+        border-top: 0.1rem solid $sub-bg-color;
+        &__category {
+            @include bp-pc {
+                display: none;
+            }
+        }
+        ul {
+            @include bp-pc {
+                padding: 0 10%;
+            }
+            a {
+                text-decoration: none;
+            }
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__search {
+            i {
+                display: none;
+                @include bp-mobile {
+                    display: block;
+                }
+            }
+            input {
+                @include bp-mobile {
+                    display: none;
+                }
+            }
+        }
+        .category {
+            display: none;
+            &.show {
+                height: 10rem;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+    }
 }
 
 .content {
-  @include bp-pc {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-  }
-  .sidebar {
-    li {
-      list-style-type: none;
-    }
-    background: $sub-bg-color;
-    padding: 4rem 1.5rem;
     @include bp-pc {
-      margin: 2rem 0 0 2rem;
-      width: 25%;
-      text-align: left;
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
     }
-  }
-  .main {
-    @include bp-pc {
-      width: 75%;
-      padding-top: 5rem;
-    }
-    .hljs {
-      overflow: scroll;
-      .code__content {
-        width: 100%;
-      }
-    }
-    .article {
-      border-bottom: 1px solid $sub-bg-color;
-      padding: 1rem;
-      @include bp-pc {
-      }
-      .value {
-        h1 {
-          @include bp-pc {
-            font-size: 2rem;
-          }
-          margin: 0;
-          font-size: 1rem;
-          &:hover {
-            color: $point-font-color;
-          }
+    .sidebar {
+        li {
+            list-style-type: none;
         }
-        span {
-          color: $sub-font-color;
-          font-size: 0.5rem;
-          @include bp-pc {
-            font-size: 1rem;
-          }
+        background: $sub-bg-color;
+        padding: 4rem 1.5rem;
+        @include bp-pc {
+            margin: 2rem 0 0 2rem;
+            width: 25%;
+            text-align: left;
         }
-      }
     }
-  }
+    .main {
+        @include bp-pc {
+            width: 75%;
+            padding-top: 5rem;
+        }
+        .hljs {
+            overflow: scroll;
+            .code__content {
+                width: 100%;
+            }
+        }
+        .article {
+            border-bottom: 1px solid $sub-bg-color;
+            padding: 1rem;
+            @include bp-pc {}
+            .value {
+                h1 {
+                    @include bp-pc {
+                        font-size: 2rem;
+                    }
+                    margin: 0;
+                    font-size: 1rem;
+                    &:hover {
+                        color: $point-font-color;
+                    }
+                }
+                span {
+                    color: $sub-font-color;
+                    font-size: 0.5rem;
+                    @include bp-pc {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .list {
-  padding: 3rem 1rem;
-  @include bp-pc {
-    padding: 0;
-  }
-  .title {
-    font-size: 1rem;
+    padding: 3rem 1rem;
     @include bp-pc {
-      font-size: 2rem;
+        padding: 0;
     }
-    i {
-      @include bp-pc {
-        font-size: 2.5rem;
-      }
-      color: $point-font-color;
-    }
-  }
-  li {
-    margin: 2vw 0;
-    display: flex;
-    i {
-      padding-right: 1rem;
-      align-self: center;
-      color: $point-font-color;
-      background: #fff;
-      font-size: 3vw;
-      @include bp-pc {
-        font-size: 1.2rem;
-        padding-right: 0;
-      }
-    }
-    .content {
-      display: flex;
-      flex-direction: column;
-      @include bp-pc {
-        margin: 0 2rem;
-      }
-      span:nth-child(2) {
-        color: $sub-font-color;
-        font-size: 0.5rem;
+    .title {
+        font-size: 1rem;
         @include bp-pc {
-          font-size: 1rem;
+            font-size: 2rem;
         }
-      }
+        i {
+            @include bp-pc {
+                font-size: 2.5rem;
+            }
+            color: $point-font-color;
+        }
     }
-  }
+    li {
+        margin: 2vw 0;
+        display: flex;
+        i {
+            padding-right: 1rem;
+            align-self: center;
+            color: $point-font-color;
+            background: #fff;
+            font-size: 3vw;
+            @include bp-pc {
+                font-size: 1.2rem;
+                padding-right: 0;
+            }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            @include bp-pc {
+                margin: 0 2rem;
+            }
+            span:nth-child(2) {
+                color: $sub-font-color;
+                font-size: 0.5rem;
+                @include bp-pc {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
 }
 
 #goUp {
-  border: none;
-  background: none;
-  display: none;
-  position: fixed;
-  bottom: 10px;
-  z-index: 99;
-  left: 1rem;
-  font-size: 2.5rem;
-  @include bp-pc {
-    left: 72%;
-    bottom: 2rem;
-    font-size: 4rem;
-  }
+    border: none;
+    background: none;
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    z-index: 99;
+    left: 1rem;
+    font-size: 2.5rem;
+    @include bp-pc {
+        left: 72%;
+        bottom: 2rem;
+        font-size: 4rem;
+    }
 }
 
 .modal {
-  opacity: 0;
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  overflow: auto;
-  &.show {
-    opacity: 1;
-    display: block;
-  }
-  &__wrap {
+    opacity: 0;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .modal__content {
-      z-index: 2;
-      overflow: scroll;
-      background: #fff;
-      @include bp-pc {
-        width: 50%;
-        height: 70vh;
-      }
-      width: 100%;
-      height: 100vh;
-      &-input {
-        width: 100%;
-        input {
-          padding: 1rem;
-          font-size: 1.5rem;
-          width: 80%;
-          height: 2rem;
-          border: 0;
-          &:focus {
-            border: 0;
-            outline: none;
-          }
-        }
-        .fa-times-circle {
-          padding-top: 1rem;
-          &:hover {
-            color: #617d8a;
-          }
-        }
-      }
-      &-list {
-        ul {
-          padding: 0;
-          li {
-            background: #f1f1f1;
-            font-size: 1.5rem;
-            padding: 0.5rem;
-            &:hover {
-              background: #617d8a;
-              p {
-                color: #fff;
-                &:nth-child(2) {
-                  color: #fff;
-                }
-              }
-            }
-            a {
-              text-decoration: none;
-              p {
-                display: inline;
-                &:nth-child(2) {
-                  color: gray;
-                }
-              }
-            }
-          }
-        }
-      }
+    background: rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    &.show {
+        opacity: 1;
+        display: block;
     }
-  }
+    &__wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .modal__content {
+            z-index: 2;
+            overflow: scroll;
+            background: #fff;
+            @include bp-pc {
+                width: 50%;
+                height: 70vh;
+            }
+            width: 100%;
+            height: 100vh;
+            &-input {
+                width: 100%;
+                input {
+                    padding: 1rem;
+                    font-size: 1.5rem;
+                    width: 80%;
+                    height: 2rem;
+                    border: 0;
+                    &:focus {
+                        border: 0;
+                        outline: none;
+                    }
+                }
+                .fa-times-circle {
+                    padding-top: 1rem;
+                    &:hover {
+                        color: #617d8a;
+                    }
+                }
+            }
+            &-list {
+                ul {
+                    padding: 0;
+                    li {
+                        background: #f1f1f1;
+                        font-size: 1.5rem;
+                        padding: 0.5rem;
+                        &:hover {
+                            background: #617d8a;
+                            p {
+                                color: #fff;
+                                &:nth-child(2) {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        a {
+                            text-decoration: none;
+                            p {
+                                display: inline;
+                                &:nth-child(2) {
+                                    color: gray;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 $grey-lighter: #dddddd;
@@ -354,23 +381,23 @@ $black-darkest: #262626;
 $black-darker: #212121;
 $grey-darkest: #424242;
 .home__list {
-  padding: 1.5rem;
-  border-bottom: 1px solid $grey-lighter;
-  font-size: 0.8rem;
-  &-date {
-    color: $black-darker;
-    padding-bottom: 0.5rem;
-  }
-  &-link {
-    text-decoration: none;
-    .title {
-      margin: 0.5rem 0;
-      font-size: 2rem;
-      font-weight: 900;
-      color: $black-darkest;
+    padding: 1.5rem;
+    border-bottom: 1px solid $grey-lighter;
+    font-size: 0.8rem;
+    &-date {
+        color: $black-darker;
+        padding-bottom: 0.5rem;
     }
-    .desc {
-      color: $grey-darkest;
+    &-link {
+        text-decoration: none;
+        .title {
+            margin: 0.5rem 0;
+            font-size: 2rem;
+            font-weight: 900;
+            color: $black-darkest;
+        }
+        .desc {
+            color: $grey-darkest;
+        }
     }
-  }
 }

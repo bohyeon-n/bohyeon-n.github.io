@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/style/index.css">
 
   <title>
-     구보현 블로그 
+    구보현 블로그 
   </title>
 </head>
 
@@ -23,13 +23,13 @@
   <div class="user__content">
     <div class="user__img">
       <a href="/">
-        <img src="  https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
+        <img src=" https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
       </a>
     </div>
 
     <div class="user__username">
       <div>
-         구보현 블로그 
+        구보현 블로그 
 
       </div>
     </div>
@@ -38,7 +38,7 @@
   <div>
     <div class="user__social">
       
-        <a href=" https://github.com/bohyeon-n">
+        <a href="https://github.com/bohyeon-n">
 
           <i class="fab fa-github-alt fa-2x"></i>
 
@@ -48,86 +48,92 @@
 
         
           
+            <i class="fab fa-facebook-square fa-2x"></i>
+            
+    </div>
+    <div>
     </div>
 
   </div>
 
 </div>
-<div class="nav ">
-  <ul>
-    <a href="/index.html">
-      <li class="nav__home">
-        Home
+<div class="nav">
+  <div>
+    <ul>
+      <a href="/index.html">
+        <li class="nav__home">
+          Home
+        </li>
+      </a>
+
+      <li class="nav__category">
+        Category
       </li>
-    </a>
+      <a href="/deploy/author/author.html">
+        <li class="nav__about">
+          About
+        </li>
 
-    <li class="nav__category">
-      Category
-    </li>
+      </a>
 
-
-    <a href="/deploy/author/author.html">
-      <li class="nav__about">
-        About
+      <li class="nav__search ">
+        <input type="text" id="searchInput">
+        <i class="fas fa-search"></i>
       </li>
+    </ul>
 
-    </a>
-
-    <li class="nav__search ">
-      <input type="text" id="searchInput">
-    </li>
-  </ul>
-  <div class="category">
-    
-      <a href="/deploy/category/algorithm.html">
-        <li>
-          Algorithm
-
-        </li>
-      </a>
+    <div class="category">
       
-      <a href="/deploy/category/javascript.html">
-        <li>
-          JavaScript
+        <a href="/deploy/category/algorithm.html">
+          <li>
+            Algorithm
 
-        </li>
-      </a>
-      
-      <a href="/deploy/category/til.html">
-        <li>
-          TIL
+          </li>
+        </a>
+        
+        <a href="/deploy/category/javascript.html">
+          <li>
+            JavaScript
 
-        </li>
-      </a>
-      
-      <a href="/deploy/category/computerscience.html">
-        <li>
-          Computer science
+          </li>
+        </a>
+        
+        <a href="/deploy/category/til.html">
+          <li>
+            TIL
 
-        </li>
-      </a>
-      
-      <a href="/deploy/category/development.html">
-        <li>
-          Development
+          </li>
+        </a>
+        
+        <a href="/deploy/category/computerscience.html">
+          <li>
+            Computer science
 
-        </li>
-      </a>
-      
-      <a href="/deploy/category/nodejs.html">
-        <li>
-          Nodejs
+          </li>
+        </a>
+        
+        <a href="/deploy/category/development.html">
+          <li>
+            Development
 
-        </li>
-      </a>
-      
-      <a href="/deploy/category/python.html">
-        <li>
-          Python
+          </li>
+        </a>
+        
+        <a href="/deploy/category/nodejs.html">
+          <li>
+            Nodejs
 
-        </li>
-      </a>
-      
+          </li>
+        </a>
+        
+        <a href="/deploy/category/python.html">
+          <li>
+            Python
+
+          </li>
+        </a>
+        
+    </div>
   </div>
 </div>
 <div class="modal">
@@ -135,7 +141,7 @@
     <div class="modal__content">
       <div class="modal__content-input">
         <input type="text" id="input" onkeyup="searchArticle()" placeholder="Type Something">
-        <i class="fas fa-times-circle fa-3x delete"></i>
+        <i class="fas fa-times-circle fa-2x delete"></i>
       </div>
       <div class="modal__content-list">
         <ul id="articleUl">
@@ -891,6 +897,21 @@
             </li>
             
             <li>
+              <a href="/deploy/computerscience/asymptotic_notatio.html">
+                <p>
+                  점근적 표기법
+
+                </p>
+                <p>
+
+                  20180908
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/computerscience/computer.html">
                 <p>
                   컴퓨터의 작동원리
@@ -981,7 +1002,7 @@
   }
   )
   document.querySelector('.delete').addEventListener('click', function () {
-    console.log('slkdhf')
+
 
     document.querySelector('.modal').classList.remove('show')
   })
@@ -1011,2834 +1032,348 @@
   <div class="content">
 
     <div class="main">
-      <!-- 
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/nodejs/blog_2.html">
-            <h1>
-
-
-               정적 블로그 생성기 만들기! - 2탄 
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180911
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <p>정적 블로그 생성기 만들기 첫 번째 글에서는 마크다운 파일을 HTML 로 변환하여 글 목록 페이지와 본문 페이지를 만들어 보았습니다. 이번 글에서는 글의 제목, 설명, 날짜등의 글의 정보를 받아 페이지에 추가하는 작업을 해보도록 하겠습니다.</p>
-<h2>글의 정보 받기</h2>
-<p>우리는 지금까지 글의 본문만을 마크다운 파일로 작성하여 HTML 포맷으로 변경해주었습니다.그러나 작성한 글의 제목이나 설명, 작성한 날짜 등은 따로 작성하지 않았습니다.</p>
-<p>어떻게 하면 글의 정보를 받아서 페이지에 추가할 수 있을까요?</p>
-<h3>마크다운 파일에 글의 정보 넣기</h3>
-<p>마크다운 파일 하나는 블로그 글 하나에 해당됩니다. 그러므로 글의 제목, 글을 작성한 날짜등을 넣어주기 위해서는 마크다운 파일 안에 본문과 함께 작성해주어야 합니다. 그리고 글의 정보와 본문을 구분하기 위한 장치가 필요합니다. &quot;여기서부터 여기까지는 글의 정보를 담고있어&quot; 라고 표시를 하는 것 처럼요.</p>
-<p>저는 <code>+++ title =&quot;hi&quot; +++</code> 이런식으로 <code>+++</code> 패턴 안에 글의 정보를 넣어주었습니다.</p>
-<p>그리고 마크다운에 입력한 정보를 HTML 로 렌더할 때 가져오고 싶다면 파일을 읽어서 특정한 패턴을 찾은 후 그 안에 있는 텍스트를 가져오면 됩니다.</p>
-<p>그럼 글의 정보를 입력해봅시다. 마크다운 파일 상단에 아래와 같이 글의 정보를 추가해주세요.</p>
-<pre class="hljs"><code>+++
-title=<span class="hljs-string">"정적 블로그 생성기 만들기"</span>
-desc=<span class="hljs-string">"글의 정보 받기"</span>
-date=<span class="hljs-string">"20180909"</span>
-+++
-
-
-이번 글에서는 정적 블로그 생성기 만들어보겠습니다.
-</code></pre>
-<hr>
-<h3>글의 정보를 제외한 텍스트 가져오기</h3>
-<p>현재 마크다운 파일의 텍스트에는 글의 정보와 본문이 함께 있습니다. 본문에는 본문만을 넣어주어야 합니다.</p>
-<p>즉 마크다운 파일에서 <code>+++&lt;&gt;+++</code>패턴을 제외한 텍스트를 가져와야 합니다. 이 작업을 해줄 함수를 만들어보겠습니다. 아래의 코드를 추가해주세요.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> extractBody = <span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> {
-  <span class="hljs-keyword">return</span> text.replace(<span class="hljs-regexp">/(\+{3})([\s\S]+?)(\1)/</span>, <span class="hljs-string">""</span>);
-};
-</code></pre>
-<p>extracBody 매개변수로 받은 text 에서 <code>+++&lt;&gt;+++</code> 패턴과 일치하는 문자열을 빈 문자열로 교체한 새로운 문자열을 반환하는 함수입니다.</p>
-<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/replace">str.replace(regexp|substr, newSubStr|function)</a> 메소드는 어떤 패턴에 일치하는 일부 또는 모든 부분이 교체된 새로운 문자열을 반환합니다. 그 패턴은 문자열이나, 정규식이 될 수 있습니다.</p>
-<p>위의 함수에서는 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D">정규 표현식</a>을 사용하였습니다. 정규 표현식이란 문자열을 처리하는 방법 중 하나로 정규표현식을 사용하면 특정한 조건에 맞는 문자를 검사, 검색 그리고 치환하는 과정을 매우 간편하게 처리할 수 있습니다.</p>
-<p>위의 함수에서 사용한 정규표현식을 자세히 알아보겠습니다.</p>
-<p><code>+{3}</code>는 <code>+</code> 가 세 번 반복된다는 뜻입니다. <code>[\s\S]+?</code> 의 <code>\s</code>는 공백문자 그리고 <code>\S</code>는 공백문자가 아닌 문자를 뜻하며 <code>+</code>는 1 회이상 반복된다는 의미의 수량자입니다.</p>
-<p><code>+</code> 수량자는 탐욕스럽기 때문에 가능한 많이 대응시킵니다. 많이 대응시킨다는 것은 맨 처음 등장한 패턴뿐만 아니라 그 후에 등장하는 패턴또한 대응시켜 메소드를 실행하기 때문에 <code>+</code>수량자를 탐욕스럽지 않게 바꿔주어야 합니다.</p>
-<p><code>*, +, ?, {}</code>등의 수량자 뒤에 <code>?</code>를 사용하면 기본적으로 탐욕스러운 수량자를 탐욕스럽지 않게, 가능한 적은 문자을 대응시키게 만들 수 있습니다.</p>
-<p><code>\1</code> 은 첫 번째 괄호를 지칭할 때 사용합니다.</p>
-<p>이제 이 함수를 사용하여 이전 글에서 작성하였던 map 메소드의 콜백 함수부분을 수정해봅시다. 전체 text 가 아닌 글의 정보를 제외한 본문만을 HTML 포멧으로 변환할 수 있도록 아래와 같이 기존 코드를 수정해주세요.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> text = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
-<span class="hljs-keyword">const</span> convertedBody = md.render(extractBody(text));
-</code></pre>
-<hr>
-<h3>글의 정보 가져오기</h3>
-<p>이제 <code>+++&lt;&gt;+++</code> 패턴 안에 넣어주었던 글의 정보를 가져와야 합니다.
-이 작업을 해줄 함수를 추가해보겠습니다.</p>
-<pre class="hljs"><code>extractValue = <span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> string = text.match(<span class="hljs-regexp">/(\+{3})([\s|\S]+?)\1/</span>);
-  <span class="hljs-keyword">if</span> (!string) {
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-  } <span class="hljs-keyword">else</span> {
-    <span class="hljs-keyword">const</span> valueLines = string[<span class="hljs-number">2</span>].match(<span class="hljs-regexp">/[^\r\n]+/g</span>);
-    <span class="hljs-keyword">const</span> values = {};
-    <span class="hljs-keyword">if</span> (valueLines) {
-      valueLines.map(<span class="hljs-function"><span class="hljs-params">valueLine</span> =&gt;</span> {
-        <span class="hljs-keyword">const</span> keyAndValue = valueLine.match(<span class="hljs-regexp">/(.+)[=\n](.+)/</span>);
-        <span class="hljs-keyword">if</span> (keyAndValue) {
-          <span class="hljs-keyword">const</span> key = keyAndValue[<span class="hljs-number">1</span>].replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">""</span>);
-          <span class="hljs-keyword">const</span> value = keyAndValue[<span class="hljs-number">2</span>].replace(<span class="hljs-regexp">/['"]/g</span>, <span class="hljs-string">""</span>).trim();
-          values[key] = value;
-        }
-      });
-      <span class="hljs-keyword">return</span> values;
-    }
-  }
-};
-</code></pre>
-<p>extractValue 함수는 매개변수인 text 의 <code>+++&lt;&gt;+++</code> 패턴안에 있는 문자열을 찾아서 = 를 기준으로 key 와 value 를 찾아서 객체 쌍을 반환하는 함수입니다. 어떤 정규 표현식이 사용되었는지 자세히 알아보겠습니다.
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match">str.match(regexp)</a> 메소드는 정규식과 비교하여 일치 항목을 검색하는 메소드입니다. 문자열이 표현식과 일치하면 일치하는 전체 문자열을 배열 첫 번째 요소로 포함하고 그 다음 요소부터 괄호 안에 캡처 된 결과가 표시됩니다.</p>
-<p>매치가 되었다면 두 번째로 캡쳐된 <code>+++&lt;&gt;+++</code> 안에 있는 문자열을 다시 match 메소드를 사용하여 <code>=</code> 문자를 기준으로 나누어 캡쳐합니다. 매치된 결과가 있다면 <code>=</code>를 기준으로 오른쪽 문자열은 key, 왼쪽 문자열은 value 변수에 대입해줍니다.</p>
-<p>key 는 title, desc, date 등 프로그램을 만든 사람과 프로그램의 사용자가 미리 약속한 문자열로, 공백이 없이 한 단어로 이루어진 문자열이어야 합니다. 그러나 사용자가 입력할 때 실수로 공백을 추가하는 경우가 생길 수 있습니다. 이를 방지하기 위해서 key 로 사용될 문자의 모든 공백을 빈 문자열로 바꿔주는 처리를 해주었습니다.</p>
-<p>value 에는 프로그램 사용자가 입력한 제목이나, 글의 설명등이 들어있으므로, <a href="https://www.w3schools.com/jsref/jsref_trim_string.asp">trim 메소드</a>를 사용하여 앞과 뒤의 공백만 제거하였습니다. 또한 문자열을 감싸는 <code>'</code>, <code>&quot;</code>를 함께 입력할 수도 있으므로 <code>'</code> <code>&quot;</code> 문자를 빈문자열로 교체하는 처리를 해주었습니다.</p>
-<p>프로그램 사용자가 <code>+++</code> 패턴은 입력하였지만 글 정보를 입력하지 않았을 경우를 대비하여, 정보를 입력하였는지 확인하는 로직을 추가해주었습니다.</p>
-<p><code>console.log(extractValue(text))</code>를 실행하고 확인해보면 아래와 같이 찍히는 것을 확인할 수 있습니다.</p>
-<pre class="hljs"><code>{ title: '고양이', desc: '고양이 한마리', date: '20180901' }
-{ title: '강아지', desc: '강아지 너무 귀여워', date: '20180902' }
-{ title: '마카롱', desc: '마카롱 너무 맛있어', date: '20180904' }
-{ title: 'Sigrid',
-  desc: 'Sigrid Album [Raw] Tracklist',
-  date: '20180909' }
-</code></pre>
-<hr>
-<h3>글의 정보 렌더하기</h3>
-<p>이제 우리가 마크다운 파일에서 가져온 글의 정보들을 article 페이지를 렌더하는 데 넣 도록 하겠습니다.</p>
-<p>일단, 템플릿에 title 과 date 의 빈 칸을 만들어보겠습니다.
-<em>templates</em> 디렉토리에 <em>article_format.html</em> 파일을 수정해주세요.</p>
-<p>저는 이런식으로 제목과 날짜를 추가하였습니다.</p>
-<p><img src="/img/article_add_title.png" alt="article template 제목, 날짜 추가"></p>
-<p>이제 article page 를 생성했던 map 메소드의 콜백 함수를 수정해주세요.</p>
-<pre class="hljs"><code>contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> text = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
-  <span class="hljs-keyword">const</span> convertedBody = md.render(extractBody(text));
-  <span class="hljs-keyword">const</span> value = extractValue(text);
-  <span class="hljs-keyword">if</span> (value) {
-    <span class="hljs-keyword">const</span> title = value.title || <span class="hljs-string">" "</span>;
-    <span class="hljs-keyword">const</span> date = value.date || <span class="hljs-string">" "</span>;
-    <span class="hljs-keyword">const</span> articleContent = ejs.render(articleHtmlFormat, {
-      <span class="hljs-attr">body</span>: convertedBody,
-      title,
-      date
-    });
-
-    <span class="hljs-keyword">const</span> articleHtml = ejs.render(layoutHtmlFormat, {
-      <span class="hljs-attr">content</span>: articleContent
-    });
-    <span class="hljs-keyword">const</span> fileName = getHtmlFileName(file);
-    fs.writeFileSync(<span class="hljs-string">`./deploy/<span class="hljs-subst">${fileName}</span>.html`</span>, articleHtml);
-    deployFiles.push(fileName);
-  }
-});
-</code></pre>
-<p>value 가 있는 글들만 HTML 파일을 생성해주도록 하였습니다.
-value 값 중 title 과 date 를 사용자가 입력하지 않았을 때를 대비하여 만약 title 과 date 가 없다면, 빈 문자열을 넣어주기로 하였습니다.</p>
-<p>완성된 모습입니다!
-아티클 페이지에 제목과 날짜가 추가되었습니다.
-<img src="/img/article_add_title_page.png" alt="아티클 페이지에 제목과 날짜 추가"></p>
-<hr>
-<h3>글의 정보를 넣은 리스팅 페이지 만들기</h3>
-<p>이제 우리는 글의 제목과 날짜등 다양한 정보를 입력할 수있고 입력한 정보를 가져올 수 있습니다. 더이상 홈페이지에서 파일 이름으로 목록을 리스팅하지 않아도 됩니다. 글의 목록을 글의 제목과 설명 그리고 날짜로 리스팅하도록 수정해봅시다.</p>
-<p><em>templates</em> 디렉토리의 <em>list_format.html</em> 파일을 열어 title, date, desc 을 넣을 수 있도록 수정해주세요.</p>
-<p>저는 이렇게 작성하였습니다!</p>
-<p><img src="/img/list_add_title.png" alt="리스트 템플릿 제목, 날짜, 설명추가"></p>
-<p>홈페이지에 <em>contents</em> 디렉토리에 작성한 모든 글을 리스팅하기 위해서는 작성한 모든 글의 정보를 담은 객체를 배열에 넣어주어야 합니다.
-deployFiles 배열에 fileName 을 푸시하던 로직을 수정해보겠습니다. fileName 은 path 로 넣어주고 title 과 date, desc 를 이름과 값 쌍으로 넣어주었습니다.</p>
-<pre class="hljs"><code>deployFiles.push({ <span class="hljs-attr">path</span>: <span class="hljs-string">`<span class="hljs-subst">${fileName}</span>.html`</span>, title, date, desc });
-</code></pre>
-<p>desc 도 title 과 date 와 마찬가지로 사용자가 작성하지 않았을 때를 대비하여 아래의 코드를 추가해줍시다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> desc = value.desc || <span class="hljs-string">" "</span>;
-</code></pre>
-<p>이제 deployFiles 에는 <em>contents</em>디렉토리 안에 있는 모든 파일의 정보가 이름과 값 쌍으로 객체에 저장되었습니다.</p>
-<p>deployFiles 를 커맨드에 찍어보면 이런식으로 나오는 것을 볼 수 있습니다!</p>
-<pre class="hljs"><code>[ { path: 'cat.html',
-    title: '고양이',
-    date: '20180901',
-    desc: '고양이(cat)는 식육목 고양이과에 속하는 포유류 동물이다' },
-  { path: 'dog.html',
-    title: '강아지',
-    date: '20180902',
-    desc: '강아지는 개의 어린 형태를 일컫는 순우리말이다' },
-  { path: 'macaron.html',
-    title: '마카롱',
-    date: '20180904',
-    desc: '마카롱(프랑스어: Macaron, IPA: [​makaˈʁɔ̃][1])은 프랑스의 대표적인 당과 제품이다' },
-  { path: 'music.html',
-    title: 'Sigrid',
-    date: '20180909',
-    desc: 'Sigrid Album [Raw] Tracklist' } ]
-</code></pre>
-<p>이제 nodejs 를 실행하면 글의 제목, 글을 작성한 날짜 그리고 글의 설명이 목록 페이지에 렌더됩니다.</p>
-<p>이렇게요!</p>
-<p><img src="/img/list_add_title_page.png" alt="리스팅 페이지에 글, 날짜, 설명추가"></p>
-<h2>스타일링하기</h2>
-<p>그런데, 이 페이지를 블로그에 그대로 쓰기에는 조금 지저분해보이겠죠? 스타일을 추가하는 작업을 해봅시다.
-저는 CSS extension 언어인 <a href="https://sass-lang.com/install">Sass</a>를 사용하여 스타일링 코드를 작성하였습니다.</p>
-<h3>Sass 란?</h3>
-<p>Sass 는 CSS 를 효율적으로 작성할 수 있도록 도와주는 프로그램입니다. Sass 문법에 맞게 CSS 를 작성하고 Sass 컴파일러를 사용하면 HTML 이 이해할 수 있는 문법으로 변환됩니다.</p>
-<p>Sass 의 자세한 문법은 <a href="https://sass-lang.com/guide">Sass guid</a>를 참고해주세요.</p>
-<hr>
-<h3>Sass 설치하기</h3>
-<p>Sass 를 설치해주세요.</p>
-<pre class="hljs"><code>npm install sass
-</code></pre>
-<hr>
-<h3>Sass 사용하기</h3>
-<p><em>style</em> 디렉토리를 만들고 <code>index.css</code> 파일과 <code>index.scss</code> 파일을 하나씩 만들어주세요.</p>
-<p>그리고 <code>index.scss</code> 파일에 다음 코드를 입력해주세요.</p>
-<pre class="hljs"><code><span class="hljs-variable">$grey-lighter</span>: <span class="hljs-number">#dddddd</span>;
-<span class="hljs-variable">$black-darkest</span>: <span class="hljs-number">#262626</span>;
-<span class="hljs-variable">$black-darker</span>: <span class="hljs-number">#212121</span>;
-<span class="hljs-variable">$grey-darkest</span>: <span class="hljs-number">#424242</span>;
-<span class="hljs-selector-class">.list</span> {
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1.5rem</span>;
-  <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-variable">$grey-lighter</span>;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.8rem</span>;
-  &amp;__date {
-    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black-darker</span>;
-    <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0.5rem</span>;
-  }
-  &amp;__link {
-    <span class="hljs-attribute">text-decoration</span>: none;
-    <span class="hljs-selector-class">.title</span> {
-      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0.5rem</span> <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2rem</span>;
-      <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">900</span>;
-      <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black-darkest</span>;
-    }
-    <span class="hljs-selector-class">.desc</span> {
-      <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-darkest</span>;
-    }
-  }
-}
-</code></pre>
-<hr>
-<h3>컴파일 하기</h3>
-<p>scss 파일을 작성하였다면, sass 명령을 사용하여 sass 를 css 로 컴파일해야 힙니다. sass 에게 빌드할 파일과 css 를 출력할 위치를 알려줘야 합니다.</p>
-<pre class="hljs"><code>sass --watch index.scss index.css
-</code></pre>
-<p>명령을 실행하면, sass 문법이 css 로 변환됩니다. 컴파일을 편하게 해주는 확장 프로그램도 있습니다. 저는 Visual Studio 에디터의 Live Sass Compiler 를 설치하여 사용하고 있습니다.</p>
-<hr>
-<h3>적용하기</h3>
-<p>css 를 적용하기 위해서 templates 폴더의 layout_format.html 파일에 link 를 추가해주세요.</p>
-<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/style/index.css"</span>&gt;</span>
-</code></pre>
-<p>nodejs 를 실행하고 로컬 서버를 띄워 확인해보겠습니다.</p>
-<p>처음보다는 깔끔해습니다!</p>
-<p><img src="/img/list_add_css.png" alt="리스트 페이지 css추가"></p>
-<h2>마무리</h2>
-<p>이번 글에서는 글의 제목과 설명, 글을 작성한 날짜를 받아서 이를 목록 페이지와 아티클 페이지에 추가해보았습니다.</p>
-<p>다음 글은 블로그 사용자의 정보를 받아서 헤더와 About 페이지를 추가하는 작업을 해보도록 하겠습니다!</p>
-
-    </div>
-
-    
-
-
       
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/nodejs/blogindex.html">
-            <h1>
-
-
-               정적 블로그 생성기 만들기! 
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180905
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <p>이번 글에선 정적 블로그 생성기를 만드는 방법에 대해 알아보겠습니다. 간단히 말해서 마크다운으로 문서를 작성하고 이를 블로그로 바꿔주는 프로그램을 만드는 것입니다. 제 블로그도 제가 만든 블로그 생성기로 글을 쓰고 있습니다. 아직 부족한 점이 많아 지금도 꾸준히 개선중이지만, 블로그 생성기를 만드는 과정을 공유하고 조언도 얻고자 블로그 생성기 만들기 글을 쓰게 되었습니다.</p>
-<p>첫 번째 글에선
-간단하게 마크다운을 HTML 로 변경하고, 리스팅 페이지를 보여주는 작업을 해보겠습니다.</p>
-<p>이 글의 최종 완성 사이트는 이런 모습입니다. 글 목록과 글 내용을 보여주는 페이지입니다.</p>
-<p><img src="/img/complete_view.png" alt="블로그"></p>
-<p>우선 정적 웹페이지란 어떤 것인지에 대해 설명하고, 이후 간단하게 프로토타입을 만들어보겠습니다.</p>
-<p>언어는 Nodejs 를 사용합니다. 글을 이해하기 위해 기초적인 Git, JavasSript, Nodejs, HTML, CSS, Markdown 지식이 필요합니다.</p>
-<h2>정적 웹페이지란?</h2>
-<p>정적 웹 페이지란 서버에 미리 저장된 파일이 그대로 전달되는 웹 페이지입니다.</p>
-<p>서버에 있는 데이터들을 스크립트에 의해 <strong>가공처리한 후 생성</strong>되어 전달되는 동적 웹페이지와는 달리, 정적 웹페이지는 서버에 미리 저장된 파일이 <strong>그대로 전달</strong>되는 웹페이지입니다.</p>
-<p>블로그는 문서를 보여주는 역할을 하는 사이트입니다. 문서는 정적입니다. 블로그 페이지는 사용자가 글을 올리는 시점을 제외하고는 변하지 않습니다.
-블로그의 모든 페이지를 미리 생성하여 서버에 저장할 수 있으므로, 블로그는 정적 웹페이지에 적당한 사이트입니다.</p>
-<h2>정적 사이트 생성기를 만든다는 것은?</h2>
-<p>정적 사이트를 만들어주는 프로그램을 만드는 것 입니다.</p>
-<p>우리가 하려고 하는 작업은 <strong>소스파일</strong>(.md 파일)을 <strong>목적파일</strong>(.html 파일)로 변환하는 일입니다.
-글을 쓸 때마다 HTML 파일로 작성하기에는 너무 힘들테니까요. 마크다운 언어로 쉽게 글을 쓰고 나머지는 문제는 프로그램이 알아서 해주도록 만드는 것 입니다.</p>
-<p>이미 <a href="https://hexo.io/ko/index.html">Hexo</a>, <a href="https://gohugo.io/">Hugo</a>, <a href="https://jekyllrb.com/">Jekyll</a> 등 유명한 정적 사이트 생성기가 있습니다. 빠르고 쉽게 멋있는 블로그를 만들고 싶다면 정적 블로그 프레임워크를 사용할 수 있습니다!</p>
-<h2>GitHub Page 만들기</h2>
-<p>우선 HTML 페이지를 인터넷을 통해 사용자에게 서빙하기 위한 호스팅 서비스를 정하겠습니다. 내 컴퓨터에서 만든 HTML 파일을 사용자에게 보여주기 위해선 이러한 호스팅 서비스가 필요합니다.
-본 글에선 GitHub 에서 제공하는 <a href="https://pages.github.com/">GitHub Pages</a> 를 선택했습니다. Github Pages 는 개발자가 개인 블로그를 호스팅하기 위해 많이 쓰이는 플랫폼입니다.
-이를 사용하면 우리가 만든 HTML 페이지를 간단하게 다른 사용자에게 보여줄 수 있습니다.</p>
-<p>GitHub Pages 를 만드는 방법</p>
-<ol>
-<li>GitHub 저장소를 새로 만듭니다.</li>
-<li>저장소의 이름은 <code>&lt;usernmae&gt;.github.io</code> 로 해야 합니다.</li>
-<li>로컬 저장소로 연결합니다.</li>
-<li>이제 블로그 디렉토리 바로 하위에 index.html 파일을 하나 만들어 내용을 작성합니다.</li>
-</ol>
-<pre class="hljs"><code>├ 블로그 디렉토리
-│  ├ index.html
-</code></pre>
-<ol start="5">
-<li>새로 생성한 <code>index.html</code> 파일을 원격 저장소에 푸시 합니다.</li>
-<li>내 GitHub 사이트(<code>https://username.github.io/</code>)에 들어가 사이트가 제대로 빌드되었는지 확인합니다.</li>
-</ol>
-<p>나의 첫 번째 블로그 사이트가 완성되었습니다!</p>
-<p><img src="/img/create-github-page.png" alt="완성 이미지"></p>
-<h2>개발환경 구축하기</h2>
-<p>Markdown 을 HTML 로 변경하기 위해 Nodejs 를 사용할 것입니다. 이를 위해 우선 Nodejs 를 설치해보겠습니다. 저는 아래 글을 통해 개발 환경을 설정했습니다.</p>
-<p><a href="https://kdydesign.github.io/2017/07/15/nodejs-npm-tutorial/">빠르게 배우는 Node.js 와 NPM 설치부터 개념잡기 - Dev.DY</a></p>
-<ul>
-<li><em>node.js</em> 를 설치합니다. Node.js 를 설치하면 NPM 은 자동으로 설치됩니다.</li>
-<li>블로그 디렉토리에서 커맨드라인에 <code>npm init -y</code> 를 실행합니다.</li>
-<li>블로그 디렉토리에 <em>package.json</em> 파일이 생성되면 성공!</li>
-</ul>
-<h2>블로그에 올릴 컨텐츠 작성하기</h2>
-<p>먼저 블로그에 올릴 글을 작성해 보도록 하겠습니다. 글은 Markdown 포맷으로 작성하겠습니다. Markdown 이 익숙치 않은 분은 <a href="https://gist.github.com/ihoneymon/652be052a0727ad59601">마크다운 작성법</a> 링크를 통해 문법을 확인할 수 있습니다.</p>
-<p>우선 원본 컨텐츠(markdown)을 저장히기 위한 디렉토리를 만듭니다. 저는 <em>contents</em> 라는 이름으로 디렉토리를 생성했습니다. 그리고 <em>contents</em> 디렉토리 안에 마크다운 포맷으로 된 컨텐츠를 작성합니다. 여기서 만든 마크다운 파일 하나가 블로그 글 하나에 해당됩니다.</p>
-<p>저는 아래와 같이 cat, dog, macaron  이라는 세 글을 만들었습니다.</p>
-<pre class="hljs"><code>├ 블로그 디렉토리
-│  ├  contents
-│  │ ├  cat.md
-│  │ ├  dog.md
-│  │ ├  macaron.md
-</code></pre>
-<h2>node.js 로 파일 읽기</h2>
-<p>이제 마크다운을 HTML 파일로 변경해보겠습니다. 앞서 말했듯이 Markdown 은 글을 작성하기 위한 포맷이고, 이를 웹브라우저에서 사용자에게 보여주기 위해선 Markdown 이 아니라 HTML 로 포맷을 변경해야 합니다.</p>
-<p>우리가 작성한 컨텐츠는 <em>contents</em> 디렉토리 안에 있으므로 해당 디렉토리를 읽어서 어떤 글이 있는지 확인하고, 이를 HTML 로 변경해야 합니다.
-이러한 작업을 해줄 자바스크립트 파일을 블로그 디렉토리 하위에 만들어줍니다. 저는 hello-node.js 라는 이름으로 파일을 만들었습니다.</p>
-<p>그럼 파일과 디렉토리는 아래와 같은 모양이 됩니다.</p>
-<pre class="hljs"><code>├ 블로그 디렉토리
-│  ├ contents
-│  │ ├  cat.md
-│  │ ├  dog.md
-│  │ ├  macaron.md
-│  ├ hello-node.js
-</code></pre>
-<p>이제 hello-node.js 파일 안을 채워봅시다.</p>
-<p>하나씩 살펴보겠습니다.</p>
-<p>우선 필요한 모듈을 로딩해야 합니다. 여기선 파일의 경로를 다루기 위한 path  모듈과, 파일시스템 처리를 위한 fs 모듈을 사용합니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
-<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
-</code></pre>
-<p>이제 우리가 정한 컨텐츠 디렉토리를 훑고 파일을 읽어보겠습니다.</p>
-<pre class="hljs"><code><span class="hljs-comment">// contents 디렉토리 경로</span>
-<span class="hljs-keyword">const</span> directoryPath = path.join(__dirname, <span class="hljs-string">"contents"</span>);
-<span class="hljs-built_in">console</span>.log(directoryPath);
-<span class="hljs-comment">// 디렉토리에 있는 파일 읽기</span>
-<span class="hljs-keyword">const</span> contentFiles = fs.readdirSync(directoryPath);
-<span class="hljs-built_in">console</span>.log(contentFiles);
-</code></pre>
-<p><code>path.join(__dirname, &quot;contents&quot;)</code>는 현재 파일의 경로와 'contents' 를 구분문자를 넣어 합쳐주는 메소드입니다. __dirname 은 현재 파일의 디렉토리입니다. directoryPath 에는 contents 디렉토리의 경로가 대입되어 있습니다.</p>
-<p>이를 통해 <em>contents</em> 안에 있는 파일들의 목록을 배열형식으로 읽을 수 있습니다.</p>
-<p>fs.readdirSync()는 디렉토리의 컨텐츠들을 읽는 메소드입니다. <em>sync</em> 는 동기적 읽기로 파일을 모두 읽은 후 다른 작업을 할 수 있습니다.</p>
-<p>그럼 완성된 코드는 아래와 같을 것입니다.</p>
-<pre class="hljs"><code><span class="hljs-comment">// 모듈</span>
-<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
-<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
-
-<span class="hljs-comment">// contents 디렉토리의 경로</span>
-<span class="hljs-keyword">const</span> directoryPath = path.join(__dirname, <span class="hljs-string">"contents"</span>);
-<span class="hljs-comment">// contents 디렉토리에 있는 파일 읽기</span>
-<span class="hljs-keyword">const</span> contentFiles = fs.readdirSync(directoryPath);
-<span class="hljs-built_in">console</span>.log(contentFiles);
-</code></pre>
-<p><em>node.js</em> 샐행은 커맨드창에 <em>node hello-node.js</em>(자바스크립트 파일 이름) 라고 입력하고 실행해주세요. 실행하면 컨맨드 창에 아래와 같이 찍히는 것을 볼 수 있습니다.</p>
-<pre class="hljs"><code>[ 'cat.md', 'dog.md', 'macaron.md' ]
-</code></pre>
-<p>여기까지 <em>contents</em> 디렉토리 하위에 있는 파일들의 이름을 읽어오는 데 성공하였습니다.</p>
-<h3>파일의 내용 읽기</h3>
-<p>이제 Markdown 형식의 파일을 읽고, 이를 변환해 새로운 HTML 파일을 만들고 저장해봅시다.</p>
-<p>우선 파일의 내용을 읽어봅시다.</p>
-<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map 메소드</a>로 배열내의 모든 요소를 돌면서 파일을 읽습니다.</p>
-<pre class="hljs"><code>contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
-});
-</code></pre>
-<p>fs.readFileSync(filename, [options])는 동기 방식으로 파일을 읽는 메서드 입니다. options 에는 보통 인코딩 방식이 오게 되며 웹에서는 'utf8' 을 주로 사용합니다.</p>
-<h2>HTML 언어로 변환하기</h2>
-<p>작성한 마크다운 파일을 자바스크립트로 읽는 것까지 성공했습니다. 이제 이를 HTML 로 변경해봅시다.</p>
-<p>이를 위한 라이브러리는 많이 있습니다. 여기선 <a href="https://github.com/markdown-it/markdown-it">markdown-it</a>을 사용하겠습니다. 사용하기 위해 npm 으로 모듈을 설치하겠습니다.</p>
-<pre class="hljs"><code>npm install markdown-it --save
-</code></pre>
-<p>설치가 완료되면 package.json 파일의 dependencies 에 markdown-it 이 추가된 것을 볼 수 있습니다.</p>
-<pre class="hljs"><code>  <span class="hljs-string">"dependencies"</span>: {
-    <span class="hljs-string">"markdown-it"</span>: <span class="hljs-string">"^8.4.2"</span>
-  }
-</code></pre>
-<p><a href="https://highlightjs.org/">highlightjs</a> 도 설치해주세요. 코드를 예쁘게 보여주는 모듈입니다.</p>
-<pre class="hljs"><code>npm install highlight.js
-</code></pre>
-<p>이제 설치한 markdown-it 모듈로 마크다운을 HTML 로 변환해봅시다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> hljs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"highlight.js"</span>);
-
-<span class="hljs-keyword">const</span> md = <span class="hljs-built_in">require</span>(<span class="hljs-string">"markdown-it"</span>)({
-  <span class="hljs-attr">html</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">xhtmlOut</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">breaks</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">langPrefix</span>: <span class="hljs-string">"language-"</span>,
-  <span class="hljs-attr">linkify</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">typographer</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">quotes</span>: <span class="hljs-string">"“”‘’"</span>,
-  <span class="hljs-attr">highlight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">str, lang</span>) </span>{
-    <span class="hljs-keyword">if</span> (lang &amp;&amp; hljs.getLanguage(lang)) {
-      <span class="hljs-keyword">try</span> {
-        <span class="hljs-keyword">return</span> (
-          <span class="hljs-string">'&lt;pre class="hljs"&gt;&lt;code&gt;'</span> +
-          hljs.highlight(lang, str, <span class="hljs-literal">true</span>).value +
-          <span class="hljs-string">"&lt;/code&gt;&lt;/pre&gt;"</span>
-        );
-      } <span class="hljs-keyword">catch</span> (__) {}
-    }
-
-    <span class="hljs-keyword">return</span> (
-      <span class="hljs-string">'&lt;pre class="hljs"&gt;&lt;code&gt;'</span> + md.utils.escapeHtml(str) + <span class="hljs-string">"&lt;/code&gt;&lt;/pre&gt;"</span>
-    );
-  }
-});
-</code></pre>
-<p>markdown-it 과 hljs 모듈을 불러옵니다. 모듈 로딩 시 마크다운을 어떻게 렌더할 것인지 옵션을 설정해줄 수 있습니다. 자세한 내용은 <a href="https://markdown-it.github.io/markdown-it/">옵션 항목</a>을 참고해주세요.</p>
-<p>이제 위에서 파일을 읽을 때 사용했던 map 메소드의 콜백 함수 안에 다음 코드를 추가해주세요.</p>
-<pre class="hljs"><code>contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
-  <span class="hljs-keyword">const</span> convertedBody = md.render(body); <span class="hljs-comment">// 이 부분을 추가해주세요!</span>
-  <span class="hljs-built_in">console</span>.log(convertedBody);
-});
-</code></pre>
-<p>md.render(body) 함수로 간단하게 마크다운을 HTML 로 변경할 수 있습니다!</p>
-<p>이제 실행해봅시다. <code>node hello-node.js</code> 를 실행하면 커맨드 창에 HTML 형식으로 변환된 텍스트가 찍히는 것이 보일 것 입니다.</p>
-<p>이런 식으로요 !
-<img src="/img/markdown-it.png" alt="markdown-it적용"></p>
-<h2>EJS 템플릿 엔진</h2>
-<p>마크다운을 HTML 로 변경해보았습니다. 이제 만든 HTML 코드조각을 합치는 작업을 해야 합니다. 이를 위해 템플릿 엔진을 쓰겠습니다. 템플릿 엔진이란 템플릿 양식과 특정 데이터 모델에 따른 입력자료를 합성하여 결과 문서를 출력하는 소프트웨어 또는 컴포넌트입니다. 자료를 결합하여 페이지를 만들어 내기도 하고 많은 양의 Content 를 표현하는 것을 도와줍니다.</p>
-<p>우리는 EJS 라는 템플릿 엔진을 사용해보겠습니다.
-EJS 를 쓰면, 아래 문법과 같이 간단한 방법을 통해 템플릿을 적용할 수 있습니다.</p>
-<ul>
-<li>&lt;% code %&gt;
-<ul>
-<li>자바스크립트 코드를 넣을 수 있습니다.</li>
-</ul>
-</li>
-<li>&lt;%=value%&gt;
-<ul>
-<li>데이터를 출력할 수 있습니다.</li>
-<li>HTML 태그 등이 포함되어 있는 경우, 이스케이프 처리된다.</li>
-</ul>
-</li>
-<li>&lt;%- value %&gt;
-<ul>
-<li>마찬가지로 데이터를 출력할 수 있다.</li>
-<li>HTML 관련 태그가 이스케이프 처리되지 않고 그대로 쓰여진다.</li>
-</ul>
-</li>
-</ul>
-<p>쉽게 생각해서 빈칸이 있는 틀을 만들고, 그 떄 그 때 원하는 내용을 채워넣는 작업을 템플릿 엔진이 해주는 것입니다.</p>
-<p>그럼 EJS 를 사용해봅시다.</p>
-<p>우선 templates 라는 디렉토리를 하나 만듭니다. templates 디렉토리 안에 블로그에서 사용하는 모든 틀을 작성할 것입니다. 그리고 templates 디렉토리 안에 <code>layout_format.html</code> 이라는 파일을 만듭니다. 이 파일은 블로그 글의 레이아웃을 위한 기본 템플릿이 됩니다. 기본 레이아웃 안에 글 내용, 글 목록 등 원하는 컨텐츠를 넣을 수 있습니다.</p>
-<p>layout_format.html 에 우리가 넣을 Content 의 빈칸을 만들어 주세요.</p>
-<p>이런 식으로요!</p>
-<p><img src="/img/layout_format_0.png" alt="layout_format.html format"></p>
-<p>이제 레이아웃 템플릿에 필요한 코드를 추가해보겠습니다. 우선 코드 하이라이팅을 위해 highlightjs 의 코드 블록 스타일을 추가하겠습니다.
-위에서 만들었던 layout_format.html 파일의 <code>&lt;head&gt;&lt;/head&gt;</code> 태그 안에 다음의 코드를 추가해주세요.</p>
-<pre class="hljs"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/node_modules/highlight.js/styles/atelier-cave-light.css&quot;&gt;
-</code></pre>
-<p>여기서는 <code>atelier-cave-light.css</code>스타일을 적용하였습니다.
-<a href="https://highlightjs.org/static/demo/">highlightjs demo site</a>에서 다양한 스타일을 볼 수 있습니다. 원하는 스타일을 적용해보세요.</p>
-<p>다음으로는 우리가 만든 레이아웃 템플릿의 빈칸을 채울 또 다른 템플릿을 만들어 봅시다. 큰 틀(layout_format template) 안에 조각으로 된 작은 템플릿(artice_format templates)을 넣는 것 입니다.</p>
-<p>글의 내용을 넣을 article 템플릿을 만들어 봅시다.</p>
-<p><em>templates</em> 디렉토리 안에 article_format.html 파일을 만들고 글의 내용을 넣을 body 라는 빈칸을 만들어주세요.</p>
-<p>이런 식으로요!
-<img src="/img/article_format.png" alt="article_format.html"></p>
-<p>처음에 만들었던 <em>layout</em> 템플릿 안에 글의 내용을 넣는 <em>article</em> 템플릿 조각을 넣어서 하나의 페이지를 완성할 수 있습니다.</p>
-<p>이제 템플릿 안의 빈칸을 채우고 Article 페이지를 만들어 봅시다.</p>
-<p>먼저, 새로 만들어지는 HTML 파일을 생성할 상위 디렉토리인, <em>deploy</em> 를 만들어 줍니다. 직접 만들어도 되지만 조금 더 편리하게 사용하기 위해서 또는 다른 사람도 이 프로그램을 사용할 수 있도록 <em>deploy</em> 디렉토리를 자동으로 생성하는 코드를 추가합니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> dir = <span class="hljs-string">"./deploy"</span>;
-<span class="hljs-keyword">if</span> (!fs.existsSync(dir)) {
-  fs.mkdirSync(dir);
-}
-</code></pre>
-<p>그리고 템플릿 엔진을 사용하기 위해 모듈을 불러옵니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> ejs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"ejs"</span>);
-</code></pre>
-<p>템플릿 엔진을 적용하기 위해 layout_format.html 파일과 article_format.html 파일을 읽는 코드를 작성합니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> layoutHtmlFormat = fs.readFileSync(
-  <span class="hljs-string">"./templates/layout_format.html"</span>,
-  <span class="hljs-string">"utf8"</span>
-);
-<span class="hljs-keyword">const</span> articleHtmlFormat = fs.readFileSync(
-  <span class="hljs-string">"./templates/article_format.html"</span>,
-  <span class="hljs-string">"utf8"</span>
-);
-</code></pre>
-<p>layout_format.html 파일을 읽어 layoutHtmlFormat 변수에 대입해줍니다. article_format.html 파일도 이같은 방식으로 작성합니다. articleHtmlFormat 은 틀이고 빈칸인 body 안에 무엇을 넣을 지 정해줘야 합니다.
-map 콜백 함수에 다음의 코드를 추가해주세요</p>
-<pre class="hljs"><code>contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
-  <span class="hljs-keyword">const</span> convertedBody = md.render(body);
-  <span class="hljs-keyword">const</span> articleContent = ejs.render(articleHtmlFormat, {
-    <span class="hljs-attr">body</span>: convertedBody
-  });
-});
-</code></pre>
-<p><code>ejs.render(str, data, options)</code> 함수를 통해 HTML 로 변환한 convertedBody(data) 를 indexHtmlFormat(str) 의 빈칸인 body 에 넣어주었습니다. 이제 이 articleContent 를 레이아웃 템플릿 안에 넣어줘야 합니다.</p>
-<p>다음의 코드를 추가해주세요.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> articleHtml = ejs.render(layoutHtmlFormat, {
-  <span class="hljs-attr">content</span>: articleContent
-});
-</code></pre>
-<p>content 에 article 의 내용이 채워진 articleContent 를 넣어주었습니다.</p>
-<p>이제 빈칸이 채워진 HTML 언어로 된 text 를 완성하였습니다. 이 text 로 새로운 HTML 파일을 생성해봅시다.</p>
-<p>다음 코드를 추가해주세요.</p>
-<pre class="hljs"><code><span class="hljs-comment">// 확장자를 제외한 파일 이름을 얻는 함수</span>
-getHtmlFileName = <span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">return</span> file.slice(<span class="hljs-number">0</span>, file.indexOf(<span class="hljs-string">"."</span>)).toLowerCase();
-};
-<span class="hljs-comment">// deploy 폴더 안에 넣은 파일의 리스트</span>
-<span class="hljs-keyword">const</span> deployFiles = [];
-<span class="hljs-comment">// map함수로 content안에 있는 파일들을 반복문을 돌면서 deploy안에 html파일 생성</span>
-contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
-
-  <span class="hljs-keyword">const</span> convertedBody = md.render(body);
-  <span class="hljs-keyword">const</span> articleContent = ejs.render(articleHtmlFormat, {
-    <span class="hljs-attr">body</span>: convertedBody
-  });
-  <span class="hljs-keyword">const</span> articleHtml = ejs.render(layoutHtmlFormat, {
-    <span class="hljs-attr">content</span>: articleContent
-  });
-  <span class="hljs-keyword">const</span> fileName = getHtmlFileName(file);
-  fs.writeFileSync(<span class="hljs-string">`./deploy/<span class="hljs-subst">${fileName}</span>.html`</span>, articleHtml);
-  deployFiles.push(fileName);
-});
-</code></pre>
-<ul>
-<li><code>fs.writeFileSync(filename, data[, options])</code>는 filename 의 파일에 [options]의 방식으로 data 의 내용을 동기적으로 쓰는 메소드입니다.</li>
-<li>지금 <em>file</em> 은 .md 확장자로 된 파일입니다. 그러나 우리가 실제로 생성해야 할 파일은 html 확장자입니다.</li>
-<li>새로 생성할 filename 에 html 확장자를 넣어 주기 위해서 파일 확장자를 제외한 파일이름을 얻는 fetFileName 함수를 추가하였습니다.</li>
-<li>getFileName 함수
-<ul>
-<li>0 부터 '.'이라는 문자가 나오기 전까지 자르고(<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">slice</a>) 이를 소문자(<a href="https://www.w3schools.com/jsref/jsref_tolowercase.asp">toLowerCase()</a>)로 변환하였습니다.</li>
-<li>html 파일은 소문자로 작성하는 것이 좋습니다.</li>
-</ul>
-</li>
-</ul>
-<p>실행을 하면 <em>deploy</em> 디렉토리 안에 html 파일들이 만들어진 것을 볼 수 있습니다.</p>
-<p>렌더링된 모습은 이렇습니다!
-<img src="/img/cat1.png" alt="고양이 페이지"></p>
-<p>브라우저에 어떻게 렌더링되는 지 바로 확인하고 싶다면</p>
-<pre class="hljs"><code>npm install -g live-server
-</code></pre>
-<p><a href="https://www.npmjs.com/package/live-server">live-server</a> 를 설치하고 커맨드창에 live-server 를 입력하면 로컬에 서버를 띄워서 확인해 볼 수 있습니다.</p>
-<h3>목록 페이지 만들기</h3>
-<p>마크다운으로 작성한 글을 HTML 로 변경하여 웹 페이지를 만드는 작업을 했습니다. 하지만 블로그에 어떤 글이 있는지 알기 위해선 현재 블로그의 글 목록을 리스팅하기 위한 페이지가 필요합니다. 이를 만들어보도록 하겠습니다.</p>
-<p>GitHub Pages 는 블로그 디렉토리 바로 하위에 있는 index.html 파일을 가장 먼저 렌더링해줍니다. index.html 파일은 블로그로 접속했을 때 가장 처음 보이는 화면이 됩니다.</p>
-<pre class="hljs"><code>├ 블로그 디렉토리
-│ ├ index.html
-</code></pre>
-<p>index.html 파일을 생성해 우리가 만든 파일로 이동할 수 있는 목록 페이지를 만들어보겠습니다.</p>
-<p>일단 templates 디렉토리 하위에 list_format.html 파일을 생성합니다.</p>
-<p><img src="/img/list_format.png" alt="list.html format"></p>
-<p>다음의 코드를 hello-node.js 파일에 추가합니다.</p>
-<pre class="hljs"><code><span class="hljs-comment">// index.html파일 생성 / 파일 목록 렌더</span>
-<span class="hljs-keyword">const</span> listContent = ejs.render(listHtmlFormat, {
-  <span class="hljs-attr">lists</span>: deployFiles
-});
-<span class="hljs-keyword">const</span> listHtml = ejs.render(layoutHtmlFormat, {
-  <span class="hljs-attr">content</span>: listContent
-});
-
-fs.writeFileSync(<span class="hljs-string">"./index.html"</span>, listHtml);
-</code></pre>
-<p>node hello-node.js 를 실행하면 홈 화면이 완성됩니다.</p>
-<p><img src="/img/list1.png" alt="리스트 홈화면"></p>
-<p>위에서 deployFiles 라는 배열을 만들었습니다. 이 배열에는 새로만든 파일들의 파일이름이 담겨있었습니다. list_format.html 에 deployFiles 를 lists 로 데이터를 전해주고, 각 배열의 요소는 file_format.html 에서 만들었던 file 이라는 빈칸에 들어가게 됩니다.</p>
-<p>이제 생성한 모든 파일을 푸시하면, 내가 만들었던 페이지를 배포할 수 있습니다.</p>
-<h2>마무리</h2>
-<p>블로그 생성기 만들기 1 단계가 끝났습니다 🎉 목록페이지와 본문페이지를 만드는 것 까지 성공하였습니다!!!😄</p>
-<p>다음 편은 제목이나, 날짜 등 다양한 옵션을 받는 것과 블로그를 조금 더 예쁘게 꾸미는 작업을 해보겠습니다.</p>
-<p>혹시 오늘 작성한 코드가 궁금하시다면
-여기로! <a href="https://github.com/bohyhyeon-n/bohyhyeon-n.github.io">github</a></p>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0901.html">
-            <h1>
-
-
-               180901 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180901
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>글쓰기
-<ul>
-<li>블로그글을 쓰면서 다시한번 블로그를 만들어보고 있다.</li>
-<li>어디까지 만들어야 보는 사람도 흥미롭고 지루하지 않을까.</li>
-<li>너무 장황한것 같은데 정보가 부족한 것 같다.</li>
-</ul>
-</li>
-<li>인터넷 정리
-<ul>
-<li>인터넷의 작동 원리를 정리하였다.</li>
-</ul>
-</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>
-<p>글 정리하기</p>
-</li>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>클라이언트 수정 완성하기, history 부분 추가하기</li>
-<li>캘린더에서 month 부분 팝업창 안나오는 에러 수정하기, 아무래도 질문해야 할 것 같다. 뭐가 문제인지 잘 모르겠음</li>
-</ul>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0831.html">
-            <h1>
-
-
-               180831 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180831
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>프로젝트
-<ul>
-<li>add client 를 client 를 수정할 때도 같은 컴포넌트를 재사용하고 싶어서 이것저것 하다가 어떻게 되긴 되가고 있는데 이게 맞는 건지 모르겠다....</li>
-</ul>
-</li>
-<li>인터넷 강의 들음</li>
-<li>블로그 글 씀</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/computerscience/computer.html">
-            <h1>
-
-
-               컴퓨터의 작동원리
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180831
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h1>무엇이 컴퓨터를 컴퓨터로 만들까</h1>
-<p>모든 컴퓨터는 공통적으로 4 가지를 가지고 있다.</p>
-<p>input, storage, processing, output
-정보를 입수하고, 정보를 저장하고, 처리한 다음 결과를 출력한다.</p>
-<p>프로세서는 메모리에 대한 정보를 취하고, 그것을 조작하거나 변경한다.
-사용하는 알고리즘은 일련의 명령일 뿐이다. 그런 다음 프로세스 정보를 보낸다. 다시 메모리에 저장된다.</p>
-<h1>이진수와 데이터</h1>
-<p>컴퓨터는 1 과 0 으로 동작한다.
-wires and circuits carry all the information in a computer</p>
-<p>하나의 wire 는 on off / yes no/ true false / 0 1 을 표현할 수 있다.</p>
-<p>with more bits you can represent more complex information</p>
-<p>32 wires store from 0 to over 4billion</p>
-<p>text, images, sounds 는 어떻게 0 과 1 로 변환될까?</p>
-<ul>
-<li>text</li>
-</ul>
-<p>A -&gt; 1
-B -&gt; 2
-C -&gt; 3</p>
-<ul>
-<li>
-<p>images
-사진은 여러개의 픽셀로 이루어져있고 각각의 픽셀에는 color 가 있으며 이 color 는 숫자로 이루어져 있다.</p>
-</li>
-<li>
-<p>sounds
-일련의 vigration 으로 이루어져 있다.</p>
-</li>
-</ul>
-<h1>회로와 논리</h1>
-<p>input 을 처리하기 위해서는 input
-input process 위해서는 컴퓨터가 입력 signals 를 수정하고 결합해야 한다.</p>
-<p>AND MAND XOR OR 회로</p>
-<p>소형 컴퓨터가 더 빠른 이유?
-회로가 작을수록 전기 신호가 이동해야 하는 거리가 짧다.</p>
-<h1>cpu, 메모리, 입출력</h1>
-<p>입력을 받으면(input) -&gt; 이진수로 저장하고 이 정보를 저장할 메모리가 있다.(중앙처리장치/cpu) 여기서 모든 계산이 완료된다. -&gt; 출력장치는 정보를 받아서 실체 출력으로 변환한다.</p>
-<p>키보드 키 B 를 누르면 문자를 이진수로 변환한다.
-input B -&gt; 01000010 변환
-memory(cpu) the cpu caculates how to display
-cpu 는 메모리로부터 단계별 명령을 요청하고, B 를 그리는 법을 알려준다. cpu 가 이 명령을 실행한다. 결과를 픽셀로 메모리에 저장한다.
-이진수로 화면에 전송된다.</p>
-<p>너무 빨라서 즉각적으로 일어나는 것 처럼 느껴지지만, 각 문자를 표시하려면 컴퓨터가 수천 번 실행된다.</p>
-<h1>하드웨어와 소프트 웨어</h1>
-<p>중앙처리장치 또는 cpu</p>
-<p>math and logic / send and receive</p>
-<p>cpu 가 명령을 받는다. 특정 작업을 수행하는 데 사용할 회로를 알려준다.
-바이너리 명령은 메모리에 저장되고 cpu 는 순차적으로 그것들을 가져와서 실행한다.</p>
-<p>프로그래밍 언어를 사용하면 명령을 입력할 수 있다.</p>
-<p>소프트웨어가 cpu 에게 무엇을 해야하는 지 알려준다.</p>
-<p>operating system 운영체제
-소프트웨어를 관리하는 마스터 프로그램이다.</p>
-<p>운영체제는 특별한 능력을 가진 프로그램이다.
-컴퓨터의 다른 소프트웨어를 제어할 수 있다.
-프로그램을 설치할 수 있고, 프로그램이 언제 실행되는지 결정한다.
-중앙처리장치, 해당프로그램 여부, 컴퓨터의 입력 및 출력 장치에 액세스 할 수 있습니다.
-프로그램 사이를 빠르게 전환한다.(많은 프로그램이 사용되고 있을 경우)</p>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/javascript/context.html">
-            <h1>
-
-
-               컨텍스트와 호이스팅 - JavaScript
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180830
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>context</h2>
-<p>브라우저가 스크립트를 로딩해서 실행하는 순간 모든 것을 포함하는 <strong>전역 컨텍스트</strong>가 생긴다.
-모든 것을 관리하는 환경이다.
-전역 컨텍스트는 페이지가 종료될 때까지 유지된다.
-전역 컨텍스트 말고도 함수 컨텍스트가 있다. 자바스크립트는 함수 스코프를 따른다. 함수를 호출 할 때마다 함수 컨텍스트가 하나씩 더 생긴다.</p>
-<p>컨텍스트의 원칙 네 가지</p>
-<ol>
-<li>
-<p>전역 컨텍스트 하나 생성 후, 함수 호출 시마다 컨텍스트가 생긴다.</p>
-</li>
-<li>
-<p>컨텍스트 생성 시 컨텍스트 안에 변수객체(argument, variable, scope chain, this)가 생성된다.</p>
-</li>
-<li>
-<p>컨텍스트 생성 후 함수가 실행되는데 사용되는 변수들은 변수 객체 안에서 값을 찾고, 없다면 스코프 체인을 따라 올라가며 찾는다.</p>
-</li>
-<li>
-<p>함수 실행이 마무리되면 해당 컨텍스트는 사라지게 된다(클로저는 제외) 페이지가 종료되면 전역 컨텍스트가 사라진다.</p>
-</li>
-</ol>
-<pre class="hljs"><code><span class="hljs-keyword">var</span> name = <span class="hljs-string">"bohyeon"</span>;
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greeting</span>(<span class="hljs-params">word</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${word}</span> <span class="hljs-subst">${name}</span>`</span>);
-}
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">say</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">var</span> name = <span class="hljs-string">"pizza"</span>;
-  <span class="hljs-built_in">console</span>.log(name);
-  greeting(<span class="hljs-string">"hello"</span>);
-}
-say();
-<span class="hljs-comment">// pizza</span>
-<span class="hljs-comment">// hello bohyeon</span>
-</code></pre>
-<pre class="hljs"><code><span class="hljs-string">'say 컨텍스트'</span> : {
-  변수객체: {
-    <span class="hljs-attr">arguments</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">variable</span>: [<span class="hljs-string">'name'</span>], <span class="hljs-comment">// pizza</span>
-  },
-  <span class="hljs-attr">scopeChain</span>: [<span class="hljs-string">'say 변수객체'</span>, <span class="hljs-string">'전역 변수객체'</span>],
-  <span class="hljs-comment">// 스코프 체인: 자신과 상위 스코프들의 변수 객체</span>
-  <span class="hljs-keyword">this</span>: <span class="hljs-built_in">window</span>
-}
-</code></pre>
-<p>전역 컨텍스트가 생성 -&gt; 코드를 위에서부터 실행 -&gt; 함수가 실행되면 새로운 컨텍스트인 함수 컨텍스트가 생긴다.</p>
-<p><code>greeting</code>호출 시에 <code>greeting</code> 컨텍스트도 생긴다.</p>
-<p><code>greeting</code>의 스코프 체인은 전역 스코프와 <code>greeting</code>스코프이다. <code>greeting</code>의 스코프 체인은 선언 시에 이미 정해져 있다. <code>say</code>스코프는 <code>greeting</code>스코프 체인이 아니다.</p>
-<p><code>say</code>컨텍스트 안에서는 <code>greeting</code> 변수를 찾을 수 없다. 찾을 수 없다면, 스코프 체인을 따라 올라가 상위 변수 객체인 전역 변수객체에서 찾는다.</p>
-<p><code>greeting</code>의 컨텍스트가 생긴 후 함수가 실행된다.</p>
-<p>word 는 인수에서 찾을 수 있고, name 은 greeting 변수객체에는 없으니, 스코프 체인을 따라 전역 스코프에서 찾으면 된다.</p>
-<p>전역 변수 객체로 올라가니 <code>name = 'bohyeon'</code>이라고 되어 있다. 그래서 <code>hello bohyeon</code>이 되는 것이다.</p>
-<p><code>greeting</code> 컨텍스트에 따르면, <code>greeting</code>함수는 애초에 <code>say</code>컨텍스트와는 일절 관련이 없다.</p>
-<p><code>greeting</code>함수 종료 후 컨텍스트가 사라지고, <code>say</code>함수의 실행이 마무리된다.
-따라서 <code>say</code>컨텍스트도 사라지고, 마지막에 전역 컨텍스트도 사라진다.</p>
-<h2>호이스팅</h2>
-<p>호이스팅이란 변수를 선언하고 초기화했을 때 선언 부분이 최상단으로 끌어올려지는 현상을 의미한다.</p>
-<p>선언보다 호출을 먼저하여도 에러없이 정상 작동한다.</p>
-<p>변수 선언과 함수 선언식이 최상단으로 끌어올려졌기 때문이다.
-함수 선언식일 때 식 자체가 통째로 끌어올려진다.</p>
-<p>그러나, 함수 표현식일 때는 에러가 발생한다.</p>
-<pre class="hljs"><code>sayHello();
-<span class="hljs-keyword">var</span> sayHello = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"hello"</span>);
-};
-<span class="hljs-comment">// sayHello is not a function</span>
-</code></pre>
-<p>함수 표현식에서는 대입되기 전에 호출되었기 때문에 에러가 발생하였다.</p>
-<p>함수 선언식은 컨텍스트 생성 후 바로 대입된다.</p>
-<pre class="hljs"><code><span class="hljs-string">'전역 컨텍스트'</span>: {
-  변수객체: {
-    <span class="hljs-attr">arguments</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">variable</span>: [{ <span class="hljs-attr">sayHello</span>: <span class="hljs-built_in">Function</span> }, <span class="hljs-string">'sayHello'</span>],
-  },
-  <span class="hljs-attr">scopeChain</span>: [<span class="hljs-string">'전역 변수객체'</span>],
-  <span class="hljs-attr">this</span>: <span class="hljs-built_in">window</span>,
-</code></pre>
-<h2>let, const</h2>
-<p>let 과 const 는 함수스코프를 따르지 않고 블록스코프를 따른다.</p>
-<p>블록스코프란, 해당 변수를 해당 블록에서만 접근할 수 있는 것을 말한다.</p>
-<p>const, let 을 사용할 때는 선언한 곳보다 위에서 접근하는 것이 금지된다.(에러발생)</p>
-<p>그렇다면, let 과 const 는 호이스팅이 일어날까? 일어난다.
-그러나 TDZ 에 의해 제약을 받는다.
-변수가 초기화되기 전에 액세스하려고 하면 에러가 발생한다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> x = <span class="hljs-string">"outer scope"</span>;
-(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(x);
-  <span class="hljs-keyword">const</span> x = <span class="hljs-string">"inner scope"</span>;
-})();
-</code></pre>
-<p>TDZ 란?
-변수는 그들의 어휘적 환경에 포함될 때 생성되지만, 어휘적 바인딩이 실행되기 전까지는 액세스할 수 없다.</p>
-<p>새로운 범위에 진입할 때마다 지정된 범위에 속한 모든 let, const 바인딩이 지정된 범위 내부의 모드가 실행되기 전에 실행된다(호이스팅 된다.)</p>
-<p>어휘적 바인딩이 실행되기 전까지 액세스 할 수 없는 현상을 TDZ 라고 한다.</p>
-<p>초기화되지 않은 바인딩에 액세스 하려는 경우, 예기치 않은 결과를 내는 대신, 개발자에게 여러 피드백을 제공하기 때문에 유용하게 사용된다.</p>
-<h4>참고 자료</h4>
-<p><a href="https://medium.com/korbit-engineering/let%EA%B3%BC-const%EB%8A%94-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85-%EB%90%A0%EA%B9%8C-72fcf2fac365">let 과 const 는 호이스팅 될까? - yocee57</a></p>
-<p><a href="https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0"> 실행 컨텍스트 - ZeroCho 블로그</a></p>
-<p><a href="https://medium.freecodecamp.org/what-is-variable-hoisting-differentiating-between-var-let-and-const-in-es6-f1a70bb43d"></a></p>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0830.html">
-            <h1>
-
-
-               180830 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180830
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h3>오늘 한 일</h3>
-<ul>
-<li>컴퓨터의 작동원리</li>
-<li>프로젝트
-<ul>
-<li>메인 페이지</li>
-<li>작업해야 할 기능 정의함</li>
-</ul>
-</li>
-<li>컨텍스트와 호이스팅 공부함</li>
-</ul>
-<h3>내일 할 일</h3>
-<ul>
-<li>프로젝트
-<ul>
-<li>기능 하나씩 해나가기</li>
-</ul>
-</li>
-<li>인터넷 강의 듣기</li>
-<li>글쓰기</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0829.html">
-            <h1>
-
-
-               180829 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180829
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>파이썬 Programming Foundation with Python 완강</li>
-</ul>
-<h3>python class</h3>
-<h4>docstring</h4>
-<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Movie</span><span class="hljs-params">()</span>:</span>
-    <span class="hljs-string">""" doc """</span>
-    VALID_RATINGS = [<span class="hljs-string">'R'</span>,<span class="hljs-string">'G'</span>...]
-</code></pre>
-<ul>
-<li>
-<p>상수로, 변수의 값을 바꿀 수 없다. 대문자로 작성하는 것이 좋다.
-module or file name . class name</p>
-</li>
-<li>
-<p>triple quotes 로 감싸면</p>
-</li>
-</ul>
-<pre class="hljs"><code>print(media.Movie.__doc__)
-</code></pre>
-<p>파이썬은 이런식으로 코드블록에 문서를 첨부하는 기능을 지원한다.
-프로그램 실행 중에 소스코드에 첨부한 문서에 직접 접근할 수 있다.</p>
-<ul>
-<li>모듈: 모듈의 내용과 모든 사용자가 알아둬야 할 중요한 클래스와 함수를 설명.</li>
-<li>클래스: class 문 다음의 docstring 에서 클래스의 동작, 중요한 속성, 서브클래스의 동작을 설명.</li>
-<li>함수와 메서드: def 문 다음의 docstring 에서 모든 인수, 반환 값, 일어나는 예외, 다른 동작들을 문서화.</li>
-</ul>
-<h4>inheritance</h4>
-<p>class Parent</p>
-<ul>
-<li>
-<p>last_name</p>
-</li>
-<li>
-<p>eye_color
-class Child(inherits from Parent)
--number_of_toys</p>
-</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span><span class="hljs-params">()</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, last_name, eye_color)</span>:</span>
-        print(<span class="hljs-string">'Parent Constuructor called'</span>)
-        self.last_name = last_name
-        self.eye_color= eye_color
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_info</span><span class="hljs-params">(self)</span>:</span>
-        print(<span class="hljs-string">'Last Name'</span> + self.last_name)
-        print(<span class="hljs-string">'Eye Color'</span> + self.eye_color)
-billy_cyrus = Parent(<span class="hljs-string">'Cyrus'</span>, <span class="hljs-string">'blue'</span>)
-print(billy_cyrus.last_name)
-
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Child</span><span class="hljs-params">(Parent)</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, last_name, eye_color, number_of_toys)</span>:</span>
-        print(<span class="hljs-string">'Child Constructor Called'</span>)
-        Parent.__init__(self, last_name, eye_color)
-        self.number_of_toys = number_of_toys
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_info</span><span class="hljs-params">(self)</span>:</span>
-        print(<span class="hljs-string">'Last Name: '</span> + self.last_name)
-        print(<span class="hljs-string">'Eye color:'</span> + self.eye_color)
-        print(<span class="hljs-string">'Number of toys:'</span> + self.number_of_toys)
-miley_cyrus = Child(<span class="hljs-string">'Cyrus'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'5'</span>)
-print(miley_cyrus.last_name,
-miley_cyrus.number_of_toys)
-miley_cyrus.show_info()
-</code></pre>
-<ul>
-<li>
-<p>show_info 가 명확하가 Child class 에 정의되어 있지 않아도, 상속받은 부모 class 의 메소드를 사용할 수 있다.</p>
-</li>
-<li>
-<p>부모와 자식의 클래스에 같은 이름의 메소드를 정의하면 어떻게 될까?</p>
-</li>
-<li>
-<p>override</p>
-</li>
-<li>
-<p>오버라이딩은 무시하다, 우선하다라는 뜻을 가지고 있다.</p>
-</li>
-<li>
-<p>말 그대로 기반 클래스의 메서드를 무시하고 새로운 메서드를 만든다는 뜻이다.</p>
-</li>
-<li>
-<p>보통 프로그램에서 어떤 기능이 같은 메서드 이름으로 계속 사용되어야 할 때 메서드 오버라이딩을 활용한다.</p>
-</li>
-<li>
-<p>메서드 오버라이딩은 원래 기능을 유지하면서 새로운 기능을 덧붙일 때 사용한다.</p>
-</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greeting</span><span class="hljs-params">(self)</span>:</span>
-        print(<span class="hljs-string">'안녕하세요.'</span>)
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span><span class="hljs-params">(Person)</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greeting</span><span class="hljs-params">(self)</span>:</span>
-        super().greeting()                            <span class="hljs-comment"># 기반 클래스의 메서드 호출</span>
-        print(<span class="hljs-string">'저는 파이썬 코딩 도장 학생입니다.'</span>)    <span class="hljs-comment"># 중복되는 문구는 삭제</span>
-
-james = Student()
-james.greeting()
-</code></pre>
-<p><a href="https://dojang.io/mod/page/view.php?id=1085">코딩 도장 블로그</a></p>
-<h3>프로젝트</h3>
-<ul>
-<li>메인페이지 모바일 대응 화면 만드는 중</li>
-<li><code>width = window.innerWidth</code> 현재 화면에 width 를 알 수 있다.</li>
-<li>window 에 이벤트리스너를 걸어서 화면이 바뀔 때 마다 width 의 값을 얻을 수 있다.</li>
-<li>semantic ui react 에서도 grid 에서 <code>mobile={16}</code> <code>computer={4}</code>이런식으로 width 를 정해줄 수 있다.</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0828.html">
-            <h1>
-
-
-               180828 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180828
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>메인 페이지 만드는 중</li>
-</ul>
-</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>메인페이지 완성하기</li>
-</ul>
-</li>
-<li>
-<p>python 강의듣기</p>
-</li>
-<li>
-<p>python 알고리즘</p>
-</li>
-<li>
-<p>글쓰기</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0827.html">
-            <h1>
-
-
-               180827 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180827
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>python lesson6 - movies page</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-comment"># media.py</span>
-
-<span class="hljs-keyword">import</span> webbrowser
-
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Movie</span><span class="hljs-params">()</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, movie_title, movie_stroyline, poster_image, trailer_youtube)</span>:</span>
-        self.title = movie_title
-        self.storyline = movie_stroyline
-        self.poster_image_url = poster_image
-        self.trailer_youtube_url = trailer_youtube
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_trailer</span><span class="hljs-params">(self)</span>:</span>
-        webbrowser.open(self.trailer_youtube_url)
-</code></pre>
-<p>fresh_tomatoes 를 다운로드하고 같은 폴더 안에 넣는다.</p>
-<pre class="hljs"><code><span class="hljs-comment"># entertainment_center.py</span>
-
-<span class="hljs-keyword">import</span> fresh_tomatoes
-<span class="hljs-keyword">import</span> media
-
-toy_story = media.Movie(<span class="hljs-string">'Toy Story'</span>, <span class="hljs-string">"Toy Story is about the 'secret life of toys' when people are not around."</span>,
-                        <span class="hljs-string">"https://images-na.ssl-images-amazon.com/images/I/91q0UP6%2BUTL._SY606_.jpg"</span>, <span class="hljs-string">"https://www.youtube.com/watch?v=tN1A2mVnrOM"</span>)
-
-avatar = media.Movie(<span class="hljs-string">'Avatar'</span>, <span class="hljs-string">'A marine on an alien planet'</span>, <span class="hljs-string">"https://upload.wikimedia.org/wikipedia/en/b/b0/Avatar-Teaser-Poster.jpg"</span>,
-                     <span class="hljs-string">"https://www.youtube.com/watch?v=5PSNL1qE6VY&amp;t=13s"</span>)
-
-sing_street = media.Movie(<span class="hljs-string">'Sing Street'</span>, <span class="hljs-string">'A boy growing up in Dublin during the 1980s escapes his strained family life by starting a band to impress the mysterious girl he likes.'</span>,
-                          <span class="hljs-string">'https://upload.wikimedia.org/wikipedia/en/2/2c/Sing_Street_poster.jpeg'</span>, <span class="hljs-string">"https://www.youtube.com/watch?v=jYk2Vx1z6lk"</span>)
-
-harry_potter = media.Movie(<span class="hljs-string">'Harry Potter'</span>, <span class="hljs-string">'Harry Potter is The Boy Who Lived, singled out by Lord Voldemort at birth to be his greatest rival, and our hero'</span>,
-                           <span class="hljs-string">'https://images-na.ssl-images-amazon.com/images/I/71oFC5Z1vUL._SY679_.jpg'</span>, <span class="hljs-string">"https://www.youtube.com/watch?v=eKSB0gXl9dw"</span>)
-
-loved_before = media.Movie(<span class="hljs-string">"To All The Boys I've Loved Before"</span>, <span class="hljs-string">'american teen romance film'</span>,
-                           <span class="hljs-string">'https://upload.wikimedia.org/wikipedia/en/b/b8/To_All_the_Boys_I%27ve_Loved_Before_poster.jpg'</span>, <span class="hljs-string">'https://www.youtube.com/watch?v=mTLc_RzqaJc'</span>)
-
-bagdad_cafe = media.Movie(<span class="hljs-string">'Bagdad Cafe'</span>, <span class="hljs-string">'tow wonam who have recently seperated from their husbands, and blossoming friendship that ensues'</span>, <span class="hljs-string">'https://upload.wikimedia.org/wikipedia/en/3/3c/Bagdad_cafe_ver1.jpg'</span>,
-                          <span class="hljs-string">"https://www.youtube.com/watch?v=4G2MEszpox0"</span>)
-movies = [toy_story, avatar, sing_street,
-          harry_potter, loved_before, bagdad_cafe]
-
-
-fresh_tomatoes.open_movies_page(movies)
-</code></pre>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/algorithm/fizz_buzz.html">
-            <h1>
-
-
-               FIZZ BUZZ in Python
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180825
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>문제</h2>
-<p>Write a program that outputs the string representation of numbers from 1 to n.</p>
-<p>But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.</p>
-<h2>풀이 1</h2>
-<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fizzBuzz</span><span class="hljs-params">(self, n)</span>:</span>
-        <span class="hljs-keyword">return</span> [<span class="hljs-string">'FizzBuzz'</span><span class="hljs-keyword">if</span> i % <span class="hljs-number">15</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'Fizz'</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'Buzz'</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> str(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>)]
-</code></pre>
-<h2>풀이 2</h2>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fizzBuzz</span><span class="hljs-params">(self, n)</span>:</span>
-    <span class="hljs-keyword">return</span> [<span class="hljs-string">'Fizz'</span> * (<span class="hljs-keyword">not</span> i % <span class="hljs-number">3</span>) + <span class="hljs-string">'Buzz'</span> * (<span class="hljs-keyword">not</span> i % <span class="hljs-number">5</span>) <span class="hljs-keyword">or</span> str(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>)]
-</code></pre>
-<p>True or False 면 첫 번째 표현식을 반환</p>
-<p>False or True 면 두 번째 표현식을 반하므로 앞의 것이 빈 sequence(String, Tuple, List)일 때는 False 이기 때문에 두 번 째 표현식을 반환하게 된다.</p>
-<p>0 도 False 이기 때문에 0 일 때 1 을 반환하므로 Fizz 가 출력될 수 있다.</p>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0825.html">
-            <h1>
-
-
-               180825 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180825
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>파이썬 강의 lesson5</li>
-<li>text 에 욕이 있는지 확인하는 프로그램</li>
-</ul>
-<pre class="hljs"><code>check_profanity
-<span class="hljs-keyword">import</span> urllib
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_text</span><span class="hljs-params">()</span>:</span>
-    quotes = open(<span class="hljs-string">'./movie.txt'</span>)
-    contents_of_file = quotes.read()
-    print(contents_of_file)
-    quotes.close()
-    check_profanity(contents_of_file)
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">check_profanity</span><span class="hljs-params">(text_to_check)</span>:</span>
-    connection = urllib.urlopen(<span class="hljs-string">"http://www.wdylike.appspot.com/?q= "</span>+text_to_check)
-    output = connection.read()
-    print(output)
-    connection.close()
-read_text()
-</code></pre>
-<p>class</p>
-<p><code>quotes = open(file)</code> -&gt; an object of file</p>
-<p><code>connection = urllib.urlopen()</code> -&gt; a file like object</p>
-<p><code>bard = turtle.Turtle</code> -&gt; an object of Turtle</p>
-<p>이번에 구현한 프로그램에서는 클래스를 사용하지 않는 것 처럼 보이지만 사실 object 를 반환하고 있고 이는 클래스의 init 과 같다...?</p>
-<ul>
-<li>프로젝트
-<ul>
-<li>메인페이지 만드는 중</li>
-</ul>
-</li>
-<li>Fizz Buzz 파이썬으로 풀이</li>
-</ul>
-<h3>css 단위</h3>
-<ul>
-<li>rem</li>
-<li>em</li>
-<li>vh
-<ul>
-<li>vh 요소는 높이값이 100 분의 1 의 단위이다. 브러우저 높이 값이 900px 이면 1vh 는 9px</li>
-</ul>
-</li>
-<li>vw
-<ul>
-<li>뷰포트의 너비값이 750px 이면 1vw 는 7.5px</li>
-</ul>
-</li>
-<li>vmin
-<ul>
-<li>vh 와 vw 이 늘 뷰포트의 너비값과 높이값에 상대적인 영향을 받는다면 vmin 과 vmax 는 너비값과 높이값에 따라 최대, 최소값을 지정할 수 있다.</li>
-<li>브라우저의 크기가 1100px 너비, 그리고 700px 높이일 때 1vmin 은 7px 이 되고 1vmax 는 11px 이 된다.</li>
-</ul>
-</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>프로젝트를 좀 더 열심히 만들어야 겠다. 진도가 잘 안나가는 것 같다 ㅠㅠ
-<ul>
-<li>프로젝트에 필요한 기능 다 정리하기</li>
-<li>메인페이지 완성하기</li>
-</ul>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0824.html">
-            <h1>
-
-
-               180824 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180824
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<h3>python twilio 메시지 보내기</h3>
-<pre class="hljs"><code><span class="hljs-keyword">from</span> twilio.rest <span class="hljs-keyword">import</span> Client
-
-account_sid = <span class="hljs-string">"sid 입력 "</span>
-auth_token = <span class="hljs-string">"token 입력 "</span>
-client = Client(account_sid, auth_token)
-message = client.messages.create(
-    body =<span class="hljs-string">'안녕! '</span>,
-    to =<span class="hljs-string">'+821025812807'</span>,
-    from_ =<span class="hljs-string">'+17792359212'</span>
-    )
-</code></pre>
-<ul>
-<li>
-<p>twilio 에 가입하고 토근과 sid 를 받고 번호를 등록하면 등록된 번호에 메시지를 전송할 수 있다.</p>
-</li>
-<li>
-<p>twilio 폴더 안에 rest 폴더가 있고 그 안에 Client 라는 클래스가 있다</p>
-</li>
-<li>
-<p>아래의 코드도 똑같이 동작한다.</p>
-</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-keyword">from</span> twilio <span class="hljs-keyword">import</span> rest
-client = rest.Client(account_sid, auth_token)
-</code></pre>
-<p><code>client = rest.Client()</code>는</p>
-<p>function init 을 호출하는것이다.</p>
-<p>initailizes create space memory</p>
-<p>인스턴스 혹은 객체를 만드는 것이다.</p>
-<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Client</span><span class="hljs-params">()</span>:</span>
-  def__init__():
-</code></pre>
-<p>class</p>
-<pre class="hljs"><code> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span>:</span>
-     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name, grade, age)</span>:</span>
-          self.name = name
-          self.grade = grade
-          self.age = age
-     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
-         <span class="hljs-keyword">return</span> repr((self.name, self.grade, self.age))
-</code></pre>
-<p>instance or object</p>
-<pre class="hljs"><code>student = Student(<span class="hljs-string">'bohyeon'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-number">15</span>)
-</code></pre>
-<ul>
-<li>
-<p>python 알고리즘 문제</p>
-<p>move zeros</p>
-</li>
-<li>
-<p>프로젝트</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/algorithm/move_zeros.html">
-            <h1>
-
-
-               Move Zeroes
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180824
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>문제</h2>
-<p>Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.</p>
-<ol>
-<li>You must do this in-place without making a copy of the array.</li>
-<li>Minimize the total number of operations</li>
-</ol>
-<h2>풀이 1</h2>
-<ol>
-<li>리스트의 0 의 개수만큼 반복문</li>
-<li>remove(0)</li>
-<li>append(0)</li>
-</ol>
-<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span><span class="hljs-params">(object)</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums)</span>:</span>
-        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, nums.count(<span class="hljs-number">0</span>)):
-            nums.remove(<span class="hljs-number">0</span>)
-            nums.append(<span class="hljs-number">0</span>)
-</code></pre>
-<h2>풀이 2</h2>
-<ol>
-<li>리스트의 길이 만큼 반복문을 돈다.</li>
-<li>i 번 째 인수가 0 이 아니면, last_zero 보다 앞으로 가야 하므로 last_zero 와 자리를 바꾼다.</li>
-<li>last_zero 가 이동하였으므로 last_zero 자리 값을 1 증가시켜 준다.</li>
-</ol>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(nums)</span>:</span>
-    last_zero = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">for</span> i range(<span class="hljs-number">0</span>, len(nums)):
-        <span class="hljs-keyword">if</span> nums[i] != <span class="hljs-number">0</span>:
-          nums[i], nums[last_zero] = nums[last_zero], nums[i]
-          last_zero += <span class="hljs-number">1</span>
-</code></pre>
-<h2>풀이 3</h2>
-<ol>
-<li>sort 함수를 사용한다.</li>
-<li>x 가 0 이면 1 을 리턴</li>
-<li>x 가 0 이 아니면 -1 을 리턴</li>
-</ol>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums)</span>:</span>
-    nums.sort(key=<span class="hljs-keyword">lambda</span> x: <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> x == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">-1</span>)
-</code></pre>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/python/sort.html">
-            <h1>
-
-
-               Sorting in Python 
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180824
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>Sorting in Python</h2>
-<h3>sorting function</h3>
-<ol>
-<li><code>list.sort()</code></li>
-</ol>
-<ul>
-<li>list 에서만 사용할 수 있다.</li>
-<li><code>None</code> 반환한다. in-place 로 입력 리스트 내부에서 정렬이 이루어진다.</li>
-<li>original list 가 필요하지 않다면, sorted 보다 sort 를 쓰는 것이 좀 더 효율적이다.</li>
-</ul>
-<ol start="2">
-<li><code>sorted(any iteralble)</code></li>
-</ol>
-<ul>
-<li>iterable 자료 구조형에 모두 사용할 수 있다.</li>
-<li>sorted 된 새로운 리스트를 반환한다.</li>
-</ul>
-<p><code>list.sort()</code> 와 <code>sorted()</code>는 <em>key</em> 라는 매개변수로 sort 하기 전에 각 요소에 대해 호출 할 함수를 지정할 수 있다.</p>
-<pre class="hljs"><code>student_tuples = [
-    (<span class="hljs-string">'john'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-number">15</span>),
-    (<span class="hljs-string">'jane'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-number">12</span>),
-    (<span class="hljs-string">'dave'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-number">10</span>),
-]
-sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>])
-
-<span class="hljs-comment"># 나이로 sort 하기  [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</span>
-</code></pre>
-<h4>내림차순 정렬</h4>
-<p>reverse default value False</p>
-<pre class="hljs"><code>sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>], reverse=<span class="hljs-keyword">True</span>)
-<span class="hljs-comment"># 내림차순 정렬 [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'C', 10)]</span>
-</code></pre>
-<h3>람다 사용하기</h3>
-<p>람다는 한 줄로 함수를 작성하는 방법이다. 식 형태로 되어 있다고 해서 람다 표현식이라고 부른다.
-람다는 함수를 간편하게 작성할 수 있어서 다른 함수의 인수로 (map, reduce, filter ... )넣을 때 주로 사용한다.</p>
-<p>fruites 리스트 재정렬하기</p>
-<p><code>apple</code> 이면 리스트 앞으로 정렬하기</p>
-<pre class="hljs"><code>fruites = [<span class="hljs-string">'apple'</span>, <span class="hljs-string">'banana'</span>, <span class="hljs-string">'orange'</span>,<span class="hljs-string">'apple'</span>]
-fruites.sort(key=<span class="hljs-keyword">lambda</span> fruite : <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> fruite == <span class="hljs-string">'apple'</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span> )
-print(fruites)
-<span class="hljs-comment"># ['apple', 'apple', 'banana', 'orange']</span>
-</code></pre>
-<p>참고자료</p>
-<p><a href="https://docs.python.org/3/howto/sorting.html">Python Documentation/ Sorting How To</a></p>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0823.html">
-            <h1>
-
-
-               180823 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180823
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>
-<p>python twilio install error 해결</p>
-<p>스택오버플로우에 처음 질문해보았다. 엄청난 스피드로 댓글을 달아주셔서 설치를 완료할 수 있었다.
-영어실력이 너무 소박해서 걱정했는데 코드를 보여주면 되니까 큰 문제는 되지 않는 것 같다.</p>
-</li>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>
-<p>프로젝트에서 client 를 추가할 때 운동 예약한 횟수와 트레이너를 설정할 수 있게 하였다.
-운동 횟수를 10 , 20 , 30 이런식으로 내가 정해주는 것이 좋을 지 아니면 사용자가 직접 넣을 수 있게 하는 것이 좋을 지 잘 모르겠다.</p>
-</li>
-<li>
-<p>모바일 번호를 받을 때 자동으로 하이픈을 넣어주는 함수를 추가하였다.
-모바일 번호는 하이픈 없이 저장해야겠지?</p>
-</li>
-<li>
-<p>프로젝트에서 리덕스를 쓰고 있는데 문제가 생겼다. 페이지에서 이미 trainer 의 리스트를 불러온다면, 다른 페이지에서 trainer 리스트를 사용할 때는 fetchTrainer 를 하지 않아도 될 것 같은데
-어떻게 해야될 지 모르겠다. state 에 있는지 확인하고 있으면 fetchClient 를 하지 않아도 되는걸까.
-더 찾아봐야겠다.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>자바스크립트 호이스팅 공부</p>
-<ul>
-<li>호이스팅에 대해서 공부하였다.</li>
-<li>실행 컨텍스트를 이해하니까 클로저, 호이스팅도 이해하기가 더 쉬워졌다.</li>
-<li><a href="https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0">zerocho 블로그 실행 컨텍스트 </a></li>
-</ul>
-</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>
-<p>블로그 개선하기</p>
-<ul>
-<li>블로그에서 아직 완성되지 않은 글을 일일이 reset 하는 것이 귀찮다.</li>
-<li>show 같은 값을 넣어서 렌더되지 않도록 해야겠다.</li>
-</ul>
-</li>
-<li>
-<p>프로젝트</p>
-</li>
-<li>
-<p>파이썬</p>
-</li>
-<li>
-<p>자바스크립트 공부하기</p>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0821.html">
-            <h1>
-
-
-               180821 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180821
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>프로젝트
-<ul>
-<li>이벤트 클릭 시 상세정보가 뜨는 팝업창</li>
-<li>big calendar 의 component 속성에 event component 를 커스터마이징 하였다.</li>
-<li>파업창을 클릭했을 시에만 띄우고 싶어서 바꾸었다.</li>
-<li>month 에서는 안뜨는데 week 에서는 뜬다.</li>
-<li>어떻게 해결해야 할 지 모르겠다...</li>
-</ul>
-</li>
-<li>파이썬
-<ul>
-<li>text message 를 보내는 실습을 하고 있는데 twilio 를 설치해야 한다.</li>
-<li>설치를 못했다.</li>
-<li>import 가 안된다.</li>
-<li>어떻게 해야될까...</li>
-</ul>
-</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>AMP</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0820.html">
-            <h1>
-
-
-               180820 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180820
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>
-<p>python
-Programming Foundations with Python
-lesson3</p>
-<ul>
-<li>터틀 그래픽으로 그림그리기</li>
-</ul>
-</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> turtle
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_square</span><span class="hljs-params">(some_turtle)</span>:</span>
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>):
-        some_turtle.forward(<span class="hljs-number">100</span>)
-        some_turtle.right(<span class="hljs-number">90</span>)
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_art</span><span class="hljs-params">()</span>:</span>
-    window = turtle.Screen()
-    window.bgcolor(<span class="hljs-string">'red'</span>)
-    brad =  turtle.Turtle()
-    brad.shape(<span class="hljs-string">'turtle'</span>)
-    brad.color(<span class="hljs-string">'yellow'</span>)
-    brad.speed(<span class="hljs-number">3</span>)
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">37</span>):
-        draw_square(brad)
-        brad.right(<span class="hljs-number">10</span>)
-draw_art()
-</code></pre>
-<p>webbrowser.open 은 이미 있는 인스턴스이다.
-turtle.Turtle() 은 init instance or object
-메모리를 갖게 된다.</p>
-<ul>
-<li>
-<p>알고리즘 문제 풀이</p>
-<ul>
-<li>Jewels and Stones - python, javascript</li>
-</ul>
-</li>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>스케줄 추가 기능</li>
-</ul>
-</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>python lesson4</li>
-<li>알고리즘 문제풀이</li>
-<li>프로젝트</li>
-<li>AMP</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/algorithm/jewels_and_stones.html">
-            <h1>
-
-
-               Jewels and Stones
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180820
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>문제</h2>
-<p>You're given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in S is a type of stone you have. You want to know how many of the stones you have are also jewels.</p>
-<p>The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;.</p>
-<h2>Python</h2>
-<h3>내 풀이</h3>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> functools
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
-    jewels = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">for</span> jewel <span class="hljs-keyword">in</span> J:
-        jewels += S.count(jewel)
-    <span class="hljs-keyword">return</span> jewels
-</code></pre>
-<p>python count() method</p>
-<p>substring 이 정해진 범위에서 몇 번 나오는지 그 숫자를 반환해주는 함수
-<code>str.count(sub, start= 0,end=len(string))</code></p>
-<h3>다른 사람 풀이</h3>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
-    <span class="hljs-keyword">return</span> sum(map(S.count, J))
-</code></pre>
-<p>map 함수를 써서 stone 에 포함 된 jewel 리스트 요소의 수를 새로운 리스트로 반환하고 sum 메소드를 사용하여 리스트 요소의 합을 구한다.</p>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
-    <span class="hljs-keyword">return</span> sum(map(J.count, S))
-</code></pre>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
-    <span class="hljs-keyword">return</span> sum(s <span class="hljs-keyword">in</span> J <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
-</code></pre>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
-        setJ = set(J)
-        <span class="hljs-keyword">return</span> sum(s <span class="hljs-keyword">in</span> setJ <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
-</code></pre>
-<p>python 집합 자료형</p>
-<pre class="hljs"><code><span class="hljs-meta">&gt;&gt;&gt; </span>s1 = set([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
-<span class="hljs-meta">&gt;&gt;&gt; </span>s1
-{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>}
-
-<span class="hljs-comment"># 값 1 개 추가하기</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span>s1.add(<span class="hljs-number">4</span>)
-<span class="hljs-meta">&gt;&gt;&gt; </span>s1
-{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>}
-
-<span class="hljs-comment"># 값 여러 개 추가하기</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span>s1.update([<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])
-<span class="hljs-meta">&gt;&gt;&gt; </span>s1
-{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>}
-
-<span class="hljs-comment"># 특정 값 제거하기</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span>s1.remove(<span class="hljs-number">2</span>)
-<span class="hljs-meta">&gt;&gt;&gt; </span>s1
-{<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>}
-</code></pre>
-<p>집합 자료형의 특징</p>
-<ul>
-<li><strong>중복을 허용하지 않는다.</strong></li>
-<li>순서가 없다. =&gt; 인덱싱을 제공하지 않는다.</li>
-<li>자료형의 중복을 제거하기 위한 필터 역할로 종종 사용되기도 한다.</li>
-</ul>
-<p>이 문제를 푼 사람은 jewels 가 중복된 문자열일 수도 있다고 생각했기 때문인 것 같다.</p>
-<p>하지만 이 문제에서는 jewels 가 중복되지 않는다고 되어있다.</p>
-<h2>Javascript</h2>
-<pre class="hljs"><code><span class="hljs-keyword">var</span> numJewelsInStones = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">J, S</span>) </span>{
-  <span class="hljs-keyword">var</span> stones = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
-
-  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; S.length; i++) {
-    <span class="hljs-keyword">if</span> (stones.has(S[i])) {
-      <span class="hljs-keyword">var</span> value = stones.get(S[i]) + <span class="hljs-number">1</span>;
-      stones.set(S[i], value);
-    } <span class="hljs-keyword">else</span> {
-      stones.set(S[i], <span class="hljs-number">1</span>);
-    }
-  }
-  <span class="hljs-keyword">var</span> jewles = <span class="hljs-number">0</span>;
-  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; J.length; i++) {
-    <span class="hljs-keyword">if</span> (stones.has(J[i])) {
-      jewles += stones.get(J[i]);
-    }
-  }
-  <span class="hljs-keyword">return</span> jewles;
-};
-</code></pre>
-<p>string 은 내부적으로 배열이기 때문에 J.split('')을 해주지 않아도 된다.</p>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0818.html">
-            <h1>
-
-
-               180818 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180818
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<p>프로젝트</p>
-<ul>
-<li>프로젝트 달력 페이지 추가</li>
-</ul>
-<p>알고리즘</p>
-<ul>
-<li>어제 풀었던 addBinary 문제를 다시 풀어보았다.</li>
-<li>재귀로 푸는 방법과 파이썬에서 제공하는 함수를 사용하여 푸는 방법이 있었다.</li>
-<li>재귀로 푸는 방법은 아리송하다</li>
-</ul>
-<p>모든 파일을 git add 한 후 한 개의 파일만 취소 하고 싶을 때!
-git reset -- file</p>
-<h2>내일 할 일</h2>
-<p>프로젝트</p>
-<ul>
-<li>클래스 예약 기능 추가하기</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/algorithm/add_binary.html">
-            <h1>
-
-
-               Add Binary - Python
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180818
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <p>Given two binary strings, return their sum (also a binary string).</p>
-<p>The input strings are both non-empty and contains only characters 1 or 0.</p>
-<h2>풀이 1</h2>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addBinary</span><span class="hljs-params">(self, a, b)</span>:</span>
-    sum = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">for</span> idx,num <span class="hljs-keyword">in</span> enumerate(a):
-        sum += int(num)*<span class="hljs-number">2</span>**(len(a- (idx + <span class="hljs-number">1</span>))
-    <span class="hljs-keyword">for</span> idx, num <span class="hljs-keyword">in</span> enumerate(b):
-        sum += int(num)*<span class="hljs-number">2</span>**(len(b- (idx + <span class="hljs-number">1</span>))
-    quotient = sum
-    remainder = []
-    <span class="hljs-keyword">if</span> sum == <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> sum == <span class="hljs-number">0</span>:
-        <span class="hljs-keyword">return</span> str(sum)
-    <span class="hljs-keyword">else</span>:
-        <span class="hljs-keyword">while</span> quotient != <span class="hljs-number">1</span>:
-            remainder.appe(quotient%<span class="hljs-number">2</span>)
-            quotient = quotient//<span class="hljs-number">2</span>
-        remainder.append(<span class="hljs-number">1</span>)
-        <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>.join(str(e) <span class="hljs-keyword">for</span> <span class="hljs-keyword">in</span> reversed(remainder))
-</code></pre>
-<h2>풀이 2</h2>
-<p><code>int()</code>함수와 <code>bin()</code>함수를 사용한 풀이</p>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addBinary</span><span class="hljs-params">(a,b)</span>:</span>
-    <span class="hljs-keyword">return</span> bin(int(a,<span class="hljs-number">2</span>) + int(b, <span class="hljs-number">2</span>))[<span class="hljs-number">2</span>:]
-</code></pre>
-<p><code>bin()</code> function converted an interger number to a binary string.
-<code>int(x, base=10)</code> 두 번째 매개변수는 number format 을 결정 default value 는 10 이다.
-<code>[2:]</code> 두 번째 부터 끝까지 자르기</p>
-<h2>풀이 3</h2>
-<p>재귀 함수를 사용한 풀이</p>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addBinary</span><span class="hljs-params">(self, a,b)</span>:</span>
-    <span class="hljs-keyword">if</span> len(a)==<span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> b
-    <span class="hljs-keyword">if</span> len(b)==<span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> a
-    <span class="hljs-keyword">if</span> a[<span class="hljs-number">-1</span>]== <span class="hljs-string">'1'</span> <span class="hljs-keyword">and</span> b[<span class="hljs-number">-1</span>] == <span class="hljs-string">'1'</span>:
-        <span class="hljs-keyword">return</span> self.addBinary( self.addBinary(a[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>], b[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>]), <span class="hljs-string">'1'</span>)
-    <span class="hljs-keyword">if</span> a[<span class="hljs-number">-1</span>] == <span class="hljs-string">'0'</span> <span class="hljs-keyword">and</span> b[<span class="hljs-number">-1</span>] == <span class="hljs-string">'0'</span>:
-        <span class="hljs-keyword">return</span> self.addBinary(a[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>], b[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>]) + <span class="hljs-string">'0'</span>
-    <span class="hljs-keyword">else</span>:
-        <span class="hljs-keyword">return</span> self.addBinary(a[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>], b[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>]) + <span class="hljs-string">'1'</span>
-</code></pre>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0817.html">
-            <h1>
-
-
-               180817 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180817
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>python</li>
-</ul>
-<p>3 초 뒤에 브라우저 열리기 3 번 반복하기</p>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> webbrowser <span class="hljs-keyword">as</span> web
-<span class="hljs-keyword">import</span> time
-total_breaks = <span class="hljs-number">3</span>
-break_count = <span class="hljs-number">0</span>
-print(<span class="hljs-string">'this program started on '</span> + time.ctime() )
-
-<span class="hljs-keyword">while</span>(break_count &lt; total_breaks):
-    break_count += <span class="hljs-number">1</span>
-    time.sleep(<span class="hljs-number">3</span>)
-    web.open(<span class="hljs-string">'https://www.youtube.com/watch?v=z6A2LHGx8_A'</span>)
-</code></pre>
-<p>folder 에서 file list 를 읽은 후 file name 을 변경하기</p>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> os
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rename_files</span><span class="hljs-params">()</span>:</span>
-    file_list = os.listdir(<span class="hljs-string">'../../Downloads/prank'</span>)
-    <span class="hljs-comment"># saved_path = os.getcwd()</span>
-    <span class="hljs-comment"># print('current working directory' + saved_path)</span>
-    <span class="hljs-comment"># os.chdir('../../Downloads/prank')</span>
-    <span class="hljs-keyword">for</span> file_name <span class="hljs-keyword">in</span> file_list:
-        new_file_name = file_name.translate(<span class="hljs-keyword">None</span>, <span class="hljs-string">'0123456789'</span>)
-        os.rename(file_name , new_file_name)
-    <span class="hljs-comment"># os.chdir(saved_path)</span>
-
-rename_files()
-</code></pre>
-<p>error: no such file or directory</p>
-<p>주석처리를 한 상태로 코드를 실행하면 에러가 발생한다.
-현재 작업 디렉토리와 파일 이름을 바꿔야 하는 디렉토리가 다르기 때문에 발생한 에러이다.
-os.chdir 로 현재 작업 디렉토리를 번경해야 한다.</p>
-<ul>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>calendar fetchSchedules reducer , action, store 추가</li>
-</ul>
-</li>
-<li>
-<p>블로그 오류 수정</p>
-<ul>
-<li>어제 작업했던 부분에 오류가 발생해서 다시 수정하였다</li>
-<li>test 메소드를 사용해서 값이 true 인지 아닌지 확인 함
-<code>front = /true/i.test(front);</code></li>
-</ul>
-</li>
-<li>
-<p>알고리즘 문제</p>
-<ul>
-<li>내일 다시 풀어야 겠다...</li>
-</ul>
-</li>
-</ul>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/til/0816.html">
-            <h1>
-
-
-               180816 TIL
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180816
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>오늘 한 일</h2>
-<ul>
-<li>프로젝트
-<ul>
-<li>header, navbar</li>
-</ul>
-</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-comment">// layout 고차 함수 component</span>
-<span class="hljs-keyword">const</span> Layout = <span class="hljs-function">(<span class="hljs-params">component, activeItem</span>) =&gt;</span> {
-  <span class="hljs-keyword">return</span>;
-  header;
-  navbar; <span class="hljs-comment">//passing activeItem prop</span>
-  component;
-};
-
-<span class="hljs-comment">// clinets page</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Layout(ClientComponent, <span class="hljs-string">"clients"</span>);
-</code></pre>
-<p>이런식으로 navbar 와 header 를 만들었는데 맞는 방법인지는 잘 모르겠다.
-acitveItem 은 navbar 에서 현재 선택된 item 이 무엇인지 인데,
-이걸 상태관리처럼 store 에서 관리를 해야 하는지, 이런식으로 페이지마다 activeItem 을 넘겨줘서 짜맞추듯? 해야 하는건지 잘 모르겠다.</p>
-<p>hoc 를 언제 쓰는 지 찾아보았는데 이렇게 단순히 프리젠테이션을 위한 것도 hoc 로 사용하는지 잘 모르겠다.</p>
-<ul>
-<li>react-big-calendar</li>
-</ul>
-<p>react big calendar 에서 month 가 아무것도 나오지 않을 때</p>
-<p>=&gt; 높이를 정해줘야 한다.</p>
-<pre class="hljs"><code>&lt;div style={{ <span class="hljs-attr">height</span>: <span class="hljs-string">""</span> }}&gt;
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">BigCalendar</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-</code></pre>
-<ul>
-<li>
-<p>파이썬</p>
-<ul>
-<li>
-<p>Best Time to Buy and Sell Stock 파이썬으로 다시 풀었다.</p>
-</li>
-<li>
-<p>python introduction 완강</p>
-</li>
-</ul>
-</li>
-<li>
-<p>블로그</p>
-<ul>
-<li>블로그 속성에 front 가 true 로 설정되어 있으면 그 글은 front page 에 노출시킨다.</li>
-<li>front 속성이 없으면 기본적으로 노출되지 않는다.</li>
-</ul>
-</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>calendar page</li>
-</ul>
-</li>
-<li>
-<p>python</p>
-<ul>
-<li>Programming Foundations with Python lesson1</li>
-<li>알고리즘 문제 풀기</li>
-</ul>
-</li>
-</ul>
-<h3>읽어보기</h3>
-<p><a href="https://d2.naver.com/helloworld/1848131">Naver D2 React 적용 가이드 - React 와 Redux</a></p>
-
-    </div>
-
-    
-
-
-      
-
-  
-    <div class="article">
-      <div class="value">
-        <div class="value__title">
-
-          <a href="/deploy/javascript/this.html">
-            <h1>
-
-
-               자바스크립트 this, bind 그리고 화살표 함수 
-
-            </h1>
-          </a>
-
-        </div>
-        <div class="value__date">
-          <span>
-             20180806
-          </span>
-
-        </div>
-
-        <h1>
-        </h1>
-
-      </div>
-      <h2>this</h2>
-<p>this 는 생성자 혹은 메소드에서 객체를 가리킬 때 사용하는 키워드입니다.</p>
-<p>this 는 이럴 때 사용합니다!</p>
-<ol>
-<li>새로 만들어지는 객체에 생성자의 속성을 넣어줄 때</li>
-<li>객체의 속성에 접근(메소드에서 사용하는 this)할 때</li>
-</ol>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">username, balance</span>) </span>{
-  <span class="hljs-comment">// 속성</span>
-  <span class="hljs-keyword">this</span>.username = username;
-  <span class="hljs-keyword">this</span>.balance = balance;
-  <span class="hljs-comment">// 메소드</span>
-  <span class="hljs-keyword">this</span>.getBalance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-  };
-  <span class="hljs-keyword">this</span>.deposit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
-    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
-  };
-}
-
-account = <span class="hljs-keyword">new</span> Account(<span class="hljs-string">"bohyeon"</span>, <span class="hljs-number">20000</span>);
-account.getBalance();
-account.deposit(<span class="hljs-number">2000</span>);
-account.getBalance();
-</code></pre>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-comment">//this키워드를 사용하여 객체의 속성인 username과 balance에 접근하고 있습니다.</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-  },
-  <span class="hljs-attr">deposit</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
-    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
-  }
-};
-
-account.getBalance();
-account.deposit(<span class="hljs-number">20000</span>);
-account.getBalance();
-</code></pre>
-<p>this 는 때에 따라 다른 값을 가리킵니다. 어떠한 문맥이냐에 따라서 <strong>그 값이 바뀝니다</strong>.</p>
-<ol>
-<li>global scope 에서 사용될 때 this 는 전역 객체를 가리킵니다.(window 객체)</li>
-<li>함수에서 사용될 때에도 this 는 전역 객체를 가리킵니다.</li>
-<li>객체에 속한 메소드에서 사용될 때 this 는 메소드가 속한 객체를 가리킵니다.</li>
-<li>객체에 속한 메소드의 내부함수에서 사용될 때 this 는 <strong>전역 객체</strong>를 가리킵니다.</li>
-<li>생성자에서 사용될 때 this 는 이 생성자로 인해 생성된 새로운 객체를 가리킵니다.</li>
-</ol>
-<p>4 번, 객체에 속한 메소드의 내부함수에서 사용되는 경우를 더 알아보도록 하겠습니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-    };
-    <span class="hljs-built_in">console</span>.log(innerFunc());
-  }
-};
-account.getBalance(); <span class="hljs-comment">//undefined님의 잔액은 undefined입니다.</span>
-</code></pre>
-<p>getBalance 가 외부에서 실행되면 this 는 account 를 가리킵니다. 그러나 getBalance 함수 내부에서 innerFunc 를 호출 할 때는 그 어떤 문맥도 지정하지 않았기 때문에 innerFunc 의 this 는 window 가 됩니다.</p>
-<p>window, 전역객체에는 username 나 balance 속성이 없기 때문에 undefined 가 나오게 됩니다.</p>
-<p>this 를 바꾸고 싶거나, this 의 문맥을 유지하고 싶다면 어떻게 해야 할까요</p>
-<p>bind 메소드를 사용하면 호출을 어디에서 하는지 상관없이 this 가 무엇을 가리킬 지 정할 수 있습니다.</p>
-<h2>bind</h2>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> 함수는 this 의 문맥을 유지할 때 사용합니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-    }.bind(<span class="hljs-keyword">this</span>);
-    <span class="hljs-built_in">console</span>.log(innerFunc());
-  }
-};
-account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
-</code></pre>
-<p>위와 같이 bind 를 사용하여 this 를 원하는 값으로 설정할 수 있습니다.</p>
-<p>bind 는 원하는 this 문맥을 가진 새로운 함수를 생성합니다. 첫 번째 매개변수를 bind 에 넘겨줌으로써 this 를 명확하게 설정할 수 있습니다.</p>
-<p>this 의 문맥을 정해주고 싶을 때 마다 bind 를 사용하는 방법 말고, 다른 방법으로도 this 의 문맥을 유지할 수 있습니다.</p>
-<p>화살표 함수를 사용하는 것입니다.</p>
-<p>ES6 화살표 함수(Arrow function)를 사용하면 this 는 lexical scope 를 갖게 됩니다. 즉 정의된 곳의 문맥을 사용합니다.</p>
-<h2>화살표 함수</h2>
-<p>화살표 함수는 다음과 같은 특징을 가지고 있습니다.</p>
-<ul>
-<li>화살표 함수는 익명 함수로만 만들 수 있습니다.</li>
-<li>화살표 함수는 생성자로 사용할 수 없습니다.</li>
-<li>화살표 함수는 스스로의 this, argument 를 가지지 않습니다.</li>
-<li>함수가 정의된 스코프에 존재하는 this 를 가리킵니다.</li>
-<li>화살표 함수는 생성될 때 this 가 결정됩니다.</li>
-<li>화살표 함수가 어떻게 사용되건, 호출되건, this 는 바뀌지 않습니다.</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
-  <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-comment">//화살표 함수 사용</span>
-    <span class="hljs-comment">//화살표 함수는 return 하지 않아도 값이 반환됩니다.</span>
-    innerFunc = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-    <span class="hljs-built_in">console</span>.log(innerFunc());
-  }
-};
-account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000입니다.</span>
-</code></pre>
-<p>innerFunc 함수에서 화살표 함수를 사용하면 더이상 bind 를 사용하여 this 를 binding 하지 않아도 됩니다.</p>
-<p>화살표 함수는 자신만의 this 를 갖지 않기 때문에, 바깥 스코프에서 this 의 값을 계승받습니다.</p>
-<p>그러나 이러한 특징 때문에 객체의 메소드로 화살표 함수를 사용하는 것은 적합하지 않습니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> person = {
-  <span class="hljs-attr">name</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">greet</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`hi <span class="hljs-subst">${<span class="hljs-keyword">this</span>.name}</span>`</span>)
-};
-person.greet(); <span class="hljs-comment">// hi</span>
-</code></pre>
-<p>바깥 스코프에서 this 의 값을 계승받습니다. 즉 this 는 메소드를 호출한 객체를 가리키지 않고 상위 컨텍스트인 전역 객체, window 를 가리키게 됩니다.</p>
-<p>객체의 메소드에서는 화살표 함수가 아닌, function 문법 함수를 사용해야 합니다.</p>
-<h2>정리</h2>
-<p>객체의 메소드로는 화살표 함수보다 function 문법 함수를 사용해야 한다는 것만 유의한다면,
-화살표 함수를 사용하여 좀 더 직관적이고 편리하게 this 를 사용할 수 있습니다.</p>
-<p>function 문법에서 this 는 함수가 어떻게 실행되는가에 따라서 동적으로 바뀌게 됩니다.</p>
-<p>화살표 함수의 경우 화살표 함수가 정의된 곳의 문맥에 의해서 this 가 정의됩니다.</p>
-<p>this 가 예상한 대로 동작하지 않는다면 함수의 실행 환경을 생각해보아야 합니다.</p>
-<h2>참고 자료</h2>
-<p>https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26</p>
-<p>https://blueshw.github.io/2018/03/12/this/</p>
-<p>https://www.codementor.io/niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp</p>
-<p>https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262</p>
-
-    </div>
-
-    
-
-
-       -->
-
-
   <div class="home__list">
     <span class="home__list-date">
-       20180911
+      20180908
     </span>
-    <a class="home__list-link" href="./deploy/blog_2.html">
+    <a class="home__list-link" href="./deploy/asymptotic_notatio.html">
       <h2 class="title">
-         정적 블로그 생성기 만들기! - 2탄 
+        점근적 표기법
       </h2>
       <p class="desc">
         
-           정적 블로그 생성기 만들기
+          점근적 표기법
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180905
-    </span>
-    <a class="home__list-link" href="./deploy/blogindex.html">
-      <h2 class="title">
-         정적 블로그 생성기 만들기! 
-      </h2>
-      <p class="desc">
-        
-           정적 블로그 생성기 만들기
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180901
+      20180901
     </span>
     <a class="home__list-link" href="./deploy/0901.html">
       <h2 class="title">
-         180901 TIL
+        180901 TIL
       </h2>
       <p class="desc">
         
-           9월 1일 TIL
+          9월 1일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180831
+      20180831
     </span>
     <a class="home__list-link" href="./deploy/0831.html">
       <h2 class="title">
-         180831 TIL
+        180831 TIL
       </h2>
       <p class="desc">
         
-           8월 31일 TIL
+          8월 31일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180831
+      20180831
     </span>
     <a class="home__list-link" href="./deploy/computer.html">
       <h2 class="title">
-         컴퓨터의 작동원리
+        컴퓨터의 작동원리
       </h2>
       <p class="desc">
         
-           컴퓨터의 작동원리
+          컴퓨터의 작동원리
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180830
-    </span>
-    <a class="home__list-link" href="./deploy/context.html">
-      <h2 class="title">
-         컨텍스트와 호이스팅 - JavaScript
-      </h2>
-      <p class="desc">
-        
-            컨텍스트와 호이스팅 - JavaScript
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180830
+      20180830
     </span>
     <a class="home__list-link" href="./deploy/0830.html">
       <h2 class="title">
-         180830 TIL
+        180830 TIL
       </h2>
       <p class="desc">
         
-           8월 30일 TIL
+          8월 30일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180829
+      20180830
+    </span>
+    <a class="home__list-link" href="./deploy/context.html">
+      <h2 class="title">
+        컨텍스트와 호이스팅 - JavaScript
+      </h2>
+      <p class="desc">
+        
+           컨텍스트와 호이스팅 - JavaScript
+      </p>
+    </a>
+  </div>
+  
+  <div class="home__list">
+    <span class="home__list-date">
+      20180829
     </span>
     <a class="home__list-link" href="./deploy/0829.html">
       <h2 class="title">
-         180829 TIL
+        180829 TIL
       </h2>
       <p class="desc">
         
-           8월 29일 TIL
+          8월 29일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180828
+      20180828
     </span>
     <a class="home__list-link" href="./deploy/0828.html">
       <h2 class="title">
-         180828 TIL
+        180828 TIL
       </h2>
       <p class="desc">
         
-           8월 28일 TIL
+          8월 28일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180827
+      20180827
     </span>
     <a class="home__list-link" href="./deploy/0827.html">
       <h2 class="title">
-         180827 TIL
+        180827 TIL
       </h2>
       <p class="desc">
         
-           8월 27일 TIL
+          8월 27일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180825
+      20180825
     </span>
     <a class="home__list-link" href="./deploy/fizz_buzz.html">
       <h2 class="title">
-         FIZZ BUZZ in Python
+        FIZZ BUZZ in Python
       </h2>
       <p class="desc">
         
-          FIZZ BUZZ in Python 
+           
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180825
+      20180825
     </span>
     <a class="home__list-link" href="./deploy/0825.html">
       <h2 class="title">
-         180825 TIL
+        180825 TIL
       </h2>
       <p class="desc">
         
-           8월 25일 TIL
+          8월 25일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180824
-    </span>
-    <a class="home__list-link" href="./deploy/0824.html">
-      <h2 class="title">
-         180824 TIL
-      </h2>
-      <p class="desc">
-        
-           8월 24일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180824
+      20180824
     </span>
     <a class="home__list-link" href="./deploy/move_zeros.html">
       <h2 class="title">
-         Move Zeroes
+        Move Zeroes
       </h2>
       <p class="desc">
         
-          Move Zeroes
+           
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180824
+      20180824
+    </span>
+    <a class="home__list-link" href="./deploy/0824.html">
+      <h2 class="title">
+        180824 TIL
+      </h2>
+      <p class="desc">
+        
+          8월 24일 TIL
+      </p>
+    </a>
+  </div>
+  
+  <div class="home__list">
+    <span class="home__list-date">
+      20180824
     </span>
     <a class="home__list-link" href="./deploy/sort.html">
       <h2 class="title">
-         Sorting in Python 
+        Sorting in Python 
       </h2>
       <p class="desc">
         
-           Sorting in Python
+          Sorting in Python
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180823
+      20180823
     </span>
     <a class="home__list-link" href="./deploy/0823.html">
       <h2 class="title">
-         180823 TIL
+        180823 TIL
       </h2>
       <p class="desc">
         
-           8월 23일 TIL
+          8월 23일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180821
+      20180821
     </span>
     <a class="home__list-link" href="./deploy/0821.html">
       <h2 class="title">
-         180821 TIL
+        180821 TIL
       </h2>
       <p class="desc">
         
-           8월 21일 TIL
+          8월 21일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180820
+      20180820
     </span>
     <a class="home__list-link" href="./deploy/0820.html">
       <h2 class="title">
-         180820 TIL
+        180820 TIL
       </h2>
       <p class="desc">
         
-           8월 20일 TIL
+          8월 20일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180820
+      20180820
     </span>
     <a class="home__list-link" href="./deploy/jewels_and_stones.html">
       <h2 class="title">
-         Jewels and Stones
+        Jewels and Stones
       </h2>
       <p class="desc">
         
-           Jewels and Stones
+          Jewels and Stones
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180818
+      20180818
     </span>
     <a class="home__list-link" href="./deploy/0818.html">
       <h2 class="title">
-         180818 TIL
+        180818 TIL
       </h2>
       <p class="desc">
         
-           8월 18일 TIL
+          8월 18일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180818
+      20180818
     </span>
     <a class="home__list-link" href="./deploy/add_binary.html">
       <h2 class="title">
-         Add Binary - Python
+        Add Binary - Python
       </h2>
       <p class="desc">
         
-           Add Binary
+          Add Binary
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180817
+      20180817
     </span>
     <a class="home__list-link" href="./deploy/0817.html">
       <h2 class="title">
-         180817 TIL
+        180817 TIL
       </h2>
       <p class="desc">
         
-           8월 17일 TIL
+          8월 17일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180816
+      20180816
     </span>
     <a class="home__list-link" href="./deploy/0816.html">
       <h2 class="title">
-         180816 TIL
+        180816 TIL
       </h2>
       <p class="desc">
         
-           8월 16일 TIL
+          8월 16일 TIL
       </p>
     </a>
   </div>
   
   <div class="home__list">
     <span class="home__list-date">
-       20180806
+      20180806
     </span>
     <a class="home__list-link" href="./deploy/this.html">
       <h2 class="title">
-         자바스크립트 this, bind 그리고 화살표 함수 
+        자바스크립트 this, bind 그리고 화살표 함수 
       </h2>
       <p class="desc">
         
-           Javascript this, bind and arrow function
+          Javascript this, bind and arrow function
       </p>
     </a>
   </div>
@@ -3888,7 +1423,7 @@ person.greet(); <span class="hljs-comment">// hi</span>
         <li>
           Computer science
             (
-            2 )
+            3 )
         </li>
       </a>
 

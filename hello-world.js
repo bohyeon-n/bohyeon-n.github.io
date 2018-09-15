@@ -91,11 +91,11 @@ function extractedValue(md) {
     let extractedValue = {};
     str.forEach(value => {
       if (value !== " ") {
-        let valueline = value.match(/(.+)[=\n](.+)/);
+        let valueline = value.match(/(.+)[=][\s](.+)/);
         if (valueline != null) {
           key = valueline[1].replace(/\s/g, "");
-
           value = valueline[2].replace(/['"]/g, "");
+
           extractedValue[key] = value;
         }
       }
