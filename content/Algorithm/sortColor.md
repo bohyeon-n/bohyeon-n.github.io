@@ -9,6 +9,7 @@ slug = ""
 tags = ["Algorithm", "JS"]
 title = "sort colors"
 description = "sort colors"
+front= true
 +++
 
 # sort colors

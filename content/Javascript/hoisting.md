@@ -9,8 +9,8 @@ slug = ""
 tags = [ "JS"]
 title = "호이스팅 - Javascript"
 description = "호이스팅 - Javascript"
-front = false
-show = false 
+front = true
+ 
 +++
 
 ## 호이스팅

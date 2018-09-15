@@ -57,7 +57,9 @@
 
       <li class="nav__search ">
         <input type="text" id="searchInput">
-        <i class="fas fa-search"></i>
+
+        <i id='searchIcon' class="fas fa-search">
+        </i>
       </li>
     </ul>
 
@@ -113,11 +115,18 @@
     document.querySelector('#input').focus();
   }
   )
+  document.querySelector('#searchIcon').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+
   document.querySelector('.delete').addEventListener('click', function () {
 
 
     document.querySelector('.modal').classList.remove('show')
   })
+
   function searchArticle() {
     let input, filter, ul, li, a, i;
     input = document.getElementById('input')

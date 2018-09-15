@@ -1,3 +1,17 @@
++++
+category = Computer science
+comments = true
+date = "201800901"
+draft = false
+showpagemeta = true
+showcomments = false
+slug = ""
+
+title = "인터넷이 작동하는 방법 "
+description = "인터넷이 작동하는 방법을 알아보자 - khan academy"
+front = 'true'
++++
+
 ## 와이어, 케이블 및 WIFI
 
 ### 인터넷은 어떻게 정보를 운반할 수 있을까?

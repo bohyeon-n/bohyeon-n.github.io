@@ -9,6 +9,7 @@ slug = ""
 tags = ["Algorithm", "JS"]
 title = "3sum Closest"
 description = "3sum Closest"
+fron=true
 +++
 
 # 3Sum Closest

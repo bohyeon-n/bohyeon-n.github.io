@@ -9,6 +9,7 @@ slug = ""
 tags = [ "JS"]
 title = "REST란?"
 description = "REST란?"
+front = true
 +++
 
 ## REST 란?

@@ -17,7 +17,7 @@
   </title>
 </head>
 
-<body>
+<body class="body">
   <div class="header">
     <%- header %>
 
@@ -53,10 +53,9 @@
 
       } else {
         categoryEl.classList.remove('show');
-
-        console.log('remove')
       }
     })
+
     window.onscroll = function () {
       scrollFunction()
     }
@@ -71,7 +70,6 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
-
 
 
   </script>

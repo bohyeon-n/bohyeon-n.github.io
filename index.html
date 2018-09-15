@@ -17,7 +17,7 @@
   </title>
 </head>
 
-<body>
+<body class="body">
   <div class="header">
     <div class="user">
   <div class="user__content">
@@ -78,7 +78,9 @@
 
       <li class="nav__search ">
         <input type="text" id="searchInput">
-        <i class="fas fa-search"></i>
+
+        <i id='searchIcon' class="fas fa-search">
+        </i>
       </li>
     </ul>
 
@@ -290,6 +292,21 @@
                 <p>
 
                   20180830
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/hoisting.html">
+                <p>
+                  호이스팅 - Javascript
+
+                </p>
+                <p>
+
+                  20180817
 
                 </p>
               </a>
@@ -927,6 +944,21 @@
             </li>
             
             <li>
+              <a href="/deploy/computerscience/internet.html">
+                <p>
+                  인터넷이 작동하는 방법
+
+                </p>
+                <p>
+
+                  201800901
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/development/rest.html">
                 <p>
                   REST란?
@@ -1001,11 +1033,18 @@
     document.querySelector('#input').focus();
   }
   )
+  document.querySelector('#searchIcon').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+
   document.querySelector('.delete').addEventListener('click', function () {
 
 
     document.querySelector('.modal').classList.remove('show')
   })
+
   function searchArticle() {
     let input, filter, ul, li, a, i;
     input = document.getElementById('input')
@@ -1035,30 +1074,15 @@
       
   <div class="home__list">
     <span class="home__list-date">
-      20180908
+      201800901
     </span>
-    <a class="home__list-link" href="./deploy/asymptotic_notatio.html">
+    <a class="home__list-link" href="./deploy/computerscience/internet.html">
       <h2 class="title">
-        점근적 표기법
+        인터넷이 작동하는 방법 
       </h2>
       <p class="desc">
         
-          점근적 표기법
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180901
-    </span>
-    <a class="home__list-link" href="./deploy/0901.html">
-      <h2 class="title">
-        180901 TIL
-      </h2>
-      <p class="desc">
-        
-          9월 1일 TIL
+          인터넷이 작동하는 방법을 알아보자 - khan academy
       </p>
     </a>
   </div>
@@ -1067,22 +1091,7 @@
     <span class="home__list-date">
       20180831
     </span>
-    <a class="home__list-link" href="./deploy/0831.html">
-      <h2 class="title">
-        180831 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 31일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180831
-    </span>
-    <a class="home__list-link" href="./deploy/computer.html">
+    <a class="home__list-link" href="./deploy/computerscience/computer.html">
       <h2 class="title">
         컴퓨터의 작동원리
       </h2>
@@ -1097,22 +1106,7 @@
     <span class="home__list-date">
       20180830
     </span>
-    <a class="home__list-link" href="./deploy/0830.html">
-      <h2 class="title">
-        180830 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 30일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180830
-    </span>
-    <a class="home__list-link" href="./deploy/context.html">
+    <a class="home__list-link" href="./deploy/javascript/context.html">
       <h2 class="title">
         컨텍스트와 호이스팅 - JavaScript
       </h2>
@@ -1125,54 +1119,9 @@
   
   <div class="home__list">
     <span class="home__list-date">
-      20180829
-    </span>
-    <a class="home__list-link" href="./deploy/0829.html">
-      <h2 class="title">
-        180829 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 29일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180828
-    </span>
-    <a class="home__list-link" href="./deploy/0828.html">
-      <h2 class="title">
-        180828 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 28일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180827
-    </span>
-    <a class="home__list-link" href="./deploy/0827.html">
-      <h2 class="title">
-        180827 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 27일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
       20180825
     </span>
-    <a class="home__list-link" href="./deploy/fizz_buzz.html">
+    <a class="home__list-link" href="./deploy/algorithm/fizz_buzz.html">
       <h2 class="title">
         FIZZ BUZZ in Python
       </h2>
@@ -1185,54 +1134,9 @@
   
   <div class="home__list">
     <span class="home__list-date">
-      20180825
-    </span>
-    <a class="home__list-link" href="./deploy/0825.html">
-      <h2 class="title">
-        180825 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 25일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
       20180824
     </span>
-    <a class="home__list-link" href="./deploy/move_zeros.html">
-      <h2 class="title">
-        Move Zeroes
-      </h2>
-      <p class="desc">
-        
-           
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180824
-    </span>
-    <a class="home__list-link" href="./deploy/0824.html">
-      <h2 class="title">
-        180824 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 24일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180824
-    </span>
-    <a class="home__list-link" href="./deploy/sort.html">
+    <a class="home__list-link" href="./deploy/python/sort.html">
       <h2 class="title">
         Sorting in Python 
       </h2>
@@ -1245,30 +1149,15 @@
   
   <div class="home__list">
     <span class="home__list-date">
-      20180823
+      20180824
     </span>
-    <a class="home__list-link" href="./deploy/0823.html">
+    <a class="home__list-link" href="./deploy/algorithm/move_zeros.html">
       <h2 class="title">
-        180823 TIL
+        Move Zeroes
       </h2>
       <p class="desc">
         
-          8월 23일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180821
-    </span>
-    <a class="home__list-link" href="./deploy/0821.html">
-      <h2 class="title">
-        180821 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 21일 TIL
+           
       </p>
     </a>
   </div>
@@ -1277,22 +1166,7 @@
     <span class="home__list-date">
       20180820
     </span>
-    <a class="home__list-link" href="./deploy/0820.html">
-      <h2 class="title">
-        180820 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 20일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180820
-    </span>
-    <a class="home__list-link" href="./deploy/jewels_and_stones.html">
+    <a class="home__list-link" href="./deploy/algorithm/jewels_and_stones.html">
       <h2 class="title">
         Jewels and Stones
       </h2>
@@ -1307,22 +1181,7 @@
     <span class="home__list-date">
       20180818
     </span>
-    <a class="home__list-link" href="./deploy/0818.html">
-      <h2 class="title">
-        180818 TIL
-      </h2>
-      <p class="desc">
-        
-          8월 18일 TIL
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-      20180818
-    </span>
-    <a class="home__list-link" href="./deploy/add_binary.html">
+    <a class="home__list-link" href="./deploy/algorithm/add_binary.html">
       <h2 class="title">
         Add Binary - Python
       </h2>
@@ -1337,13 +1196,13 @@
     <span class="home__list-date">
       20180817
     </span>
-    <a class="home__list-link" href="./deploy/0817.html">
+    <a class="home__list-link" href="./deploy/javascript/hoisting.html">
       <h2 class="title">
-        180817 TIL
+        호이스팅 - Javascript
       </h2>
       <p class="desc">
         
-          8월 17일 TIL
+          호이스팅 - Javascript
       </p>
     </a>
   </div>
@@ -1352,13 +1211,28 @@
     <span class="home__list-date">
       20180816
     </span>
-    <a class="home__list-link" href="./deploy/0816.html">
+    <a class="home__list-link" href="./deploy/algorithm/besttimetobuyandsellstock.html">
       <h2 class="title">
-        180816 TIL
+        Best Time to Buy and Sell Stock
       </h2>
       <p class="desc">
         
-          8월 16일 TIL
+          Best Time to Buy and Sell Stock
+      </p>
+    </a>
+  </div>
+  
+  <div class="home__list">
+    <span class="home__list-date">
+      20180810
+    </span>
+    <a class="home__list-link" href="./deploy/development/rest.html">
+      <h2 class="title">
+        REST란?
+      </h2>
+      <p class="desc">
+        
+          REST란?
       </p>
     </a>
   </div>
@@ -1367,13 +1241,43 @@
     <span class="home__list-date">
       20180806
     </span>
-    <a class="home__list-link" href="./deploy/this.html">
+    <a class="home__list-link" href="./deploy/javascript/this.html">
       <h2 class="title">
         자바스크립트 this, bind 그리고 화살표 함수 
       </h2>
       <p class="desc">
         
           Javascript this, bind and arrow function
+      </p>
+    </a>
+  </div>
+  
+  <div class="home__list">
+    <span class="home__list-date">
+      20180718
+    </span>
+    <a class="home__list-link" href="./deploy/algorithm/sortcolor.html">
+      <h2 class="title">
+        sort colors
+      </h2>
+      <p class="desc">
+        
+          sort colors
+      </p>
+    </a>
+  </div>
+  
+  <div class="home__list">
+    <span class="home__list-date">
+      20180710
+    </span>
+    <a class="home__list-link" href="./deploy/algorithm/fibonacci.html">
+      <h2 class="title">
+        피보나치 수 구현하기
+      </h2>
+      <p class="desc">
+        
+          피보나치 수 구현하기
       </p>
     </a>
   </div>
@@ -1403,7 +1307,7 @@
         <li>
           JavaScript
             (
-            3 )
+            4 )
         </li>
       </a>
 
@@ -1423,7 +1327,7 @@
         <li>
           Computer science
             (
-            3 )
+            4 )
         </li>
       </a>
 
@@ -1479,10 +1383,9 @@
 
       } else {
         categoryEl.classList.remove('show');
-
-        console.log('remove')
       }
     })
+
     window.onscroll = function () {
       scrollFunction()
     }
@@ -1497,7 +1400,6 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
-
 
 
   </script>

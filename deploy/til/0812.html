@@ -17,7 +17,7 @@
   </title>
 </head>
 
-<body>
+<body class="body">
   <div class="header">
     <div class="user">
   <div class="user__content">
@@ -78,7 +78,9 @@
 
       <li class="nav__search ">
         <input type="text" id="searchInput">
-        <i class="fas fa-search"></i>
+
+        <i id='searchIcon' class="fas fa-search">
+        </i>
       </li>
     </ul>
 
@@ -290,6 +292,21 @@
                 <p>
 
                   20180830
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/hoisting.html">
+                <p>
+                  호이스팅 - Javascript
+
+                </p>
+                <p>
+
+                  20180817
 
                 </p>
               </a>
@@ -927,6 +944,21 @@
             </li>
             
             <li>
+              <a href="/deploy/computerscience/internet.html">
+                <p>
+                  인터넷이 작동하는 방법
+
+                </p>
+                <p>
+
+                  201800901
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/development/rest.html">
                 <p>
                   REST란?
@@ -1001,11 +1033,18 @@
     document.querySelector('#input').focus();
   }
   )
+  document.querySelector('#searchIcon').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+
   document.querySelector('.delete').addEventListener('click', function () {
 
 
     document.querySelector('.modal').classList.remove('show')
   })
+
   function searchArticle() {
     let input, filter, ul, li, a, i;
     input = document.getElementById('input')
@@ -1133,7 +1172,7 @@
         <li>
           JavaScript
             (
-            3 )
+            4 )
         </li>
       </a>
 
@@ -1153,7 +1192,7 @@
         <li>
           Computer science
             (
-            3 )
+            4 )
         </li>
       </a>
 
@@ -1209,10 +1248,9 @@
 
       } else {
         categoryEl.classList.remove('show');
-
-        console.log('remove')
       }
     })
+
     window.onscroll = function () {
       scrollFunction()
     }
@@ -1227,7 +1265,6 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
-
 
 
   </script>

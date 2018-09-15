@@ -106,6 +106,9 @@ a {
             }
         }
         &__social {
+            a {
+                text-decoration: none;
+            }
             i {
                 padding-right: 0.5rem;
                 line-height: 4rem;
@@ -129,6 +132,10 @@ a {
         color: $main-font-color;
         border-top: 0.1rem solid $sub-bg-color;
         &__category {
+            cursor: pointer;
+            &:hover {
+                color: $point-font-color;
+            }
             @include bp-pc {
                 display: none;
             }
@@ -147,12 +154,14 @@ a {
         }
         &__search {
             i {
+                cursor: pointer;
                 display: none;
                 @include bp-mobile {
                     display: block;
                 }
             }
             input {
+                display: block;
                 @include bp-mobile {
                     display: none;
                 }
@@ -162,13 +171,17 @@ a {
             display: none;
             &.show {
                 height: 10rem;
-                margin: 0 auto;
+                margin: 0;
+                padding: 0;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
                 align-items: center;
                 width: 100%;
                 background: rgba(255, 255, 255, 0.9);
+                a {
+                    text-decoration: none;
+                }
             }
         }
     }

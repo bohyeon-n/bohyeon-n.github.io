@@ -9,6 +9,7 @@ slug = ""
 tags = ["Algorithm", "JS" , 'PY']
 title = 'Best Time to Buy and Sell Stock'
 description = "Best Time to Buy and Sell Stock"
+front= true
 +++
 
 # Best Time to Buy and Sell Stock - Python, Javascript

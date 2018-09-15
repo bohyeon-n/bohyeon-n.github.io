@@ -9,7 +9,6 @@ slug = ""
 
 title = "점근적 표기법"
 description = "점근적 표기법"
-front = 'true'
 show="false"
 +++
 

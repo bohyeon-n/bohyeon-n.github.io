@@ -9,6 +9,7 @@ slug = ""
 tags = ["Algorithm", "JS"]
 title = "피보나치 수 구현하기"
 description = "피보나치 수 구현하기"
+front = true
 +++
 
 # 피보나치 수 구현하기

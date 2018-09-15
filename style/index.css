@@ -114,6 +114,10 @@ a:hover {
   display: inline-block;
 }
 
+.header .user__social a {
+  text-decoration: none;
+}
+
 .header .user__social i {
   padding-right: 0.5rem;
   line-height: 4rem;
@@ -142,6 +146,14 @@ a:hover {
   background: #fff;
   color: #333;
   border-top: 0.1rem solid #f7f7f7;
+}
+
+.header .nav__category {
+  cursor: pointer;
+}
+
+.header .nav__category:hover {
+  color: #3cb371;
 }
 
 @media only screen and (min-width: 961px) {
@@ -174,6 +186,7 @@ a:hover {
 }
 
 .header .nav__search i {
+  cursor: pointer;
   display: none;
 }
 
@@ -181,6 +194,10 @@ a:hover {
   .header .nav__search i {
     display: block;
   }
+}
+
+.header .nav__search input {
+  display: block;
 }
 
 @media only screen and (max-width: 401px) {
@@ -195,7 +212,8 @@ a:hover {
 
 .header .nav .category.show {
   height: 10rem;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -210,6 +228,10 @@ a:hover {
           align-items: center;
   width: 100%;
   background: rgba(255, 255, 255, 0.9);
+}
+
+.header .nav .category.show a {
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 961px) {
