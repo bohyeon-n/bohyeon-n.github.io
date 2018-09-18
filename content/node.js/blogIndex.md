@@ -9,7 +9,7 @@ slug = ""
 tags = [ "Nodejs, Blog"]
 title = "정적 블로그 생성기 만들기! "
 description = "정적 블로그 생성기 만들기"
-front="true"
+front=true
 
 
 +++

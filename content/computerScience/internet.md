@@ -1,7 +1,7 @@
 +++
 category = Computer science
 comments = true
-date = "201800901"
+date = "20180901"
 draft = false
 showpagemeta = true
 showcomments = false

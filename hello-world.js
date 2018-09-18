@@ -91,7 +91,8 @@ function extractedValue(md) {
     let extractedValue = {};
     str.forEach(value => {
       if (value !== " ") {
-        let valueline = value.match(/(.+)[=][\s](.+)/);
+        let valueline = value.match(/(.+?)=(.+)/);
+        console.log(valueline);
         if (valueline != null) {
           key = valueline[1].replace(/\s/g, "");
           value = valueline[2].replace(/['"]/g, "");
@@ -140,7 +141,6 @@ directories.forEach((directory, index) => {
 
     let value = extractedValue(markdownFile);
     let body = md.render(extractedBody(markdownFile));
-
     let categoryName =
       value.category && value.category.replace(/(^\s*)|(\s*$)/gi, "");
 
@@ -151,6 +151,7 @@ directories.forEach((directory, index) => {
       file.slice(0, file.indexOf(".")).toLocaleLowerCase() + `.html`
     ).replace(/(\s*)/g, "");
     let front = value.front;
+
     if (front) {
       front = removeAllBlank(front);
       front = /true/i.test(front);
@@ -165,6 +166,7 @@ directories.forEach((directory, index) => {
     let show =
       !value.show || (value.show && /true/i.test(removeAllBlank(value.show)));
     if (value.category && show) {
+      console.log(value);
       allArticles.push({
         title: value.title.trim(),
         date: value.date.trim(),
