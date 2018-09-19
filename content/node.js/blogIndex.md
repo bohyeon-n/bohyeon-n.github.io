@@ -272,6 +272,12 @@ EJS 를 쓰면, 아래 문법과 같이 간단한 방법을 통해 템플릿을 
 
 쉽게 생각해서 빈칸이 있는 틀을 만들고, 그 떄 그 때 원하는 내용을 채워넣는 작업을 템플릿 엔진이 해주는 것입니다.
 
+일단, ejs 를 설치해주세요.
+
+```shell
+npm install ejs
+```
+
 그럼 EJS 를 사용해봅시다.
 
 우선 templates 라는 디렉토리를 하나 만듭니다. templates 디렉토리 안에 블로그에서 사용하는 모든 틀을 작성할 것입니다. 그리고 templates 디렉토리 안에 `layout_format.html` 이라는 파일을 만듭니다. 이 파일은 블로그 글의 레이아웃을 위한 기본 템플릿이 됩니다. 기본 레이아웃 안에 글 내용, 글 목록 등 원하는 컨텐츠를 넣을 수 있습니다.
@@ -426,6 +432,9 @@ index.html 파일을 생성해 우리가 만든 파일로 이동할 수 있는 �
 다음의 코드를 hello-node.js 파일에 추가합니다.
 
 ```js
+// list_format.html파일 읽기
+const listHtmlFormat = fs.readFileSync("./templates/list_format.html", "utf8");
+
 // index.html파일 생성 / 파일 목록 렌더
 const listContent = ejs.render(listHtmlFormat, {
   lists: deployFiles

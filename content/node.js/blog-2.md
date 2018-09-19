@@ -95,7 +95,7 @@ extractValue = text => {
     const values = {};
     if (valueLines) {
       valueLines.map(valueLine => {
-        const keyAndValue = valueLine.match(/(.+)[=\n](.+)/);
+        const keyAndValue = valueLine.match(/(.+?)=(.+)/);
         if (keyAndValue) {
           const key = keyAndValue[1].replace(/\s/g, "");
           const value = keyAndValue[2].replace(/['"]/g, "").trim();
@@ -108,7 +108,8 @@ extractValue = text => {
 };
 ```
 
-extractValue 함수는 매개변수인 text 의 `+++<>+++` 패턴안에 있는 문자열을 찾아서 = 를 기준으로 key 와 value 를 찾아서 객체 쌍을 반환하는 함수입니다. 어떤 정규 표현식이 사용되었는지 자세히 알아보겠습니다.
+extractValue 함수는 매개변수인 text 의 `+++<>+++` 패턴안에 있는 문자열을 찾아서 = 를 기준으로 key 와 value 를 찾아서 객체 쌍을 반환하는 함수입니다. 어떤 정규 표현식이 사용되었는지 알아보겠습니다.
+
 [str.match(regexp)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) 메소드는 정규식과 비교하여 일치 항목을 검색하는 메소드입니다. 문자열이 표현식과 일치하면 일치하는 전체 문자열을 배열 첫 번째 요소로 포함하고 그 다음 요소부터 괄호 안에 캡처 된 결과가 표시됩니다.
 
 매치가 되었다면 두 번째로 캡쳐된 `+++<>+++` 안에 있는 문자열을 다시 match 메소드를 사용하여 `=` 문자를 기준으로 나누어 캡쳐합니다. 매치된 결과가 있다면 `=`를 기준으로 오른쪽 문자열은 key, 왼쪽 문자열은 value 변수에 대입해줍니다.
@@ -320,3 +321,5 @@ nodejs 를 실행하고 로컬 서버를 띄워 확인해보겠습니다.
 이번 글에서는 글의 제목과 설명, 글을 작성한 날짜를 받아서 이를 목록 페이지와 아티클 페이지에 추가해보았습니다.
 
 다음 글은 간단하게 댓글기능을 추가하는 작업을 해보겠습니다.
+
+**제 글에 오류가 있거나 더 좋은 방향을 알고 계시다면 알려주세요! 큰 도움이 될 것 같습니다.** 😻
