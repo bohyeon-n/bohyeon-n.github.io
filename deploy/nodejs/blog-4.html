@@ -13,7 +13,7 @@
   <link rel="stylesheet " href="/style/index.css ">
 
   <title>
-     180901 TIL |  구보현 블로그 
+     정적 블로그 생성기 만들기 - 헤더와 소개 페이지 |  구보현 블로그 
   </title>
 </head>
 
@@ -1076,45 +1076,186 @@
 
   <div class="value">
     <h1 style="color:#333">
-       180901 TIL
+       정적 블로그 생성기 만들기 - 헤더와 소개 페이지
 
     </h1>
     <span>
-       20180901
+       20181007
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h2>오늘 한 일</h2>
-<ul>
-<li>글쓰기
-<ul>
-<li>블로그글을 쓰면서 다시한번 블로그를 만들어보고 있다.</li>
-<li>어디까지 만들어야 보는 사람도 흥미롭고 지루하지 않을까.</li>
-<li>너무 장황한것 같은데 정보가 부족한 것 같다.</li>
-</ul>
-</li>
-<li>인터넷 정리
-<ul>
-<li>인터넷의 작동 원리를 정리하였다.</li>
-</ul>
-</li>
-</ul>
-<h2>내일 할 일</h2>
-<ul>
-<li>
-<p>글 정리하기</p>
-</li>
-<li>
-<p>프로젝트</p>
-<ul>
-<li>클라이언트 수정 완성하기, history 부분 추가하기</li>
-<li>캘린더에서 month 부분 팝업창 안나오는 에러 수정하기, 아무래도 질문해야 할 것 같다. 뭐가 문제인지 잘 모르겠음</li>
-</ul>
-</li>
-</ul>
+    <p>이번 글에서는 사용자에게 정보를 받은 정보로 헤더와 소개 페이지를 만들어 보겠습니다.</p>
+<h2>헤더 만들기</h2>
+<h3>헤더 정보 받기</h3>
+<p>헤더를 만들기 위해서는 사용자에게 헤더에 들어갈 내용을 받아야 합니다. 블로그 이름, 깃허브 주소등 헤더에 넣고 싶은 내용을 받을 수 있습니다.</p>
+<p>우리는 <a href="https://bohyeon-n.github.io/deploy/nodejs/blog-3.html">이전 글</a>에서 author 디렉터리와 파일을 만들어 사용자에게 댓글 주소를 받았습니다. 만들었던 author 파일에 헤더에 들어갈 값을 추가로 넣어 주겠습니다.</p>
+<p>저는 블로그 제목, 깃허브 주소 그리고 로고 이미지 주소값을 넣었습니다.</p>
+<pre class="hljs"><code>+++
+disqus = <span class="hljs-string">'https://bohyeon.disqus.com/embed.js'</span>
+title = <span class="hljs-string">'구보현 블로그'</span>
+github = <span class="hljs-string">'https://github.com/bohyeon-n'</span>
+logo=<span class="hljs-string">'https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg'</span>
++++
+</code></pre>
+<h3>author 파일 읽어오기</h3>
+<p>사용자 정보를 받았으면, 받은 정보를 잘 가져올 수 있는지 확인해봅시다.
+이전에 작성해 두었던 author.md 파일을 읽어 사용자 값을 가져오는 코드를 다시 살펴봅시다.</p>
+<pre class="hljs"><code><span class="hljs-comment">// author.md 파일 읽기</span>
+<span class="hljs-keyword">const</span> authorFile = fs.readFileSync(<span class="hljs-string">"./author/author.md"</span>, <span class="hljs-string">"utf8"</span>);
+
+<span class="hljs-comment">// 사용자 값 읽기</span>
+<span class="hljs-keyword">const</span> authorValue = extractValue(authorFile);
+<span class="hljs-built_in">console</span>.log(authorValue);
+</code></pre>
+<p>node hello-node.js 를 실행하면 입력한 값을 잘 가져오는 것을 확인할 수 있습니다.</p>
+<pre class="hljs"><code>{ disqus: 'https://bohyeon.disqus.com/embed.js',
+  title: '구보현 블로그',
+  github: 'https://github.com/bohyeon-n',
+  logo:
+   'https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg' }
+</code></pre>
+<h3>헤더 템플릿 만들기</h3>
+<p>이제 우리가 받은 사용자 정보를 넣어 줄 헤더 템플릿을 만들어야 합니다. <em>templates</em> 디렉토리에 <em>header_format.html</em> 파일을 만들어 주세요.</p>
+<p>그리고 사용자에게 받은 값을 넣을 수 있도록 템플릿 태그를 작성합니다.
+저는 로고 이미지, 블로그 제목, github, home 그리고 뒤에서 만들 소개 페이지의 메뉴도 추가하였습니다.</p>
+<p><img src="/img/header_format.png" alt="헤더 템플릿"></p>
+<p>헤더 템플릿을 완성 후 layout_format.html 에 헤더 템플릿이 들어갈 자리를 만들어주세요.</p>
+<p><img src="/img/layout_format_add_header.png" alt="레이아웃 템플릿"></p>
+<h3>템플릿에 사용자 값 넣기</h3>
+<p>이제 작성한 템플릿에 값을 넣어주는 작업을 해보겠습니다.</p>
+<p>먼저 <em>header_format.html</em> 파일을 읽어옵니다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> authorHtmlFormat = fs.readFileSync(
+  <span class="hljs-string">"./templates/header_format.html"</span>,
+  <span class="hljs-string">"utf8"</span>
+);
+</code></pre>
+<p>헤더 템플릿에 사용자의 값을 채워줍니다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> header = ejs.render(HeaderHtmlFormat, {
+  <span class="hljs-attr">logo</span>: authorValue.logo,
+  <span class="hljs-attr">title</span>: authorValue.title,
+  <span class="hljs-attr">github</span>: authorValue.github
+});
+</code></pre>
+<p>그리고 값이 채워진 헤더를 layoutHtmlFormat 에 넣어줍니다. layoutHtmlFormat 을 렌더해주는 부분에 header 값을 추가로 렌더해주세요.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> articleHtml = ejs.render(layoutHtmlFormat, {
+  <span class="hljs-attr">content</span>: articleContent,
+  header
+});
+<span class="hljs-keyword">const</span> listHtml = ejs.render(layoutHtmlFormat, {
+  <span class="hljs-attr">content</span>: listContent,
+  header
+});
+</code></pre>
+<p>그리고 확인을 해봅시다. 헤더 부분이 잘 추가되었죠? 그런데 디자인을 조금 수정해야 할 것 같습니다.</p>
+<h3>스타일링 하기</h3>
+<p>저는 이런식으로 헤더 스타일링을 하였습니다.</p>
+<pre class="hljs"><code><span class="hljs-variable">$content-width</span>: <span class="hljs-number">70%</span>;
+<span class="hljs-variable">$header-height</span>: <span class="hljs-number">4rem</span>;
+
+<span class="hljs-selector-class">.header-wrap</span> {
+  <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-variable">$grey-lighter</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-variable">$header-height</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-variable">$header-height</span>;
+}
+
+<span class="hljs-selector-class">.header</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-variable">$content-width</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">justify-content</span>: space-between;
+  &amp;__item {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-selector-class">.logo-wrap</span> {
+      <span class="hljs-attribute">display</span>: flex;
+      <span class="hljs-selector-tag">a</span> {
+        <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">1rem</span>;
+        <span class="hljs-attribute">margin-top</span>: (<span class="hljs-variable">$header-height</span> - <span class="hljs-number">3rem</span>)/<span class="hljs-number">2</span>;
+        <span class="hljs-selector-tag">img</span> {
+          <span class="hljs-attribute">line-height</span>: <span class="hljs-variable">$header-height</span>;
+          <span class="hljs-attribute">width</span>: <span class="hljs-number">3rem</span>;
+        }
+      }
+    }
+  }
+  &amp;__nav {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-selector-tag">ul</span> {
+      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">display</span>: flex;
+      <span class="hljs-attribute">justify-content</span>: space-evenly;
+      <span class="hljs-selector-tag">li</span> {
+        <span class="hljs-attribute">list-style-type</span>: none;
+        <span class="hljs-selector-tag">a</span> {
+          <span class="hljs-attribute">text-decoration</span>: none;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>그리고 컨텐츠의 width 도 수정하였습니다.</p>
+<pre class="hljs"><code><span class="hljs-selector-class">.content</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-variable">$content-width</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+}
+</code></pre>
+<p>헤더를 추가 한 블로그가 완성 되었습니다!
+<img src="/img/add_header_home.png" alt="헤더 완성"></p>
+<hr>
+<h2>소개 페이지 만들기</h2>
+<h3>소개 글 받기</h3>
+<p>소개 페이지도 아티클 페이지를 만들었던 것과 같은 방식으로 만들 수 있습니다.
+블로그 글을 작성했던 것처럼 블로그를 소개하는 글을 author.md 안에 작성할 수 있습니다.</p>
+<p>아래와 같이 블로그 소개글을 작성해주세요.</p>
+<pre class="hljs"><code>+++
+disqus = 'https://bohyeon.disqus.com/embed.js'
+title = '구보현 블로그'
+github = 'https://github.com/bohyeon-n'
+logo='https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg'
++++
+
+안녕하세요. 떙땡이 블로그입니다.
+</code></pre>
+<h3>소개 페이지 렌더하기</h3>
+<p>기존에 만들어 놓았던 article_format.html 템플릿을 재사용하여 소개 페이지를 만들어 보겠습니다.</p>
+<p>먼저 author.md 파일에 작성하였던 소개 글을 가져와야 합니다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> authorBody = extractBody(authorFile);
+</code></pre>
+<p>그리고 article 템플릿에 authorBody 값을 넣어줍니다. 소개글에는 date 가 없으니 빈 문자열을 넣어주기로 합시다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> author = ejs.render(articleHtmlFormat, {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">"ABOUT"</span>,
+  <span class="hljs-attr">date</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">body</span>: authorBody,
+  <span class="hljs-attr">disqus</span>: authorValue.disqus
+});
+</code></pre>
+<p>레이아웃 템플릿을 사용하여 전체적인 페이지를 만든 후 소개 페이지 HTML 파일을 생성합니다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> aboutHtml = ejs.render(layoutHtmlFormat, {
+  <span class="hljs-attr">content</span>: author,
+  header
+});
+
+fs.writeFileSync(<span class="hljs-string">`./deploy/about.html`</span>, aboutHtml);
+</code></pre>
+<p>그리고 저는 보기 좋게 article__body 에 최소 높이를 주었습니다.</p>
+<pre class="hljs"><code><span class="hljs-selector-class">.article</span> {
+  &amp;__body {
+    <span class="hljs-attribute">min-height</span>: <span class="hljs-number">30vh</span>;
+  }
+}
+</code></pre>
+<p>소개 페이지가 완성되었습니다!</p>
+<p><img src="/img/about_page.png" alt="소개 페이지 완성"></p>
+<hr>
+<h2>마무리</h2>
+<p>이번 글을 마지막으로 블로그 생성기 만들기 작업이 끝났습니다!😺</p>
+<p>블로그 생성기를 직접 만든다는 것이 어렵기도 하고 다른 좋은 프로그램도 많지만 사용하면서 직접 프로그램을 개선하는 재미가 있는 것 같습니다!</p>
+<p>그럼 끝!</p>
+<p>작성한 코드는 <a href="https://github.com/bohyhyeon-n/bohyhyeon-n.github.io">여기서</a> 볼 수 있습니다!</p>
 
   </div>
 
