@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/style/index.css">
 
   <title>
-     블로그 만들기 |  구보현 블로그 
+     CORS란? CORS를 해결해보자 |  구보현 블로그 
   </title>
 </head>
 
@@ -1106,54 +1106,223 @@
 
   <div class="value">
     <h1 style="color:#333">
-       블로그 만들기
+       CORS란? CORS를 해결해보자
 
     </h1>
     <span>
-       20180722
+       20200522
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h1>오늘 한 일</h1>
-<ul>
-<li>블로그를 만들어서 기존의 블로그를 내가 만든 블로그로 옮겼다.</li>
-<li>정규 표현식에서 .는 엔터 문자를 제외했기 때문에 기존의 코드가 잘 작동되지 않았던 것이다.</li>
-<li>정규 표현식을 사용해서 마크다운에 있는 글에 대한 정보를 받을 수 있게 하였다.</li>
-<li>아직은 title 과 date 만 받고 있다.</li>
-<li>실제로 블로그를 사용하면서 발전시키면 좋을 것 같다.</li>
-<li>고쳐야 할 점이 많은 것 같다.</li>
-<li>github page 에서 프론트 페이지는 index.html 파일이 있어야 하며, 가장 상위에 위치해야 한다.</li>
-<li>다른 html 파일이 함께 있으면 프론트페이지로 잘 나오지가 않았다.</li>
-<li>그래서 처음 나오는 index.html 을 제외하고 다른 파일로 옮겼다.</li>
-</ul>
-<h1>오늘 느낀점</h1>
-<ul>
-<li>실제로 블로그로 사용하려고 하다보니 이것저것 해야 할 일이 많은 것 같다.</li>
-<li>이번주까지를 목표로 잡고 디자인까지 완성하고 싶다.</li>
-<li>정규 표현식 사용하기 어렵다 😭</li>
-<li>영어로 잘 하고 싶다.</li>
-<li>내일 더 열공해야지</li>
-</ul>
-<h1>내일 할 일</h1>
-<ul>
+    <p>프로젝트를 하면서 프론트에서 서버에서 제공한 API로 요청하자, CORS 에러가 발생했다.
+지금까지 CORS에러를 해결하기만 하고 정확히 CORS가 무엇이고 어떻게 동작하는지 알지 못했다.<br>
+이번에 CORS가 어떻게 동작하고 CORS 에러를 해결하는 방법을 공부하였고 공부하면서 알게된 내용을 정래해보았다.</p>
+<h2>CORS?</h2>
+<p><strong>Cross Origin Resource Sharing</strong></p>
+<p>CORS는 한 도메인 또는 Origin의 웹 페이지가 다른 도메인 (도메인 간 요청)을 가진 리소스에 액세스 할 수 있게하는 보안 메커니즘이다.</p>
+<p>CORS는 서버와 클라이언트가 정해진 헤더를 통해 서로 요청이나 응답에 반응할지 결정하는 방식으로 <strong>CORS</strong>라는 이름으로 표준화 되었다.
+CORS는 최신 브라우저에서 구현된 동일 출처 정책(same-origin policy) 때문에 등장했다.</p>
+<h2>동일 출처 정책?</h2>
+<p>동일 출처 정책은 동일한 출처의 리소스에만 접근하도록 제한하는 것이다.
+여기서 출처는 프로토콜, 호스트명, 포트가 같다는 것을 의미한다.</p>
+<p><code>https://naver.com:80</code>을 예시로 들면,
+<code>https</code>는 프로토콜, <code>naver.com</code>은 호스트명 <code>80</code>은 포트다.</p>
+<p>왜 동일한 출처에서만 접근하도록 허용하는 것일까?
+모든 출처를 허용하면 어떻게 될까?</p>
+<p><code>https://bank.com</code> 이라는 도메인 사이트가 있다 이 사이트의 api 주소는 <code>https://bank.com/api</code>이다. 사용자가 은행 사이트에서 로그인을 한 후 인증 토큰을 받았다.
+그런데 사용자가 로그인한 상태에서 <code>https://evil.com</code>사이트에 접속하게 되면,
+<code>https://evil.com</code>사이트에서 <code>https://bank.com/api</code>로 ajax 요청을 보낼 때 유저가 획득한 인증 토큰이 자동으로 첨부되어 사용자인척하면서 요청을 보낼 수 있게 된다.</p>
+<p>이렇게 자동으로 쿠키가 첨부되기 때문에 보안상의 이유로 브라우저는 HTTP 호출을 동일한 출처로 제한했다.</p>
+<h2>왜 CORS가 생겼을까?</h2>
+<p>그럼 왜 CORS가 필요하게 됐을까?<br>
+이전에는 동일한 도메인에서 리소스를 받아왔는데, 지금은 클라이언트에서 도메인이 다른 서버에서 제공하는 API를 사용하는 일이 많아졌다.<br>
+그래서 이전처럼 동일한 도메인간의 요청만 할 수 없어졌고 CORS가 생겼다.</p>
+<h2>CORS는 어떻게 동작할까?</h2>
+<p>동일 출처 정책은 브라우저에서 임의로 하는 것이다. 즉 브라우저를 통하지 않고 요청을 보내거나 브라우저에서 동일 출처 정책이 아니라면, 동일 출처가 아니라도 요청을 보내고 응답을 받을 수 있다.
+그럼 브라우저에서는 다른 출처로 요청을 보낼 때 어떻게 동작할까?</p>
+<p>브라우저는 다른 출처로 요청을 보낼 때 다음과 같은 절차를 거친다.
+우선 다른 출처라도, 다 같은 방식으로 동작하지 않는다. CORS 요청에는 simple request와 preflighted request 두 가지가 있다.</p>
+<h3>Simple request</h3>
+<p>simple 요청은 pre-flighted 요청을 보내지 않는다.</p>
+<p>simple 요청은 다음과 같은 과정을 거친다.</p>
+<ol>
+<li>요청을 보낸다.</li>
+<li>브라우저는 Host와 같은 헤더를 추가하는 것 외에도 교차 출처 요청에 대해 Origin Request Header를 자동으로 추가한다.</li>
+</ol>
+<pre class="hljs"><code>GET /products/ HTTP/1.1 
+Host: api.domain.com 
+Origin: https://www.domain.com 
+</code></pre>
+<ol start="3">
+<li>서버에서 <code>Origin</code> 리퀘스트 헤더를 확인합니다. Origin 값이 허용되면, <code>Access-Control-Allow-Origin</code>요청 헤더 Origin 값으로 설정한다.</li>
+</ol>
+<pre class="hljs"><code>Http/1.1 200 OK 
+Access-Control-Allow-Origin: https://www.domain.com
+Content-Type: application/json 
+</code></pre>
+<ol start="4">
+<li>응답을 받은 브라우저는 Access-Control-Allow-Origin 헤더가 탭의 출처와 일치하는지 확인한다. Access-Control-Allow-Origin 값이 정확히 출처와 일치하거나, &quot;*&quot; 와일드 카드 연산자를 포함하는 경우 검사가 통과된다.</li>
+</ol>
+<p>서버는 요청의 출처의 따라 요청을 허용할 지 결정할 수 있다. 브라우저는 Origin 요청 헤더가 정확하게 설정해야 한다.</p>
+<h3>Preflighted request</h3>
+<p>preflighted 요청은 simple request와는 다른 유형의 CORS 요청이다. 브라우저에서 진짜 요청을 보내기 전에 미리 확인 요청을 보낸다. 이 요청은 <code>OPTIONS</code> 메소드를 사용한다.</p>
+<p>preflighted 요청은 다음과 같은 과정을 거친다.</p>
+<ol>
+<li>ajax 요청을 보낸다.</li>
+</ol>
+<pre class="hljs"><code>OPTIONS /products/ HTTP/1.1 
+Host: api.domain.com 
+Origin: https://www.domain.com
+Access-Control-Request-Method: POST 
+Access-Control-Request-Headers: Authorization, Content-Type 
+</code></pre>
+<ol start="2">
+<li>서버는 허용된 메소드 및 헤더를 지정하여 응답한다.</li>
+</ol>
+<pre class="hljs"><code>HTTP/1.1 200 OK 
+Access-Control-Allow-Origin: https://www.domain.com
+Access-Control-Allow-Method: GET, POST, OPTIONS, PUT
+Access-Control-Allow-Headers: Authorization, Content-Type 
+Content-Type: application/json 
+</code></pre>
+<ol start="3">
+<li>헤더와 메소드가 통과되면, 브라우저는 원래 CORS 요청을 보낸다.</li>
+</ol>
+<pre class="hljs"><code>POST /products/ HTTP/1.1 
+Host: api.domain.com
+Authorization: token 
+Content-Type: application/json
+Origin: https://www.domain.com
+</code></pre>
+<ol start="4">
+<li>응답은 Access-Control-Allow-Origin 헤더에 올바른 출처가 있으므로 검사를 통과한다.</li>
+</ol>
+<h2>CORS 에러 해결하기</h2>
+<p>지금까지 CORS에 대한 브라우저가 어떻게 동작하는지 알아보았다. 그렇다면, 우리가 클라이언트 개발자나 서버 개발자면 브라우저에게 어떻게 알려줄 수 있을까?</p>
+<h3>클라이언트에서 해결하기</h3>
+<ol>
 <li>
-<p>블로그 만들기</p>
+<p>웹 브라우저 실행 옵션이나 플러그인을 통한 동일 출처 정책 회피하기</p>
 <ul>
-<li>태그 받아서 메인화면에서 태그 사용해보기</li>
-<li>디자인하기</li>
-<li>날짜로 정렬하기</li>
+<li>동일 출처 정책은 브라우저에서 임의로 하는 것이기 때문에 브라우저에서 동일 출처 정책을 사용하지 않으며 된다.</li>
 </ul>
 </li>
 <li>
-<p>알고리즘 문제풀기</p>
+<p>jsonp 방식으로 json 데이터 가져오기</p>
+<ul>
+<li>자바스크립트 파일이나 css 파일은 동일 출처 정책에 영향을 받지 않고 가져올 수 있다.</li>
+<li>이를 이용해서 자바스크립트 파일을 가져와서 이를 json 형식으로 파싱해서 데이터를 사용할 수 있다.</li>
+</ul>
+</li>
+</ol>
+<h3>서버에서 해결하기</h3>
+<h3>스프링 CORS</h3>
+<h4>@CrossOrigin 어노테이션 사용하기</h4>
+<p>메소드 레벨 및 글로벌 레벨에서 srping mvc 애플리케이션에서 spring cors를 지원하는 방법이다.
+sprign mvc는 <code>@CorssOrigin</code> 어노테이션을 제공한다. 이 어노테이션은 어노테이션이 달린 메소드 또는 타입을 교차 출처를 허용하는 것으로 표시한다.</p>
+<p>기본적으로 <code>@CrossOrigin</code>은 모든 출처, 모든 헤더, <code>@RequestMapping</code> 주석에 지정된 Http 메소드에 최대 30분을 허용한다.
+어노테이션에 속성 값을 넣어 기본 값을 대체할 수 있다.</p>
+<p>속성값을 살펴보면,</p>
+<ul>
+<li>
+<p><code>origins</code></p>
+<ul>
+<li>허용된  출처, 이 값은 pre-flight 응답과 실제 응답 모두에 access-control-allow-origin헤더에 배치된다.</li>
+</ul>
 </li>
 <li>
-<p>통신 공부하기</p>
+<p><code>allowedHeaders</code></p>
+<ul>
+<li>실제 요청 중에 사용할 수 있는 요청 헤더 목록이다. pre-flight의 응답 헤더인 access-control-allow-header에 값이 사용된다.</li>
+</ul>
+</li>
+<li>
+<p><code>allowCredential</code></p>
+<ul>
+<li>브라우저가 요청과 관련된 쿠키를 포함해야 되는지 여부를 결정한다.</li>
+<li>이 값이 true이면, pre-flight 응답에는 값이 true로 설정된 access-control-allow-credentials 헤더가 포함된다.</li>
+</ul>
 </li>
 </ul>
+<pre class="hljs"><code><span class="hljs-meta">@CrossOrigin</span>(origin=<span class="hljs-string">"*"</span>, allowedHeaders = <span class="hljs-string">"*"</span>)
+<span class="hljs-meta">@Controller</span> 
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainController</span> </span>{
+	<span class="hljs-meta">@GetMapping</span>(path = <span class="hljs-string">"/"</span>)
+	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">main</span><span class="hljs-params">(Model model)</span> </span>{
+		<span class="hljs-keyword">return</span> <span class="hljs-string">"main"</span>; 
+	}
+}
+</code></pre>
+<h4>CorsFilter 사용하기</h4>
+<p>서블릿 필터 인터페이스를 이용하여 개발되었다. 웹 서버의 모든 리소스의 요청을 가로채서 Cross domain request인지 체크하여 실제 요청 페이지에 전달하기전에 적절한 CORS 정책과 해더들을 적용한다.</p>
+<ul>
+<li>
+<p>Access-Control-Allow-Origin</p>
+<ul>
+<li>도메인 간 요청을 할 수 있는 권한이 부여된 도메인을 지정한다.</li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Allow-Credentials</p>
+<ul>
+<li>도메인 간 요청에 credential 권한이 있는지 없는지 지정한다.</li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Expose-Headers</p>
+<ul>
+<li>노출하기에 안전한 헤더를 나타낸다.</li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Max-Age</p>
+<ul>
+<li>pre-flighted 요청이 얼마만큼의 시간동안 캐시되는지</li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Allow-Methods</p>
+<ul>
+<li>리소스에 접근할 때 메소드가 허용되는지</li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Allow-Headers</p>
+<ul>
+<li>어떤 헤더 필드 네임이 실제 요청에서 사용할 수 있는지 가리킨다.</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleCorsFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Filter</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilter</span><span class="hljs-params">(ServletRequest req, ServletResponse res, FilterChain chain)</span> <span class="hljs-keyword">throws</span> IOException, ServletException </span>{
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) res;
+        response.setHeader(<span class="hljs-string">"Access-Control-Allow-Origin"</span>, request.getHeader(<span class="hljs-string">"Origin"</span>));
+        response.setHeader(<span class="hljs-string">"Access-Control-Allow-Credentials"</span>, <span class="hljs-string">"true"</span>);
+        response.setHeader(<span class="hljs-string">"Access-Control-Allow-Methods"</span>, <span class="hljs-string">"POST, GET, OPTIONS, DELETE, PUT, PATCH"</span>);
+        response.setHeader(<span class="hljs-string">"Access-Control-Max-Age"</span>, <span class="hljs-string">"3600"</span>);
+        response.setHeader(<span class="hljs-string">"Access-Control-Allow-Headers"</span>, <span class="hljs-string">"Content-Type, Accept, X-Requested-With, remember-me"</span>);
+        chain.doFilter(req, res);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(FilterConfig filterConfig)</span> </span>{
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">destroy</span><span class="hljs-params">()</span> </span>{
+    }
+}
+</code></pre>
+<h2>정리</h2>
+<p>CORS 에러를 클라이언트에서 해결할 수 있는 방법이 있는지 몰랐다. 서버에서만 허용이 가능한 것인줄만 알았는데, 브라우저에서 컨트롤하는 것이었다니!
+정확한 동작 방식을 알고 나니 사용한 코드도 더 잘 이해된다. 🏃🏽‍♀️🏃🏽‍♀️</p>
 
   </div>
 
