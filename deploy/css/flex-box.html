@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/style/index.css">
 
   <title>
-     구보현 블로그 
+     Flexbox |  구보현 블로그 
   </title>
 </head>
 
@@ -546,337 +546,77 @@
   <div class="content">
 
     <div class="main">
-      
-  <div class="home__list">
-    <span class="home__list-date">
+      <div class="article">
+
+
+  <div class="value">
+    <h1 style="color:#333">
+       Flexbox
+
+    </h1>
+    <span>
        20200722
+
     </span>
-    <a class="home__list-link" href="./deploy/css/flex-box.html">
-      <h2 class="title">
-         Flexbox
-      </h2>
-      <p class="desc">
-        
-           Flexbox를 공부하면서 헛갈리는 개념들을 정리해보았다.
-      </p>
-    </a>
   </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20200522
-    </span>
-    <a class="home__list-link" href="./deploy/development/cors.html">
-      <h2 class="title">
-         CORS란? CORS를 해결해보자
-      </h2>
-      <p class="desc">
-        
-           CORS가 무엇인지 알아보고 해결 방법을 찾아보자!
-      </p>
-    </a>
+
+
+  <div class="article__body">
+    <p>flex box를 공부하면서 헛갈리는 개념들을 정리해보았다.</p>
+<h2>중심 축과 교차 축</h2>
+<p>flex box에서 중요한 것은 메인 축이 어디인가이다.</p>
+<p>flex-direction이 기본 값인 row 이면 메인 축은 왼쪽에서 오른쪽이고, 교차 축은 아래에서 위이다. column이면 이와 반대이다.</p>
+<h2>container, item, flex-line</h2>
+<p>flex 컨테이너는 css 속성이 flex 또는 flex-inline으로 설정된 html 요소를 나타낸다. 플렉스 컨테이너의 직접적인 자식인, 정렬 될 요소를 item이라고 한다. 그리고 이 아이템의 각 행 또는 열을 flex-line이라고 한다.</p>
+<h2>align-items vs align-content</h2>
+<p>align-center 와 align-items 둘 다 교차 축을 따라 정렬된다. 이 두 속성의 차이점은 뭘까?</p>
+<h3>align-items</h3>
+<p>align-items는 교차 축을 따라 flex-line 내에 아이템들을 정렬한다.</p>
+<p>각각의 라인 안에서 아이템들을 정렬한다. flex-direction이 row인 경우, height 가 모두 다른 박스를 정렬할 때, align-items 속성 값이 center 일 때, 각각의 상자의 높이의 가운데에 맞춰서 정렬된다.</p>
+<h3>align-content</h3>
+<p>align-content 속성은 conatiner가 래핑되도록 설정된 경우에만 관련이 있다. 둘 이상의 flex-line이 없으면 align-content 속성은 필요하지 않다.</p>
+<p>flex-line 이 교차 축을 따라 정렬되는 방식을 결정한다. flex-line 끼리 어떻게 정렬될 지 정하는 것이다.</p>
+<p>align-center vs align-items</p>
+<ul>
+<li>플렉스 컨테이너</li>
+<li>플렉스 컨테이너의 직접적인 자식인 정렬 될 요소는 플렉스 아이템이다.</li>
+</ul>
+<p>실습하기</p>
+<p><a href="https://codepen.io/koobh/pen/QWyYLoE">align-items/align-content 실습해보기</a></p>
+<p><a href="https://codepen.io/koobh/pen/dyGabxw">grow / align-self 실습해보기</a></p>
+<h2>회고</h2>
+<p>오늘 flex-box 를 사용하려고 하니 마음대로 잘 되지 않았다. 이전에는 flex-box 를 잘 모르고 사용했었는데, flex-line 과 메인 축과 교차 축 개념을 알고 나니 좀 더 이해하기 쉬웠다.</p>
+<h2>참고 자료</h2>
+<p><a href="https://medium.com/better-programming/flexbox-align-items-and-align-content-a60b6f8451e3">flexbox-align-items-and-align-content</a></p>
+
   </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20200223
-    </span>
-    <a class="home__list-link" href="./deploy/computerscience/hashmap.html">
-      <h2 class="title">
-         HashMap
-      </h2>
-      <p class="desc">
-        
-           HashMap을 알아보자!
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20181007
-    </span>
-    <a class="home__list-link" href="./deploy/nodejs/blog-4.html">
-      <h2 class="title">
-         정적 블로그 생성기 만들기 - 헤더와 소개 페이지
-      </h2>
-      <p class="desc">
-        
-           헤더와 소개 페이지 만들기 
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180918
-    </span>
-    <a class="home__list-link" href="./deploy/nodejs/blog-3.html">
-      <h2 class="title">
-         정적 블로그 생성기 만들기 - 댓글 기능 추가하기
-      </h2>
-      <p class="desc">
-        
-           블로그에 Disqus 서비스를 이용하여 댓글기능 추가하기
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180911
-    </span>
-    <a class="home__list-link" href="./deploy/nodejs/blog-2.html">
-      <h2 class="title">
-         정적 블로그 생성기 만들기! - 2탄 
-      </h2>
-      <p class="desc">
-        
-           정적 블로그 생성기 만들기
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180905
-    </span>
-    <a class="home__list-link" href="./deploy/nodejs/blogindex.html">
-      <h2 class="title">
-         정적 블로그 생성기 만들기! 
-      </h2>
-      <p class="desc">
-        
-           정적 블로그 생성기 만들기
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180901
-    </span>
-    <a class="home__list-link" href="./deploy/computerscience/internet.html">
-      <h2 class="title">
-         인터넷이 작동하는 방법 
-      </h2>
-      <p class="desc">
-        
-           인터넷이 작동하는 방법을 알아보자 - khan academy
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180831
-    </span>
-    <a class="home__list-link" href="./deploy/computerscience/computer.html">
-      <h2 class="title">
-         컴퓨터의 작동원리
-      </h2>
-      <p class="desc">
-        
-           컴퓨터의 작동원리
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180830
-    </span>
-    <a class="home__list-link" href="./deploy/javascript/context.html">
-      <h2 class="title">
-         컨텍스트와 호이스팅 - JavaScript
-      </h2>
-      <p class="desc">
-        
-            컨텍스트와 호이스팅 - JavaScript
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180825
-    </span>
-    <a class="home__list-link" href="./deploy/algorithm/fizz_buzz.html">
-      <h2 class="title">
-         FIZZ BUZZ in Python
-      </h2>
-      <p class="desc">
-        
-          FIZZ BUZZ in Python 
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180824
-    </span>
-    <a class="home__list-link" href="./deploy/algorithm/move_zeros.html">
-      <h2 class="title">
-         Move Zeroes
-      </h2>
-      <p class="desc">
-        
-          Move Zeroes
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180824
-    </span>
-    <a class="home__list-link" href="./deploy/python/sort.html">
-      <h2 class="title">
-         Sorting in Python 
-      </h2>
-      <p class="desc">
-        
-           Sorting in Python
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180820
-    </span>
-    <a class="home__list-link" href="./deploy/algorithm/jewels_and_stones.html">
-      <h2 class="title">
-         Jewels and Stones
-      </h2>
-      <p class="desc">
-        
-           Jewels and Stones
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180818
-    </span>
-    <a class="home__list-link" href="./deploy/algorithm/add_binary.html">
-      <h2 class="title">
-         Add Binary - Python
-      </h2>
-      <p class="desc">
-        
-           Add Binary
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180817
-    </span>
-    <a class="home__list-link" href="./deploy/javascript/hoisting.html">
-      <h2 class="title">
-         호이스팅 - Javascript
-      </h2>
-      <p class="desc">
-        
-           호이스팅 - Javascript
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180816
-    </span>
-    <a class="home__list-link" href="./deploy/algorithm/besttimetobuyandsellstock.html">
-      <h2 class="title">
-         Best Time to Buy and Sell Stock
-      </h2>
-      <p class="desc">
-        
-           Best Time to Buy and Sell Stock
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180810
-    </span>
-    <a class="home__list-link" href="./deploy/development/rest.html">
-      <h2 class="title">
-         REST란?
-      </h2>
-      <p class="desc">
-        
-           REST란?
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180806
-    </span>
-    <a class="home__list-link" href="./deploy/javascript/this.html">
-      <h2 class="title">
-         자바스크립트 this, bind 그리고 화살표 함수 
-      </h2>
-      <p class="desc">
-        
-           Javascript this, bind and arrow function
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180718
-    </span>
-    <a class="home__list-link" href="./deploy/algorithm/sortcolor.html">
-      <h2 class="title">
-         sort colors
-      </h2>
-      <p class="desc">
-        
-           sort colors
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180716
-    </span>
-    <a class="home__list-link" href="./deploy/algorithm/3sumclosest.html">
-      <h2 class="title">
-         3sum Closest
-      </h2>
-      <p class="desc">
-        
-           3sum Closest
-      </p>
-    </a>
-  </div>
-  
-  <div class="home__list">
-    <span class="home__list-date">
-       20180710
-    </span>
-    <a class="home__list-link" href="./deploy/algorithm/fibonacci.html">
-      <h2 class="title">
-         피보나치 수 구현하기
-      </h2>
-      <p class="desc">
-        
-           피보나치 수 구현하기
-      </p>
-    </a>
-  </div>
-  
+
+</div>
+
+  <div id="disqus_thread"></div>
+  <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+
+
+    // var disqus_config = function () {
+    //   this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    //   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // };
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://bohyeon-n.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
 
     </div>
     <div class="sidebar">
