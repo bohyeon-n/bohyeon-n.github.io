@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/style/index.css">
 
   <title>
-     Sorting in Python  |  구보현 블로그 
+     REST란? |  구보현 블로그 
   </title>
 </head>
 
@@ -573,61 +573,91 @@
 
   <div class="value">
     <h1 style="color:#333">
-       Sorting in Python 
+       REST란?
 
     </h1>
     <span>
-       20180824
+       20180810
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h2>Sorting in Python</h2>
-<h3>sorting function</h3>
+    <h2>REST 란?</h2>
+<h3>REST</h3>
+<p><strong>REST</strong>(REpresentation State Transfer)</p>
+<p>REST API 란 웹에 존재하는 모든 자원(이미지, 동영상, DB)에 고유한 URI 를 부여해 활용하는 것으로, 자원을 정의하고 자원에 대한 주소를 지정하는 방법론을 의미한다.</p>
+<p><code>무엇을(HTTP URI 로 정의된 리소스) 어떻게 한다(HTTP Method + payload)로 잘 정의된 API 를 REST API 라고 할 수 있다.</code></p>
+<p>REST 를 더 알아보기 전에 두 가지 용어를 알아보도록 하자.</p>
 <ol>
-<li><code>list.sort()</code></li>
+<li>
+<p>클라이언트</p>
+<p>클라이언트란 API 를 사용하는 사람이다.
+클라이언트는 사람이 아닌 웹브라우저가 될 수도 있다. 트위터 웹사이트에 접속하면, 브라우저는 트위터 API 를 호출하는 클라이언트가 되고, 반환되는 데이터는 화면에 렌더된다.</p>
+</li>
+<li>
+<p>리소스</p>
+<p>리소스는 API 가 정보를 제공할 수 있는 모든 객체가 될 수 있다.
+예를 들어 인스타그램의 리소스는 사용자, 해시태그, 사진 등이 될 수 있고 각각의 리소스는 사용자 이름, 숫자 등 고유한 식별자를 가지고 있다.</p>
+</li>
 </ol>
+<h3>REST 의 기본구조</h3>
+<p>REST API 는 다음의 세 가지 요소로 구성된다.</p>
 <ul>
-<li>list 에서만 사용할 수 있다.</li>
-<li><code>None</code> 반환한다. in-place 로 입력 리스트 내부에서 정렬이 이루어진다.</li>
-<li>original list 가 필요하지 않다면, sorted 보다 sort 를 쓰는 것이 좀 더 효율적이다.</li>
+<li>자원 - URI</li>
+<li>행위 - HTTML Method</li>
+<li>표현 - Representation</li>
 </ul>
-<ol start="2">
-<li><code>sorted(any iteralble)</code></li>
+<p>REST 는 제어할 자원을 표시한 <strong>URI</strong> 로 수행 할 행위인 <strong>HTTP Method</strong> 를 보내어 그 결과를 <strong>표현</strong>한다.</p>
+<h4>URI</h4>
+<p><strong>URI</strong>(Uniform Resource Identifier)</p>
+<p>URI 는 웹 상에 존재하는 어떤 자원을 나타내는 유일한 주소이다.</p>
+<p><strong>URI 와 URL 의 차이</strong></p>
+<p>URI 는 Uniform Resource Identifier 이고,
+URL 은 Uniform Resource Locator 이다.</p>
+<p>URL 은 어떤 자원의 위치를 나타내고
+URI 는 어떤 자원을 식별하기까지 한다.</p>
+<p>URL 은 URI 의 하위 개념이다.</p>
+<h4>HTTP Method</h4>
+<ul>
+<li>POST
+POST 를 통해 URI 를 요청하면 리소스를 생성한다.</li>
+<li>GET
+GET 을 통해 해당 리소스를 조회한다. 리소스를 조회하고 해당 도큐먼트에 대한 자세한 정보를 가져온다.</li>
+<li>PUT
+PUT 을 통해 해당 리소스를 수정한다.</li>
+<li>DELETE
+DELETE 를 통해 리소스를 삭제한다.</li>
+</ul>
+<h4>Representation</h4>
+<p>가장 대표적인 representation 은 JSON 형식이다. 또한 xml html 형식이 될 수도 있다.</p>
+<h4>RESTful</h4>
+<p>REST API 의 설계 의도를 정확하게 지켜주는 API 를 <strong>RESTful</strong> 하다 라고 부른다.</p>
+<h5>REST API 중심 규칙</h5>
+<ol>
+<li>URI 는 정보의 자원을 표현해야 한다.
+<code>GET /members/delete/1</code>
+URI 는 자원을 표현하는 데 중점을 두어야 한다. delete 와 같은 행위에 대한 표현이 들어가서는 안된다.</li>
+<li>자원에 대한 행위는 HTTP Method 로 표현한다.
+<code>DELETE /member/1</code>
+URI 는 자원을 표현하는 데 집중하고 행위에 대한 정의는 HTTP Method 를 통해 설계한다.</li>
 </ol>
-<ul>
-<li>iterable 자료 구조형에 모두 사용할 수 있다.</li>
-<li>sorted 된 새로운 리스트를 반환한다.</li>
-</ul>
-<p><code>list.sort()</code> 와 <code>sorted()</code>는 <em>key</em> 라는 매개변수로 sort 하기 전에 각 요소에 대해 호출 할 함수를 지정할 수 있다.</p>
-<pre class="hljs"><code>student_tuples = [
-    (<span class="hljs-string">'john'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-number">15</span>),
-    (<span class="hljs-string">'jane'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-number">12</span>),
-    (<span class="hljs-string">'dave'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-number">10</span>),
-]
-sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>])
-
-<span class="hljs-comment"># 나이로 sort 하기  [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</span>
-</code></pre>
-<h4>내림차순 정렬</h4>
-<p>reverse default value False</p>
-<pre class="hljs"><code>sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>], reverse=<span class="hljs-literal">True</span>)
-<span class="hljs-comment"># 내림차순 정렬 [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'C', 10)]</span>
-</code></pre>
-<h3>람다 사용하기</h3>
-<p>람다는 한 줄로 함수를 작성하는 방법이다. 식 형태로 되어 있다고 해서 람다 표현식이라고 부른다.
-람다는 함수를 간편하게 작성할 수 있어서 다른 함수의 인수로 (map, reduce, filter ... )넣을 때 주로 사용한다.</p>
-<p>fruites 리스트 재정렬하기</p>
-<p><code>apple</code> 이면 리스트 앞으로 정렬하기</p>
-<pre class="hljs"><code>fruites = [<span class="hljs-string">'apple'</span>, <span class="hljs-string">'banana'</span>, <span class="hljs-string">'orange'</span>,<span class="hljs-string">'apple'</span>]
-fruites.sort(key=<span class="hljs-keyword">lambda</span> fruite : <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> fruite == <span class="hljs-string">'apple'</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span> )
-print(fruites)
-<span class="hljs-comment"># ['apple', 'apple', 'banana', 'orange']</span>
-</code></pre>
-<p>참고자료</p>
-<p><a href="https://docs.python.org/3/howto/sorting.html">Python Documentation/ Sorting How To</a></p>
+<h5>URI 설계 원리</h5>
+<p>RESTful 한 API 를 설계하기 위해서는 URI 를 잘 정의하는 것이 중요하다.
+URI 설계 원리는 일반적으로 다음과 같다.</p>
+<ol>
+<li>슬래시 <code>/</code>는 계층 관계를 나타내는 데 사용한다.</li>
+<li><code>_</code> 언더 스코어 문자를 URI 에 사용하지 않도록 한다.</li>
+<li><code>-</code> 하이픈은 URI 가독성을 높이는 데 사용된다.</li>
+<li>소문자를 사용한다.</li>
+<li>파일 확장자는 URI 에 포함시키지 않는다.</li>
+<li>URI 에는 명사 위주로 쓴다.</li>
+</ol>
+<h3>참고자료</h3>
+<p><a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f">what is REST</a></p>
+<p><a href="https://nachwon.github.io/rest-1/">Che1's Blog</a></p>
+<p><a href="http://meetup.toast.com/posts/92">Toastmeetup Blog</a></p>
 
   </div>
 

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/style/index.css">
 
   <title>
-     Sorting in Python  |  구보현 블로그 
+     React앱 Apache로 배포 시 404 에러 해결하기 |  구보현 블로그 
   </title>
 </head>
 
@@ -366,7 +366,7 @@
             </li>
             
             <li>
-              <a href="/deploy/web/react_apache_error.html">
+              <a href="/deploy/web/react_nginx_error.html">
                 <p>
                   React앱 Apache로 배포 시 404 에러 해결하기
 
@@ -573,61 +573,81 @@
 
   <div class="value">
     <h1 style="color:#333">
-       Sorting in Python 
+       React앱 Apache로 배포 시 404 에러 해결하기
 
     </h1>
     <span>
-       20180824
+       20200823
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h2>Sorting in Python</h2>
-<h3>sorting function</h3>
+    <p>리액트 앱을 Apache 서버로 배포하였는데, 시작 페이지가 아닌 다른 url에서 새로고침 시 404 응답을 받았다.
+왜 404 에러가 오는지와 이를 해결하는 방법을 정리했다.</p>
+<hr>
+<h2>서버사이드 렌더링 vs 클라이언트 사이드 렌더링</h2>
+<p>왜 에러가 나는지 알기 위해 먼저, 서버사이드 렌더링과 클라이언트 사이드 렌더링에 대해 알아야 한다.</p>
+<p>서버 사이드 렌더링은 말 그대로 서버에서 렌더링 작업을 해서 전체 페이지를 내려주는 것이다. http://hoho.com/posts를 요청하면 서버에 있는 posts 자원을 내려준다.</p>
+<p>클라이언트 사이드는 비어있는 html과 js 파일들을 받아온 후에 필요한 데이터를 클라이언트에서 렌더링한다.</p>
+<h2>왜 404 응답을 받을까?</h2>
+<p>리액트는 클라이언트 사이드 렌더링을 한다.
+위에서 설명한 것처럼 처음에는 클라이언트에 js 코드가 로드되지 않는다. 따라서 처음에는 리액트 및 리액트 라우터 등을 로드하는 데 필요한 스크립트 태그가 포함된 html 페이지가 반환된다.
+그리고 필요한 스크립트 파일을 로드한다. 스크립트가 로드 된 후에 라우팅을 할 수 있게 된다.</p>
+<p>스크립트가 로드되지 않은 상태에서 http://hoho.com/posts 요청받으면 서버에 해당 소스를 찾아서 주려고 한다. posts라는 자원은 서버에 없는데, 달라고 하니까 404 에러가 뜨는 것이다.</p>
+<h2>해결 방법</h2>
+<p>이 문제를 해결하는 방법은 서버에 들어오는 요청을 무조건 index.html로 바꾸는 방법이 있다. 서버에 들어오는 요청을 재작성하는 것이다가</p>
+<p>클라이언트에서 처리하는 방법과 서버에서 처리하는 방법 두 가지를 알아보았다.</p>
+<h3>클라이언트에서 처리하는 방법</h3>
+<p>첫 번째 방법은 클라이언트에서 rewrite를 설정하는 것이다.</p>
 <ol>
-<li><code>list.sort()</code></li>
+<li>index.html 파일이 있는 곳에 .htaccess 파일 생성 후 아래와 같이 작성한다.</li>
 </ol>
-<ul>
-<li>list 에서만 사용할 수 있다.</li>
-<li><code>None</code> 반환한다. in-place 로 입력 리스트 내부에서 정렬이 이루어진다.</li>
-<li>original list 가 필요하지 않다면, sorted 보다 sort 를 쓰는 것이 좀 더 효율적이다.</li>
-</ul>
+<pre class="hljs"><code>Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
+</code></pre>
 <ol start="2">
-<li><code>sorted(any iteralble)</code></li>
+<li>.htaccess 파일 사용을 허용하도록 AllowOverride를 설정한다.</li>
 </ol>
-<ul>
-<li>iterable 자료 구조형에 모두 사용할 수 있다.</li>
-<li>sorted 된 새로운 리스트를 반환한다.</li>
-</ul>
-<p><code>list.sort()</code> 와 <code>sorted()</code>는 <em>key</em> 라는 매개변수로 sort 하기 전에 각 요소에 대해 호출 할 함수를 지정할 수 있다.</p>
-<pre class="hljs"><code>student_tuples = [
-    (<span class="hljs-string">'john'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-number">15</span>),
-    (<span class="hljs-string">'jane'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-number">12</span>),
-    (<span class="hljs-string">'dave'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-number">10</span>),
-]
-sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>])
+<pre class="hljs"><code>&lt;Directory &quot;/var/www/html&quot;&gt;
+    ...
+    AllowOverride All
+    ...
+&lt;/Directory&gt;
+</code></pre>
+<h3>서버에서 처리하는 방법</h3>
+<p>두 번째 방법은 서버에서 apache 설정 파일을 수정하는 것이다.</p>
+<ol>
+<li>설정 파일에서 rewrite 설정을 해준다.</li>
+</ol>
+<pre class="hljs"><code>&lt;Directory &quot;/var/www/html&quot;&gt;
 
-<span class="hljs-comment"># 나이로 sort 하기  [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</span>
+	  Options -MultiViews
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.html [QSA,L]
+
+    Require all granted
+&lt;/Directory&gt;
 </code></pre>
-<h4>내림차순 정렬</h4>
-<p>reverse default value False</p>
-<pre class="hljs"><code>sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>], reverse=<span class="hljs-literal">True</span>)
-<span class="hljs-comment"># 내림차순 정렬 [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'C', 10)]</span>
+<ol start="2">
+<li>rewrite 모듈을 설치한다.</li>
+</ol>
+<pre class="hljs"><code>sudo a2enmod rewrite
 </code></pre>
-<h3>람다 사용하기</h3>
-<p>람다는 한 줄로 함수를 작성하는 방법이다. 식 형태로 되어 있다고 해서 람다 표현식이라고 부른다.
-람다는 함수를 간편하게 작성할 수 있어서 다른 함수의 인수로 (map, reduce, filter ... )넣을 때 주로 사용한다.</p>
-<p>fruites 리스트 재정렬하기</p>
-<p><code>apple</code> 이면 리스트 앞으로 정렬하기</p>
-<pre class="hljs"><code>fruites = [<span class="hljs-string">'apple'</span>, <span class="hljs-string">'banana'</span>, <span class="hljs-string">'orange'</span>,<span class="hljs-string">'apple'</span>]
-fruites.sort(key=<span class="hljs-keyword">lambda</span> fruite : <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> fruite == <span class="hljs-string">'apple'</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span> )
-print(fruites)
-<span class="hljs-comment"># ['apple', 'apple', 'banana', 'orange']</span>
-</code></pre>
-<p>참고자료</p>
-<p><a href="https://docs.python.org/3/howto/sorting.html">Python Documentation/ Sorting How To</a></p>
+<h3>어떤 방법을 사용하면 좋을까?</h3>
+<p>클라이언트에서 처리하는 방법은 서버 설정 파일을 건드릴 수 있는 경우 사용할 수 있다. 그러나 가능하면 두 번째 방법을 쓰는 것이 좋다고 한다.
+서버에서 처리하는 방법이 더 좋은 이유는 두 가지 가 있다.</p>
+<p>첫 번째는 성능에 좋지 않다. .htaccess 파일 사용을 허용하도록 AllowOverride를 설정하면, httpd는 모든 디렉토리에서 이 파일을 찾는다. 또한 문서가 요청될 때 마다 .htaccess 파일이 로드된다.</p>
+<p>두 번째는 보안문제이다. 사용자(클라이언트가) 서버 구성을 수정하도록 ㅅ허용하면, 이로 인해 제어할 수 있는 변경이 발생할 수 있다.</p>
+<h2>참고 자료</h2>
+<p><a href="https://httpd.apache.org/docs/current/mod/mod_rewrite.html">https://httpd.apache.org/docs/current/mod/mod_rewrite.html</a></p>
+<p><a href="https://gist.github.com/ywwwtseng/63c36ccb58a25a09f7096bbb602ac1de">https://gist.github.com/ywwwtseng/63c36ccb58a25a09f7096bbb602ac1de</a></p>
+<p><a href="https://medium.com/infinitbility/deploy-react-application-on-ubuntu-apache-af109bc9d952">https://medium.com/infinitbility/deploy-react-application-on-ubuntu-apache-af109bc9d952</a></p>
+<p><a href="https://httpd.apache.org/docs/2.4/en/howto/htaccess.html">https://httpd.apache.org/docs/2.4/en/howto/htaccess.html</a></p>
 
   </div>
 

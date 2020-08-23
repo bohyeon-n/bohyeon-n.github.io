@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/style/index.css">
 
   <title>
-     Sorting in Python  |  구보현 블로그 
+    Category: Web |  구보현 블로그 
   </title>
 </head>
 
@@ -568,95 +568,49 @@
   <div class="content">
 
     <div class="main">
-      <div class="article">
-
-
-  <div class="value">
-    <h1 style="color:#333">
-       Sorting in Python 
-
-    </h1>
-    <span>
-       20180824
-
-    </span>
-  </div>
-
-
-  <div class="article__body">
-    <h2>Sorting in Python</h2>
-<h3>sorting function</h3>
-<ol>
-<li><code>list.sort()</code></li>
-</ol>
-<ul>
-<li>list 에서만 사용할 수 있다.</li>
-<li><code>None</code> 반환한다. in-place 로 입력 리스트 내부에서 정렬이 이루어진다.</li>
-<li>original list 가 필요하지 않다면, sorted 보다 sort 를 쓰는 것이 좀 더 효율적이다.</li>
-</ul>
-<ol start="2">
-<li><code>sorted(any iteralble)</code></li>
-</ol>
-<ul>
-<li>iterable 자료 구조형에 모두 사용할 수 있다.</li>
-<li>sorted 된 새로운 리스트를 반환한다.</li>
-</ul>
-<p><code>list.sort()</code> 와 <code>sorted()</code>는 <em>key</em> 라는 매개변수로 sort 하기 전에 각 요소에 대해 호출 할 함수를 지정할 수 있다.</p>
-<pre class="hljs"><code>student_tuples = [
-    (<span class="hljs-string">'john'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-number">15</span>),
-    (<span class="hljs-string">'jane'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-number">12</span>),
-    (<span class="hljs-string">'dave'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-number">10</span>),
-]
-sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>])
-
-<span class="hljs-comment"># 나이로 sort 하기  [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</span>
-</code></pre>
-<h4>내림차순 정렬</h4>
-<p>reverse default value False</p>
-<pre class="hljs"><code>sorted(student_tuples, key=<span class="hljs-keyword">lambda</span> student: student[<span class="hljs-number">2</span>], reverse=<span class="hljs-literal">True</span>)
-<span class="hljs-comment"># 내림차순 정렬 [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'C', 10)]</span>
-</code></pre>
-<h3>람다 사용하기</h3>
-<p>람다는 한 줄로 함수를 작성하는 방법이다. 식 형태로 되어 있다고 해서 람다 표현식이라고 부른다.
-람다는 함수를 간편하게 작성할 수 있어서 다른 함수의 인수로 (map, reduce, filter ... )넣을 때 주로 사용한다.</p>
-<p>fruites 리스트 재정렬하기</p>
-<p><code>apple</code> 이면 리스트 앞으로 정렬하기</p>
-<pre class="hljs"><code>fruites = [<span class="hljs-string">'apple'</span>, <span class="hljs-string">'banana'</span>, <span class="hljs-string">'orange'</span>,<span class="hljs-string">'apple'</span>]
-fruites.sort(key=<span class="hljs-keyword">lambda</span> fruite : <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> fruite == <span class="hljs-string">'apple'</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span> )
-print(fruites)
-<span class="hljs-comment"># ['apple', 'apple', 'banana', 'orange']</span>
-</code></pre>
-<p>참고자료</p>
-<p><a href="https://docs.python.org/3/howto/sorting.html">Python Documentation/ Sorting How To</a></p>
+      <div class="list">
+  <div class="title">
+    <i class="far fa-folder"></i>
+    Web
 
   </div>
+
+
+  <ul>
+    
+      <li>
+        <i class="fas fa-circle"></i>
+        <div class="content">
+          <a href="/deploy/web/react_apache_error.html">
+            <span>
+               React앱 Apache로 배포 시 404 에러 해결하기
+            </span>
+          </a>
+          <span>
+             20200823
+          </span>
+
+        </div>
+      </li>
+      
+      <li>
+        <i class="fas fa-circle"></i>
+        <div class="content">
+          <a href="/deploy/web/rest.html">
+            <span>
+               REST란?
+            </span>
+          </a>
+          <span>
+             20180810
+          </span>
+
+        </div>
+      </li>
+      
+  </ul>
 
 </div>
-
-  <div id="disqus_thread"></div>
-  <script>
-
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-
-
-    // var disqus_config = function () {
-    //   this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    //   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    // };
-
-    (function () { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://bohyeon-n.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the
-    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-  </noscript>
 
     </div>
     <div class="sidebar">
