@@ -1,5 +1,5 @@
 +++
-category = Computer science
+category = CS
 comments = true
 date = "20180908"
 draft = false
@@ -31,11 +31,11 @@ show="false"
 const doLineSearch = function(array, targetValue) {
   for (let guess = 0; guess < array.length; guess++) {
     if (array[guess] === targetValue) {
-      return guess; // 찾은 경우
+      return guess // 찾은 경우
     }
   }
-  return -1; // 찾지 못한 경우
-};
+  return -1 // 찾지 못한 경우
+}
 ```
 
 for 문은 최대 n 번 반복될 수 있고, 이런 최악의 경우는 배열에서 찾는 값이 존재하지 않을 때 발생한다.

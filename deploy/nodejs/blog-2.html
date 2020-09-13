@@ -5,16 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js">
-  <link rel="stylesheet" href="/style/index.css">
-
   <title>
      정적 블로그 생성기 만들기! - 2탄  |  구보현 블로그 
   </title>
+  <meta name="description" content=" 정적 블로그 생성기 만들기">
+  <meta name="keywords" content=" [ Nodejs, Blog]">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js">
+  <link rel="stylesheet" href="/style/index.css">
+
 </head>
 
 <body class="body">
@@ -93,6 +95,13 @@
           </li>
         </a>
         
+        <a href="/deploy/category/cs.html">
+          <li>
+            CS
+
+          </li>
+        </a>
+        
         <a href="/deploy/category/css.html">
           <li>
             CSS
@@ -110,13 +119,6 @@
         <a href="/deploy/category/web.html">
           <li>
             Web
-
-          </li>
-        </a>
-        
-        <a href="/deploy/category/computerscience.html">
-          <li>
-            Computer science
 
           </li>
         </a>
@@ -269,6 +271,66 @@
             </li>
             
             <li>
+              <a href="/deploy/cs/computer.html">
+                <p>
+                  컴퓨터의 작동원리
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/cs/hashmap.html">
+                <p>
+                  HashMap
+
+                </p>
+                <p>
+
+                  20200223
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/cs/internet-2.html">
+                <p>
+                  [네트워크]google.com을 입력하면 일어나는 일
+
+                </p>
+                <p>
+
+                  20200914
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/cs/internet.html">
+                <p>
+                  인터넷이 작동하는 방법
+
+                </p>
+                <p>
+
+                  20180901
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/css/flex-box.html">
                 <p>
                   Flexbox
@@ -382,51 +444,6 @@
                 <p>
 
                   20180810
-
-                </p>
-              </a>
-
-            </li>
-            
-            <li>
-              <a href="/deploy/computerscience/computer.html">
-                <p>
-                  컴퓨터의 작동원리
-
-                </p>
-                <p>
-
-                  20180831
-
-                </p>
-              </a>
-
-            </li>
-            
-            <li>
-              <a href="/deploy/computerscience/hashmap.html">
-                <p>
-                  HashMap
-
-                </p>
-                <p>
-
-                  20200223
-
-                </p>
-              </a>
-
-            </li>
-            
-            <li>
-              <a href="/deploy/computerscience/internet.html">
-                <p>
-                  인터넷이 작동하는 방법
-
-                </p>
-                <p>
-
-                  20180901
 
                 </p>
               </a>
@@ -833,6 +850,16 @@ deployFiles 배열에 fileName 을 푸시하던 로직을 수정해보겠습니�
 
       
     
+      <a href="/deploy/category/cs.html">
+        <li>
+          CS
+            (
+            4 )
+        </li>
+      </a>
+
+      
+    
       <a href="/deploy/category/css.html">
         <li>
           CSS
@@ -856,16 +883,6 @@ deployFiles 배열에 fileName 을 푸시하던 로직을 수정해보겠습니�
       <a href="/deploy/category/web.html">
         <li>
           Web
-            (
-            3 )
-        </li>
-      </a>
-
-      
-    
-      <a href="/deploy/category/computerscience.html">
-        <li>
-          Computer science
             (
             3 )
         </li>
@@ -919,6 +936,7 @@ deployFiles 배열에 fileName 을 푸시하던 로직을 수정해보겠습니�
     window.onscroll = function () {
       scrollFunction()
     }
+
     function scrollFunction() {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         document.getElementById('goUp').style.display = "block";
@@ -926,12 +944,11 @@ deployFiles 배열에 fileName 을 푸시하던 로직을 수정해보겠습니�
         document.getElementById('goUp').style.display = 'none';
       }
     }
+
     function topFunction() {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
-
-
   </script>
 
 </body>

@@ -1,5 +1,5 @@
 +++
-category = Computer science
+category = CS
 comments = true
 date = "20180831"
 draft = false

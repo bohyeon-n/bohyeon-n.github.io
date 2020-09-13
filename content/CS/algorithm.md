@@ -1,5 +1,5 @@
 +++
-category = Computer science
+category = CS
 comments = true
 date = "20180908"
 draft = false
@@ -66,19 +66,19 @@ primes[4] 는 10 보다 크다. max 값은 3 이 된다. 가능한 추측값이 
 
 ```js
 function binarySearch(array, target) {
-  min = 0;
-  max = array.length - 1;
+  min = 0
+  max = array.length - 1
   while (max >= min) {
-    guess = Math.floor((max + min) / 2);
+    guess = Math.floor((max + min) / 2)
     if (array[guess] === target) {
-      return guess;
+      return guess
     } else if (array[guess] > target) {
-      max = guess - 1;
+      max = guess - 1
     } else {
-      min = guess + 1;
+      min = guess + 1
     }
   }
-  return -1;
+  return -1
 }
 ```
 
