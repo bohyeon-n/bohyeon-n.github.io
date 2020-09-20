@@ -2,7 +2,7 @@
 category = JavaScript
 comments = true
 date = "20180817"
-draft = false
+draft = true
 showpagemeta = true
 showcomments = false
 slug = ""
@@ -47,9 +47,9 @@ hoist = "value";
 또한 호이스팅은 함수 선언을 유발한다. 프로그램에서 선언되기 전에
 
 ```js
-myFunction(); // No error, logs 'hello'
+myFunction() // No error, logs 'hello'
 function myFunction() {
-  console.log("hello");
+  console.log('hello')
 }
 ```
 
@@ -112,18 +112,18 @@ this: window,
 전역 컨텍스트가 생성된 후 -> 코드를 위에서부터 실행된다. -> 함수가 실행되면 새로운 컨텍스트인 함수 컨텍스트가 생긴다. ->
 
 ```js
-var name = "zero"; // (1)변수 선언 (6)변수 대입
+var name = 'zero' // (1)변수 선언 (6)변수 대입
 function wow(word) {
   // (2)변수 선언 (3)변수 대입
-  console.log(word + " " + name); // (11)
+  console.log(word + ' ' + name) // (11)
 }
 function say() {
   // (4)변수 선언 (5)변수 대입
-  var name = "nero"; // (8)
-  console.log(name); // (9)
-  wow("hello"); // (10)
+  var name = 'nero' // (8)
+  console.log(name) // (9)
+  wow('hello') // (10)
 }
-say(); // (7)
+say() // (7)
 ```
 
 wow 호출 시에 wow 컨텍스트도 생김 word = 'hello' 이고 스코프체인은 와우 스코프와 전역 스코프 -> 렉시컬 스코핑, 와우 함수의 스코프 체인은 선언 시에 이미 정해져 있다. 세이 스코프는 와우 컨텍스트의 스코프 체인이 아니다.
@@ -148,10 +148,10 @@ wow 호출 시에 wow 컨텍스트도 생김 word = 'hello' 이고 스코프체�
 그러나, 함수 표현식일 때는 에러 같은 함수여도 함수표현식으로 선언한 경우에는 에러가 발생한다.
 
 ```js
-sayYeah();
+sayYeah()
 var sayYeah = function() {
-  console.log("yeah");
-};
+  console.log('yeah')
+}
 ```
 
 대입되기 전에 호출해서 에러가 발생한다.
@@ -176,13 +176,13 @@ var sayYeah = function() {
 
 ```js
 var makeClosure = function() {
-  var name = "zero";
+  var name = 'zero'
   return function() {
-    console.log(name);
-  };
-};
-var closure = makeClosure();
-closure(); // zero
+    console.log(name)
+  }
+}
+var closure = makeClosure()
+closure() // zero
 ```
 
 name 은 closure 함수의 매개변수도 아니고, closure 함수 내부에서 생성한 변수도 아니다. 바로 이런 것이 비공개 변수이다.
@@ -216,27 +216,27 @@ function 을 return 하는데 그 function 선언 시의 scope chain 은 lexical
 
 ```js
 var counter = function() {
-  var count = 0;
+  var count = 0
   function changeCounter(number) {
-    count += number;
+    count += number
   }
   return {
     increase: function() {
-      changeCounter(1);
+      changeCounter(1)
     },
     decrease: function() {
-      changeCounter(-1);
+      changeCounter(-1)
     },
     show: function() {
-      alert(count);
+      alert(count)
     }
-  };
-};
-var counterClosure = counter();
-counterClosure.increase();
-counterClosure.show();
-counterClosure.decrease();
-counterClosure.show();
+  }
+}
+var counterClosure = counter()
+counterClosure.increase()
+counterClosure.show()
+counterClosure.decrease()
+counterClosure.show()
 ```
 
 counter 함수는 호출 시 return 을 통해 counterClosure 컨텍스트에 비공개 변수인 count 에 접근할 수 있는 scope chain 을 반환한다.

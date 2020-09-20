@@ -649,9 +649,9 @@ console.log(hoist); // undefinde
 hoist = "value";
 </span></code></pre>
 <p>또한 호이스팅은 함수 선언을 유발한다. 프로그램에서 선언되기 전에</p>
-<pre class="hljs"><code>myFunction(); <span class="hljs-comment">// No error, logs 'hello'</span>
+<pre class="hljs"><code>myFunction() <span class="hljs-comment">// No error, logs 'hello'</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"hello"</span>);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello'</span>)
 }
 </code></pre>
 <p>그러나 변수에 할당된 함수 식은 주의해야 한다.</p>
@@ -700,18 +700,18 @@ scopeChain: ['say 변수객체', '전역 변수객체'],// 스코프 체인, 자
 this: window,
 }
 전역 컨텍스트가 생성된 후 -&gt; 코드를 위에서부터 실행된다. -&gt; 함수가 실행되면 새로운 컨텍스트인 함수 컨텍스트가 생긴다. -&gt;</p>
-<pre class="hljs"><code><span class="hljs-keyword">var</span> name = <span class="hljs-string">"zero"</span>; <span class="hljs-comment">// (1)변수 선언 (6)변수 대입</span>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> name = <span class="hljs-string">'zero'</span> <span class="hljs-comment">// (1)변수 선언 (6)변수 대입</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wow</span>(<span class="hljs-params">word</span>) </span>{
   <span class="hljs-comment">// (2)변수 선언 (3)변수 대입</span>
-  <span class="hljs-built_in">console</span>.log(word + <span class="hljs-string">" "</span> + name); <span class="hljs-comment">// (11)</span>
+  <span class="hljs-built_in">console</span>.log(word + <span class="hljs-string">' '</span> + name) <span class="hljs-comment">// (11)</span>
 }
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">say</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-comment">// (4)변수 선언 (5)변수 대입</span>
-  <span class="hljs-keyword">var</span> name = <span class="hljs-string">"nero"</span>; <span class="hljs-comment">// (8)</span>
-  <span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">// (9)</span>
-  wow(<span class="hljs-string">"hello"</span>); <span class="hljs-comment">// (10)</span>
+  <span class="hljs-keyword">var</span> name = <span class="hljs-string">'nero'</span> <span class="hljs-comment">// (8)</span>
+  <span class="hljs-built_in">console</span>.log(name) <span class="hljs-comment">// (9)</span>
+  wow(<span class="hljs-string">'hello'</span>) <span class="hljs-comment">// (10)</span>
 }
-say(); <span class="hljs-comment">// (7)</span>
+say() <span class="hljs-comment">// (7)</span>
 </code></pre>
 <p>wow 호출 시에 wow 컨텍스트도 생김 word = 'hello' 이고 스코프체인은 와우 스코프와 전역 스코프 -&gt; 렉시컬 스코핑, 와우 함수의 스코프 체인은 선언 시에 이미 정해져 있다. 세이 스코프는 와우 컨텍스트의 스코프 체인이 아니다.
 세이 컨텍스트 안에서 와우 변수를 찾을 수 없다. 찾을 수 없으면 스코프 체인을 따라 올라가 상위 변수 객체에서 찾는다.
@@ -729,10 +729,10 @@ say(); <span class="hljs-comment">// (7)</span>
 변수 선언과 함수 선언식이 최상단으로 끌어올려졌기 때문이다.
 함수 선언식일 때 식 자체가 통째로 끌어올려짐
 그러나, 함수 표현식일 때는 에러 같은 함수여도 함수표현식으로 선언한 경우에는 에러가 발생한다.</p>
-<pre class="hljs"><code>sayYeah();
+<pre class="hljs"><code>sayYeah()
 <span class="hljs-keyword">var</span> sayYeah = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"yeah"</span>);
-};
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'yeah'</span>)
+}
 </code></pre>
 <p>대입되기 전에 호출해서 에러가 발생한다.</p>
 <p>함수 선언식은 컨텍스트 생성 후 바로 대입된다.</p>
@@ -749,13 +749,13 @@ say(); <span class="hljs-comment">// (7)</span>
 비공개 변수는 클로저 함수 내부에 생성한 변수도 아니고, 매개변수도 아닌 변수를 의미한다.</p>
 <p>클로저를 말할 때는 스코프/컨텍스트/비공개변수와 함수의 관계를 항상 같이 말해주어야 한다.</p>
 <pre class="hljs"><code><span class="hljs-keyword">var</span> makeClosure = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">var</span> name = <span class="hljs-string">"zero"</span>;
+  <span class="hljs-keyword">var</span> name = <span class="hljs-string">'zero'</span>
   <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(name);
-  };
-};
-<span class="hljs-keyword">var</span> closure = makeClosure();
-closure(); <span class="hljs-comment">// zero</span>
+    <span class="hljs-built_in">console</span>.log(name)
+  }
+}
+<span class="hljs-keyword">var</span> closure = makeClosure()
+closure() <span class="hljs-comment">// zero</span>
 </code></pre>
 <p>name 은 closure 함수의 매개변수도 아니고, closure 함수 내부에서 생성한 변수도 아니다. 바로 이런 것이 비공개 변수이다.</p>
 <pre class="hljs"><code><span class="hljs-string">"전역 컨텍스트"</span>: {
@@ -781,27 +781,27 @@ function 을 return 하는데 그 function 선언 시의 scope chain 은 lexical
 -&gt; 그래서 scope chain 을 통해 makeClosure 의 name 변수에 접근할 수 있다.</p>
 <p>클로저 예제</p>
 <pre class="hljs"><code><span class="hljs-keyword">var</span> counter = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>
   <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeCounter</span>(<span class="hljs-params">number</span>) </span>{
-    count += number;
+    count += number
   }
   <span class="hljs-keyword">return</span> {
     <span class="hljs-attr">increase</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      changeCounter(<span class="hljs-number">1</span>);
+      changeCounter(<span class="hljs-number">1</span>)
     },
     <span class="hljs-attr">decrease</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      changeCounter(<span class="hljs-number">-1</span>);
+      changeCounter(<span class="hljs-number">-1</span>)
     },
     <span class="hljs-attr">show</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      alert(count);
+      alert(count)
     }
-  };
-};
-<span class="hljs-keyword">var</span> counterClosure = counter();
-counterClosure.increase();
-counterClosure.show();
-counterClosure.decrease();
-counterClosure.show();
+  }
+}
+<span class="hljs-keyword">var</span> counterClosure = counter()
+counterClosure.increase()
+counterClosure.show()
+counterClosure.decrease()
+counterClosure.show()
 </code></pre>
 <p>counter 함수는 호출 시 return 을 통해 counterClosure 컨텍스트에 비공개 변수인 count 에 접근할 수 있는 scope chain 을 반환한다.</p>
 <p>자바스크립트에서 사용자를 통제하기 위한 기본적인 방법이 클로저이다.</p>

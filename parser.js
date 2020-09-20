@@ -101,7 +101,7 @@ function extractedValue(md) {
         }
       }
     })
-    console.log(extractedBody)
+
     return extractedValue
   }
 }
@@ -165,8 +165,9 @@ directories.forEach((directory, index) => {
     }
     let show =
       !value.show || (value.show && /true/i.test(removeAllBlank(value.show)))
-    if (value.category && show) {
-      console.log(value)
+    let draft = value.draft && /true/i.test(removeAllBlank(value.draft))
+
+    if (value.category && show && !draft) {
       allArticles.push({
         title: value.title.trim(),
         date: value.date.trim(),
