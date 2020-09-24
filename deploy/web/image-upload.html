@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+     [Spring][React]이미지 업로드 기능 만들기 |  구보현 블로그 
+  </title>
+  <meta name="description" content=" 게시판 글 이미지 업로드 기능 만들기!">
+  <meta name="keywords" content=" [ spring image upload, image rendering, react, spring]">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js">
+  <link rel="stylesheet" href="/style/index.css">
+
+</head>
+
+<body class="body">
+  <div class="header">
+    <div class="user">
+  <div class="user__content">
+    <div class="user__img">
+      <a href="/">
+        <img src="  https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
+      </a>
+    </div>
+
+    <div class="user__username">
+      <div>
+         구보현 블로그 
+
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div class="user__social">
+      
+        <a href=" https://github.com/bohyeon-n">
+
+          <i class="fab fa-github-alt fa-2x"></i>
+
+
+
+        </a>
+
+        
+          
+            <i class="fab fa-facebook-square fa-2x"></i>
+            
+    </div>
+    <div>
+    </div>
+
+  </div>
+
+</div>
+<div class="nav">
+  <div>
+    <ul>
+      <a href="/index.html">
+        <li class="nav__home">
+          Home
+        </li>
+      </a>
+
+      <li class="nav__category">
+        Category
+      </li>
+      <a href="/deploy/author/author.html">
+        <li class="nav__about">
+          About
+        </li>
+
+      </a>
+
+      <li class="nav__search ">
+        <input type="text" id="searchInput">
+
+        <i id='searchIcon' class="fas fa-search">
+        </i>
+      </li>
+    </ul>
+
+    <div class="category">
+      
+        <a href="/deploy/category/algorithm.html">
+          <li>
+            Algorithm
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/cs.html">
+          <li>
+            CS
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/css.html">
+          <li>
+            CSS
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/http.html">
+          <li>
+            HTTP
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/javascript.html">
+          <li>
+            JavaScript
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/network.html">
+          <li>
+            Network
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/web.html">
+          <li>
+            Web
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/nodejs.html">
+          <li>
+            Nodejs
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/python.html">
+          <li>
+            Python
+
+          </li>
+        </a>
+        
+    </div>
+  </div>
+</div>
+<div class="modal">
+  <div class="modal__wrap">
+    <div class="modal__content">
+      <div class="modal__content-input">
+        <input type="text" id="input" onkeyup="searchArticle()" placeholder="Type Something">
+        <i class="fas fa-times-circle fa-2x delete"></i>
+      </div>
+      <div class="modal__content-list">
+        <ul id="articleUl">
+          
+            <li>
+              <a href="/deploy/algorithm/3sumclosest.html">
+                <p>
+                  3sum Closest
+
+                </p>
+                <p>
+
+                  20180716
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/besttimetobuyandsellstock.html">
+                <p>
+                  Best Time to Buy and Sell Stock
+
+                </p>
+                <p>
+
+                  20180816
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/add_binary.html">
+                <p>
+                  Add Binary - Python
+
+                </p>
+                <p>
+
+                  20180818
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fibonacci.html">
+                <p>
+                  피보나치 수 구현하기
+
+                </p>
+                <p>
+
+                  20180710
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fizz_buzz.html">
+                <p>
+                  FIZZ BUZZ in Python
+
+                </p>
+                <p>
+
+                  20180825
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/jewels_and_stones.html">
+                <p>
+                  Jewels and Stones
+
+                </p>
+                <p>
+
+                  20180820
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/move_zeros.html">
+                <p>
+                  Move Zeroes
+
+                </p>
+                <p>
+
+                  20180824
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/sortcolor.html">
+                <p>
+                  sort colors
+
+                </p>
+                <p>
+
+                  20180718
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/cs/computer.html">
+                <p>
+                  컴퓨터의 작동원리
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/cs/hashmap.html">
+                <p>
+                  HashMap
+
+                </p>
+                <p>
+
+                  20200223
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/css/flex-box.html">
+                <p>
+                  Flexbox
+
+                </p>
+                <p>
+
+                  20200722
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/http/method.html">
+                <p>
+                  [HTTP]HTTP Method
+
+                </p>
+                <p>
+
+                  20200920
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/regexp.html">
+                <p>
+                  정규 표현식
+
+                </p>
+                <p>
+
+                  20180719
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/context.html">
+                <p>
+                  컨텍스트와 호이스팅 - JavaScript
+
+                </p>
+                <p>
+
+                  20180830
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/this.html">
+                <p>
+                  자바스크립트 this, bind 그리고 화살표 함수
+
+                </p>
+                <p>
+
+                  20180806
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/network/internet-2.html">
+                <p>
+                  [네트워크]google.com을 입력하면 일어나는 일
+
+                </p>
+                <p>
+
+                  20200914
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/network/internet.html">
+                <p>
+                  인터넷이 작동하는 방법
+
+                </p>
+                <p>
+
+                  20180901
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/cors.html">
+                <p>
+                  CORS란? CORS를 해결해보자
+
+                </p>
+                <p>
+
+                  20200522
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/image-upload.html">
+                <p>
+                  [Spring][React]이미지 업로드 기능 만들기
+
+                </p>
+                <p>
+
+                  20200924
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/react_apache_error.html">
+                <p>
+                  React앱 Apache로 배포 시 404 에러 해결하기
+
+                </p>
+                <p>
+
+                  20200823
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/rest.html">
+                <p>
+                  REST란?
+
+                </p>
+                <p>
+
+                  20180810
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blog-2.html">
+                <p>
+                  정적 블로그 생성기 만들기! - 2탄
+
+                </p>
+                <p>
+
+                  20180911
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blog-3.html">
+                <p>
+                  정적 블로그 생성기 만들기 - 댓글 기능 추가하기
+
+                </p>
+                <p>
+
+                  20180918
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blog-4.html">
+                <p>
+                  정적 블로그 생성기 만들기 - 헤더와 소개 페이지
+
+                </p>
+                <p>
+
+                  20181007
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blogindex.html">
+                <p>
+                  정적 블로그 생성기 만들기!
+
+                </p>
+                <p>
+
+                  20180905
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/python/sort.html">
+                <p>
+                  Sorting in Python
+
+                </p>
+                <p>
+
+                  20180824
+
+                </p>
+              </a>
+
+            </li>
+            
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script>  
+
+  document.querySelector('#searchInput').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+  document.querySelector('#searchIcon').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+
+  document.querySelector('.delete').addEventListener('click', function () {
+
+
+    document.querySelector('.modal').classList.remove('show')
+  })
+
+  function searchArticle() {
+    let input, filter, ul, li, a, i;
+    input = document.getElementById('input')
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('articleUl')
+    li = ul.getElementsByTagName('li');
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName('a')[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = '';
+      } else {
+        li[i].style.display = 'none'
+      }
+    }
+
+  }
+
+</script>
+
+  </div>
+
+
+
+  <div class="content">
+
+    <div class="main">
+      <div class="article">
+
+
+  <div class="value">
+    <h1 style="color:#333">
+       [Spring][React]이미지 업로드 기능 만들기
+
+    </h1>
+    <span>
+       20200924
+
+    </span>
+  </div>
+
+
+  <div class="article__body">
+    <p>지금 하고 있는 프로젝트인 '거북이 스터디'에 글을 쓸 때 이미지 업로드 기능을 만들고 싶었다.</p>
+<p>어떻게 이미지를 업로드할 수 있을까까</p>
+<p>일단, facebook에서 이미지를 어떻게 업로드하는지 살펴 보았다.</p>
+<h2>이미지를 업로드하는 과정</h2>
+<p>과정을 간단하게 살펴보면,</p>
+<ol>
+<li>사용자가 이미지 파일을 업로드 한다.</li>
+<li>업로드한 파일을 서버에 저장한다.</li>
+<li>클라이언트에서는 서버에 저장된 이미지의 url을 가져와서 사용한다.</li>
+</ol>
+<h3>페이스북이 피드에 이미지를 업로드 하는 요청 보기</h3>
+<ul>
+<li>
+<p>Form Data를 POST 요청 보내면, 서버에 저장된 이미지 주소를 Response로 받는다.</p>
+</li>
+<li>
+<p>request header</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/36990926/94120109-b68f2d80-fe8a-11ea-931f-ddee89de0538.png" alt="request header"></p>
+<ul>
+<li>response</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/36990926/94120111-b858f100-fe8a-11ea-9bb7-7f95657de379.png" alt="response "></p>
+<hr>
+<h2>Spring 서버 이미지 업로드 API 만들기</h2>
+<ol>
+<li>이미지 데이터베이스 테이블 추가해주기</li>
+</ol>
+<pre class="hljs"><code>-- schema.<span class="hljs-function">sql
+
+CREATE TABLE <span class="hljs-title">image</span>
+<span class="hljs-params">(
+    id      bigint primary key auto_increment,
+    name    varchar(<span class="hljs-number">512</span>)</span>,
+    type    <span class="hljs-title">varchar</span><span class="hljs-params">(<span class="hljs-number">128</span>)</span>,
+    pic_byte MEDIUMBLOB
+)</span>;
+</code></pre>
+<ol start="2">
+<li>image upload API 추가하기</li>
+</ol>
+<ul>
+<li>
+<p><a href="%5Bhttps://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/multipart/MultipartFile.html%5D(https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/multipart/MultipartFile.html)">MultipartFile</a> 인터페이스는 멀티 파트 요청에서 받은 업로드된 파일의 표현이다.</p>
+</li>
+<li>
+<p>파일 내용은 메모리에 저장되거나 디스크에 임시 저장된다.</p>
+</li>
+<li>
+<p><a href="%5Bhttps://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html%5D(https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html)">Deflater</a>는 문자열을 압축한다.</p>
+</li>
+<li>
+<p>압축한 byte를 데이터 베이스에 저장한다.</p>
+</li>
+<li>
+<p>저장된 이미지의 id를 Response 메시지에 반환한다.</p>
+</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-meta">@RestController</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileUploadController</span> </span>{
+
+    FileService fileService;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FileUploadController</span><span class="hljs-params">(FileService fileService)</span> </span>{
+        <span class="hljs-keyword">this</span>.fileService = fileService;
+    }
+
+    <span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">"/images"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Long <span class="hljs-title">uploadImage</span><span class="hljs-params">(@RequestParam(<span class="hljs-string">"imageFile"</span>)</span> MultipartFile file) <span class="hljs-keyword">throws</span> IOException </span>{
+        Image image = <span class="hljs-keyword">new</span> Image(file.getOriginalFilename(), file.getContentType(), compressBytes(file.getBytes()));
+        <span class="hljs-keyword">return</span> fileService.addImage(image);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] compressBytes(<span class="hljs-keyword">byte</span>[] data) {
+        Deflater deflater = <span class="hljs-keyword">new</span> Deflater();
+        deflater.setInput(data);
+        deflater.finish();
+
+        ByteArrayOutputStream outputStream = <span class="hljs-keyword">new</span> ByteArrayOutputStream(data.length);
+        <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];
+        <span class="hljs-keyword">while</span> (!deflater.finished()) {
+            <span class="hljs-keyword">int</span> count = deflater.deflate(buffer);
+            outputStream.write(buffer, <span class="hljs-number">0</span>, count);
+
+            <span class="hljs-keyword">try</span> {
+                outputStream.close();
+            } <span class="hljs-keyword">catch</span> (IOException e) {
+            }
+        }
+        <span class="hljs-keyword">return</span> outputStream.toByteArray();
+    }
+}
+</code></pre>
+<pre class="hljs"><code><span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileService</span> </span>{
+    ImageRepository imageRepository;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FileService</span><span class="hljs-params">(ImageRepository imageRepository)</span> </span>{
+        <span class="hljs-keyword">this</span>.imageRepository = imageRepository;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Long <span class="hljs-title">addImage</span> <span class="hljs-params">(Image image)</span> </span>{
+        <span class="hljs-keyword">return</span> imageRepository.addImage(image);
+    }
+}
+</code></pre>
+<pre class="hljs"><code><span class="hljs-meta">@Repository</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ImageRepository</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ImageRepository</span><span class="hljs-params">(DataSource dataSource)</span> </span>{
+        <span class="hljs-keyword">this</span>.namedParameterJdbcTemplate = <span class="hljs-keyword">new</span> NamedParameterJdbcTemplate(dataSource);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Long <span class="hljs-title">addImage</span><span class="hljs-params">(Image image)</span> </span>{
+        String sql = <span class="hljs-string">"INSERT INTO image (name, type, pic_byte) VALUES ( :name, :type, :picByte )"</span>;
+        SqlParameterSource parameter = <span class="hljs-keyword">new</span> MapSqlParameterSource(<span class="hljs-string">"name"</span>, image.getName())
+                .addValue(<span class="hljs-string">"type"</span>, image.getType())
+                .addValue(<span class="hljs-string">"picByte"</span>, image.getPicByte());
+
+        KeyHolder keyHolder = <span class="hljs-keyword">new</span> GeneratedKeyHolder();
+        namedParameterJdbcTemplate.update(sql, parameter, keyHolder);
+        <span class="hljs-keyword">return</span> keyHolder.getKey().longValue();
+    }
+}
+</code></pre>
+<h2>Spring 서버 이미지 가져오는 API</h2>
+<ul>
+<li>프로젝트에서 저장된 이미지를 가져온다.</li>
+<li>압축을 풀어서 응답 바디에 넣어준다.</li>
+<li>이 때 Content-Type 을 저장했던 image의 타입으로 해준다.</li>
+<li>Content-Type 을 지정해주지 않으면, 브라우저에서 파싱할 때 이미지 형식으로 파싱을 해주지 않는다.</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/images/{id}"</span>)
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">byte</span>[] getImage(<span class="hljs-meta">@PathVariable</span> Long id, HttpServletResponse response) {
+        Image image = fileService.getImageById(id);
+        image.setPicByte(decompressBytes(image.getPicByte()));
+        response.setContentType(image.getType());
+
+        <span class="hljs-keyword">return</span> image.getPicByte();
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] decompressBytes(<span class="hljs-keyword">byte</span>[] data) {
+        Inflater inflater = <span class="hljs-keyword">new</span> Inflater();
+        inflater.setInput(data);
+        ByteArrayOutputStream outputStream = <span class="hljs-keyword">new</span> ByteArrayOutputStream(data.length);
+        <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">while</span> (!inflater.finished()) {
+                <span class="hljs-keyword">int</span> count = inflater.inflate(buffer);
+                outputStream.write(buffer, <span class="hljs-number">0</span>, count);
+            }
+            outputStream.close();
+        } <span class="hljs-keyword">catch</span> (IOException | DataFormatException ignored) {
+        }
+
+        <span class="hljs-keyword">return</span> outputStream.toByteArray();
+    }
+
+</code></pre>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">public</span> Image <span class="hljs-title">getImageById</span><span class="hljs-params">(Long id)</span> </span>{
+        <span class="hljs-keyword">return</span> imageRepository.findById(id).orElseThrow();
+    }
+</code></pre>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">public</span> Optional&lt;Image&gt; <span class="hljs-title">findById</span><span class="hljs-params">(Long id)</span> </span>{
+        String sql = <span class="hljs-string">"SELECT id, name, type, pic_byte FROM image WHERE id = :id"</span>;
+        SqlParameterSource parameter = <span class="hljs-keyword">new</span> MapSqlParameterSource(<span class="hljs-string">"id"</span>, id);
+        <span class="hljs-keyword">try</span> {
+            Image image = namedParameterJdbcTemplate.queryForObject(sql, parameter, BeanPropertyRowMapper.newInstance(Image<span class="hljs-class">.<span class="hljs-keyword">class</span>))</span>;
+            <span class="hljs-keyword">assert</span> image != <span class="hljs-keyword">null</span>;
+            <span class="hljs-keyword">return</span> Optional.of(image);
+
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            <span class="hljs-keyword">return</span> Optional.empty();
+        }
+    }
+</code></pre>
+<hr>
+<h2>클라이언트에서 이미지 렌더링하기</h2>
+<p>이제 이 이미지를 클라이언트에서 어떻게 렌더링해주면 좋을까?</p>
+<p>서버에 게시글을 어떤 형식으로 저장했느냐에 따라 차이가 있을 것 같다.</p>
+<p>서버에 게시글을 html 형식으로 저장을 할 수 있고, 자신이 정한 특정한 형식(마크다운같은)으로 저장할 수도 있다.</p>
+<p>텍스트를 저장한 형식에 맞게 HTML로 파싱해주면 된다.</p>
+<p>이번 프로젝트에서는 마크다운 형식으로 저장을 하고, 마크다운형식으로 작성한 텍스트를 HTML로 파싱하여 렌더링하였다.</p>
+<h3>markdown을 html로 변환하기</h3>
+<p><a href="%5Bhttps://github.com/rexxars/react-markdown%5D(https://github.com/rexxars/react-markdown)">react-markdown</a> 라이브러리를 사용하여 마크다운을 html로 파싱해주었다.</p>
+<p>코드 highlighter 기능도 추가해줬다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> ReactMarkdown <span class="hljs-keyword">from</span> <span class="hljs-string">'react-markdown'</span>
+<span class="hljs-keyword">import</span> CodeBlock <span class="hljs-keyword">from</span> <span class="hljs-string">'./CodeBlock'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> MarkdownToHtml = <span class="hljs-function">(<span class="hljs-params">{ source }: string | any</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ReactMarkdown</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{source}</span> <span class="hljs-attr">renderers</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">code:</span> <span class="hljs-attr">CodeBlock</span> }} /&gt;</span></span>
+}
+</code></pre>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { Prism <span class="hljs-keyword">as</span> SyntaxHighlighter } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-syntax-highlighter'</span>
+<span class="hljs-keyword">import</span> { tomorrow } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-syntax-highlighter/dist/esm/styles/prism'</span>
+
+<span class="hljs-keyword">const</span> CodeBlock = <span class="hljs-function">(<span class="hljs-params">{ language, value }</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SyntaxHighlighter</span> <span class="hljs-attr">language</span>=<span class="hljs-string">{language}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{tomorrow}</span>&gt;</span>
+      {value}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">SyntaxHighlighter</span>&gt;</span></span>
+  )
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> CodeBlock
+</code></pre>
+<h3>이미지 업로드 fetch 요청 보내기</h3>
+<p>이미지 업로드 요청을 보낸 뒤 이미지 id를 받아온 뒤 content 에 이미지를 마크다운 형식으로 추가해준다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> onUploadImage = <span class="hljs-keyword">async</span> e =&gt; {
+  <span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> FormData()
+  <span class="hljs-keyword">if</span> (e.target.files !== <span class="hljs-literal">null</span>) {
+    formData.append(<span class="hljs-string">'imageFile'</span>, e.target.files[<span class="hljs-number">0</span>])
+
+    <span class="hljs-keyword">const</span> requestOptions: RequestInit = {
+      <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
+      <span class="hljs-attr">credentials</span>: <span class="hljs-string">'include'</span>,
+      <span class="hljs-attr">body</span>: formData
+    }
+
+    <span class="hljs-keyword">const</span> imageId = <span class="hljs-keyword">await</span> fetch(
+      <span class="hljs-string">`<span class="hljs-subst">${process.env.REACT_APP_BASE_URL}</span>/images`</span>,
+      requestOptions
+    ).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.json())
+
+    <span class="hljs-keyword">const</span> imgSrc = <span class="hljs-string">`<span class="hljs-subst">${process.env.REACT_APP_BASE_URL}</span>/images/<span class="hljs-subst">${imageId}</span>`</span>
+
+    <span class="hljs-comment">// 현재 작성중인 content에 업로드한 이미지의 주소를 추가해줌</span>
+    onChangeContent(PostInput.content, <span class="hljs-string">`<span class="hljs-subst">${content}</span>\n![](<span class="hljs-subst">${imgSrc}</span>) \n`</span>)
+  }
+}
+</code></pre>
+<h2>완성된 이미지</h2>
+<p><img src="https://user-images.githubusercontent.com/36990926/94119970-88a9e900-fe8a-11ea-93e1-a19b8d4d0b9d.png" alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/36990926/94119977-8b0c4300-fe8a-11ea-81fa-289efeb185b6.png" alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/36990926/94119981-8c3d7000-fe8a-11ea-93c9-1f16b07a2764.png" alt=""></p>
+<h2>개선할 점</h2>
+<p>image는 데이터가 크기 때문에 이미지를 배포 서버에 직접 저장하는 것이 아니라, AWS s3같은 서비스를 사용하여 s3 서버에 저장한 후에 배포 서버에서는 content에 이미지 url만 저장하면 좋을 것 같다.</p>
+<h2>참고자료</h2>
+<p><a href="https://spring.io/guides/gs/uploading-files/">https://spring.io/guides/gs/uploading-files/</a></p>
+<p><a href="https://medium.com/@rameez.s.shaikh/upload-and-retrieve-images-using-spring-boot-angular-8-mysql-18c166f7bc98">https://medium.com/@rameez.s.shaikh/upload-and-retrieve-images-using-spring-boot-angular-8-mysql-18c166f7bc98</a></p>
+
+  </div>
+
+</div>
+
+  <div id="disqus_thread"></div>
+  <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+
+
+    // var disqus_config = function () {
+    //   this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    //   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // };
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://bohyeon-n.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+    </div>
+    <div class="sidebar">
+      <!-- folder name -->
+<div>
+  Category
+</div>
+<ul>
+
+  
+    
+      <a href="/deploy/category/algorithm.html">
+        <li>
+          Algorithm
+            (
+            8 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/cs.html">
+        <li>
+          CS
+            (
+            2 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/css.html">
+        <li>
+          CSS
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/http.html">
+        <li>
+          HTTP
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/javascript.html">
+        <li>
+          JavaScript
+            (
+            3 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/network.html">
+        <li>
+          Network
+            (
+            2 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/web.html">
+        <li>
+          Web
+            (
+            4 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/nodejs.html">
+        <li>
+          Nodejs
+            (
+            4 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/python.html">
+        <li>
+          Python
+            (
+            1 )
+        </li>
+      </a>
+
+      
+</ul>
+
+    </div>
+
+
+  </div>
+  <button id="goUp" onclick="topFunction()">
+    <i class="fas fa-arrow-circle-up"></i>
+  </button>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.js"></script>
+  <script>
+    const categoryEl = document.querySelector('.category')
+    const navCategoryEl = document.querySelector('.nav__category')
+    navCategoryEl.addEventListener('click', e => {
+      if (!categoryEl.classList.contains('show')) {
+        categoryEl.classList.add('show')
+
+
+      } else {
+        categoryEl.classList.remove('show');
+      }
+    })
+
+    window.onscroll = function () {
+      scrollFunction()
+    }
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('goUp').style.display = "block";
+      } else {
+        document.getElementById('goUp').style.display = 'none';
+      }
+    }
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>
