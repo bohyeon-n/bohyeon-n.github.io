@@ -1,8 +1,0 @@
-ES6에서 javascript의 전역 객체의 속성이 아닌 전역 변수도 있다. 
-- let 선언, 
-- const 선언 
-- 클래스 선언 
-
-전역 범위에서 다음 선언은 이러한 변수를 만든다. 
-
-https://2ality.com/2015/02/es6-scoping.html
