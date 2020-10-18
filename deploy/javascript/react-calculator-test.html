@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+     [REACT]계산기 구현 + 테스트 코드 |  구보현 블로그 
+  </title>
+  <meta name="description" content=" [REACT]계산기를 구현하면서 테스트 코드를 짜보자!">
+  <meta name="keywords" content=" [ JS, REACT, TEST]">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js">
+  <link rel="stylesheet" href="/style/index.css">
+
+</head>
+
+<body class="body">
+  <div class="header">
+    <div class="user">
+  <div class="user__content">
+    <div class="user__img">
+      <a href="/">
+        <img src="  https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
+      </a>
+    </div>
+
+    <div class="user__username">
+      <div>
+         구보현 블로그 
+
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div class="user__social">
+      
+        <a href=" https://github.com/bohyeon-n">
+
+          <i class="fab fa-github-alt fa-2x"></i>
+
+
+
+        </a>
+
+        
+          
+            <i class="fab fa-facebook-square fa-2x"></i>
+            
+    </div>
+    <div>
+    </div>
+
+  </div>
+
+</div>
+<div class="nav">
+  <div>
+    <ul>
+      <a href="/index.html">
+        <li class="nav__home">
+          Home
+        </li>
+      </a>
+
+      <li class="nav__category">
+        Category
+      </li>
+      <a href="/deploy/author/author.html">
+        <li class="nav__about">
+          About
+        </li>
+
+      </a>
+
+      <li class="nav__search ">
+        <input type="text" id="searchInput">
+
+        <i id='searchIcon' class="fas fa-search">
+        </i>
+      </li>
+    </ul>
+
+    <div class="category">
+      
+        <a href="/deploy/category/algorithm.html">
+          <li>
+            Algorithm
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/cs.html">
+          <li>
+            CS
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/css.html">
+          <li>
+            CSS
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/devops.html">
+          <li>
+            DevOps
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/http.html">
+          <li>
+            HTTP
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/javascript.html">
+          <li>
+            JavaScript
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/network.html">
+          <li>
+            Network
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/web.html">
+          <li>
+            Web
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/nodejs.html">
+          <li>
+            Nodejs
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/python.html">
+          <li>
+            Python
+
+          </li>
+        </a>
+        
+    </div>
+  </div>
+</div>
+<div class="modal">
+  <div class="modal__wrap">
+    <div class="modal__content">
+      <div class="modal__content-input">
+        <input type="text" id="input" onkeyup="searchArticle()" placeholder="Type Something">
+        <i class="fas fa-times-circle fa-2x delete"></i>
+      </div>
+      <div class="modal__content-list">
+        <ul id="articleUl">
+          
+            <li>
+              <a href="/deploy/algorithm/3sumclosest.html">
+                <p>
+                  3sum Closest
+
+                </p>
+                <p>
+
+                  20180716
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/besttimetobuyandsellstock.html">
+                <p>
+                  Best Time to Buy and Sell Stock
+
+                </p>
+                <p>
+
+                  20180816
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/add_binary.html">
+                <p>
+                  Add Binary - Python
+
+                </p>
+                <p>
+
+                  20180818
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fibonacci.html">
+                <p>
+                  피보나치 수 구현하기
+
+                </p>
+                <p>
+
+                  20180710
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fizz_buzz.html">
+                <p>
+                  FIZZ BUZZ in Python
+
+                </p>
+                <p>
+
+                  20180825
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/jewels_and_stones.html">
+                <p>
+                  Jewels and Stones
+
+                </p>
+                <p>
+
+                  20180820
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/move_zeros.html">
+                <p>
+                  Move Zeroes
+
+                </p>
+                <p>
+
+                  20180824
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/sortcolor.html">
+                <p>
+                  sort colors
+
+                </p>
+                <p>
+
+                  20180718
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/cs/computer.html">
+                <p>
+                  컴퓨터의 작동원리
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/cs/hashmap.html">
+                <p>
+                  HashMap
+
+                </p>
+                <p>
+
+                  20200223
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/css/flex-box.html">
+                <p>
+                  Flexbox
+
+                </p>
+                <p>
+
+                  20200722
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/devops/github_action.html">
+                <p>
+                  Github Action, AWS CodeDeploy를 사용하여 자동 배포하기!
+
+                </p>
+                <p>
+
+                  20201012
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/http/method.html">
+                <p>
+                  [HTTP]HTTP Method
+
+                </p>
+                <p>
+
+                  20200920
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/regexp.html">
+                <p>
+                  정규 표현식
+
+                </p>
+                <p>
+
+                  20180719
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/context.html">
+                <p>
+                  컨텍스트와 호이스팅 - JavaScript
+
+                </p>
+                <p>
+
+                  20180830
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/react-calculator-test.html">
+                <p>
+                  [REACT]계산기 구현 + 테스트 코드
+
+                </p>
+                <p>
+
+                  20201018
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/this.html">
+                <p>
+                  자바스크립트 this, bind 그리고 화살표 함수
+
+                </p>
+                <p>
+
+                  20180806
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/this2.html">
+                <p>
+                  [자바스크립트]this는 뭘까?
+
+                </p>
+                <p>
+
+                  20201009
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/network/internet-2.html">
+                <p>
+                  [네트워크]google.com을 입력하면 일어나는 일
+
+                </p>
+                <p>
+
+                  20200914
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/network/internet.html">
+                <p>
+                  인터넷이 작동하는 방법
+
+                </p>
+                <p>
+
+                  20180901
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/cors.html">
+                <p>
+                  CORS란? CORS를 해결해보자
+
+                </p>
+                <p>
+
+                  20200522
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/image-upload.html">
+                <p>
+                  [Spring][React]이미지 업로드 기능 만들기
+
+                </p>
+                <p>
+
+                  20200924
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/react_apache_error.html">
+                <p>
+                  React앱 Apache로 배포 시 404 에러 해결하기
+
+                </p>
+                <p>
+
+                  20200823
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/rest.html">
+                <p>
+                  REST란?
+
+                </p>
+                <p>
+
+                  20180810
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blog-2.html">
+                <p>
+                  정적 블로그 생성기 만들기! - 2탄
+
+                </p>
+                <p>
+
+                  20180911
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blog-3.html">
+                <p>
+                  정적 블로그 생성기 만들기 - 댓글 기능 추가하기
+
+                </p>
+                <p>
+
+                  20180918
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blog-4.html">
+                <p>
+                  정적 블로그 생성기 만들기 - 헤더와 소개 페이지
+
+                </p>
+                <p>
+
+                  20181007
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blogindex.html">
+                <p>
+                  정적 블로그 생성기 만들기!
+
+                </p>
+                <p>
+
+                  20180905
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/python/sort.html">
+                <p>
+                  Sorting in Python
+
+                </p>
+                <p>
+
+                  20180824
+
+                </p>
+              </a>
+
+            </li>
+            
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script>  
+
+  document.querySelector('#searchInput').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+  document.querySelector('#searchIcon').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+
+  document.querySelector('.delete').addEventListener('click', function () {
+
+
+    document.querySelector('.modal').classList.remove('show')
+  })
+
+  function searchArticle() {
+    let input, filter, ul, li, a, i;
+    input = document.getElementById('input')
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('articleUl')
+    li = ul.getElementsByTagName('li');
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName('a')[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = '';
+      } else {
+        li[i].style.display = 'none'
+      }
+    }
+
+  }
+
+</script>
+
+  </div>
+
+
+
+  <div class="content">
+
+    <div class="main">
+      <div class="article">
+
+
+  <div class="value">
+    <h1 style="color:#333">
+       [REACT]계산기 구현 + 테스트 코드
+
+    </h1>
+    <span>
+       20201018
+
+    </span>
+  </div>
+
+
+  <div class="article__body">
+    <p>스택 계산기를 만들면서 테스트 코드 짜는 법을 공부했다.</p>
+<h1>테스트</h1>
+<h2>테스트 코드를 짜야 하는 이유는 ?</h2>
+<p>왜 테스트 코드를 짜야 할까?</p>
+<p>궁극적으로는 지속가능한 소프트웨어를 위해서다.</p>
+<p>한 부분을 수정할 때, 다른 부분에 영향을 미칠 수 있고, 다른 사람이 내가 짠 코드를 수정하거나 영향을 줄 수 있는데 그 때 마다 일일이 테스트하기가 어렵다.</p>
+<p>테스트 코드를 작성해 놓으면, 지속적으로 프로그래밍을 업데이트하는 데 도움이된다.</p>
+<p>또한 테스트 코드는 내가 짠 코드를 설명하는 문서? 같은 것이 될 수 있다.</p>
+<p>테스트 코드를 짜면서 정리할 수 있다. 테스트를 짜려고 하다보면, 함수를 한 가지 기능만 수행하도록 , 순수함수로 짤 수 있게 되는 것 같다.</p>
+<h2>TDD ?</h2>
+<p>Test Driven Development 로 개발 후 테스트 코드를 작성하는 것이 아니라, 먼저 테스트 코드를 작성 후 이 테스트 코드를 충족하기 위해 함수를 구현하는 것이다.</p>
+<p>테스트 코드 작성 → fail → 함수 구현 → pass → refactoring의 과정을 거친다.</p>
+<h2>Jest 설치</h2>
+<ul>
+<li>jest 설치하기</li>
+</ul>
+<p><code>npm install --save-dev jest</code></p>
+<ul>
+<li>package.json에 추가</li>
+</ul>
+<pre class="hljs"><code>{
+	<span class="hljs-string">"scripts"</span>: {
+		<span class="hljs-string">"test"</span>: <span class="hljs-string">"jest"</span>
+	}
+}
+</code></pre>
+<p><code>file.js</code>, 와 테스트 파일인 <code>file.test.js</code></p>
+<p>을 작성해서 <code>npm run test</code> 를 실행해주면 된다.</p>
+<h3>Jest create-react-app 테스트</h3>
+<p>create react app 을 사용하면, jest 모듈이 설치되어 있다.</p>
+<p>rendering snapshots 를 위해서 <code>react-test-render</code> 모듈만 설치해주면 된다.</p>
+<p><code>npm install --dev react-test-renderer</code></p>
+<h2>Unit 테스트</h2>
+<p>계산기 로직은 TDD로 테스트 코드를 먼저 작성하고, 함수를 구현했고,</p>
+<p>UI 관련 부분은 아직 익숙치 않아서 먼저 코드 작성 후 테스트 코드를 작성했다.</p>
+<h3>Stack Calculator 구현</h3>
+<h4>표현식 string을 받아서 배열로 파싱하는 함수</h4>
+<ul>
+<li>test code 구현</li>
+</ul>
+<pre class="hljs"><code>test(<span class="hljs-string">'문자열을 표현식으로 쪼개기 테스트'</span>, () =&gt; {
+  expect(splitedExpression(<span class="hljs-string">'1.2+2.2'</span>)).toEqual([<span class="hljs-string">'1.2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'2.2'</span>])
+})
+</code></pre>
+<ul>
+<li>
+<p>test code 실패</p>
+</li>
+<li>
+<p>구현</p>
+</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> splitedExpression = <span class="hljs-function"><span class="hljs-params">expression</span> =&gt;</span> {
+  <span class="hljs-keyword">let</span> preValue = <span class="hljs-literal">null</span>
+  <span class="hljs-keyword">const</span> splitedExpression = []
+  expression.split(<span class="hljs-string">''</span>).forEach(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (
+      value === <span class="hljs-string">'.'</span> ||
+      preValue === <span class="hljs-string">'.'</span> ||
+      (!<span class="hljs-built_in">isNaN</span>(<span class="hljs-built_in">Number</span>(value)) &amp;&amp; preValue !== <span class="hljs-literal">null</span> &amp;&amp; !<span class="hljs-built_in">isNaN</span>(<span class="hljs-built_in">Number</span>(preValue)))
+    ) {
+      splitedExpression[splitedExpression.length - <span class="hljs-number">1</span>] += value
+    } <span class="hljs-keyword">else</span> {
+      splitedExpression.push(value)
+    }
+    preValue = value
+  })
+
+  <span class="hljs-keyword">return</span> splitedExpression
+}
+</code></pre>
+<ul>
+<li>테스트 코드 통과</li>
+</ul>
+<h4>후위 표기법으로 변환하기</h4>
+<pre class="hljs"><code>test(<span class="hljs-string">'후위 표기법 테스트'</span>, () =&gt; {
+  expect(
+    toPostfix([<span class="hljs-string">'('</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">')'</span>, <span class="hljs-string">'*'</span>, <span class="hljs-string">'('</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">')'</span>])
+  ).toEqual([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'*'</span>])
+})
+</code></pre>
+<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> toPostfix = <span class="hljs-function"><span class="hljs-params">expression</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> operationOrder = {
+    <span class="hljs-string">'+'</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">'-'</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">'/'</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-string">'*'</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-string">'('</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">')'</span>: <span class="hljs-number">1</span>
+  }
+
+  <span class="hljs-keyword">const</span> stack = []
+  <span class="hljs-keyword">const</span> result = []
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; expression.length; i++) {
+    <span class="hljs-keyword">let</span> lastStack = stack[stack.length - <span class="hljs-number">1</span>]
+    <span class="hljs-keyword">const</span> key = expression[i]
+
+    <span class="hljs-keyword">if</span> (key === <span class="hljs-string">'('</span>) {
+      stack.push(key)
+      <span class="hljs-keyword">continue</span>
+    }
+
+    <span class="hljs-keyword">if</span> (key === <span class="hljs-string">')'</span>) {
+      <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+        <span class="hljs-keyword">if</span> (lastStack === <span class="hljs-string">'('</span>) {
+          stack.pop()
+          <span class="hljs-keyword">break</span>
+        }
+        result.push(stack.pop())
+        lastStack = stack[stack.length - <span class="hljs-number">1</span>]
+      }
+      <span class="hljs-keyword">continue</span>
+    }
+
+    <span class="hljs-keyword">if</span> (key <span class="hljs-keyword">in</span> operationOrder) {
+      <span class="hljs-keyword">if</span> (!lastStack) {
+        stack.push(key)
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span> (operationOrder[key] &lt;= operationOrder[lastStack]) {
+          result.push(stack.pop())
+          stack.push(key)
+        } <span class="hljs-keyword">else</span> {
+          stack.push(key)
+        }
+      }
+    } <span class="hljs-keyword">else</span> {
+      result.push(key)
+    }
+  }
+  <span class="hljs-keyword">return</span> [...result, ...stack]
+}
+</code></pre>
+<h3>후위 표기법 계산하기</h3>
+<pre class="hljs"><code>test(<span class="hljs-string">'후위 표기법 계산 테스트'</span>, () =&gt; {
+  expect(calcPostfix([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'*'</span>])).toBe(<span class="hljs-number">9</span>)
+})
+</code></pre>
+<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> calcPostfix = <span class="hljs-function"><span class="hljs-params">expression</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> stack = []
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; expression.length; i++) {
+    <span class="hljs-keyword">let</span> n1
+    <span class="hljs-keyword">let</span> n2
+    <span class="hljs-keyword">switch</span> (expression[i]) {
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'+'</span>:
+        stack.push(<span class="hljs-built_in">parseFloat</span>((stack.pop() + stack.pop()).toFixed()))
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'-'</span>:
+        n1 = stack.pop()
+        n2 = stack.pop()
+        stack.push(<span class="hljs-built_in">parseFloat</span>((n2 - n1).toFixed(<span class="hljs-number">2</span>)))
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'*'</span>:
+        stack.push(<span class="hljs-built_in">parseFloat</span>((stack.pop() * stack.pop()).toFixed(<span class="hljs-number">2</span>)))
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'/'</span>:
+        n1 = stack.pop()
+        n2 = stack.pop()
+        stack.push(<span class="hljs-built_in">parseFloat</span>((n2 / n1).toFixed(<span class="hljs-number">2</span>)))
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-attr">default</span>:
+        stack.push(<span class="hljs-built_in">parseFloat</span>(expression[i]))
+    }
+  }
+
+  <span class="hljs-keyword">return</span> stack.pop()
+}
+</code></pre>
+<h2>Dom 테스트</h2>
+<p>react-testing-library Enzyme 또는 리액트의 TestUtils 를 사용할 수 있다.</p>
+<p>react-testing-library 를 사용하기로 했다.</p>
+<p>설치하기 위해서 <code>npm install --dev @testing-library/react</code> 를 실행해준다. cra 를 사용하면 모듈이 설치되어 있다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> {
+  cleanup,
+  fireEvent,
+  render,
+  waitForElement
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'@testing-library/react'</span>
+
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span>
+
+afterEach(cleanup)
+
+it(<span class="hljs-string">'App.js: 계산기가 노출된다.'</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> { queryByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>)
+  expect(queryByText(<span class="hljs-string">'계산기'</span>)).toBeInTheDocument()
+})
+</code></pre>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { cleanup, render } <span class="hljs-keyword">from</span> <span class="hljs-string">'@testing-library/react'</span>
+
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span>
+
+afterEach(cleanup)
+
+it(<span class="hljs-string">'App.js: 계산기 제목이 노출된다.'</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> { queryByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>)
+  expect(queryByText(<span class="hljs-string">'계산기'</span>)).toBeInTheDocument()
+})
+</code></pre>
+<h2>이벤트 핸들러 테스트</h2>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> Calculator <span class="hljs-keyword">from</span> <span class="hljs-string">'./Calculator'</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { fireEvent, render } <span class="hljs-keyword">from</span> <span class="hljs-string">'@testing-library/react'</span>
+
+it(<span class="hljs-string">'Calculator.js: button을 click하면 클릭한 데이터가 노출된다.'</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> { getByText, getByTestId } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Calculator</span> /&gt;</span></span>)
+  fireEvent.click(getByText(<span class="hljs-string">'1'</span>))
+
+  <span class="hljs-keyword">const</span> result = getByTestId(<span class="hljs-string">'result'</span>)
+  expect(result.innerHTML).toBe(<span class="hljs-string">'1'</span>)
+})
+</code></pre>
+<p>result에 있는 text를 선택해야 하는데, getByTestId를 사용했다.</p>
+<p>1을 누르면, result에 1이 나오는지 확인하는 테스트</p>
+<h2>비동기 테스트</h2>
+<p>'loading user' 버튼 클릭 시 api 요청 보내서, 받은 데이터로 UI 업데이트해준다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'./App.css'</span>
+<span class="hljs-keyword">import</span> Calculator <span class="hljs-keyword">from</span> <span class="hljs-string">'./containers/Calculator'</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [username, setUsername] = useState(<span class="hljs-string">''</span>)
+
+  <span class="hljs-keyword">const</span> fetchData = <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(
+      <span class="hljs-string">`https://e6e2c81c-c22b-48cf-9e42-fd4cfd887b17.mock.pstmn.io/username`</span>
+    )
+
+    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.json()
+
+    setUsername(data.username)
+  }
+
+  <span class="hljs-keyword">const</span> onClickBtn = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    fetchData()
+  }
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>계산기<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{e</span> =&gt;</span> onClickBtn()}&gt;loading user<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{username}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Calculator</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App
+</code></pre>
+<pre class="hljs"><code>it(<span class="hljs-string">'App.js: button을 click하면 사용자 이름이 노출된다.'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-comment">//given</span>
+  <span class="hljs-keyword">const</span> result = {
+    <span class="hljs-attr">username</span>: <span class="hljs-string">'stranger'</span>
+  }
+
+  <span class="hljs-comment">//when</span>
+  <span class="hljs-keyword">const</span> { getByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>)
+  fireEvent.click(getByText(<span class="hljs-string">'loading user'</span>))
+
+  <span class="hljs-comment">//then</span>
+  <span class="hljs-keyword">await</span> waitForElement(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> getByText(result.username))
+})
+</code></pre>
+<h2>모든 파일 테스트하기</h2>
+<p>정의한 모든 테스트 파일을 테스트하고 싶으면, test 실행 스크립트를 수정해준다.</p>
+<pre class="hljs"><code>{
+	<span class="hljs-string">"test"</span>: <span class="hljs-string">"react-scripts test --watchAll"</span>
+}
+</code></pre>
+<h2>마치며</h2>
+<p>spring 프레임워크 사용할 때 TDD를 하니, 오히려 더 빨리 개발할 수 있다는 사실을 알게 되었는데</p>
+<p>UI 테스트는 아직 그런 생각이 잘 안든다. 제대로 사용해보지 않아서 그런 것 같기도 하다.😂</p>
+<h2>참고 자료</h2>
+<p><a href="https://create-react-app.dev/docs/running-tests/">https://create-react-app.dev/docs/running-tests/</a></p>
+<p><a href="https://jestjs.io/docs/en/getting-started">https://jestjs.io/docs/en/getting-started</a></p>
+<p><a href="https://velog.io/@velopert/react-testing-library">https://velog.io/@velopert/react-testing-library</a></p>
+<p><a href="https://testing-library.com/docs/react-testing-library/cheatsheet">https://testing-library.com/docs/react-testing-library/cheatsheet</a></p>
+
+  </div>
+
+</div>
+
+  <div id="disqus_thread"></div>
+  <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+
+
+    // var disqus_config = function () {
+    //   this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    //   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // };
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://bohyeon-n.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+    </div>
+    <div class="sidebar">
+      <!-- folder name -->
+<div>
+  Category
+</div>
+<ul>
+
+  
+    
+      <a href="/deploy/category/algorithm.html">
+        <li>
+          Algorithm
+            (
+            8 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/cs.html">
+        <li>
+          CS
+            (
+            2 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/css.html">
+        <li>
+          CSS
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/devops.html">
+        <li>
+          DevOps
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/http.html">
+        <li>
+          HTTP
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/javascript.html">
+        <li>
+          JavaScript
+            (
+            5 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/network.html">
+        <li>
+          Network
+            (
+            2 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/web.html">
+        <li>
+          Web
+            (
+            4 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/nodejs.html">
+        <li>
+          Nodejs
+            (
+            4 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/python.html">
+        <li>
+          Python
+            (
+            1 )
+        </li>
+      </a>
+
+      
+</ul>
+
+    </div>
+
+
+  </div>
+  <button id="goUp" onclick="topFunction()">
+    <i class="fas fa-arrow-circle-up"></i>
+  </button>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.js"></script>
+  <script>
+    const categoryEl = document.querySelector('.category')
+    const navCategoryEl = document.querySelector('.nav__category')
+    navCategoryEl.addEventListener('click', e => {
+      if (!categoryEl.classList.contains('show')) {
+        categoryEl.classList.add('show')
+
+
+      } else {
+        categoryEl.classList.remove('show');
+      }
+    })
+
+    window.onscroll = function () {
+      scrollFunction()
+    }
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('goUp').style.display = "block";
+      } else {
+        document.getElementById('goUp').style.display = 'none';
+      }
+    }
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>
