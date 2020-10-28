@@ -720,6 +720,22 @@ CORS는 최신 브라우저에서 구현된 동일 출처 정책(same-origin pol
 우선 다른 출처라도, 다 같은 방식으로 동작하지 않는다. CORS 요청에는 simple request와 preflighted request 두 가지가 있다.</p>
 <h3>Simple request</h3>
 <p>simple 요청은 pre-flighted 요청을 보내지 않는다.</p>
+<h4>simple request란 무엇인가.</h4>
+<p>아래 3가지 조건 중 모두 만족하면, simpe request 이다.</p>
+<ul>
+<li>
+<p>GET 요청, HEAD, POST 중의 한 가지 방식을 사용</p>
+</li>
+<li>
+<p>POST 방식일 경우 conte-type이 아래 셋 중 하나여야 한다.</p>
+<ul>
+<li>application/x-www-form-unlencoded</li>
+<li>multipart/form-data</li>
+<li>text/plain</li>
+</ul>
+</li>
+</ul>
+<h4>simple request 과정</h4>
 <p>simple 요청은 다음과 같은 과정을 거친다.</p>
 <ol>
 <li>요청을 보낸다.</li>
@@ -887,6 +903,8 @@ sprign mvc는 <code>@CorssOrigin</code> 어노테이션을 제공한다. 이 어
 <h2>정리</h2>
 <p>CORS 에러를 클라이언트에서 해결할 수 있는 방법이 있는지 몰랐다. 서버에서만 허용이 가능한 것인줄만 알았는데, 브라우저에서 컨트롤하는 것이었다니!
 정확한 동작 방식을 알고 나니 사용한 코드도 더 잘 이해된다. 🏃🏽‍♀️🏃🏽‍♀️</p>
+<h2>참고한 자료</h2>
+<p>https://brownbears.tistory.com/336</p>
 
   </div>
 

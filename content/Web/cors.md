@@ -60,6 +60,20 @@ CORS는 최신 브라우저에서 구현된 동일 출처 정책(same-origin pol
 
 simple 요청은 pre-flighted 요청을 보내지 않는다.
 
+#### simple request란 무엇인가.
+
+아래 3가지 조건 중 모두 만족하면, simpe request 이다.
+
+- GET 요청, HEAD, POST 중의 한 가지 방식을 사용
+
+- POST 방식일 경우 conte-type이 아래 셋 중 하나여야 한다.
+
+  - application/x-www-form-unlencoded
+  - multipart/form-data
+  - text/plain
+
+#### simple request 과정
+
 simple 요청은 다음과 같은 과정을 거친다.
 
 1. 요청을 보낸다.
@@ -215,3 +229,7 @@ public class SimpleCorsFilter implements Filter {
 
 CORS 에러를 클라이언트에서 해결할 수 있는 방법이 있는지 몰랐다. 서버에서만 허용이 가능한 것인줄만 알았는데, 브라우저에서 컨트롤하는 것이었다니!
 정확한 동작 방식을 알고 나니 사용한 코드도 더 잘 이해된다. 🏃🏽‍♀️🏃🏽‍♀️
+
+## 참고한 자료
+
+https://brownbears.tistory.com/336
