@@ -19,10 +19,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-     [REACT]계산기 구현 + 테스트 코드 |  구보현 블로그 
+     Redux 알아보기 |  구보현 블로그 
   </title>
-  <meta name="description" content=" [REACT]계산기를 구현하면서 테스트 코드를 짜보자!">
-  <meta name="keywords" content=" [ JS, REACT, TEST]">
+  <meta name="description" content=" 리덕스가 나오게 된 배경을 알아보고 리덕스가 무엇인지 알아본다">
+  <meta name="keywords" content="flux, mvc, redux, store, reducer, action">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -729,297 +729,157 @@
 
   <div class="value">
     <h1 style="color:#333">
-       [REACT]계산기 구현 + 테스트 코드
+       Redux 알아보기
 
     </h1>
     <span>
-       20201018
+       20201219
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <p>스택 계산기를 만들면서 테스트 코드 짜는 법을 공부했다.</p>
-<h1>테스트</h1>
-<h2>테스트 코드를 짜야 하는 이유는 ?</h2>
-<p>왜 테스트 코드를 짜야 할까?</p>
-<p>궁극적으로는 지속가능한 소프트웨어를 위해서다.</p>
-<p>한 부분을 수정할 때, 다른 부분에 영향을 미칠 수 있고, 다른 사람이 내가 짠 코드를 수정하거나 영향을 줄 수 있는데 그 때 마다 일일이 테스트하기가 어렵다.</p>
-<p>테스트 코드를 작성해 놓으면, 지속적으로 프로그래밍을 업데이트하는 데 도움이된다.</p>
-<p>또한 테스트 코드는 내가 짠 코드를 설명하는 문서? 같은 것이 될 수 있다.</p>
-<p>테스트 코드를 짜면서 정리할 수 있다. 테스트를 짜려고 하다보면, 함수를 한 가지 기능만 수행하도록 , 순수함수로 짤 수 있게 되는 것 같다.</p>
-<h2>TDD ?</h2>
-<p>Test Driven Development 로 개발 후 테스트 코드를 작성하는 것이 아니라, 먼저 테스트 코드를 작성 후 이 테스트 코드를 충족하기 위해 함수를 구현하는 것이다.</p>
-<p>테스트 코드 작성 → fail → 함수 구현 → pass → refactoring의 과정을 거친다.</p>
-<h2>Jest 설치</h2>
+    <p>리덕스가 나오게 된 배경과 리덕스가 무엇인지 정리한 글입니다.</p>
+<h1>리덕스란?</h1>
+<p><code>A predictable state container for js app</code></p>
+<p>리덕스는 상태 관리 라이브러리로 일관되게 작동하고 다양한 환경에서 실행되며 테스트하기 쉬운 앱을 작성할 수 있도록 도와준다.</p>
+<p>리덕스는 앱의 상태를 한 곳에서 관리함으로써 redo/undo, 상태 지속 등의 기능을 구현할 수 있다.</p>
+<h2>리덕스가 나오게 된 배경?</h2>
+<p>페이스북에서 MVC 패턴으로 데이터 흐름을 관리하기가 어려워지자, flux 아키텍처라는 패턴을 개발했다.</p>
+<h3>MVC(Model-View-Controller) 패턴?</h3>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/MVC-Design-Pattern.png" alt="mvc pattern"></p>
+<p>출처 - <a href="https://www.geeksforgeeks.org/mvc-design-pattern/">geeksforgeeks</a></p>
+<p>MVC 패턴의 세 가지 구성 요소를 알아보면,</p>
 <ul>
-<li>jest 설치하기</li>
+<li>model: 앱 도메인의 동작과 데이터를 관리한다.</li>
+<li>view: model을 UI로 표현한다.</li>
+<li>controller: 사용자의 입력을 받아 model을 조작하고, 뷰를 업데이트한다.</li>
 </ul>
-<p><code>npm install --save-dev jest</code></p>
+<p>위 그림에서는 간단해 보이지만, view와 model이 많아지면, 복잡해진다.</p>
+<p><img src="https://blog.kakaocdn.net/dn/ALrHe/btqBTMSuHfN/ZlW9i9ET34e90APgCRChk1/img.png" alt="mvc pattern"></p>
+<p>출처 - <a href="https://beomy.tistory.com/44">beomy.tistory</a></p>
+<p>view와 model이 서로 의존성을 가지고 있으므로, 데이터와 화면이 복잡하게 되면 controller에 복잡하게 연결될 수 있다.</p>
+<p>데이터의 흐름이 양방향으로 흐르기 때문에 하나의 코드를 수정하면, 다른 부분에도 영향을 미칠 수 있고 디버깅하기도 어렵다.</p>
+<p>이러한 문제를 해결하기 위해서 flux 패턴이 등장한다.</p>
+<h2>flux?</h2>
+<p><img src="https://facebook.github.io/flux/img/overview/flux-simple-f8-diagram-explained-1300w.png" alt="flux"></p>
+<p>출처 - <a href="https://facebook.github.io/flux/docs/in-depth-overview/">facebook</a></p>
+<p>flux는 페이스북에서 클라이언트 사이드 웹 앱을 개발할 때 사용한 아키텍쳐다.</p>
+<p>단방향 데이터 흐름을 활용하며, flux 앱의 주요 개념은 dispatcher, store, view 이다.</p>
+<p>flux 패턴의 대략적인 흐름은</p>
+<p><code>action이 발생 -&gt; dispatcher로 store가 전달 -&gt; store가 변경 -&gt; view 변경</code></p>
+<p>MVC 패턴에서는 model이 업데이트가되면, view가 따라서 업데이트가 되고, 업데이트가 된 view는 다시 다른 model이나 view를 업데이트할 수 있다.</p>
+<p>flux 패턴은 view가 변경된다고 해서, store가 변경되지 않고 action, dispatcher를 사용해야만 store 데이터를 변경할 수 있다. 스토어 외에는 도메인의 데이터를 관리하는 방법은 없다.</p>
+<p>스토어의 상태를 직접 set하는 세터는 없지만, dispatcher에 등록하는 콜백을 가지고 있으므로 이를 통해 상태를 업데이트할 수 있다.</p>
+<p>redux는 flux 아키텍처를 구현하기 위해서 만든 라이브러리로, flux와는 조금 다르다.</p>
+<h2>redux?</h2>
+<p>redux는 액션이라는 이벤트를 사용하여 앱의 상태를 관리하고 업데이트하기 위한 패턴 및 라이브러리이다. 상태가 예측 가능한 방식으로만 업데이트될 수 있도록 보장하고, 전체 앱에서 사용해야 하는 상태에 대한 저장소 역할을 한다.</p>
+<h3>redux의 구성 요소</h3>
+<p>redux의 주요 구성 요소인 store, reducer, action에 대해서 알아보고 간단하게 사용해보자.</p>
+<h4>store</h4>
+<p>store는 리덕스에서 제공하는 함수인 creatStore를 호출한 결괏값이다. store는 action, reducer, middleware, reducer를 합치는 역할을 한다.</p>
+<p>createStore는 첫 번째 인자로 리듀서를 받는다. 필요하다면, 초기 state를 createStore에 전달할 수 있다. 서버사이드 렌더링, state preloading을 할 때 초기 값을 두 번째 인자로 줄 수 있다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { createStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>
+
+<span class="hljs-keyword">import</span> rootReducer <span class="hljs-keyword">from</span> <span class="hljs-string">'../reducers/index'</span>
+
+<span class="hljs-keyword">const</span> store = createStore(rootReducer)
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> store
+</code></pre>
+<h4>reducer</h4>
+<p><code>리덕스의 상태는 reducer로부터 온다!</code></p>
+<p>리듀서는 앱의 상태를 생산한다. 리듀서는 자바스크립트 함수로, current state와 action을 받아 새로운 상태 반환한다.</p>
+<p>flux와 redux의 다른 점 중 하나는 비즈니스 로직을 redux는 reducer에서 처리하고, flux는 store에서 처리한다는 것이다.</p>
+<p>상태가 어떻게 바뀌는지 확인할 때 flux에서는 모든 action은 dispatcher로 전달되므로, dispatcher로 디버깅할 수 있고, redux에서는 하나의 스토어에서 상태가 관리되기 때문에 스토어에서 디버깅할 수 있다.</p>
+<h4>action</h4>
+<p>액션은 무슨 일이 일어났는지 설명하는 자바스크립트 객체다. 모든 변경 사항이 action으로 설명되도록 하면, 앱에서 진행되는 작업을 명확하게 이해할 수 있다.</p>
+<p>state와 action을 연결하기 위해서는 reducer 함수를 작성해야 한다.</p>
+<p>먼저 액션 객체 예시를 살펴보면 아래와 같다.</p>
+<pre class="hljs"><code>
+{
+
+<span class="hljs-attr">type</span>: <span class="hljs-string">'ADD_TODO'</span>,
+
+<span class="hljs-attr">payload</span>: {<span class="hljs-attr">title</span>: <span class="hljs-string">'리덕스 공부하기'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>}
+
+}
+
+</code></pre>
+<p>action객체를 직접 사용하여 상태 추가 메서드를 구현해도 되지만, 추상화하여 함수로 만들 수 있다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addTodo</span>(<span class="hljs-params">paylod</span>) </span>{
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">tyupe</span>: <span class="hljs-string">'ADD_TODO'</span>,
+
+    payload
+  }
+}
+</code></pre>
+<p>이렇게 모든 작업을 함수 내에서 래핑하면 객체 생성을 추상화하면, 외부에서는 어떻게 addTodo가 되는지 모르고 상태를 업데이트할 수 있다.</p>
+<p>액션이 전달되면, 스토어는 메시지를 리듀서에게 전달한다.</p>
+<p>액션 타입에 따라서 리듀서는 다음 상태를 생성하고 결국 action payload를 새 상태로 병합한다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> initialState = {
+  <span class="hljs-attr">todos</span>: []
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rootReducer</span>(<span class="hljs-params">state = initialState, action</span>) </span>{
+  <span class="hljs-keyword">if</span> (action.type === <span class="hljs-string">'ADD_TODO'</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.assign({}, state, {
+      <span class="hljs-attr">todos</span>: state.todos.concat(action.payload)
+    })
+  }
+}
+</code></pre>
+<p>상태 객체가 불변성을 유지할 수 있도록 assign 함수를 사용하여 새 상태로 병합한다.</p>
+<h2>redux store method</h2>
+<p>redux 라이브러리에서 가장 중요한 메서드 3가지가 있다.</p>
 <ul>
-<li>package.json에 추가</li>
+<li>getState: 앱의 현재 상태를 가져오는 메서드</li>
+<li>dispatch: action을 보내는 역할을 하는 메서드</li>
+<li>subscribes: 상태 변화를 구독하기 위한 메서드</li>
 </ul>
-<pre class="hljs"><code>{
-	<span class="hljs-string">"scripts"</span>: {
-		<span class="hljs-string">"test"</span>: <span class="hljs-string">"jest"</span>
-	}
+<p>getState 메서드는 현재 store 객체를 반환하다. subscribe는 state변화를 구독하며, action이 전달될 때 마다 실행할 콜백을 받는다.</p>
+<p>액션을 전달하기 위해서 dispatch 메서드를 호출한다.</p>
+<p>예를 들어, 사용자가 action을 하면, 이 action 객체가 dispatch 메서드로 전달되고, dispatch 메서드는 reducer에 state와 action을 전달받아 새로운 상태를 만들어 state를 업데이트한다.</p>
+<p>dsipatch 메서드는 변경된 사항을 subscribe 메서드에 전달하고, subscribe메서드에 등록된 콜백, 예를 들어 UI를 업데이트 하는 메서드를 실행한다. 렌더 메서드에서 새로운 상태를 getState 메서드를 사용하여 가져와서 변경된 상태를 화면에 렌더할 수 있다.</p>
+<pre class="hljs"><code>store.subscribe(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'상태 업데이트'</span>))
+
+store.dispatch(addTodo({ <span class="hljs-attr">title</span>: <span class="hljs-string">'리덕스 공부'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">1</span> }))
+</code></pre>
+<h2>리덕스의 세 가지 원칙</h2>
+<p>리덕스는 세 가지 기본 원칙으로 설명할 수 있다.</p>
+<h3>single source of truth</h3>
+<p>리덕스는 앱의 모든 상태를 하나의 스토어 안에서 하나의 객체 트리 구조로 저장한다.</p>
+<p>이렇게 하면, 서버의 상태를 직렬화하고</p>
+<h3>state is read-only</h3>
+<p>앱의 상태를 변경하고 싶을 떄 어떤 변화인지 설명하는 action 액션이라는 개념을 사용한다.</p>
+<p>모든 state의 변경이 중앙 집중화되고 순서대로 하나씩 발생하기 때문에, 경쟁 조건이 없다. 만약 이전 값을 읽고 상태를 업데이트할 때 동시에 state를 set해줄 수 없으므로, 순서대로 업데이트될 수 있다.</p>
+<p>state는 단순한 객체이므로 디버깅, 테스트 목적으로 재생할 수 있고 직렬화하여 서버에 저장하는 등의 작업을 하기가 쉽다.</p>
+<h3>change are made with pure function</h3>
+<p>state 트리가 action에 의해 어떻게 업데이트되는지 지정하려면, reducer를 작성하여 state와 action을 묶을 수 있다.</p>
+<p>리듀서는 이전 상태와 액션을 취하고 다음 상태를 반환하는 순수 함수이다. 이전 상태를 변경하는 대신 새 상태 객체를 반환해야 한다.</p>
+<p>처음에는 단일 리듀서로 시작하지만 앱이 커지면 하나의 리듀서만 사용할 수 없으므로 작은 함수로 만들어 관리할 수 있다. 여러 개의 리듀서를 사용하여 하나의 store state를 만든다.</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">todoApp</span>(<span class="hljs-params">state = {}, action</span>) </span>{
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">todos</span>: todos(state.todos, action),
+
+    <span class="hljs-attr">visibilityFilter</span>: visibilityFilter(state.visibilityFilter, action)
+  }
 }
 </code></pre>
-<p><code>file.js</code>, 와 테스트 파일인 <code>file.test.js</code></p>
-<p>을 작성해서 <code>npm run test</code> 를 실행해주면 된다.</p>
-<h3>Jest create-react-app 테스트</h3>
-<p>create react app 을 사용하면, jest 모듈이 설치되어 있다.</p>
-<p>rendering snapshots 를 위해서 <code>react-test-render</code> 모듈만 설치해주면 된다.</p>
-<p><code>npm install --dev react-test-renderer</code></p>
-<h2>Unit 테스트</h2>
-<p>계산기 로직은 TDD로 테스트 코드를 먼저 작성하고, 함수를 구현했고,</p>
-<p>UI 관련 부분은 아직 익숙치 않아서 먼저 코드 작성 후 테스트 코드를 작성했다.</p>
-<h3>Stack Calculator 구현</h3>
-<h4>표현식 string을 받아서 배열로 파싱하는 함수</h4>
-<ul>
-<li>test code 구현</li>
-</ul>
-<pre class="hljs"><code>test(<span class="hljs-string">'문자열을 표현식으로 쪼개기 테스트'</span>, () =&gt; {
-  expect(splitedExpression(<span class="hljs-string">'1.2+2.2'</span>)).toEqual([<span class="hljs-string">'1.2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'2.2'</span>])
-})
-</code></pre>
-<ul>
-<li>
-<p>test code 실패</p>
-</li>
-<li>
-<p>구현</p>
-</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> splitedExpression = <span class="hljs-function"><span class="hljs-params">expression</span> =&gt;</span> {
-  <span class="hljs-keyword">let</span> preValue = <span class="hljs-literal">null</span>
-  <span class="hljs-keyword">const</span> splitedExpression = []
-  expression.split(<span class="hljs-string">''</span>).forEach(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> {
-    <span class="hljs-keyword">if</span> (
-      value === <span class="hljs-string">'.'</span> ||
-      preValue === <span class="hljs-string">'.'</span> ||
-      (!<span class="hljs-built_in">isNaN</span>(<span class="hljs-built_in">Number</span>(value)) &amp;&amp; preValue !== <span class="hljs-literal">null</span> &amp;&amp; !<span class="hljs-built_in">isNaN</span>(<span class="hljs-built_in">Number</span>(preValue)))
-    ) {
-      splitedExpression[splitedExpression.length - <span class="hljs-number">1</span>] += value
-    } <span class="hljs-keyword">else</span> {
-      splitedExpression.push(value)
-    }
-    preValue = value
-  })
-
-  <span class="hljs-keyword">return</span> splitedExpression
-}
-</code></pre>
-<ul>
-<li>테스트 코드 통과</li>
-</ul>
-<h4>후위 표기법으로 변환하기</h4>
-<pre class="hljs"><code>test(<span class="hljs-string">'후위 표기법 테스트'</span>, () =&gt; {
-  expect(
-    toPostfix([<span class="hljs-string">'('</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">')'</span>, <span class="hljs-string">'*'</span>, <span class="hljs-string">'('</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">')'</span>])
-  ).toEqual([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'*'</span>])
-})
-</code></pre>
-<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> toPostfix = <span class="hljs-function"><span class="hljs-params">expression</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> operationOrder = {
-    <span class="hljs-string">'+'</span>: <span class="hljs-number">2</span>,
-    <span class="hljs-string">'-'</span>: <span class="hljs-number">2</span>,
-    <span class="hljs-string">'/'</span>: <span class="hljs-number">3</span>,
-    <span class="hljs-string">'*'</span>: <span class="hljs-number">3</span>,
-    <span class="hljs-string">'('</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-string">')'</span>: <span class="hljs-number">1</span>
-  }
-
-  <span class="hljs-keyword">const</span> stack = []
-  <span class="hljs-keyword">const</span> result = []
-
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; expression.length; i++) {
-    <span class="hljs-keyword">let</span> lastStack = stack[stack.length - <span class="hljs-number">1</span>]
-    <span class="hljs-keyword">const</span> key = expression[i]
-
-    <span class="hljs-keyword">if</span> (key === <span class="hljs-string">'('</span>) {
-      stack.push(key)
-      <span class="hljs-keyword">continue</span>
-    }
-
-    <span class="hljs-keyword">if</span> (key === <span class="hljs-string">')'</span>) {
-      <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
-        <span class="hljs-keyword">if</span> (lastStack === <span class="hljs-string">'('</span>) {
-          stack.pop()
-          <span class="hljs-keyword">break</span>
-        }
-        result.push(stack.pop())
-        lastStack = stack[stack.length - <span class="hljs-number">1</span>]
-      }
-      <span class="hljs-keyword">continue</span>
-    }
-
-    <span class="hljs-keyword">if</span> (key <span class="hljs-keyword">in</span> operationOrder) {
-      <span class="hljs-keyword">if</span> (!lastStack) {
-        stack.push(key)
-      } <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">if</span> (operationOrder[key] &lt;= operationOrder[lastStack]) {
-          result.push(stack.pop())
-          stack.push(key)
-        } <span class="hljs-keyword">else</span> {
-          stack.push(key)
-        }
-      }
-    } <span class="hljs-keyword">else</span> {
-      result.push(key)
-    }
-  }
-  <span class="hljs-keyword">return</span> [...result, ...stack]
-}
-</code></pre>
-<h3>후위 표기법 계산하기</h3>
-<pre class="hljs"><code>test(<span class="hljs-string">'후위 표기법 계산 테스트'</span>, () =&gt; {
-  expect(calcPostfix([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'*'</span>])).toBe(<span class="hljs-number">9</span>)
-})
-</code></pre>
-<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> calcPostfix = <span class="hljs-function"><span class="hljs-params">expression</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> stack = []
-
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; expression.length; i++) {
-    <span class="hljs-keyword">let</span> n1
-    <span class="hljs-keyword">let</span> n2
-    <span class="hljs-keyword">switch</span> (expression[i]) {
-      <span class="hljs-keyword">case</span> <span class="hljs-string">'+'</span>:
-        stack.push(<span class="hljs-built_in">parseFloat</span>((stack.pop() + stack.pop()).toFixed()))
-        <span class="hljs-keyword">break</span>
-      <span class="hljs-keyword">case</span> <span class="hljs-string">'-'</span>:
-        n1 = stack.pop()
-        n2 = stack.pop()
-        stack.push(<span class="hljs-built_in">parseFloat</span>((n2 - n1).toFixed(<span class="hljs-number">2</span>)))
-        <span class="hljs-keyword">break</span>
-      <span class="hljs-keyword">case</span> <span class="hljs-string">'*'</span>:
-        stack.push(<span class="hljs-built_in">parseFloat</span>((stack.pop() * stack.pop()).toFixed(<span class="hljs-number">2</span>)))
-        <span class="hljs-keyword">break</span>
-      <span class="hljs-keyword">case</span> <span class="hljs-string">'/'</span>:
-        n1 = stack.pop()
-        n2 = stack.pop()
-        stack.push(<span class="hljs-built_in">parseFloat</span>((n2 / n1).toFixed(<span class="hljs-number">2</span>)))
-        <span class="hljs-keyword">break</span>
-      <span class="hljs-attr">default</span>:
-        stack.push(<span class="hljs-built_in">parseFloat</span>(expression[i]))
-    }
-  }
-
-  <span class="hljs-keyword">return</span> stack.pop()
-}
-</code></pre>
-<h2>Dom 테스트</h2>
-<p>react-testing-library Enzyme 또는 리액트의 TestUtils 를 사용할 수 있다.</p>
-<p>react-testing-library 를 사용하기로 했다.</p>
-<p>설치하기 위해서 <code>npm install --dev @testing-library/react</code> 를 실행해준다. cra 를 사용하면 모듈이 설치되어 있다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> {
-  cleanup,
-  fireEvent,
-  render,
-  waitForElement
-} <span class="hljs-keyword">from</span> <span class="hljs-string">'@testing-library/react'</span>
-
-<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span>
-
-afterEach(cleanup)
-
-it(<span class="hljs-string">'App.js: 계산기가 노출된다.'</span>, () =&gt; {
-  <span class="hljs-keyword">const</span> { queryByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>)
-  expect(queryByText(<span class="hljs-string">'계산기'</span>)).toBeInTheDocument()
-})
-</code></pre>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> { cleanup, render } <span class="hljs-keyword">from</span> <span class="hljs-string">'@testing-library/react'</span>
-
-<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span>
-
-afterEach(cleanup)
-
-it(<span class="hljs-string">'App.js: 계산기 제목이 노출된다.'</span>, () =&gt; {
-  <span class="hljs-keyword">const</span> { queryByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>)
-  expect(queryByText(<span class="hljs-string">'계산기'</span>)).toBeInTheDocument()
-})
-</code></pre>
-<h2>이벤트 핸들러 테스트</h2>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> Calculator <span class="hljs-keyword">from</span> <span class="hljs-string">'./Calculator'</span>
-<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> { fireEvent, render } <span class="hljs-keyword">from</span> <span class="hljs-string">'@testing-library/react'</span>
-
-it(<span class="hljs-string">'Calculator.js: button을 click하면 클릭한 데이터가 노출된다.'</span>, () =&gt; {
-  <span class="hljs-keyword">const</span> { getByText, getByTestId } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Calculator</span> /&gt;</span></span>)
-  fireEvent.click(getByText(<span class="hljs-string">'1'</span>))
-
-  <span class="hljs-keyword">const</span> result = getByTestId(<span class="hljs-string">'result'</span>)
-  expect(result.innerHTML).toBe(<span class="hljs-string">'1'</span>)
-})
-</code></pre>
-<p>result에 있는 text를 선택해야 하는데, getByTestId를 사용했다.</p>
-<p>1을 누르면, result에 1이 나오는지 확인하는 테스트</p>
-<h2>비동기 테스트</h2>
-<p>'loading user' 버튼 클릭 시 api 요청 보내서, 받은 데이터로 UI 업데이트해준다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">'./App.css'</span>
-<span class="hljs-keyword">import</span> Calculator <span class="hljs-keyword">from</span> <span class="hljs-string">'./containers/Calculator'</span>
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">const</span> [username, setUsername] = useState(<span class="hljs-string">''</span>)
-
-  <span class="hljs-keyword">const</span> fetchData = <span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(
-      <span class="hljs-string">`https://e6e2c81c-c22b-48cf-9e42-fd4cfd887b17.mock.pstmn.io/username`</span>
-    )
-
-    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.json()
-
-    setUsername(data.username)
-  }
-
-  <span class="hljs-keyword">const</span> onClickBtn = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    fetchData()
-  }
-
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>계산기<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{e</span> =&gt;</span> onClickBtn()}&gt;loading user<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{username}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">Calculator</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-  )
-}
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App
-</code></pre>
-<pre class="hljs"><code>it(<span class="hljs-string">'App.js: button을 click하면 사용자 이름이 노출된다.'</span>, <span class="hljs-keyword">async</span> () =&gt; {
-  <span class="hljs-comment">//given</span>
-  <span class="hljs-keyword">const</span> result = {
-    <span class="hljs-attr">username</span>: <span class="hljs-string">'stranger'</span>
-  }
-
-  <span class="hljs-comment">//when</span>
-  <span class="hljs-keyword">const</span> { getByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>)
-  fireEvent.click(getByText(<span class="hljs-string">'loading user'</span>))
-
-  <span class="hljs-comment">//then</span>
-  <span class="hljs-keyword">await</span> waitForElement(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> getByText(result.username))
-})
-</code></pre>
-<h2>모든 파일 테스트하기</h2>
-<p>정의한 모든 테스트 파일을 테스트하고 싶으면, test 실행 스크립트를 수정해준다.</p>
-<pre class="hljs"><code>{
-	<span class="hljs-string">"test"</span>: <span class="hljs-string">"react-scripts test --watchAll"</span>
-}
-</code></pre>
+<p>작은 함수로 만든 것들은 위처럼 해당 키에 대해 두 리듀서를 호출하여 앱의 전체 상태를 관리하는 또 다른 리듀서를 (todoApp)을 작성할 수 있다.</p>
+<p>이러한 컨셉들을 구현하기 위한 다양한 유틸리티를 리덕스에서 제공한다.</p>
 <h2>마치며</h2>
-<p>spring 프레임워크 사용할 때 TDD를 하니, 오히려 더 빨리 개발할 수 있다는 사실을 알게 되었는데</p>
-<p>UI 테스트는 아직 그런 생각이 잘 안든다. 제대로 사용해보지 않아서 그런 것 같기도 하다.😂</p>
+<p>리덕스가 나온 배경과 어떤 흐름을 거쳐 상태를 관리하는지 알아보았다.</p>
+<p>리덕스의 컨셉을 알고 난 뒤에 이를 구현하기 위해 리덕스가 제공하는 다양한 유틸들의 사용법을 알아보면 좋을 것 같아서 정리해보았다. 리덕스의 자세한 사용법은 더 공부해봐야겠다. 👻</p>
 <h2>참고 자료</h2>
-<p><a href="https://create-react-app.dev/docs/running-tests/">https://create-react-app.dev/docs/running-tests/</a></p>
-<p><a href="https://jestjs.io/docs/en/getting-started">https://jestjs.io/docs/en/getting-started</a></p>
-<p><a href="https://velog.io/@velopert/react-testing-library">https://velog.io/@velopert/react-testing-library</a></p>
-<p><a href="https://testing-library.com/docs/react-testing-library/cheatsheet">https://testing-library.com/docs/react-testing-library/cheatsheet</a></p>
+<p>https://facebook.github.io/flux/docs/in-depth-overview/#:~:text=Flux%20is%20the%20application%20architecture,a%20lot%20of%20new%20code.</p>
+<p>https://codepen.io/OneCent/pen/geyQZN</p>
+<p>https://www.clariontech.com/blog/mvc-vs-flux-vs-redux-the-real-differences</p>
+<p>https://www.valentinog.com/blog/redux/</p>
+<p>http://bestalign.github.io/2015/10/06/cartoon-guide-to-flux/</p>
+<p>https://haruair.github.io/flux/docs/todo-list.html</p>
 
   </div>
 
