@@ -743,9 +743,9 @@
     <h1>3Sum Closest</h1>
 <p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
 <p>Example:</p>
-<pre class="hljs"><code>Given array nums = [<span class="hljs-number">-1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-4</span>], and target = <span class="hljs-number">1.</span>
+<pre class="hljs"><code>Given array nums = [-<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, -<span class="hljs-number">4</span>], and target = <span class="hljs-number">1.</span>
 
-The sum that is closest to the target is <span class="hljs-number">2.</span> (<span class="hljs-number">-1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">1</span> = <span class="hljs-number">2</span>).
+The sum that is closest to the target is <span class="hljs-number">2.</span> (-<span class="hljs-number">1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">1</span> = <span class="hljs-number">2</span>).
 </code></pre>
 <h3>나의 풀이</h3>
 <ol>
@@ -808,7 +808,7 @@ The sum that is closest to the target is <span class="hljs-number">2.</span> (<s
         <span class="hljs-keyword">return</span> sum;
       }
       <span class="hljs-keyword">if</span> (
-        <span class="hljs-keyword">typeof</span> result === <span class="hljs-string">"undefined"</span> ||
+        <span class="hljs-keyword">typeof</span> result === <span class="hljs-string">&quot;undefined&quot;</span> ||
         <span class="hljs-built_in">Math</span>.abs(target - sum) &lt; <span class="hljs-built_in">Math</span>.abs(target - result)
       ) {
         result = sum;

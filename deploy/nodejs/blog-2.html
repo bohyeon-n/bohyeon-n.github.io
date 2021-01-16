@@ -750,9 +750,9 @@
 <p>그리고 마크다운에 입력한 정보를 HTML 로 렌더할 때 가져오고 싶다면 파일을 읽어서 특정한 패턴을 찾은 후 그 안에 있는 텍스트를 가져오면 됩니다.</p>
 <p>그럼 글의 정보를 입력해봅시다. 마크다운 파일 상단에 아래와 같이 글의 정보를 추가해주세요.</p>
 <pre class="hljs"><code>+++
-title=<span class="hljs-string">"정적 블로그 생성기 만들기"</span>
-desc=<span class="hljs-string">"글의 정보 받기"</span>
-date=<span class="hljs-string">"20180909"</span>
+title=<span class="hljs-string">&quot;정적 블로그 생성기 만들기&quot;</span>
+desc=<span class="hljs-string">&quot;글의 정보 받기&quot;</span>
+date=<span class="hljs-string">&quot;20180909&quot;</span>
 +++
 
 
@@ -763,7 +763,7 @@ date=<span class="hljs-string">"20180909"</span>
 <p>현재 마크다운 파일의 텍스트에는 글의 정보와 본문이 함께 있습니다. 본문에는 본문만을 넣어주어야 합니다.</p>
 <p>즉 마크다운 파일에서 <code>+++&lt;&gt;+++</code>패턴을 제외한 텍스트를 가져와야 합니다. 이 작업을 해줄 함수를 만들어보겠습니다. 아래의 코드를 추가해주세요.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> extractBody = <span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> {
-  <span class="hljs-keyword">return</span> text.replace(<span class="hljs-regexp">/(\+{3})([\s\S]+?)(\1)/</span>, <span class="hljs-string">""</span>);
+  <span class="hljs-keyword">return</span> text.replace(<span class="hljs-regexp">/(\+{3})([\s\S]+?)(\1)/</span>, <span class="hljs-string">&quot;&quot;</span>);
 };
 </code></pre>
 <p>extracBody 매개변수로 받은 text 에서 <code>+++&lt;&gt;+++</code> 패턴과 일치하는 문자열을 빈 문자열로 교체한 새로운 문자열을 반환하는 함수입니다.</p>
@@ -775,7 +775,7 @@ date=<span class="hljs-string">"20180909"</span>
 <p><code>*, +, ?, {}</code>등의 수량자 뒤에 <code>?</code>를 사용하면 기본적으로 탐욕스러운 수량자를 탐욕스럽지 않게, 가능한 적은 문자을 대응시키게 만들 수 있습니다.</p>
 <p><code>\1</code> 은 첫 번째 괄호를 지칭할 때 사용합니다.</p>
 <p>이제 이 함수를 사용하여 이전 글에서 작성하였던 map 메소드의 콜백 함수부분을 수정해봅시다. 전체 text 가 아닌 글의 정보를 제외한 본문만을 HTML 포멧으로 변환할 수 있도록 아래와 같이 기존 코드를 수정해주세요.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> text = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
+<pre class="hljs"><code><span class="hljs-keyword">const</span> text = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">&quot;utf8&quot;</span>);
 <span class="hljs-keyword">const</span> convertedBody = md.render(extractBody(text));
 </code></pre>
 <hr>
@@ -793,8 +793,8 @@ date=<span class="hljs-string">"20180909"</span>
       valueLines.map(<span class="hljs-function"><span class="hljs-params">valueLine</span> =&gt;</span> {
         <span class="hljs-keyword">const</span> keyAndValue = valueLine.match(<span class="hljs-regexp">/(.+?)=(.+)/</span>);
         <span class="hljs-keyword">if</span> (keyAndValue) {
-          <span class="hljs-keyword">const</span> key = keyAndValue[<span class="hljs-number">1</span>].replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">""</span>);
-          <span class="hljs-keyword">const</span> value = keyAndValue[<span class="hljs-number">2</span>].replace(<span class="hljs-regexp">/['"]/g</span>, <span class="hljs-string">""</span>).trim();
+          <span class="hljs-keyword">const</span> key = keyAndValue[<span class="hljs-number">1</span>].replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">&quot;&quot;</span>);
+          <span class="hljs-keyword">const</span> value = keyAndValue[<span class="hljs-number">2</span>].replace(<span class="hljs-regexp">/[&#x27;&quot;]/g</span>, <span class="hljs-string">&quot;&quot;</span>).trim();
           values[key] = value;
         }
       });
@@ -810,12 +810,12 @@ date=<span class="hljs-string">"20180909"</span>
 <p>value 에는 프로그램 사용자가 입력한 제목이나, 글의 설명등이 들어있으므로, <a href="https://www.w3schools.com/jsref/jsref_trim_string.asp">trim 메소드</a>를 사용하여 앞과 뒤의 공백만 제거하였습니다. 또한 문자열을 감싸는 <code>'</code>, <code>&quot;</code>를 함께 입력할 수도 있으므로 <code>'</code> <code>&quot;</code> 문자를 빈문자열로 교체하는 처리를 해주었습니다.</p>
 <p>프로그램 사용자가 <code>+++</code> 패턴은 입력하였지만 글 정보를 입력하지 않았을 경우를 대비하여, 정보를 입력하였는지 확인하는 로직을 추가해주었습니다.</p>
 <p><code>console.log(extractValue(text))</code>를 실행하고 확인해보면 아래와 같이 찍히는 것을 확인할 수 있습니다.</p>
-<pre class="hljs"><code>{ title: '고양이', desc: '고양이 한마리', date: '20180901' }
-{ title: '강아지', desc: '강아지 너무 귀여워', date: '20180902' }
-{ title: '마카롱', desc: '마카롱 너무 맛있어', date: '20180904' }
-{ title: 'Sigrid',
-  desc: 'Sigrid Album [Raw] Tracklist',
-  date: '20180909' }
+<pre class="hljs"><code>{ title: &#x27;고양이&#x27;, desc: &#x27;고양이 한마리&#x27;, date: &#x27;20180901&#x27; }
+{ title: &#x27;강아지&#x27;, desc: &#x27;강아지 너무 귀여워&#x27;, date: &#x27;20180902&#x27; }
+{ title: &#x27;마카롱&#x27;, desc: &#x27;마카롱 너무 맛있어&#x27;, date: &#x27;20180904&#x27; }
+{ title: &#x27;Sigrid&#x27;,
+  desc: &#x27;Sigrid Album [Raw] Tracklist&#x27;,
+  date: &#x27;20180909&#x27; }
 </code></pre>
 <hr>
 <h3>글의 정보 렌더하기</h3>
@@ -826,12 +826,12 @@ date=<span class="hljs-string">"20180909"</span>
 <p><img src="/img/article_add_title.png" alt="article template 제목, 날짜 추가"></p>
 <p>이제 article page 를 생성했던 map 메소드의 콜백 함수를 수정해주세요.</p>
 <pre class="hljs"><code>contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> text = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
+  <span class="hljs-keyword">const</span> text = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">&quot;utf8&quot;</span>);
   <span class="hljs-keyword">const</span> convertedBody = md.render(extractBody(text));
   <span class="hljs-keyword">const</span> value = extractValue(text);
   <span class="hljs-keyword">if</span> (value) {
-    <span class="hljs-keyword">const</span> title = value.title || <span class="hljs-string">" "</span>;
-    <span class="hljs-keyword">const</span> date = value.date || <span class="hljs-string">" "</span>;
+    <span class="hljs-keyword">const</span> title = value.title || <span class="hljs-string">&quot; &quot;</span>;
+    <span class="hljs-keyword">const</span> date = value.date || <span class="hljs-string">&quot; &quot;</span>;
     <span class="hljs-keyword">const</span> articleContent = ejs.render(articleHtmlFormat, {
       <span class="hljs-attr">body</span>: convertedBody,
       title,
@@ -863,26 +863,26 @@ deployFiles 배열에 fileName 을 푸시하던 로직을 수정해보겠습니�
 <pre class="hljs"><code>deployFiles.push({ <span class="hljs-attr">path</span>: <span class="hljs-string">`<span class="hljs-subst">${fileName}</span>.html`</span>, title, date, desc });
 </code></pre>
 <p>desc 도 title 과 date 와 마찬가지로 사용자가 작성하지 않았을 때를 대비하여 아래의 코드를 추가해줍시다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> desc = value.desc || <span class="hljs-string">" "</span>;
+<pre class="hljs"><code><span class="hljs-keyword">const</span> desc = value.desc || <span class="hljs-string">&quot; &quot;</span>;
 </code></pre>
 <p>이제 deployFiles 에는 <em>contents</em>디렉토리 안에 있는 모든 파일의 정보가 이름과 값 쌍으로 객체에 저장되었습니다.</p>
 <p>deployFiles 를 커맨드에 찍어보면 이런식으로 나오는 것을 볼 수 있습니다!</p>
-<pre class="hljs"><code>[ { path: 'cat.html',
-    title: '고양이',
-    date: '20180901',
-    desc: '고양이(cat)는 식육목 고양이과에 속하는 포유류 동물이다' },
-  { path: 'dog.html',
-    title: '강아지',
-    date: '20180902',
-    desc: '강아지는 개의 어린 형태를 일컫는 순우리말이다' },
-  { path: 'macaron.html',
-    title: '마카롱',
-    date: '20180904',
-    desc: '마카롱(프랑스어: Macaron, IPA: [​makaˈʁɔ̃][1])은 프랑스의 대표적인 당과 제품이다' },
-  { path: 'music.html',
-    title: 'Sigrid',
-    date: '20180909',
-    desc: 'Sigrid Album [Raw] Tracklist' } ]
+<pre class="hljs"><code>[ { path: &#x27;cat.html&#x27;,
+    title: &#x27;고양이&#x27;,
+    date: &#x27;20180901&#x27;,
+    desc: &#x27;고양이(cat)는 식육목 고양이과에 속하는 포유류 동물이다&#x27; },
+  { path: &#x27;dog.html&#x27;,
+    title: &#x27;강아지&#x27;,
+    date: &#x27;20180902&#x27;,
+    desc: &#x27;강아지는 개의 어린 형태를 일컫는 순우리말이다&#x27; },
+  { path: &#x27;macaron.html&#x27;,
+    title: &#x27;마카롱&#x27;,
+    date: &#x27;20180904&#x27;,
+    desc: &#x27;마카롱(프랑스어: Macaron, IPA: [​makaˈʁɔ̃][1])은 프랑스의 대표적인 당과 제품이다&#x27; },
+  { path: &#x27;music.html&#x27;,
+    title: &#x27;Sigrid&#x27;,
+    date: &#x27;20180909&#x27;,
+    desc: &#x27;Sigrid Album [Raw] Tracklist&#x27; } ]
 </code></pre>
 <p>이제 nodejs 를 실행하면 글의 제목, 글을 작성한 날짜 그리고 글의 설명이 목록 페이지에 렌더됩니다.</p>
 <p>이렇게요!</p>
@@ -937,7 +937,7 @@ deployFiles 배열에 fileName 을 푸시하던 로직을 수정해보겠습니�
 <hr>
 <h3>적용하기</h3>
 <p>css 를 적용하기 위해서 templates 폴더의 layout_format.html 파일에 link 를 추가해주세요.</p>
-<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/style/index.css"</span>&gt;</span>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/style/index.css&quot;</span>&gt;</span>
 </code></pre>
 <p>nodejs 를 실행하고 로컬 서버를 띄워 확인해보겠습니다.</p>
 <p>처음보다는 깔끔해습니다!</p>

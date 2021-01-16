@@ -747,28 +747,28 @@
 <p>우리는 <a href="https://bohyeon-n.github.io/deploy/nodejs/blog-3.html">이전 글</a>에서 author 디렉터리와 파일을 만들어 사용자에게 댓글 주소를 받았습니다. 만들었던 author 파일에 헤더에 들어갈 값을 추가로 넣어 주겠습니다.</p>
 <p>저는 블로그 제목, 깃허브 주소 그리고 로고 이미지 주소값을 넣었습니다.</p>
 <pre class="hljs"><code>+++
-disqus = <span class="hljs-string">'https://bohyeon.disqus.com/embed.js'</span>
-title = <span class="hljs-string">'구보현 블로그'</span>
-github = <span class="hljs-string">'https://github.com/bohyeon-n'</span>
-logo=<span class="hljs-string">'https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg'</span>
+disqus = <span class="hljs-string">&#x27;https://bohyeon.disqus.com/embed.js&#x27;</span>
+title = <span class="hljs-string">&#x27;구보현 블로그&#x27;</span>
+github = <span class="hljs-string">&#x27;https://github.com/bohyeon-n&#x27;</span>
+logo=<span class="hljs-string">&#x27;https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg&#x27;</span>
 +++
 </code></pre>
 <h3>author 파일 읽어오기</h3>
 <p>사용자 정보를 받았으면, 받은 정보를 잘 가져올 수 있는지 확인해봅시다.
 이전에 작성해 두었던 author.md 파일을 읽어 사용자 값을 가져오는 코드를 다시 살펴봅시다.</p>
 <pre class="hljs"><code><span class="hljs-comment">// author.md 파일 읽기</span>
-<span class="hljs-keyword">const</span> authorFile = fs.readFileSync(<span class="hljs-string">"./author/author.md"</span>, <span class="hljs-string">"utf8"</span>);
+<span class="hljs-keyword">const</span> authorFile = fs.readFileSync(<span class="hljs-string">&quot;./author/author.md&quot;</span>, <span class="hljs-string">&quot;utf8&quot;</span>);
 
 <span class="hljs-comment">// 사용자 값 읽기</span>
 <span class="hljs-keyword">const</span> authorValue = extractValue(authorFile);
 <span class="hljs-built_in">console</span>.log(authorValue);
 </code></pre>
 <p>node hello-node.js 를 실행하면 입력한 값을 잘 가져오는 것을 확인할 수 있습니다.</p>
-<pre class="hljs"><code>{ disqus: 'https://bohyeon.disqus.com/embed.js',
-  title: '구보현 블로그',
-  github: 'https://github.com/bohyeon-n',
+<pre class="hljs"><code>{ disqus: &#x27;https://bohyeon.disqus.com/embed.js&#x27;,
+  title: &#x27;구보현 블로그&#x27;,
+  github: &#x27;https://github.com/bohyeon-n&#x27;,
   logo:
-   'https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg' }
+   &#x27;https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg&#x27; }
 </code></pre>
 <h3>헤더 템플릿 만들기</h3>
 <p>이제 우리가 받은 사용자 정보를 넣어 줄 헤더 템플릿을 만들어야 합니다. <em>templates</em> 디렉토리에 <em>header_format.html</em> 파일을 만들어 주세요.</p>
@@ -781,8 +781,8 @@ logo=<span class="hljs-string">'https://d29fhpw069ctt2.cloudfront.net/icon/image
 <p>이제 작성한 템플릿에 값을 넣어주는 작업을 해보겠습니다.</p>
 <p>먼저 <em>header_format.html</em> 파일을 읽어옵니다.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> authorHtmlFormat = fs.readFileSync(
-  <span class="hljs-string">"./templates/header_format.html"</span>,
-  <span class="hljs-string">"utf8"</span>
+  <span class="hljs-string">&quot;./templates/header_format.html&quot;</span>,
+  <span class="hljs-string">&quot;utf8&quot;</span>
 );
 </code></pre>
 <p>헤더 템플릿에 사용자의 값을 채워줍니다.</p>
@@ -865,10 +865,10 @@ logo=<span class="hljs-string">'https://d29fhpw069ctt2.cloudfront.net/icon/image
 블로그 글을 작성했던 것처럼 블로그를 소개하는 글을 author.md 안에 작성할 수 있습니다.</p>
 <p>아래와 같이 블로그 소개글을 작성해주세요.</p>
 <pre class="hljs"><code>+++
-disqus = 'https://bohyeon.disqus.com/embed.js'
-title = '구보현 블로그'
-github = 'https://github.com/bohyeon-n'
-logo='https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg'
+disqus = &#x27;https://bohyeon.disqus.com/embed.js&#x27;
+title = &#x27;구보현 블로그&#x27;
+github = &#x27;https://github.com/bohyeon-n&#x27;
+logo=&#x27;https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg&#x27;
 +++
 
 안녕하세요. 떙땡이 블로그입니다.
@@ -880,8 +880,8 @@ logo='https://d29fhpw069ctt2.cloudfront.net/icon/image/85053/preview.svg'
 </code></pre>
 <p>그리고 article 템플릿에 authorBody 값을 넣어줍니다. 소개글에는 date 가 없으니 빈 문자열을 넣어주기로 합시다.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> author = ejs.render(articleHtmlFormat, {
-  <span class="hljs-attr">title</span>: <span class="hljs-string">"ABOUT"</span>,
-  <span class="hljs-attr">date</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;ABOUT&quot;</span>,
+  <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;&quot;</span>,
   <span class="hljs-attr">body</span>: authorBody,
   <span class="hljs-attr">disqus</span>: authorValue.disqus
 });

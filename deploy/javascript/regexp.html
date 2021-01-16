@@ -760,7 +760,7 @@
 <ol start="2">
 <li>RegExp 객체의 생성자 함수를 호출하는 방법</li>
 </ol>
-<pre class="hljs"><code><span class="hljs-keyword">let</span> re = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"ab+c"</span>);
+<pre class="hljs"><code><span class="hljs-keyword">let</span> re = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&quot;ab+c&quot;</span>);
 </code></pre>
 <ul>
 <li>
@@ -789,9 +789,9 @@
 <ul>
 <li>문자열을 있는 그대로 대응시키고자 할 때 사용된다.</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"Hi, do you know your abc"</span>.search(<span class="hljs-regexp">/abc/</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;Hi, do you know your abc&quot;</span>.search(<span class="hljs-regexp">/abc/</span>);
 
-<span class="hljs-string">"Hi, do you know your abc"</span>.search(<span class="hljs-string">"abc"</span>);
+<span class="hljs-string">&quot;Hi, do you know your abc&quot;</span>.search(<span class="hljs-string">&quot;abc&quot;</span>);
 
 <span class="hljs-comment">// 단순히 문자열을 그대로 찾아주는 것이므로 실행결과는 동일하다.</span>
 </code></pre>
@@ -821,8 +821,8 @@
 <li>입력의 시작 부분에 대응된다.</li>
 <li>문자열 시작부분에 있지 않으면 대응되는 패턴이 있을 수 없다.</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"a1234f g"</span>.match(<span class="hljs-regexp">/^g/</span>); <span class="hljs-comment">//null</span>
-<span class="hljs-string">"An B"</span>.match(<span class="hljs-regexp">/^A/</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;a1234f g&quot;</span>.match(<span class="hljs-regexp">/^g/</span>); <span class="hljs-comment">//null</span>
+<span class="hljs-string">&quot;An B&quot;</span>.match(<span class="hljs-regexp">/^A/</span>);
 </code></pre>
 <ol start="3">
 <li><code>$</code></li>
@@ -830,8 +830,8 @@
 <ul>
 <li>입력의 끝 부분과 대응된다.</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"eat"</span>.match(<span class="hljs-regexp">/t$/</span>);
-<span class="hljs-string">"eat"</span>.match(<span class="hljs-regexp">/a$/</span>); <span class="hljs-comment">//null</span>
+<pre class="hljs"><code><span class="hljs-string">&quot;eat&quot;</span>.match(<span class="hljs-regexp">/t$/</span>);
+<span class="hljs-string">&quot;eat&quot;</span>.match(<span class="hljs-regexp">/a$/</span>); <span class="hljs-comment">//null</span>
 </code></pre>
 <ol start="4">
 <li><code>*</code></li>
@@ -847,8 +847,8 @@
 <li>1 회 이상 반복을 의미</li>
 <li>하나 이상은 있어야 대응된다.</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"ac"</span>.match(<span class="hljs-regexp">/ab*c/</span>);
-<span class="hljs-string">"ac"</span>.match(<span class="hljs-regexp">/ab+c/</span>); <span class="hljs-comment">//null</span>
+<pre class="hljs"><code><span class="hljs-string">&quot;ac&quot;</span>.match(<span class="hljs-regexp">/ab*c/</span>);
+<span class="hljs-string">&quot;ac&quot;</span>.match(<span class="hljs-regexp">/ab+c/</span>); <span class="hljs-comment">//null</span>
 </code></pre>
 <ol start="6">
 <li><code>?</code></li>
@@ -865,9 +865,9 @@
 </ul>
 </li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"ac"</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//ac</span>
-<span class="hljs-string">"abc"</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//abc</span>
-<span class="hljs-string">"abbbbc"</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//null</span>
+<pre class="hljs"><code><span class="hljs-string">&quot;ac&quot;</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//ac</span>
+<span class="hljs-string">&quot;abc&quot;</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//abc</span>
+<span class="hljs-string">&quot;abbbbc&quot;</span>.match(<span class="hljs-regexp">/ab?c/</span>); <span class="hljs-comment">//null</span>
 </code></pre>
 <ol start="7">
 <li><code>.</code></li>
@@ -876,8 +876,8 @@
 <li>개행 문자를 제외한 모든 단일 문자와 대응된다.</li>
 <li>다만 엔터는 제외한다.</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"ba"</span>.match(<span class="hljs-regexp">/./</span>);
-<span class="hljs-string">"&lt;hello&gt;world"</span>.match(<span class="hljs-regexp">/\&lt;.+\&gt;/</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;ba&quot;</span>.match(<span class="hljs-regexp">/./</span>);
+<span class="hljs-string">&quot;&lt;hello&gt;world&quot;</span>.match(<span class="hljs-regexp">/\&lt;.+\&gt;/</span>);
 </code></pre>
 <ul>
 <li>정규 표현식 패턴과 맞는 부분이 있는지 확인하 수 있다.</li>
@@ -885,12 +885,12 @@
 <li><code>.</code> 쓸모가 많음, 사이에 들어오는 문자는 무엇이든 상관없다.</li>
 </ul>
 <pre class="hljs"><code><span class="hljs-comment">// 숫자만 있고 싶다면,</span>
-<span class="hljs-string">"&lt;hello&gt;world"</span>.match(<span class="hljs-regexp">/\&lt;\d+\&gt;/</span>); <span class="hljs-comment">//null</span>
-<span class="hljs-string">"&lt;1234&gt;world"</span>.match(<span class="hljs-regexp">/\&lt;\d+\&gt;/</span>);
+<span class="hljs-string">&quot;&lt;hello&gt;world&quot;</span>.match(<span class="hljs-regexp">/\&lt;\d+\&gt;/</span>); <span class="hljs-comment">//null</span>
+<span class="hljs-string">&quot;&lt;1234&gt;world&quot;</span>.match(<span class="hljs-regexp">/\&lt;\d+\&gt;/</span>);
 
 <span class="hljs-comment">//hello를 가져오고 싶다.</span>
-<span class="hljs-string">"&lt;hello&gt;world &lt;java&gt;script"</span>.match(<span class="hljs-regexp">/\&lt;.+\&gt;/</span>); <span class="hljs-comment">//&lt;hello&gt;world&lt;java&gt; 탐욕적이다.</span>
-<span class="hljs-string">"&lt;hello&gt;world &lt;java&gt;script"</span>.match(<span class="hljs-regexp">/\&lt;.+?\&gt;/</span>);
+<span class="hljs-string">&quot;&lt;hello&gt;world &lt;java&gt;script&quot;</span>.match(<span class="hljs-regexp">/\&lt;.+\&gt;/</span>); <span class="hljs-comment">//&lt;hello&gt;world&lt;java&gt; 탐욕적이다.</span>
+<span class="hljs-string">&quot;&lt;hello&gt;world &lt;java&gt;script&quot;</span>.match(<span class="hljs-regexp">/\&lt;.+?\&gt;/</span>);
 <span class="hljs-comment">// ? 가능한 한 적게 일치시켜라.</span>
 </code></pre>
 <h3>괄호를 사용하기</h3>
@@ -909,13 +909,13 @@
 </ul>
 </li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"foo"</span>.match(<span class="hljs-regexp">/(foo)/</span>);
-<span class="hljs-string">"foo foo"</span>.match(<span class="hljs-regexp">/(foo) \1/</span>);
-<span class="hljs-string">"foooo foooo"</span>.match(<span class="hljs-regexp">/(fo+) \1/</span>);
-<span class="hljs-string">"foooo foooo foooo"</span>.match(<span class="hljs-regexp">/(fo+) \1/</span>);
-<span class="hljs-string">"foo bar foo bar"</span>.match(<span class="hljs-regexp">/(foo) (bar) /</span>);
-<span class="hljs-string">"foo bar foo bar"</span>.match(<span class="hljs-regexp">/(foo) (bar) \1/</span>);
-<span class="hljs-string">"foo bar foo bar"</span>.match(<span class="hljs-regexp">/(foo) (bar) \2/</span>); <span class="hljs-comment">//null</span>
+<pre class="hljs"><code><span class="hljs-string">&quot;foo&quot;</span>.match(<span class="hljs-regexp">/(foo)/</span>);
+<span class="hljs-string">&quot;foo foo&quot;</span>.match(<span class="hljs-regexp">/(foo) \1/</span>);
+<span class="hljs-string">&quot;foooo foooo&quot;</span>.match(<span class="hljs-regexp">/(fo+) \1/</span>);
+<span class="hljs-string">&quot;foooo foooo foooo&quot;</span>.match(<span class="hljs-regexp">/(fo+) \1/</span>);
+<span class="hljs-string">&quot;foo bar foo bar&quot;</span>.match(<span class="hljs-regexp">/(foo) (bar) /</span>);
+<span class="hljs-string">&quot;foo bar foo bar&quot;</span>.match(<span class="hljs-regexp">/(foo) (bar) \1/</span>);
+<span class="hljs-string">&quot;foo bar foo bar&quot;</span>.match(<span class="hljs-regexp">/(foo) (bar) \2/</span>); <span class="hljs-comment">//null</span>
 </code></pre>
 <ul>
 <li>비포획괄호
@@ -925,20 +925,20 @@
 </ul>
 </li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"foofoofoo"</span>.match(<span class="hljs-regexp">/(?:foo)*/</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;foofoofoo&quot;</span>.match(<span class="hljs-regexp">/(?:foo)*/</span>);
 </code></pre>
 <ul>
 <li>{}</li>
 </ul>
 <pre class="hljs"><code><span class="hljs-comment">// 같은 의미</span>
-<span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a+/</span>);
-<span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a{1,}/</span>);
+<span class="hljs-string">&quot;caaaandy&quot;</span>.match(<span class="hljs-regexp">/a+/</span>);
+<span class="hljs-string">&quot;caaaandy&quot;</span>.match(<span class="hljs-regexp">/a{1,}/</span>);
 
-<span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a*/</span>);
-<span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a{0,}/</span>);
+<span class="hljs-string">&quot;caaaandy&quot;</span>.match(<span class="hljs-regexp">/a*/</span>);
+<span class="hljs-string">&quot;caaaandy&quot;</span>.match(<span class="hljs-regexp">/a{0,}/</span>);
 
-<span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a?/</span>);
-<span class="hljs-string">"caaaandy"</span>.match(<span class="hljs-regexp">/a{0,1}/</span>);
+<span class="hljs-string">&quot;caaaandy&quot;</span>.match(<span class="hljs-regexp">/a?/</span>);
+<span class="hljs-string">&quot;caaaandy&quot;</span>.match(<span class="hljs-regexp">/a{0,1}/</span>);
 </code></pre>
 <ul>
 <li>문자셋
@@ -947,65 +947,65 @@
 </ul>
 </li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"abcdef"</span>.match(<span class="hljs-regexp">/[abc]/</span>);
-<span class="hljs-string">"abcdef"</span>.match(<span class="hljs-regexp">/[abc]+/</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;abcdef&quot;</span>.match(<span class="hljs-regexp">/[abc]/</span>);
+<span class="hljs-string">&quot;abcdef&quot;</span>.match(<span class="hljs-regexp">/[abc]+/</span>);
 
-<span class="hljs-string">"hello*.!'***...**!!!**wolrd"</span>.match(<span class="hljs-regexp">/[*.!]+/</span>);
+<span class="hljs-string">&quot;hello*.!&#x27;***...**!!!**wolrd&quot;</span>.match(<span class="hljs-regexp">/[*.!]+/</span>);
 
 <span class="hljs-comment">// 특수문자를 찾을 때에도 사용할 수 있다.</span>
-<span class="hljs-string">"hello*******world"</span>.match(<span class="hljs-regexp">/\*+/</span>);
-<span class="hljs-string">"hello*******world"</span>.match(<span class="hljs-regexp">/[*]+/</span>);
+<span class="hljs-string">&quot;hello*******world&quot;</span>.match(<span class="hljs-regexp">/\*+/</span>);
+<span class="hljs-string">&quot;hello*******world&quot;</span>.match(<span class="hljs-regexp">/[*]+/</span>);
 </code></pre>
 <h3>실습하기</h3>
 <ul>
 <li>이메일 아이디와 도메인 분리하기</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"kbh@google.com"</span>.replace(<span class="hljs-regexp">/(.+?)@(.+)/</span>, <span class="hljs-string">"아이디: $1, 도메인: $2"</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;kbh@google.com&quot;</span>.replace(<span class="hljs-regexp">/(.+?)@(.+)/</span>, <span class="hljs-string">&quot;아이디: $1, 도메인: $2&quot;</span>);
 </code></pre>
 <ul>
 <li>특정 패턴에 일치하는 문자열을 찾아서 바꾸기</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"1234 abbbbc 1234"</span>.replace(<span class="hljs-regexp">/ab*c/</span>, /{$&amp;}/);
+<pre class="hljs"><code><span class="hljs-string">&quot;1234 abbbbc 1234&quot;</span>.replace(<span class="hljs-regexp">/ab*c/</span>, <span class="hljs-regexp">/{$&amp;}/</span>);
 
 <span class="hljs-comment">// foo가 몇 번 등장하던, 그 패턴을 찾고 싶을 때</span>
-<span class="hljs-string">"foofoofoo"</span>.match(<span class="hljs-regexp">/(foo)+/</span>);
+<span class="hljs-string">&quot;foofoofoo&quot;</span>.match(<span class="hljs-regexp">/(foo)+/</span>);
 </code></pre>
 <ul>
 <li>연속된 소문자 알파벳 찾아내기</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"hello world"</span>.match(<span class="hljs-regexp">/[a-z]+/</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;hello world&quot;</span>.match(<span class="hljs-regexp">/[a-z]+/</span>);
 </code></pre>
 <ul>
 <li>연속된 대문자 알파벳 찾아내기</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"hello WORLD"</span>.match(<span class="hljs-regexp">/[A-Z]+/</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;hello WORLD&quot;</span>.match(<span class="hljs-regexp">/[A-Z]+/</span>);
 </code></pre>
 <ul>
 <li>연속된 한글 찾아내기</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"hello 안녕하세요"</span>.match(<span class="hljs-regexp">/[가-힣]+/</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;hello 안녕하세요&quot;</span>.match(<span class="hljs-regexp">/[가-힣]+/</span>);
 </code></pre>
 <ul>
 <li>연속된 숫자 찾아내기</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"hello 012345"</span>.match(<span class="hljs-regexp">/[0-9]+/</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;hello 012345&quot;</span>.match(<span class="hljs-regexp">/[0-9]+/</span>);
 </code></pre>
 <ul>
 <li>문자 공백 제거</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"hello world java script"</span>.replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">""</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;hello world java script&quot;</span>.replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
 <ul>
 <li>모든 따옴표 제거하기</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"'string'"</span>.replace(<span class="hljs-regexp">/["']/g</span>, <span class="hljs-string">""</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;&#x27;string&#x27;&quot;</span>.replace(<span class="hljs-regexp">/[&quot;&#x27;]/g</span>, <span class="hljs-string">&quot;&quot;</span>);
 <span class="hljs-comment">//g 따옴표를 모두 찾아서 바꾸겠다는 뜻이다.</span>
 <span class="hljs-comment">//gi 라고 써주면 대소문자와 관계없이 모두 찾겠다는 뜻이다.</span>
 </code></pre>
 <ul>
 <li>연속되는 문자를 써줄 때</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-string">"+++string+++"</span>.replace(<span class="hljs-regexp">/(\+{3})([\s|\S]+?)(\1)/</span>, <span class="hljs-string">"$2"</span>);
+<pre class="hljs"><code><span class="hljs-string">&quot;+++string+++&quot;</span>.replace(<span class="hljs-regexp">/(\+{3})([\s|\S]+?)(\1)/</span>, <span class="hljs-string">&quot;$2&quot;</span>);
 <span class="hljs-comment">// \가 3번 연속된다.</span>
 <span class="hljs-comment">// [\s] 스페이스, 탭, 폼피드, 줄 바꿈 문자등을 포함한 하나의 공백 문자에 대응됩니다.</span>
 <span class="hljs-comment">// [\S] 공백 문자가 아닌 하나의 문자에 대응됩니다.</span>

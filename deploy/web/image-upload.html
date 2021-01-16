@@ -808,8 +808,8 @@ CREATE TABLE <span class="hljs-title">image</span>
         <span class="hljs-keyword">this</span>.fileService = fileService;
     }
 
-    <span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">"/images"</span>)
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Long <span class="hljs-title">uploadImage</span><span class="hljs-params">(@RequestParam(<span class="hljs-string">"imageFile"</span>)</span> MultipartFile file) <span class="hljs-keyword">throws</span> IOException </span>{
+    <span class="hljs-meta">@PostMapping(&quot;/images&quot;)</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Long <span class="hljs-title">uploadImage</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;imageFile&quot;)</span> MultipartFile file)</span> <span class="hljs-keyword">throws</span> IOException </span>{
         Image image = <span class="hljs-keyword">new</span> Image(file.getOriginalFilename(), file.getContentType(), compressBytes(file.getBytes()));
         <span class="hljs-keyword">return</span> fileService.addImage(image);
     }
@@ -856,10 +856,10 @@ CREATE TABLE <span class="hljs-title">image</span>
     }
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> Long <span class="hljs-title">addImage</span><span class="hljs-params">(Image image)</span> </span>{
-        String sql = <span class="hljs-string">"INSERT INTO image (name, type, pic_byte) VALUES ( :name, :type, :picByte )"</span>;
-        SqlParameterSource parameter = <span class="hljs-keyword">new</span> MapSqlParameterSource(<span class="hljs-string">"name"</span>, image.getName())
-                .addValue(<span class="hljs-string">"type"</span>, image.getType())
-                .addValue(<span class="hljs-string">"picByte"</span>, image.getPicByte());
+        String sql = <span class="hljs-string">&quot;INSERT INTO image (name, type, pic_byte) VALUES ( :name, :type, :picByte )&quot;</span>;
+        SqlParameterSource parameter = <span class="hljs-keyword">new</span> MapSqlParameterSource(<span class="hljs-string">&quot;name&quot;</span>, image.getName())
+                .addValue(<span class="hljs-string">&quot;type&quot;</span>, image.getType())
+                .addValue(<span class="hljs-string">&quot;picByte&quot;</span>, image.getPicByte());
 
         KeyHolder keyHolder = <span class="hljs-keyword">new</span> GeneratedKeyHolder();
         namedParameterJdbcTemplate.update(sql, parameter, keyHolder);
@@ -874,7 +874,7 @@ CREATE TABLE <span class="hljs-title">image</span>
 <li>이 때 Content-Type 을 저장했던 image의 타입으로 해준다.</li>
 <li>Content-Type 을 지정해주지 않으면, 브라우저에서 파싱할 때 이미지 형식으로 파싱을 해주지 않는다.</li>
 </ul>
-<pre class="hljs"><code><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/images/{id}"</span>)
+<pre class="hljs"><code><span class="hljs-meta">@GetMapping(&quot;/images/{id}&quot;)</span>
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">byte</span>[] getImage(<span class="hljs-meta">@PathVariable</span> Long id, HttpServletResponse response) {
         Image image = fileService.getImageById(id);
         image.setPicByte(decompressBytes(image.getPicByte()));
@@ -906,10 +906,10 @@ CREATE TABLE <span class="hljs-title">image</span>
     }
 </code></pre>
 <pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">public</span> Optional&lt;Image&gt; <span class="hljs-title">findById</span><span class="hljs-params">(Long id)</span> </span>{
-        String sql = <span class="hljs-string">"SELECT id, name, type, pic_byte FROM image WHERE id = :id"</span>;
-        SqlParameterSource parameter = <span class="hljs-keyword">new</span> MapSqlParameterSource(<span class="hljs-string">"id"</span>, id);
+        String sql = <span class="hljs-string">&quot;SELECT id, name, type, pic_byte FROM image WHERE id = :id&quot;</span>;
+        SqlParameterSource parameter = <span class="hljs-keyword">new</span> MapSqlParameterSource(<span class="hljs-string">&quot;id&quot;</span>, id);
         <span class="hljs-keyword">try</span> {
-            Image image = namedParameterJdbcTemplate.queryForObject(sql, parameter, BeanPropertyRowMapper.newInstance(Image<span class="hljs-class">.<span class="hljs-keyword">class</span>))</span>;
+            Image image = namedParameterJdbcTemplate.queryForObject(sql, parameter, BeanPropertyRowMapper.newInstance(Image.class));
             <span class="hljs-keyword">assert</span> image != <span class="hljs-keyword">null</span>;
             <span class="hljs-keyword">return</span> Optional.of(image);
 
@@ -928,17 +928,17 @@ CREATE TABLE <span class="hljs-title">image</span>
 <h3>markdown을 html로 변환하기</h3>
 <p><a href="%5Bhttps://github.com/rexxars/react-markdown%5D(https://github.com/rexxars/react-markdown)">react-markdown</a> 라이브러리를 사용하여 마크다운을 html로 파싱해주었다.</p>
 <p>코드 highlighter 기능도 추가해줬다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> ReactMarkdown <span class="hljs-keyword">from</span> <span class="hljs-string">'react-markdown'</span>
-<span class="hljs-keyword">import</span> CodeBlock <span class="hljs-keyword">from</span> <span class="hljs-string">'./CodeBlock'</span>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>
+<span class="hljs-keyword">import</span> ReactMarkdown <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-markdown&#x27;</span>
+<span class="hljs-keyword">import</span> CodeBlock <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./CodeBlock&#x27;</span>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> MarkdownToHtml = <span class="hljs-function">(<span class="hljs-params">{ source }: string | any</span>) =&gt;</span> {
   <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ReactMarkdown</span> <span class="hljs-attr">source</span>=<span class="hljs-string">{source}</span> <span class="hljs-attr">renderers</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">code:</span> <span class="hljs-attr">CodeBlock</span> }} /&gt;</span></span>
 }
 </code></pre>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> { Prism <span class="hljs-keyword">as</span> SyntaxHighlighter } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-syntax-highlighter'</span>
-<span class="hljs-keyword">import</span> { tomorrow } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-syntax-highlighter/dist/esm/styles/prism'</span>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>
+<span class="hljs-keyword">import</span> { Prism <span class="hljs-keyword">as</span> SyntaxHighlighter } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-syntax-highlighter&#x27;</span>
+<span class="hljs-keyword">import</span> { tomorrow } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-syntax-highlighter/dist/esm/styles/prism&#x27;</span>
 
 <span class="hljs-keyword">const</span> CodeBlock = <span class="hljs-function">(<span class="hljs-params">{ language, value }</span>) =&gt;</span> {
   <span class="hljs-keyword">return</span> (
@@ -955,11 +955,11 @@ CREATE TABLE <span class="hljs-title">image</span>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> onUploadImage = <span class="hljs-keyword">async</span> e =&gt; {
   <span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> FormData()
   <span class="hljs-keyword">if</span> (e.target.files !== <span class="hljs-literal">null</span>) {
-    formData.append(<span class="hljs-string">'imageFile'</span>, e.target.files[<span class="hljs-number">0</span>])
+    formData.append(<span class="hljs-string">&#x27;imageFile&#x27;</span>, e.target.files[<span class="hljs-number">0</span>])
 
     <span class="hljs-keyword">const</span> requestOptions: RequestInit = {
-      <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
-      <span class="hljs-attr">credentials</span>: <span class="hljs-string">'include'</span>,
+      <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,
+      <span class="hljs-attr">credentials</span>: <span class="hljs-string">&#x27;include&#x27;</span>,
       <span class="hljs-attr">body</span>: formData
     }
 

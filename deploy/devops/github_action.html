@@ -817,53 +817,53 @@ sudo ./install auto
 <p>github action은 CI/CD, github에서 제공하는 패키지 관리 및 올인원 자동화 서비스이다. pulbic 저장소는 무료로 이용할 수 있다.</p>
 <p>저장소에 Action 탭에 들어가서 workflow를 생성한다.</p>
 <p>어떤 이벤트를 설정하고, 이 이벤트가 감지되면, 실행할 job을 설정한다.</p>
-<pre class="hljs"><code># This is a basic workflow to help you <span class="hljs-keyword">get</span> started with Actions
+<pre class="hljs"><code># This is a basic workflow to help you get started <span class="hljs-keyword">with</span> Actions
 
-name: gradle CD
+<span class="hljs-attr">name</span>: gradle CD
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the dev branch
-on:
+# events but only <span class="hljs-keyword">for</span> the dev branch
+<span class="hljs-attr">on</span>:
   push:
     branches: [ dev ]
-  pull_request:
+  <span class="hljs-attr">pull_request</span>:
     branches: [ dev ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-18.04
-    defaults:
+# A workflow run is made up <span class="hljs-keyword">of</span> one or more jobs that can run sequentially or <span class="hljs-keyword">in</span> parallel
+<span class="hljs-attr">jobs</span>:
+  # This workflow contains a single job called <span class="hljs-string">&quot;build&quot;</span>
+  <span class="hljs-attr">build</span>:
+    # The type <span class="hljs-keyword">of</span> runner that the job will run on
+    runs-on: ubuntu-<span class="hljs-number">18.04</span>
+    <span class="hljs-attr">defaults</span>:
       run:
         shell: bash
         working-directory: study-app-server
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
+    # Steps represent a sequence <span class="hljs-keyword">of</span> tasks that will be executed <span class="hljs-keyword">as</span> part <span class="hljs-keyword">of</span> the job
+    <span class="hljs-attr">steps</span>:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: JDK 11 설치
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11.0.8
+      - name: JDK <span class="hljs-number">11</span> 설치
+        <span class="hljs-attr">uses</span>: actions/setup-java@v1
+        <span class="hljs-attr">with</span>:
+          java-version: <span class="hljs-number">11.0</span><span class="hljs-number">.8</span>
 
       - name: ./gradlew 권한 설정
-        run: chmod +x ./gradlew
+        <span class="hljs-attr">run</span>: chmod +x ./gradlew
 
       - name: 빌드
-        run: ./gradlew build
+        <span class="hljs-attr">run</span>: ./gradlew build
 
       - name: aws 세팅
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
+        <span class="hljs-attr">uses</span>: aws-actions/configure-aws-credentials@v1
+        <span class="hljs-attr">with</span>:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast<span class="hljs-number">-2</span>
+          aws-region: ap-northeast-<span class="hljs-number">2</span>
 
       - name: S3 업로드
-        <span class="hljs-attr">run</span>: aws deploy push --application-name study-app-codedeploy-server --description <span class="hljs-string">"study-app server"</span> --s3-location s3:<span class="hljs-comment">//study-codedeploy/server/build.zip --source .</span>
+        <span class="hljs-attr">run</span>: aws deploy push --application-name study-app-codedeploy-server --description <span class="hljs-string">&quot;study-app server&quot;</span> --s3-location s3:<span class="hljs-comment">//study-codedeploy/server/build.zip --source .</span>
 
       - name: code deploy
         <span class="hljs-attr">run</span>: aws deploy create-deployment --application-name study-app-codedeploy-server --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name dev --s3-location bucket=study-codedeploy,bundleType=zip,key=server/build.zip

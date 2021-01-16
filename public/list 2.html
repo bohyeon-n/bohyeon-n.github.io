@@ -1,0 +1,28 @@
+<div class="list">
+  <div class="title">
+    <i class="far fa-folder"></i>
+    <%=category %>
+
+  </div>
+
+
+  <ul>
+    <% files.forEach(file => { %>
+      <li>
+        <i class="fas fa-circle"></i>
+        <div class="content">
+          <a href="/deploy/<%=folder %>/<%=file.fileName %>">
+            <span>
+              <%=file.value.title %>
+            </span>
+          </a>
+          <span>
+            <%= file.value.date %>
+          </span>
+
+        </div>
+      </li>
+      <% }) %>
+  </ul>
+
+</div>

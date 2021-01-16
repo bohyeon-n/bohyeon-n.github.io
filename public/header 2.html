@@ -1,0 +1,147 @@
+<div class="user">
+  <div class="user__content">
+    <div class="user__img">
+      <a href="/">
+        <img src="<%= author.image %>" alt="">
+      </a>
+    </div>
+
+    <div class="user__username">
+      <div>
+        <%= author.username %>
+
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div class="user__social">
+      <% if(author.github){ %>
+        <a href="<%=author.github %>">
+
+          <i class="fab fa-github-alt fa-2x"></i>
+
+
+
+        </a>
+
+        <%}%>
+          <% if(author.facebook) { %>
+            <i class="fab fa-facebook-square fa-2x"></i>
+            <%}%>
+    </div>
+    <div>
+    </div>
+
+  </div>
+
+</div>
+<div class="nav">
+  <div>
+    <ul>
+      <a href="/index.html">
+        <li class="nav__home">
+          Home
+        </li>
+      </a>
+
+      <li class="nav__category">
+        Category
+      </li>
+      <a href="/deploy/author/author.html">
+        <li class="nav__about">
+          About
+        </li>
+
+      </a>
+
+      <li class="nav__search ">
+        <input type="text" id="searchInput">
+
+        <i id='searchIcon' class="fas fa-search">
+        </i>
+      </li>
+    </ul>
+
+    <div class="category">
+      <%categories.forEach(category => { %>
+        <a href="/deploy/category/<%=category.folder %>.html">
+          <li>
+            <%=category.categoryName %>
+
+          </li>
+        </a>
+        <%})%>
+    </div>
+  </div>
+</div>
+<div class="modal">
+  <div class="modal__wrap">
+    <div class="modal__content">
+      <div class="modal__content-input">
+        <input type="text" id="input" onkeyup="searchArticle()" placeholder="Type Something">
+        <i class="fas fa-times-circle fa-2x delete"></i>
+      </div>
+      <div class="modal__content-list">
+        <ul id="articleUl">
+          <% allArticles.forEach(article => { %>
+            <li>
+              <a href="<%=article.path%>">
+                <p>
+                  <%=article.title %>
+
+                </p>
+                <p>
+
+                  <%=article.date %>
+
+                </p>
+              </a>
+
+            </li>
+            <% })%>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script>  
+
+  document.querySelector('#searchInput').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+  document.querySelector('#searchIcon').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+
+  document.querySelector('.delete').addEventListener('click', function () {
+
+
+    document.querySelector('.modal').classList.remove('show')
+  })
+
+  function searchArticle() {
+    let input, filter, ul, li, a, i;
+    input = document.getElementById('input')
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('articleUl')
+    li = ul.getElementsByTagName('li');
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName('a')[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = '';
+      } else {
+        li[i].style.display = 'none'
+      }
+    }
+
+  }
+
+</script>

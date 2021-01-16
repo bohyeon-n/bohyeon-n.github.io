@@ -883,12 +883,12 @@ sprign mvc는 <code>@CorssOrigin</code> 어노테이션을 제공한다. 이 어
 </ul>
 </li>
 </ul>
-<pre class="hljs"><code><span class="hljs-meta">@CrossOrigin</span>(origin=<span class="hljs-string">"*"</span>, allowedHeaders = <span class="hljs-string">"*"</span>)
+<pre class="hljs"><code><span class="hljs-meta">@CrossOrigin(origin=&quot;*&quot;, allowedHeaders = &quot;*&quot;)</span>
 <span class="hljs-meta">@Controller</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainController</span> </span>{
-	<span class="hljs-meta">@GetMapping</span>(path = <span class="hljs-string">"/"</span>)
+	<span class="hljs-meta">@GetMapping(path = &quot;/&quot;)</span>
 	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">main</span><span class="hljs-params">(Model model)</span> </span>{
-		<span class="hljs-keyword">return</span> <span class="hljs-string">"main"</span>;
+		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;main&quot;</span>;
 	}
 }
 </code></pre>
@@ -933,11 +933,11 @@ sprign mvc는 <code>@CorssOrigin</code> 어노테이션을 제공한다. 이 어
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilter</span><span class="hljs-params">(ServletRequest req, ServletResponse res, FilterChain chain)</span> <span class="hljs-keyword">throws</span> IOException, ServletException </span>{
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
-        response.setHeader(<span class="hljs-string">"Access-Control-Allow-Origin"</span>, request.getHeader(<span class="hljs-string">"Origin"</span>));
-        response.setHeader(<span class="hljs-string">"Access-Control-Allow-Credentials"</span>, <span class="hljs-string">"true"</span>);
-        response.setHeader(<span class="hljs-string">"Access-Control-Allow-Methods"</span>, <span class="hljs-string">"POST, GET, OPTIONS, DELETE, PUT, PATCH"</span>);
-        response.setHeader(<span class="hljs-string">"Access-Control-Max-Age"</span>, <span class="hljs-string">"3600"</span>);
-        response.setHeader(<span class="hljs-string">"Access-Control-Allow-Headers"</span>, <span class="hljs-string">"Content-Type, Accept, X-Requested-With, remember-me"</span>);
+        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, request.getHeader(<span class="hljs-string">&quot;Origin&quot;</span>));
+        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Credentials&quot;</span>, <span class="hljs-string">&quot;true&quot;</span>);
+        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="hljs-string">&quot;POST, GET, OPTIONS, DELETE, PUT, PATCH&quot;</span>);
+        response.setHeader(<span class="hljs-string">&quot;Access-Control-Max-Age&quot;</span>, <span class="hljs-string">&quot;3600&quot;</span>);
+        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="hljs-string">&quot;Content-Type, Accept, X-Requested-With, remember-me&quot;</span>);
         chain.doFilter(req, res);
     }
 

@@ -746,7 +746,7 @@
 <h2>Python</h2>
 <h3>내 풀이</h3>
 <pre class="hljs"><code><span class="hljs-keyword">import</span> functools
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span>(<span class="hljs-params">self, J, S</span>):</span>
     jewels = <span class="hljs-number">0</span>
     <span class="hljs-keyword">for</span> jewel <span class="hljs-keyword">in</span> J:
         jewels += S.count(jewel)
@@ -756,22 +756,22 @@
 <p>substring 이 정해진 범위에서 몇 번 나오는지 그 숫자를 반환해주는 함수
 <code>str.count(sub, start= 0,end=len(string))</code></p>
 <h3>다른 사람 풀이</h3>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
-    <span class="hljs-keyword">return</span> sum(map(S.count, J))
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span>(<span class="hljs-params">self, J, S</span>):</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">map</span>(S.count, J))
 </code></pre>
 <p>map 함수를 써서 stone 에 포함 된 jewel 리스트 요소의 수를 새로운 리스트로 반환하고 sum 메소드를 사용하여 리스트 요소의 합을 구한다.</p>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
-    <span class="hljs-keyword">return</span> sum(map(J.count, S))
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span>(<span class="hljs-params">self, J, S</span>):</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">map</span>(J.count, S))
 </code></pre>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
-    <span class="hljs-keyword">return</span> sum(s <span class="hljs-keyword">in</span> J <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span>(<span class="hljs-params">self, J, S</span>):</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(s <span class="hljs-keyword">in</span> J <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
 </code></pre>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(self, J, S)</span>:</span>
-        setJ = set(J)
-        <span class="hljs-keyword">return</span> sum(s <span class="hljs-keyword">in</span> setJ <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numJewelsInStones</span>(<span class="hljs-params">self, J, S</span>):</span>
+        setJ = <span class="hljs-built_in">set</span>(J)
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(s <span class="hljs-keyword">in</span> setJ <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> S)
 </code></pre>
 <p>python 집합 자료형</p>
-<pre class="hljs"><code><span class="hljs-meta">&gt;&gt;&gt; </span>s1 = set([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
+<pre class="hljs"><code><span class="hljs-meta">&gt;&gt;&gt; </span>s1 = <span class="hljs-built_in">set</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
 <span class="hljs-meta">&gt;&gt;&gt; </span>s1
 {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>}
 

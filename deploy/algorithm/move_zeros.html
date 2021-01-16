@@ -752,9 +752,9 @@
 <li>remove(0)</li>
 <li>append(0)</li>
 </ol>
-<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span><span class="hljs-params">(object)</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums)</span>:</span>
-        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, nums.count(<span class="hljs-number">0</span>)):
+<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span>(<span class="hljs-params">self, nums</span>):</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, nums.count(<span class="hljs-number">0</span>)):
             nums.remove(<span class="hljs-number">0</span>)
             nums.append(<span class="hljs-number">0</span>)
 </code></pre>
@@ -764,9 +764,9 @@
 <li>i 번 째 인수가 0 이 아니면, last_zero 보다 앞으로 가야 하므로 last_zero 와 자리를 바꾼다.</li>
 <li>last_zero 가 이동하였으므로 last_zero 자리 값을 1 증가시켜 준다.</li>
 </ol>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(nums)</span>:</span>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span>(<span class="hljs-params">nums</span>):</span>
     last_zero = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">for</span> i range(<span class="hljs-number">0</span>, len(nums)):
+    <span class="hljs-keyword">for</span> i <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(nums)):
         <span class="hljs-keyword">if</span> nums[i] != <span class="hljs-number">0</span>:
           nums[i], nums[last_zero] = nums[last_zero], nums[i]
           last_zero += <span class="hljs-number">1</span>
@@ -777,8 +777,8 @@
 <li>x 가 0 이면 1 을 리턴</li>
 <li>x 가 0 이 아니면 -1 을 리턴</li>
 </ol>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums)</span>:</span>
-    nums.sort(key=<span class="hljs-keyword">lambda</span> x: <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> x == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">-1</span>)
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span>(<span class="hljs-params">self, nums</span>):</span>
+    nums.sort(key=<span class="hljs-keyword">lambda</span> x: <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> x == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> -<span class="hljs-number">1</span>)
 </code></pre>
 
   </div>
