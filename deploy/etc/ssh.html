@@ -21,7 +21,7 @@
   <title>
      여러 github 계정 등록하기  |  구보현 블로그 
   </title>
-  <meta name="description" content=" 여러 github 계정을 등록해보자!">
+  <meta name="description" content=" 한대의 컴퓨터에 여러 github 계정을 등록해보자!">
   <meta name="keywords" content=" [ github, ssh, github 계정]">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
@@ -167,6 +167,13 @@
         <a href="/deploy/category/font-end.html">
           <li>
             font-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/front-end.html">
+          <li>
+            front-end
 
           </li>
         </a>
@@ -619,6 +626,21 @@
             </li>
             
             <li>
+              <a href="/deploy/front-end/jest-test.html">
+                <p>
+                  jest로 mocking하기
+
+                </p>
+                <p>
+
+                  20210131
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/nodejs/blog-2.html">
                 <p>
                   정적 블로그 생성기 만들기! - 2탄
@@ -763,8 +785,10 @@
 
   <div class="article__body">
     <h1>여러 github 계정 등록하기</h1>
-<p>한 대의 컴퓨터에서 여러 github 계정을 사용하고 싶을 때가 있다.</p>
-<p>이 글은 ssh 프로토콜로 두 개의 github 계정을 로컬에 등록하여 사용하는 과정을 정리한 글이다. 실습 환경은 mac OS다.</p>
+<p>회사 노트북으로 개인 작업을 하거나, 회사에서 여러 계정의 저장소를 사용할 때가 있는데</p>
+<p>이 때 한 대의 노트북의 여러 원격 저장소를 관리해야 한다.</p>
+<p>이번 글에서는 ssh 프로토콜로 두 개의 github 계정을 로컬에 등록하여 사용하는 과정을 정리했다.</p>
+<p>실습 환경은 mac OS다.</p>
 <h2>SSH? HTTPS?</h2>
 <p>github 저장소를 클론하려고 보면 SSH, HTTPS 중 하나를 선택하라고 나온다.</p>
 <p>SSH와 HTTPS는 뭘까?
@@ -835,16 +859,16 @@ Enter file in which to save the key (/Users/&lt;current user&gt;/.ssh/id_rsa):
 <p>git/github 관련 작업을 수행하는 동안 회사계정을 사용할 때와 개인 계정을 사용할 때 SSH에 알리기 위해서 SSH config 규칙을 추가해야 한다.</p>
 <p><code>~/.ssh/config</code>에 파일에 설정을 해주면 된다. 파일 작성은 vim이나 editor를 사용할 수 있다.</p>
 <p>만약 이 파일이 없으면 <code>touch ~/.ssh/config</code> <code>touch</code> 명령어로 파일을 만들면 된다.</p>
-<pre class="hljs"><code># work 
+<pre class="hljs"><code># work
 Host github.com-work
 HostName github.com
-User git 
-IdentityFile ~/.ssh/id_rsa_work 
+User git
+IdentityFile ~/.ssh/id_rsa_work
 
-# private 
+# private
 Host github.com-private
 HostName github.com
-User git 
+User git
 IdentityFile ~/.ssh/id_rsa_private
 </code></pre>
 <p>여기서 Host 값은 나중에 해당 계정을 나타내는 값으로 사용된다.</p>
@@ -880,14 +904,14 @@ IdentityFile ~/.ssh/id_rsa_private
 <pre class="hljs"><code>[user]
   email = bohyeon-work@gmail.com
   name = bohyeon-work
-[includeIf &quot;gitdir:~/Private&quot;] 
+[includeIf &quot;gitdir:~/Private&quot;]
   path = .gitconfig-private
 </code></pre>
 <p><code>includeIf</code> 에 directory를 정해주면, 이 디렉터리 하위에 있는 파일들은 path에 지정해준 <code>gitconfig</code>를 따른다.</p>
 <p><code>.gitconfig-private</code> 파일을 만들어서 다른 계정에 적용할 것들을 설정해주면 된다.</p>
 <pre class="hljs"><code>[user]
   email = goosee115@gmail.com
-  name = bohyeon-n 
+  name = bohyeon-n
 </code></pre>
 <h4>확인하기</h4>
 <p>gitconfig에서 설정한 것들이 잘 적용되고 있나 확인하고 싶다면
@@ -1042,6 +1066,16 @@ IdentityFile ~/.ssh/id_rsa_private
       <a href="/deploy/category/font-end.html">
         <li>
           font-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/front-end.html">
+        <li>
+          front-end
             (
             1 )
         </li>

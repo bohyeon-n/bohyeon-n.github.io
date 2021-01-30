@@ -19,10 +19,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-     HashMap |  구보현 블로그 
+     jest로 mocking하기 |  구보현 블로그 
   </title>
-  <meta name="description" content=" HashMap을 알아보자!">
-  <meta name="keywords" content="">
+  <meta name="description" content=" jest mocking하는 법을 알아보자">
+  <meta name="keywords" content=" [jest, test code]">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -773,51 +773,238 @@
 
   <div class="value">
     <h1 style="color:#333">
-       HashMap
+       jest로 mocking하기
 
     </h1>
     <span>
-       20200223
+       20210131
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h2>HashMap이란?</h2>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/630px-Hash_table_3_1_1_0_1_0_0_SP.svg.png" alt="hash - wiki">
-출처: Wikipedia - hash table</p>
-<p>HashMap은 키를 배열의 인덱스로 사용하여 키 i와 i번째 배열 항목을 연관시켜 저장하는 데이터 구조이다. 키값으로 데이터에 한 번에 접근할 수 있기 때문에 원하는 데이터를 빠르게 찾을 수 있다.</p>
-<p>키가 인덱스로 사용된다면, 정수값만 키 값으로 사용할 수 있을까? 정수값이 아닌 다른 값들을 어떻게 인덱스로 변환할 수 있을까?</p>
-<h2>Hash란?</h2>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Hash_table_4_1_1_0_0_1_0_LL.svg/480px-Hash_table_4_1_1_0_0_1_0_LL.svg.png" alt="hash">
-출처: Wikipedia - Hash function</p>
-<p>키값은 해시 함수를 통해 해시로 변경된다. 이를 해싱이라고 한다.
-해싱은 정수가 아닌 다른 더 복잡한 데이터 타입을 키로 사용할 수 있도록 확장한 것이다.</p>
-<p>해시은 <strong>단방향</strong>이다. 같은 객체를 해싱하면 항상 같은 해시값이 나오지만, 같은 해시값이라고 해서 꼭 같은 객체는 아니다. 같은 해시값을 가진 두 객체는 서로 다른 객체일 수 있다.</p>
-<p>항상 같은 해시값이 나오므로 이를 인덱스로 사용할 수 있지만, 같은 해시값을 가진 서로 다른 키가 같은 인덱스를 가리키는 상황이 생길 수 있다.
-이러한 상황을 <strong>충돌</strong>이라고 한다.</p>
-<h2>충돌</h2>
-<p>해시 함수는 입력값은 무한하지만 출력값은 유한하다. 해시 함수가 서로 다른 두 개 이상의 키를 같은 해시값으로 반환한다면 인덱스 하나에 여러 개의 키를 삽입해야 하는 상황이 생긴다. 이 상황을 해결하는 것을 <strong>충돌처리</strong>라고 한다.</p>
-<h3>충돌을 해결하는 방법</h3>
-<p>충돌을 해결하는 방법에는 <strong>개별 체이닝</strong>과 <strong>개방형 주소 지정</strong>이 있다.</p>
-<h4>개별 체이닝</h4>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hash_table_5_0_1_1_1_1_1_LL.svg/900px-Hash_table_5_0_1_1_1_1_1_LL.svg.png" alt="wiki 개별 체이닝">
-출처: Wikipedia - Hash table</p>
-<p>개별 체이닝은 크기가 m인 해시 배열 인덱스의 항목 각각에 연결 리스트를 두어 해시값이 같은 항목들을 저장한다.</p>
-<p>개별 체이닝의 경우, 최악의 경우 모든 키가 같은 테이블에 저장될 수 있으므로 O(n)의 시간복잡도를 가질 수 있다.
-그러므로 개별 체이닝은 해시값이 가능한 키값 범위에 균일하게 분포해야 한다. 또한 리스트의 길이가 작아서 두 단계의 탐색이 이루어지더라도 빠르게 끝낼 수 있도록 해시 값의 범위를 크게 잡을 수 있다.</p>
-<h4>개방형 주소 지정</h4>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/600px-HASHTB12.svg.png" alt="wikipedia">
-출처: Wikipedia - Linear probing</p>
-<p>해시 테이블의 크기가 저장할 키-값 쌍의 개수보다 큰 경우, 해시값이 충돌날 때 이미 존재하는 빈 공간에 값을 저장하여 충돌을 해소할 수 있다. 이러한 방법을 개방형 주소 지정 해싱이라고 한다.</p>
-<p>개방형 주소 지정 해싱의 가장 단순한 형태는 선형 탐지이다. 충돌이 발생할 때마다 단순히 테이블의 다음 항목 위치를 검사하면서 빈 공간을 찾는다.
-위 그림에서 Sandra Dee는 해시값이 873이지만 이미 그 인덱스에 John Smith가 저장되어 있으므로 충돌이 발생한다. 이를 해결하기 위해 그 다음 빈 자리인 874에 값을 저장한다.</p>
-<p>값을 찾을 때는 키를 인덱스로 해싱하고 탐색 키와 매칭되는 키가 그 위치에 있는지 검사하는 작업을 같은 키가 발견되거나 빈 공간을 찾을 때까지 반복한다. (빈 공간을 찾았다면 탐색에 실패한 것이다)</p>
-<p>체이닝처럼 또 다른 저장 공간 없이 해시 테이블 내에서 데이터를 저장할 수 있다. 그러나 테이블의 크기가 키-값 쌍의 개수보다 커야 하므로 적은 수의 데이터를 저장할 때 사용하는 것이 적합한다.</p>
+    <p>이번 글에서는 jest 프레임워크를 사용하여 모킹하는 법을 알아봅니다.</p>
+<h2>mocking?</h2>
+<p>모킹은 테스트하려는 코드에 외부 의존성이 있을 때 단위 테스트에서 사용되는 프로세스다.</p>
+<p>모킹을 함으로서 실제 객체를 대체 객체로 대체한다.</p>
+<p>대체 객체에는 fake, stub, mock 세 가지 유형이 있다.</p>
+<h3>fakes</h3>
+<p>페이크는 동일한 인터페이스를 구현하지만 다른 객체와 상호작용하지 않고 실제 코드를 대체하는 객체다.</p>
+<p>보통 페이크는 고정된 결과를 반환하도록 하드 코딩된다. 다양한 유즈 케이스를 테스트하려면 많은 페이크를 사용해야 한다.</p>
+<p>페이크의 문제는 인터페이스가 수정되면, 이 인터페이스를 사용하고 있는 페이크들도 수정해야 한다는 것이다.</p>
+<h3>stubs</h3>
+<p>stub는 특정 인풋 셋을 기반으로 특정 결과를 반환하는 객체다. 일반적으로 테스트를 위해 프로그래밍된 항목 이외의 항목에는 응답하지 않는다.</p>
+<h3>mocks</h3>
+<p>mock은 stub의 좀 더 정교한 버전이다. 각 메서드를 몇 번 째 호출하는지에 따라 프로그래밍할 수 있다. 어떤 순서로 어떤 데이터를 응답할건지 설정할 수 있다.</p>
+<h2>mocking 하는 이유?</h2>
+<p>mock(가짜)ing을 하는 이유는 테스트 하려는 코드가 의존하고 있는 객체를 가짜로 만들어 의존성 제거하고 객체의 동작을 통제할 수 있기 떄문이다.</p>
+<p>의존성이 있는 코드를 테스트하다가 테스트를 실패할 경우 어떤 코드가 문제인지 모르게 된다. 의존성 객체를 모킹함으로서 테스트중인 코드에만 집중하여 테스트할 수 있다.</p>
+<p>예를 들어, 테스트 하려는 클래스에서 서버에 요청해서 받은 받은 데이터를 사용하고 있다면, 서버 동작을 모킹하여 이 서버가 잘 동작하는지는 신경쓸 필요 없이 테스트 할 수있다.</p>
+<p>유닛테스트를 할 때는 테스트 하려는 객체에만 집중하고, 통합 테스트를 통해서 전체적인 테스트를 할 수 있다.</p>
+<h2>jest에서 mocking하기</h2>
+<p>jest 프레임워크를 사용하여 mocking하는 법을 알아보자.</p>
+<h3>mock function 사용하기</h3>
+<p>만약 callback 함수를 인자로 받는 forEach함수를 테스트하고 싶다면,</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">forEach</span>(<span class="hljs-params">items, callback</span>) </span>{
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>; index &lt; items.length; i++) {
+    callback(items[index]);
+  }
+}
+</code></pre>
+<p>mock 함수를 콜백으로 넘겨주면 mock 함수를 트래킹할 수 있다. forEach함수에서 콜백 함수가 예상대로 동작하는지 테스트할 수 있다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> mockCallback = jest.fn(<span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> <span class="hljs-number">42</span> + x);
+forEach([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], mockCallback);
+
+<span class="hljs-comment">// mock 함수는 두 번 호출된다.</span>
+expect(mockCallback.mock.calls.length).toBe(<span class="hljs-number">2</span>);
+
+<span class="hljs-comment">// 첫 번째 호출에 첫 번째 인자는 0이다.</span>
+<span class="hljs-comment">// .mock.calls[호출 순서][인자 순서]</span>
+expect(mockCallback.mock.calls[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]).toBe(<span class="hljs-number">0</span>);
+
+<span class="hljs-comment">// 두 번째 호출에 첫 번째 인자는 1이다.</span>
+expect(mockCallback.mock.calls[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]).toBe(<span class="hljs-number">1</span>);
+
+<span class="hljs-comment">// 첫 번째 호출에 반환값은 42다.</span>
+expect(mockCallback.mock.results[<span class="hljs-number">0</span>].values).toBe(<span class="hljs-number">42</span>);
+</code></pre>
+<h4>.mock 속성 더 알아보기</h4>
+<p>위 예시에서 .mock 속성을 사용하고 있는데, 모든 mock 함수에는 .mock 속성이 있다.
+mock속성에는 함수가 호출된 방법과 반환된 함수에 대한 데이터가 보관된다.</p>
+<p>mock 속성에는 calls, results, instance가 있다.</p>
+<pre class="hljs"><code><span class="hljs-comment">// 함수는 두 번 인스턴스화 됐다.</span>
+expect(someMockFunction.mock.instance.length).toBe(<span class="hljs-number">2</span>);
+
+<span class="hljs-comment">// 이 함수의 첫 번째 인스턴스화에서 반환된 객체</span>
+<span class="hljs-comment">// 객체에 값이 &#x27;test&#x27;로 설정된 &#x27;name&#x27; 속성이 있다.</span>
+expect(someMockFunction.mock.instance[<span class="hljs-number">0</span>].name).toEqual(<span class="hljs-string">&#x27;test&#x27;</span>);
+</code></pre>
+<h4>mock 함수 반환값 설정하기</h4>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> myMock = jest.fn();
+<span class="hljs-built_in">console</span>.log(myMock());
+
+myMock.mockReturnValueOnce(<span class="hljs-number">10</span>).mockReturnvalueOnce(<span class="hljs-string">&#x27;x&#x27;</span>).mockReturnValue(<span class="hljs-literal">true</span>);
+
+<span class="hljs-built_in">console</span>.log(myMock(), myMock(), myMock());
+<span class="hljs-comment">// 10, &#x27;x&#x27;, true</span>
+</code></pre>
+<p>mock 함수는 filter, map등 연속적으로 실행하는 코드에서 효과적으로 사용할 수 있다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> filterTestFn = jest.fn();
+
+filterTestFn.mockReturnValueOnce(<span class="hljs-literal">true</span>).mockReturnValueOnce(<span class="hljs-literal">false</span>);
+
+<span class="hljs-keyword">const</span> result = [<span class="hljs-number">11</span>, <span class="hljs-number">12</span>].filter(<span class="hljs-function">(<span class="hljs-params">num</span>) =&gt;</span> filterTestFn(num));
+
+<span class="hljs-built_in">console</span>.log(result);
+<span class="hljs-comment">// &gt; [11]</span>
+
+<span class="hljs-built_in">console</span>.log(filterTestFn.mock.calls[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]); <span class="hljs-comment">// 11</span>
+<span class="hljs-built_in">console</span>.log(filterTestFn.mock.calls[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>]); <span class="hljs-comment">// 12</span>
+</code></pre>
+<p>이런식으로 mockReturnValueOnce를 사용하면, 사용되기 직전에 콜백 함수를 작성하지 않아도 된다.</p>
+<h3>모듈 mocking하기</h3>
+<p>모듈 자체를 자동으로 모킹할 수도 있다.</p>
+<p>예를 들어 axios API를 모킹하고 싶을 때, axios 자체를 자동 모킹할 수 있는데</p>
+<pre class="hljs"><code><span class="hljs-comment">// user.js</span>
+<span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Users</span> </span>{
+  <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-title">all</span>(<span class="hljs-params"></span>)</span> {
+    <span class="hljs-keyword">return</span> axios.get(<span class="hljs-string">&#x27;/users.json&#x27;</span>).then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> res.data);
+  }
+}
+</code></pre>
+<p><code>mockResolvedValue</code>로 <code>axios</code> 의 <code>get</code> 메서드에 대해 반환값을 설정할 수 있다.</p>
+<pre class="hljs"><code>jest.mock(<span class="hljs-string">&#x27;axios&#x27;</span>);
+
+test(<span class="hljs-string">&quot;should fetch users&quot;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">const</span> users = [{<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;bob}];
+    const response = {data: users};
+    axios.get.mockResolvedValue(resp);
+
+    return Users.all().then(data =&gt; expect(data).toEqual(users));
+})
+</span></code></pre>
+<h4>mock implementations</h4>
+<p>위와 같은 방식으로 반환 값을 설정할 수도 있고, mockImplementation을 사용하여 설정해 줄 수도 있다.</p>
+<pre class="hljs"><code>axios.get.mockImplementation(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">Promise</span>.resolve(resp));
+</code></pre>
+<p>위 mockResolvedValue와 다른 점은 단순히 반환 값 지정을 넘어서 mock 함수 구현을 완전히 대체할 수 있다는 것이다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> myMockFn = jest.fn(<span class="hljs-function">(<span class="hljs-params">cb</span>) =&gt;</span> cb(<span class="hljs-literal">null</span>, <span class="hljs-literal">true</span>));
+
+myMockFn(<span class="hljs-function">(<span class="hljs-params">err, val</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(val));
+<span class="hljs-comment">// true</span>
+</code></pre>
+<p>mockImplementation 메서드는 다른 모듈에서 생성된 mock 함수의 기본 구현을 정의해야 할 때 유용하다.</p>
+<pre class="hljs"><code><span class="hljs-comment">//foo.js</span>
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// some implementation;</span>
+};
+
+<span class="hljs-comment">//test.js</span>
+jest.mock(<span class="hljs-string">&#x27;../foo&#x27;</span>);
+<span class="hljs-keyword">import</span> { foo } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../foo&#x27;</span>;
+
+foo.mockImplementation(<span class="hljs-function">() =&gt;</span> <span class="hljs-number">42</span>);
+foo();
+<span class="hljs-comment">// 42</span>
+</code></pre>
+<p>여러 함수 호출이 다른 결과를 반환하는 함수를 모킹하고 싶다면, mockImplementationOnce 메서드를 사용할 수 있다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> mockFunc = jest
+  .fn(<span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;default&#x27;</span>)
+  .mockImplementationOnce(<span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;first call&#x27;</span>)
+  .mockImplementationOnce(<span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;second call&#x27;</span>);
+</code></pre>
+<h4>mock names</h4>
+<p>테스트 결과를 출력할 때 jest.fn 대신 커스텀 네임을 사용하고 싶다면 mockName에 이름을 설정할 수 있다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> myMockFn = jest.fn().mockName(<span class="hljs-string">&#x27;add42&#x27;</span>);
+</code></pre>
+<h4>custom matchers</h4>
+<p>mock 함수가 어떻게 호출되었는지 일일이 넣어주지 않아도 jest에서 미리 만들어놓은 메서드를 사용해서 테스트할 수 있다.</p>
+<p>.mock에 접근하여 테스트해도 되지만, jest가 미리 만들어놓은 메서드로 테스트할 수 있다.</p>
+<pre class="hljs"><code><span class="hljs-comment">// mock 함수가 적어도 한 번은 호출되었는지 테스트</span>
+expoect(mockFunc).toHaveBeenalled();
+
+<span class="hljs-comment">// mock 함수가 지정한 인자와 함께 호출되었는지 테스트</span>
+expect(mockFunc).toHaveBeenCalledWith(arg1, arg2);
+
+<span class="hljs-comment">// mock 함수의 마지막 호출의 인자가 무엇인지 테스트</span>
+expect(mockFunc).toHaveLastCallWith(arg1, arg2);
+
+<span class="hljs-comment">// 모든 호출과 mock 이름이 스냅샷으로 작성된다.</span>
+expect(mockFunc).toMatchSnapshot();
+</code></pre>
+<h3>jest.spyOn</h3>
+<p>jest.fn과 유사한 모킹 함수를 생성하지만, object에 대한 호출도 트래킹한다.</p>
+<p>원래 함수를 덮어쓰려면 두 가지 방식으로 구현할 수있다.</p>
+<pre class="hljs"><code>jest.spyOn(object, methodName).mockImplementation(<span class="hljs-function">() =&gt;</span> customImplementation);
+
+object[methodName] = jest.fn(<span class="hljs-function">() =&gt;</span> customImplementation);
+</code></pre>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> video = {
+  <span class="hljs-function"><span class="hljs-title">play</span>(<span class="hljs-params"></span>)</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+};
+</code></pre>
+<pre class="hljs"><code>test(<span class="hljs-string">&#x27;plays video&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">const</span> spy = jest.spyOn(video, <span class="hljs-string">&#x27;play&#x27;</span>);
+  <span class="hljs-keyword">const</span> isPlaying = video.play();
+
+  expect(spy).toHaveBeenalled();
+  expect(isPlaying).toBe(<span class="hljs-literal">true</span>);
+
+  spy.mockRestore();
+});
+</code></pre>
+<p>getter, setter를 테스트하고 싶다면 <code>jest.spyOn(object, methodName, accessType?)</code> 를 사용하여 테스트할 수 있다.</p>
+<h3>web api mocking하기</h3>
+<p>위 예시처럼 두 가지 방식으로 web api를 mocking 할 수 있다.</p>
+<pre class="hljs"><code>// selectionModule.js
+
+class Range {
+    selection;
+
+    constructor() {
+        this.selection = document.getSelection();
+    }
+
+    isEditable() {
+        //...
+    }
+}
+</code></pre>
+<pre class="hljs"><code>test(<span class="hljs-string">&#x27;selection&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    mockGetSelection = jest.fn().mockImplementation(<span class="hljs-function">() =&gt;</span> {
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">focusOffset</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">getRangeAt</span>: <span class="hljs-function">() =&gt;</span> spyRange,
+            ...
+        }
+    })
+
+    <span class="hljs-built_in">document</span>.getSelection = mockGetSelection
+
+    jest.spyOn(<span class="hljs-built_in">document</span>, <span class="hljs-string">&#x27;getSelection&#x27;</span> ).mockImplementation(mockGetSelection)
+})
+</code></pre>
+<h2>궁금한 점, 더 알아볼 것!</h2>
+<pre class="hljs"><code>test(<span class="hljs-string">&#x27;plays video&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">const</span> spy = jest.spyOn(video, <span class="hljs-string">&#x27;play&#x27;</span>);
+  <span class="hljs-keyword">const</span> isPlaying = video.play();
+
+  expect(spy).toHaveBeenalled();
+});
+</code></pre>
+<p>위에서처럼 함수를 호출하고, 함수가 호출됐는지 확인하고 있는데 이 테스트는 왜 하는것인지 잘 이해가 가지 않았다. 무슨 의미가 있는지 잘 모르겠다.</p>
+<p>호출하면 호출되는거 아닌가?라고 생각했는데 이 부분은 좀 더 알아봐야 할 것 같다.</p>
+<p>어디까지 테스트해야 하고, 어디까지 모킹을 해야 하고, 어디는 구지 테스트할 필요가 없는지 아직 잘 모르겠다.</p>
+<p>너무나도 단순해 보이는 코드라도 나중에 다른 사람이 이 코드를 수정하거나, 영향을 미칠 수 있기 때문에 작성하는 걸까?</p>
+<p>다른 사람들은 어떻게 테스트를 작성하는지 공부해봐야겠다.</p>
 <h2>참고 자료</h2>
-<p><a href="https://www.edwith.org/introalgorithm/lecture/26426/">edwith - 파이썬을 이용한 알고리즘의 이해 </a></p>
-<p><a href="https://www.gilbut.co.kr/book/view?bookcode=BN002341&amp;perdevice=pc">알고리즘</a></p>
+<p>https://www.telerik.com/products/mocking/unit-testing.aspx</p>
+<p>https://jestjs.io/docs/en/mock-functions</p>
 
   </div>
 
