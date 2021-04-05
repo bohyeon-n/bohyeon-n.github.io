@@ -164,9 +164,23 @@
           </li>
         </a>
         
+        <a href="/deploy/category/etc.html">
+          <li>
+            etc
+
+          </li>
+        </a>
+        
         <a href="/deploy/category/font-end.html">
           <li>
             font-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/front-end.html">
+          <li>
+            front-end
 
           </li>
         </a>
@@ -604,6 +618,21 @@
             </li>
             
             <li>
+              <a href="/deploy/etc/ssh.html">
+                <p>
+                  여러 github 계정 등록하기
+
+                </p>
+                <p>
+
+                  20210117
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/font-end/hello-redux.html">
                 <p>
                   Redux 알아보기
@@ -612,6 +641,21 @@
                 <p>
 
                   20201219
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/front-end/jest-test.html">
+                <p>
+                  jest로 mocking하기
+
+                </p>
+                <p>
+
+                  20210131
 
                 </p>
               </a>
@@ -771,31 +815,31 @@
 </ol>
 <pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">username, balance</span>) </span>{
   <span class="hljs-comment">// 속성</span>
-  <span class="hljs-keyword">this</span>.username = username;
-  <span class="hljs-keyword">this</span>.balance = balance;
+  <span class="hljs-built_in">this</span>.username = username;
+  <span class="hljs-built_in">this</span>.balance = balance;
   <span class="hljs-comment">// 메소드</span>
-  <span class="hljs-keyword">this</span>.getBalance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+  <span class="hljs-built_in">this</span>.getBalance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-built_in">this</span>.balance}</span>입니다.`</span>;
   };
-  <span class="hljs-keyword">this</span>.deposit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
-    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
+  <span class="hljs-built_in">this</span>.deposit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
+    <span class="hljs-built_in">this</span>.balance = <span class="hljs-built_in">this</span>.balance + monye;
   };
 }
 
-account = <span class="hljs-keyword">new</span> Account(<span class="hljs-string">"bohyeon"</span>, <span class="hljs-number">20000</span>);
+account = <span class="hljs-keyword">new</span> Account(<span class="hljs-string">&quot;bohyeon&quot;</span>, <span class="hljs-number">20000</span>);
 account.getBalance();
 account.deposit(<span class="hljs-number">2000</span>);
 account.getBalance();
 </code></pre>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">username</span>: <span class="hljs-string">&quot;bohyeon&quot;</span>,
   <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-comment">//this키워드를 사용하여 객체의 속성인 username과 balance에 접근하고 있습니다.</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-built_in">this</span>.balance}</span>입니다.`</span>;
   },
   <span class="hljs-attr">deposit</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">monye</span>) </span>{
-    <span class="hljs-keyword">this</span>.balance = <span class="hljs-keyword">this</span>.balance + monye;
+    <span class="hljs-built_in">this</span>.balance = <span class="hljs-built_in">this</span>.balance + monye;
   }
 };
 
@@ -813,12 +857,12 @@ account.getBalance();
 </ol>
 <p>4 번, 객체에 속한 메소드의 내부함수에서 사용되는 경우를 더 알아보도록 하겠습니다.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">username</span>: <span class="hljs-string">&quot;bohyeon&quot;</span>,
   <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-built_in">this</span>.balance}</span>입니다.`</span>;
     };
     <span class="hljs-built_in">console</span>.log(innerFunc());
   }
@@ -832,13 +876,13 @@ account.getBalance(); <span class="hljs-comment">//undefined님의 잔액은 und
 <h2>bind</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> 함수는 this 의 문맥을 유지할 때 사용합니다.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">username</span>: <span class="hljs-string">&quot;bohyeon&quot;</span>,
   <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     innerFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
-      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
-    }.bind(<span class="hljs-keyword">this</span>);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span> === <span class="hljs-built_in">window</span>); <span class="hljs-comment">// false</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-built_in">this</span>.balance}</span>입니다.`</span>;
+    }.bind(<span class="hljs-built_in">this</span>);
     <span class="hljs-built_in">console</span>.log(innerFunc());
   }
 };
@@ -860,12 +904,12 @@ account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000
 <li>화살표 함수가 어떻게 사용되건, 호출되건, this 는 바뀌지 않습니다.</li>
 </ul>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> account = {
-  <span class="hljs-attr">username</span>: <span class="hljs-string">"bohyeon"</span>,
+  <span class="hljs-attr">username</span>: <span class="hljs-string">&quot;bohyeon&quot;</span>,
   <span class="hljs-attr">balance</span>: <span class="hljs-number">10000</span>,
   <span class="hljs-attr">getBalance</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-comment">//화살표 함수 사용</span>
     <span class="hljs-comment">//화살표 함수는 return 하지 않아도 값이 반환됩니다.</span>
-    innerFunc = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-keyword">this</span>.balance}</span>입니다.`</span>;
+    innerFunc = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">this</span>.username}</span>님의 잔액은 <span class="hljs-subst">${<span class="hljs-built_in">this</span>.balance}</span>입니다.`</span>;
     <span class="hljs-built_in">console</span>.log(innerFunc());
   }
 };
@@ -875,8 +919,8 @@ account.getBalance(); <span class="hljs-comment">//bohyeon님의 잔액은 10000
 <p>화살표 함수는 자신만의 this 를 갖지 않기 때문에, 바깥 스코프에서 this 의 값을 계승받습니다.</p>
 <p>그러나 이러한 특징 때문에 객체의 메소드로 화살표 함수를 사용하는 것은 적합하지 않습니다.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> person = {
-  <span class="hljs-attr">name</span>: <span class="hljs-string">"bohyeon"</span>,
-  <span class="hljs-attr">greet</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`hi <span class="hljs-subst">${<span class="hljs-keyword">this</span>.name}</span>`</span>)
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;bohyeon&quot;</span>,
+  <span class="hljs-attr">greet</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`hi <span class="hljs-subst">${<span class="hljs-built_in">this</span>.name}</span>`</span>)
 };
 person.greet(); <span class="hljs-comment">// hi</span>
 </code></pre>
@@ -1023,9 +1067,29 @@ person.greet(); <span class="hljs-comment">// hi</span>
 
       
     
+      <a href="/deploy/category/etc.html">
+        <li>
+          etc
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
       <a href="/deploy/category/font-end.html">
         <li>
           font-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/front-end.html">
+        <li>
+          front-end
             (
             1 )
         </li>

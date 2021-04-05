@@ -164,9 +164,23 @@
           </li>
         </a>
         
+        <a href="/deploy/category/etc.html">
+          <li>
+            etc
+
+          </li>
+        </a>
+        
         <a href="/deploy/category/font-end.html">
           <li>
             font-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/front-end.html">
+          <li>
+            front-end
 
           </li>
         </a>
@@ -604,6 +618,21 @@
             </li>
             
             <li>
+              <a href="/deploy/etc/ssh.html">
+                <p>
+                  여러 github 계정 등록하기
+
+                </p>
+                <p>
+
+                  20210117
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/font-end/hello-redux.html">
                 <p>
                   Redux 알아보기
@@ -612,6 +641,21 @@
                 <p>
 
                   20201219
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/front-end/jest-test.html">
+                <p>
+                  jest로 mocking하기
+
+                </p>
+                <p>
+
+                  20210131
 
                 </p>
               </a>
@@ -768,8 +812,8 @@
 <p>Note that you cannot sell a stock before you buy one.</p>
 <pre class="hljs"><code>Input: [<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>]
 <span class="hljs-attr">Output</span>: <span class="hljs-number">5</span>
-<span class="hljs-attr">Explanation</span>: Buy on day <span class="hljs-number">2</span> (price = <span class="hljs-number">1</span>) and sell on day <span class="hljs-number">5</span> (price = <span class="hljs-number">6</span>), profit = <span class="hljs-number">6</span><span class="hljs-number">-1</span> = <span class="hljs-number">5.</span>
-             Not <span class="hljs-number">7</span><span class="hljs-number">-1</span> = <span class="hljs-number">6</span>, <span class="hljs-keyword">as</span> selling price needs to be larger than buying price.
+<span class="hljs-attr">Explanation</span>: Buy on day <span class="hljs-number">2</span> (price = <span class="hljs-number">1</span>) and sell on day <span class="hljs-number">5</span> (price = <span class="hljs-number">6</span>), profit = <span class="hljs-number">6</span>-<span class="hljs-number">1</span> = <span class="hljs-number">5.</span>
+             Not <span class="hljs-number">7</span>-<span class="hljs-number">1</span> = <span class="hljs-number">6</span>, <span class="hljs-keyword">as</span> selling price needs to be larger than buying price.
 </code></pre>
 <h2>Javascript</h2>
 <h2>나의 풀이</h2>
@@ -816,11 +860,11 @@
 <p><code>float('inf')</code>는 파이썬에서 무한을 표현하는 식이다.</p>
 </li>
 </ol>
-<pre class="hljs"><code>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(self, prices)</span>:</span>
-        max_profit, min_buy = (<span class="hljs-number">0</span>, float(<span class="hljs-string">'inf'</span>)  )
+<pre class="hljs"><code>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maxProfit</span>(<span class="hljs-params">self, prices</span>):</span>
+        max_profit, min_buy = (<span class="hljs-number">0</span>, <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)  )
         <span class="hljs-keyword">for</span> price <span class="hljs-keyword">in</span> prices:
-            min_buy = min(min_buy, price)
-            max_profit = max(max_profit, price - min_buy )
+            min_buy = <span class="hljs-built_in">min</span>(min_buy, price)
+            max_profit = <span class="hljs-built_in">max</span>(max_profit, price - min_buy )
         <span class="hljs-keyword">return</span> max_profit
 </code></pre>
 
@@ -953,9 +997,29 @@
 
       
     
+      <a href="/deploy/category/etc.html">
+        <li>
+          etc
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
       <a href="/deploy/category/font-end.html">
         <li>
           font-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/front-end.html">
+        <li>
+          front-end
             (
             1 )
         </li>

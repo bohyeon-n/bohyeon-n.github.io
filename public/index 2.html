@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130684627-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-130684627-1');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%=title %>
+  </title>
+  <meta name="description" content="<%=description %>">
+  <meta name="keywords" content="<%=keywords %>">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js">
+  <link rel="stylesheet" href="/style/index.css">
+
+</head>
+
+<body class="body">
+  <div class="header">
+    <%- header %>
+
+  </div>
+
+
+
+  <div class="content">
+
+    <div class="main">
+      <%-main %>
+
+    </div>
+    <div class="sidebar">
+      <%- sidebar %>
+
+    </div>
+
+
+  </div>
+  <button id="goUp" onclick="topFunction()">
+    <i class="fas fa-arrow-circle-up"></i>
+  </button>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.js"></script>
+  <script>
+    const categoryEl = document.querySelector('.category')
+    const navCategoryEl = document.querySelector('.nav__category')
+    navCategoryEl.addEventListener('click', e => {
+      if (!categoryEl.classList.contains('show')) {
+        categoryEl.classList.add('show')
+
+
+      } else {
+        categoryEl.classList.remove('show');
+      }
+    })
+
+    window.onscroll = function () {
+      scrollFunction()
+    }
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('goUp').style.display = "block";
+      } else {
+        document.getElementById('goUp').style.display = 'none';
+      }
+    }
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>

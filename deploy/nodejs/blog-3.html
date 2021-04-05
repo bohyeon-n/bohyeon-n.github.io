@@ -164,9 +164,23 @@
           </li>
         </a>
         
+        <a href="/deploy/category/etc.html">
+          <li>
+            etc
+
+          </li>
+        </a>
+        
         <a href="/deploy/category/font-end.html">
           <li>
             font-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/front-end.html">
+          <li>
+            front-end
 
           </li>
         </a>
@@ -604,6 +618,21 @@
             </li>
             
             <li>
+              <a href="/deploy/etc/ssh.html">
+                <p>
+                  여러 github 계정 등록하기
+
+                </p>
+                <p>
+
+                  20210117
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/font-end/hello-redux.html">
                 <p>
                   Redux 알아보기
@@ -612,6 +641,21 @@
                 <p>
 
                   20201219
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/front-end/jest-test.html">
+                <p>
+                  jest로 mocking하기
+
+                </p>
+                <p>
+
+                  20210131
 
                 </p>
               </a>
@@ -794,14 +838,14 @@ disqus = 'https://bohyeon.disqus.com/embed.js'
 </code></pre>
 <h3>사용자 정보 가져오기</h3>
 <p>author.md 파일안에 있는 사용자의 정보를 가져오기 위해서는 먼저 파일을 읽어와야 합니다. 아래의 코드를 추가해주세요.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> authorFile = fs.readFileSync(<span class="hljs-string">"./author/author.md"</span>, <span class="hljs-string">"utf8"</span>);
+<pre class="hljs"><code><span class="hljs-keyword">const</span> authorFile = fs.readFileSync(<span class="hljs-string">&quot;./author/author.md&quot;</span>, <span class="hljs-string">&quot;utf8&quot;</span>);
 </code></pre>
 <p>우리는 이전에 전체 텍스트에서 <code>+++ +++</code> 안에 넣은 값만 가져올 수 있는 <code>extractValue</code> 함수를 만들었습니다. 이 함수를 사용하여 사용자의 값을 가져오겠습니다.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> authorValue = extractValue(authorFile);
 <span class="hljs-built_in">console</span>.log(authorValue);
 </code></pre>
 <p>코드를 실행해보면 아래와 같이 찍히는 것을 확인할 수 있습니다.</p>
-<pre class="hljs"><code>{ disqus: 'https://bohyeon.disqus.com/embed.js' }
+<pre class="hljs"><code>{ disqus: &#x27;https://bohyeon.disqus.com/embed.js&#x27; }
 </code></pre>
 <p>이제 이 값을 사용하여 블로그 글 하단에 Disqus 코드를 넣어주는 작업을 해보겠습니다.</p>
 <h3>article 템플릿에 Disqus 코드 추가하기</h3>
@@ -952,9 +996,29 @@ disqus = 'https://bohyeon.disqus.com/embed.js'
 
       
     
+      <a href="/deploy/category/etc.html">
+        <li>
+          etc
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
       <a href="/deploy/category/font-end.html">
         <li>
           font-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/front-end.html">
+        <li>
+          front-end
             (
             1 )
         </li>

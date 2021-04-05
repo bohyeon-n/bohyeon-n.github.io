@@ -1,0 +1,329 @@
++++
+category = front-end
+comments = true
+date = "20210131"
+draft = false
+showpagemeta = true
+showcomments = false
+tags = ["jest", "test code"]
+title = "jest로 mocking하기"
+description = "jest mocking하는 법을 알아보자"
+front = true
++++
+
+이번 글에서는 jest 프레임워크를 사용하여 모킹하는 법을 알아봅니다.
+
+## mocking?
+
+모킹은 테스트하려는 코드에 외부 의존성이 있을 때 단위 테스트에서 사용되는 프로세스다.
+
+모킹을 함으로서 실제 객체를 대체 객체로 대체한다.
+
+대체 객체에는 fake, stub, mock 세 가지 유형이 있다.
+
+### fakes
+
+페이크는 동일한 인터페이스를 구현하지만 다른 객체와 상호작용하지 않고 실제 코드를 대체하는 객체다.
+
+보통 페이크는 고정된 결과를 반환하도록 하드 코딩된다. 다양한 유즈 케이스를 테스트하려면 많은 페이크를 사용해야 한다.
+
+페이크의 문제는 인터페이스가 수정되면, 이 인터페이스를 사용하고 있는 페이크들도 수정해야 한다는 것이다.
+
+### stubs
+
+stub는 특정 인풋 셋을 기반으로 특정 결과를 반환하는 객체다. 일반적으로 테스트를 위해 프로그래밍된 항목 이외의 항목에는 응답하지 않는다.
+
+### mocks
+
+mock은 stub의 좀 더 정교한 버전이다. 각 메서드를 몇 번 째 호출하는지에 따라 프로그래밍할 수 있다. 어떤 순서로 어떤 데이터를 응답할건지 설정할 수 있다.
+
+## mocking 하는 이유?
+
+mock(가짜)ing을 하는 이유는 테스트 하려는 코드가 의존하고 있는 객체를 가짜로 만들어 의존성 제거하고 객체의 동작을 통제할 수 있기 떄문이다.
+
+의존성이 있는 코드를 테스트하다가 테스트를 실패할 경우 어떤 코드가 문제인지 모르게 된다. 의존성 객체를 모킹함으로서 테스트중인 코드에만 집중하여 테스트할 수 있다.
+
+예를 들어, 테스트 하려는 클래스에서 서버에 요청해서 받은 받은 데이터를 사용하고 있다면, 서버 동작을 모킹하여 이 서버가 잘 동작하는지는 신경쓸 필요 없이 테스트 할 수있다.
+
+유닛테스트를 할 때는 테스트 하려는 객체에만 집중하고, 통합 테스트를 통해서 전체적인 테스트를 할 수 있다.
+
+## jest에서 mocking하기
+
+jest 프레임워크를 사용하여 mocking하는 법을 알아보자.
+
+### mock function 사용하기
+
+만약 callback 함수를 인자로 받는 forEach함수를 테스트하고 싶다면,
+
+```js
+function forEach(items, callback) {
+  for (let index = 0; index < items.length; i++) {
+    callback(items[index]);
+  }
+}
+```
+
+mock 함수를 콜백으로 넘겨주면 mock 함수를 트래킹할 수 있다. forEach함수에서 콜백 함수가 예상대로 동작하는지 테스트할 수 있다.
+
+```js
+const mockCallback = jest.fn((x) => 42 + x);
+forEach([0, 1], mockCallback);
+
+// mock 함수는 두 번 호출된다.
+expect(mockCallback.mock.calls.length).toBe(2);
+
+// 첫 번째 호출에 첫 번째 인자는 0이다.
+// .mock.calls[호출 순서][인자 순서]
+expect(mockCallback.mock.calls[0][0]).toBe(0);
+
+// 두 번째 호출에 첫 번째 인자는 1이다.
+expect(mockCallback.mock.calls[1][0]).toBe(1);
+
+// 첫 번째 호출에 반환값은 42다.
+expect(mockCallback.mock.results[0].values).toBe(42);
+```
+
+#### .mock 속성 더 알아보기
+
+위 예시에서 .mock 속성을 사용하고 있는데, 모든 mock 함수에는 .mock 속성이 있다.
+mock속성에는 함수가 호출된 방법과 반환된 함수에 대한 데이터가 보관된다.
+
+mock 속성에는 calls, results, instance가 있다.
+
+```js
+// 함수는 두 번 인스턴스화 됐다.
+expect(someMockFunction.mock.instance.length).toBe(2);
+
+// 이 함수의 첫 번째 인스턴스화에서 반환된 객체
+// 객체에 값이 'test'로 설정된 'name' 속성이 있다.
+expect(someMockFunction.mock.instance[0].name).toEqual('test');
+```
+
+#### mock 함수 반환값 설정하기
+
+```js
+const myMock = jest.fn();
+console.log(myMock());
+
+myMock.mockReturnValueOnce(10).mockReturnvalueOnce('x').mockReturnValue(true);
+
+console.log(myMock(), myMock(), myMock());
+// 10, 'x', true
+```
+
+mock 함수는 filter, map등 연속적으로 실행하는 코드에서 효과적으로 사용할 수 있다.
+
+```js
+const filterTestFn = jest.fn();
+
+filterTestFn.mockReturnValueOnce(true).mockReturnValueOnce(false);
+
+const result = [11, 12].filter((num) => filterTestFn(num));
+
+console.log(result);
+// > [11]
+
+console.log(filterTestFn.mock.calls[0][0]); // 11
+console.log(filterTestFn.mock.calls[0][1]); // 12
+```
+
+이런식으로 mockReturnValueOnce를 사용하면, 사용되기 직전에 콜백 함수를 작성하지 않아도 된다.
+
+### 모듈 mocking하기
+
+모듈 자체를 자동으로 모킹할 수도 있다.
+
+예를 들어 axios API를 모킹하고 싶을 때, axios 자체를 자동 모킹할 수 있는데
+
+```js
+// user.js
+import axios from 'axios';
+
+class Users {
+  static all() {
+    return axios.get('/users.json').then((res) => res.data);
+  }
+}
+```
+
+`mockResolvedValue`로 `axios` 의 `get` 메서드에 대해 반환값을 설정할 수 있다.
+
+```js
+jest.mock('axios');
+
+test("should fetch users", () => {
+    const users = [{name: 'bob}];
+    const response = {data: users};
+    axios.get.mockResolvedValue(resp);
+
+    return Users.all().then(data => expect(data).toEqual(users));
+})
+```
+
+#### mock implementations
+
+위와 같은 방식으로 반환 값을 설정할 수도 있고, mockImplementation을 사용하여 설정해 줄 수도 있다.
+
+```js
+axios.get.mockImplementation(() => Promise.resolve(resp));
+```
+
+위 mockResolvedValue와 다른 점은 단순히 반환 값 지정을 넘어서 mock 함수 구현을 완전히 대체할 수 있다는 것이다.
+
+```js
+const myMockFn = jest.fn((cb) => cb(null, true));
+
+myMockFn((err, val) => console.log(val));
+// true
+```
+
+mockImplementation 메서드는 다른 모듈에서 생성된 mock 함수의 기본 구현을 정의해야 할 때 유용하다.
+
+```js
+//foo.js
+module.exports = function () {
+  // some implementation;
+};
+
+//test.js
+jest.mock('../foo');
+import { foo } from '../foo';
+
+foo.mockImplementation(() => 42);
+foo();
+// 42
+```
+
+여러 함수 호출이 다른 결과를 반환하는 함수를 모킹하고 싶다면, mockImplementationOnce 메서드를 사용할 수 있다.
+
+```js
+const mockFunc = jest
+  .fn(() => 'default')
+  .mockImplementationOnce(() => 'first call')
+  .mockImplementationOnce(() => 'second call');
+```
+
+#### mock names
+
+테스트 결과를 출력할 때 jest.fn 대신 커스텀 네임을 사용하고 싶다면 mockName에 이름을 설정할 수 있다.
+
+```js
+const myMockFn = jest.fn().mockName('add42');
+```
+
+#### custom matchers
+
+mock 함수가 어떻게 호출되었는지 일일이 넣어주지 않아도 jest에서 미리 만들어놓은 메서드를 사용해서 테스트할 수 있다.
+
+.mock에 접근하여 테스트해도 되지만, jest가 미리 만들어놓은 메서드로 테스트할 수 있다.
+
+```js
+// mock 함수가 적어도 한 번은 호출되었는지 테스트
+expoect(mockFunc).toHaveBeenalled();
+
+// mock 함수가 지정한 인자와 함께 호출되었는지 테스트
+expect(mockFunc).toHaveBeenCalledWith(arg1, arg2);
+
+// mock 함수의 마지막 호출의 인자가 무엇인지 테스트
+expect(mockFunc).toHaveLastCallWith(arg1, arg2);
+
+// 모든 호출과 mock 이름이 스냅샷으로 작성된다.
+expect(mockFunc).toMatchSnapshot();
+```
+
+### jest.spyOn
+
+jest.fn과 유사한 모킹 함수를 생성하지만, object에 대한 호출도 트래킹한다.
+
+원래 함수를 덮어쓰려면 두 가지 방식으로 구현할 수있다.
+
+```js
+jest.spyOn(object, methodName).mockImplementation(() => customImplementation);
+
+object[methodName] = jest.fn(() => customImplementation);
+```
+
+```js
+const video = {
+  play() {
+    return true;
+  },
+};
+```
+
+```js
+test('plays video', () => {
+  const spy = jest.spyOn(video, 'play');
+  const isPlaying = video.play();
+
+  expect(spy).toHaveBeenalled();
+  expect(isPlaying).toBe(true);
+
+  spy.mockRestore();
+});
+```
+
+getter, setter를 테스트하고 싶다면 `jest.spyOn(object, methodName, accessType?)` 를 사용하여 테스트할 수 있다.
+
+### web api mocking하기
+
+위 예시처럼 두 가지 방식으로 web api를 mocking 할 수 있다.
+
+```
+// selectionModule.js
+
+class Range {
+    selection;
+
+    constructor() {
+        this.selection = document.getSelection();
+    }
+
+    isEditable() {
+        //...
+    }
+}
+```
+
+```js
+test('selection', () => {
+    mockGetSelection = jest.fn().mockImplementation(() => {
+        return {
+            focusOffset: 0,
+            getRangeAt: () => spyRange,
+            ...
+        }
+    })
+
+    document.getSelection = mockGetSelection
+
+    jest.spyOn(document, 'getSelection' ).mockImplementation(mockGetSelection)
+})
+```
+
+## 궁금한 점, 더 알아볼 것!
+
+```js
+test('plays video', () => {
+  const spy = jest.spyOn(video, 'play');
+  const isPlaying = video.play();
+
+  expect(spy).toHaveBeenalled();
+});
+```
+
+위에서처럼 함수를 호출하고, 함수가 호출됐는지 확인하고 있는데 이 테스트는 왜 하는것인지 잘 이해가 가지 않았다. 무슨 의미가 있는지 잘 모르겠다.
+
+호출하면 호출되는거 아닌가?라고 생각했는데 이 부분은 좀 더 알아봐야 할 것 같다.
+
+어디까지 테스트해야 하고, 어디까지 모킹을 해야 하고, 어디는 구지 테스트할 필요가 없는지 아직 잘 모르겠다.
+
+너무나도 단순해 보이는 코드라도 나중에 다른 사람이 이 코드를 수정하거나, 영향을 미칠 수 있기 때문에 작성하는 걸까?
+
+다른 사람들은 어떻게 테스트를 작성하는지 공부해봐야겠다.
+
+## 참고 자료
+
+https://www.telerik.com/products/mocking/unit-testing.aspx
+
+https://jestjs.io/docs/en/mock-functions

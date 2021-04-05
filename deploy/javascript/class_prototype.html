@@ -164,9 +164,23 @@
           </li>
         </a>
         
+        <a href="/deploy/category/etc.html">
+          <li>
+            etc
+
+          </li>
+        </a>
+        
         <a href="/deploy/category/font-end.html">
           <li>
             font-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/front-end.html">
+          <li>
+            front-end
 
           </li>
         </a>
@@ -604,6 +618,21 @@
             </li>
             
             <li>
+              <a href="/deploy/etc/ssh.html">
+                <p>
+                  여러 github 계정 등록하기
+
+                </p>
+                <p>
+
+                  20210117
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/font-end/hello-redux.html">
                 <p>
                   Redux 알아보기
@@ -612,6 +641,21 @@
                 <p>
 
                   20201219
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/front-end/jest-test.html">
+                <p>
+                  jest로 mocking하기
+
+                </p>
+                <p>
+
+                  20210131
 
                 </p>
               </a>
@@ -809,26 +853,26 @@ Foo.prototype <span class="hljs-comment">// {}</span>
 <h3>자바스크립트 상속</h3>
 <p>그럼 자바스크립트에서 상속은 어떻게 할까?</p>
 <pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foo</span>(<span class="hljs-params">name</span>) </span>{
-  <span class="hljs-keyword">this</span>.name = name
+  <span class="hljs-built_in">this</span>.name = name
 }
 
 Foo.prototype.myName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.name
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Bar</span>(<span class="hljs-params">name, label</span>) </span>{
-  Foo.call(<span class="hljs-keyword">this</span>, name)
-  <span class="hljs-keyword">this</span>.label = label
+  Foo.call(<span class="hljs-built_in">this</span>, name)
+  <span class="hljs-built_in">this</span>.label = label
 }
 <span class="hljs-comment">// Bar.prototype 를 Foo.prototype에 연결한다.</span>
 <span class="hljs-comment">// 새로운 객체를 만들고 내부 [[Prototype]]을 지정한 객체(Foo.prototype)에 링크한다.</span>
 Bar.prototype = <span class="hljs-built_in">Object</span>.create(Foo.prototype)
 
 Bar.prototype.myLabel = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.label
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.label
 }
 
-<span class="hljs-keyword">const</span> a = <span class="hljs-keyword">new</span> Bar(<span class="hljs-string">'a'</span>, <span class="hljs-string">'obj a'</span>)
+<span class="hljs-keyword">const</span> a = <span class="hljs-keyword">new</span> Bar(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;obj a&#x27;</span>)
 
 a.myLabel()
 a.myName()
@@ -977,9 +1021,29 @@ a.myName()
 
       
     
+      <a href="/deploy/category/etc.html">
+        <li>
+          etc
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
       <a href="/deploy/category/font-end.html">
         <li>
           font-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/front-end.html">
+        <li>
+          front-end
             (
             1 )
         </li>

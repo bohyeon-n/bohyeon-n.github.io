@@ -164,9 +164,23 @@
           </li>
         </a>
         
+        <a href="/deploy/category/etc.html">
+          <li>
+            etc
+
+          </li>
+        </a>
+        
         <a href="/deploy/category/font-end.html">
           <li>
             font-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/front-end.html">
+          <li>
+            front-end
 
           </li>
         </a>
@@ -604,6 +618,21 @@
             </li>
             
             <li>
+              <a href="/deploy/etc/ssh.html">
+                <p>
+                  여러 github 계정 등록하기
+
+                </p>
+                <p>
+
+                  20210117
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/font-end/hello-redux.html">
                 <p>
                   Redux 알아보기
@@ -612,6 +641,21 @@
                 <p>
 
                   20201219
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/front-end/jest-test.html">
+                <p>
+                  jest로 mocking하기
+
+                </p>
+                <p>
+
+                  20210131
 
                 </p>
               </a>
@@ -772,7 +816,7 @@
 <li>this는 자기 자신을 가리킬까?</li>
 </ul>
 <pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">this</span>.count++
+  <span class="hljs-built_in">this</span>.count++
 }
 
 func.count = <span class="hljs-number">0</span>
@@ -790,11 +834,11 @@ func.count = <span class="hljs-number">0</span>
 </ul>
 <pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>
-  <span class="hljs-keyword">this</span>.bar()
+  <span class="hljs-built_in">this</span>.bar()
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.a)
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.a)
 }
 
 foo()
@@ -819,7 +863,7 @@ foo()
 <h3>기본 바인딩</h3>
 <p>단독 함수 실행에 관한 규칙으로 나머지에 해당하지 않을 때 적용되는 기본 규칙이다.</p>
 <pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.a) <span class="hljs-comment">// 1</span>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.a) <span class="hljs-comment">// 1</span>
 }
 
 <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>
@@ -837,7 +881,7 @@ foo()
 <pre class="hljs"><code><span class="hljs-keyword">const</span> obj = {
   <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>,
   <span class="hljs-attr">func</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.a) <span class="hljs-comment">// 1</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.a) <span class="hljs-comment">// 1</span>
   }
 }
 </code></pre>
@@ -850,7 +894,7 @@ foo()
 <p>new는 함수 호출 시 this를 새 객체와 바인딩하는 방법이다.</p>
 <p>아래 예제에서는 bar 객체에 this를 바인딩했다.</p>
 <pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">a</span>) </span>{
-  <span class="hljs-keyword">this</span>.a = a
+  <span class="hljs-built_in">this</span>.a = a
 }
 
 <span class="hljs-keyword">const</span> bar = <span class="hljs-keyword">new</span> foo(<span class="hljs-number">2</span>)
@@ -869,7 +913,7 @@ foo()
 <p>화살표 함수는 일반 변수 조회 규칙을 따른다. 때문에 현재 범위가 존재하지 않는 this를 찾을 때, 화살표 함수는 바로 바깥 범위에서 this를 찾는다.</p>
 <pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.a)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.a)
   }
 }
 
@@ -889,9 +933,9 @@ bar.call(obj2) <span class="hljs-comment">// 2</span>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> person = {
   <span class="hljs-attr">age</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">grow</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-      <span class="hljs-keyword">this</span>.age++
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.age)
+    <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-built_in">this</span>.age++
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.age)
     }, <span class="hljs-number">1000</span>)
   }
 }
@@ -903,21 +947,21 @@ grow 함수의 this는 person 객체이므로, age값이 정상적으로 출력�
 <h2>문제!</h2>
 <p>js 컨퍼런스에서 당근마켓에서 문제를 풀면 js 뱃지? 스탬프?를 줬는데, 그 때 낸 문제 중 하나다.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> obj = {
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'자바스크립트'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;자바스크립트&#x27;</span>,
   <span class="hljs-attr">subObj</span>: {
-    <span class="hljs-attr">title</span>: <span class="hljs-string">'Javascript'</span>,
-    show(func) {
-      <span class="hljs-keyword">return</span> func.apply(<span class="hljs-keyword">this</span>)
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Javascript&#x27;</span>,
+    <span class="hljs-function"><span class="hljs-title">show</span>(<span class="hljs-params">func</span>)</span> {
+      <span class="hljs-keyword">return</span> func.apply(<span class="hljs-built_in">this</span>)
     }
   },
-  show() {
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.subObj.show(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.title
+  <span class="hljs-function"><span class="hljs-title">show</span>(<span class="hljs-params"></span>)</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.subObj.show(<span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.title
     })
   }
 }
 
-<span class="hljs-built_in">console</span>.log(obj.show() === <span class="hljs-string">'자바스크립트'</span> ? <span class="hljs-string">'O'</span> : <span class="hljs-string">'X'</span>)
+<span class="hljs-built_in">console</span>.log(obj.show() === <span class="hljs-string">&#x27;자바스크립트&#x27;</span> ? <span class="hljs-string">&#x27;O&#x27;</span> : <span class="hljs-string">&#x27;X&#x27;</span>)
 </code></pre>
 <p>화살표 함수는 this도 없고, 오버라이딩도 안된다. 그래서 func this를 subObj로 오버라이딩하는 코드를 실행했지만, 안된다.</p>
 <p>그러므로 this.title은 둘러싼 함수 show()의 this를 참조하므로 obj의 title이 된다.</p>
@@ -1055,9 +1099,29 @@ grow 함수의 this는 person 객체이므로, age값이 정상적으로 출력�
 
       
     
+      <a href="/deploy/category/etc.html">
+        <li>
+          etc
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
       <a href="/deploy/category/font-end.html">
         <li>
           font-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/front-end.html">
+        <li>
+          front-end
             (
             1 )
         </li>

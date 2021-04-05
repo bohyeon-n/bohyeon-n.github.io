@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130684627-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-130684627-1');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+     여러 github 계정 등록하기  |  구보현 블로그 
+  </title>
+  <meta name="description" content=" 한대의 컴퓨터에 여러 github 계정을 등록해보자!">
+  <meta name="keywords" content=" [ github, ssh, github 계정]">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js">
+  <link rel="stylesheet" href="/style/index.css">
+
+</head>
+
+<body class="body">
+  <div class="header">
+    <div class="user">
+  <div class="user__content">
+    <div class="user__img">
+      <a href="/">
+        <img src="  https://media.tenor.com/images/a629920aedaf98a619b8f1010434e621/tenor.png" alt="">
+      </a>
+    </div>
+
+    <div class="user__username">
+      <div>
+         구보현 블로그 
+
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div class="user__social">
+      
+        <a href=" https://github.com/bohyeon-n">
+
+          <i class="fab fa-github-alt fa-2x"></i>
+
+
+
+        </a>
+
+        
+          
+            <i class="fab fa-facebook-square fa-2x"></i>
+            
+    </div>
+    <div>
+    </div>
+
+  </div>
+
+</div>
+<div class="nav">
+  <div>
+    <ul>
+      <a href="/index.html">
+        <li class="nav__home">
+          Home
+        </li>
+      </a>
+
+      <li class="nav__category">
+        Category
+      </li>
+      <a href="/deploy/author/author.html">
+        <li class="nav__about">
+          About
+        </li>
+
+      </a>
+
+      <li class="nav__search ">
+        <input type="text" id="searchInput">
+
+        <i id='searchIcon' class="fas fa-search">
+        </i>
+      </li>
+    </ul>
+
+    <div class="category">
+      
+        <a href="/deploy/category/algorithm.html">
+          <li>
+            Algorithm
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/cs.html">
+          <li>
+            CS
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/css.html">
+          <li>
+            CSS
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/devops.html">
+          <li>
+            DevOps
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/http.html">
+          <li>
+            HTTP
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/javascript.html">
+          <li>
+            JavaScript
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/network.html">
+          <li>
+            Network
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/react.html">
+          <li>
+            React
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/web.html">
+          <li>
+            Web
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/etc.html">
+          <li>
+            etc
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/font-end.html">
+          <li>
+            font-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/front-end.html">
+          <li>
+            front-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/nodejs.html">
+          <li>
+            Nodejs
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/python.html">
+          <li>
+            Python
+
+          </li>
+        </a>
+        
+    </div>
+  </div>
+</div>
+<div class="modal">
+  <div class="modal__wrap">
+    <div class="modal__content">
+      <div class="modal__content-input">
+        <input type="text" id="input" onkeyup="searchArticle()" placeholder="Type Something">
+        <i class="fas fa-times-circle fa-2x delete"></i>
+      </div>
+      <div class="modal__content-list">
+        <ul id="articleUl">
+          
+            <li>
+              <a href="/deploy/algorithm/3sumclosest.html">
+                <p>
+                  3sum Closest
+
+                </p>
+                <p>
+
+                  20180716
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/besttimetobuyandsellstock.html">
+                <p>
+                  Best Time to Buy and Sell Stock
+
+                </p>
+                <p>
+
+                  20180816
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/add_binary.html">
+                <p>
+                  Add Binary - Python
+
+                </p>
+                <p>
+
+                  20180818
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fibonacci.html">
+                <p>
+                  피보나치 수 구현하기
+
+                </p>
+                <p>
+
+                  20180710
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/fizz_buzz.html">
+                <p>
+                  FIZZ BUZZ in Python
+
+                </p>
+                <p>
+
+                  20180825
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/jewels_and_stones.html">
+                <p>
+                  Jewels and Stones
+
+                </p>
+                <p>
+
+                  20180820
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/move_zeros.html">
+                <p>
+                  Move Zeroes
+
+                </p>
+                <p>
+
+                  20180824
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/algorithm/sortcolor.html">
+                <p>
+                  sort colors
+
+                </p>
+                <p>
+
+                  20180718
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/cs/computer.html">
+                <p>
+                  컴퓨터의 작동원리
+
+                </p>
+                <p>
+
+                  20180831
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/cs/hashmap.html">
+                <p>
+                  HashMap
+
+                </p>
+                <p>
+
+                  20200223
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/css/flex-box.html">
+                <p>
+                  Flexbox
+
+                </p>
+                <p>
+
+                  20200722
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/devops/github_action.html">
+                <p>
+                  Github Action, AWS CodeDeploy를 사용하여 자동 배포하기!
+
+                </p>
+                <p>
+
+                  20201012
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/http/contditional-get-cache.html">
+                <p>
+                  [HTTP]conditional get과 Cache
+
+                </p>
+                <p>
+
+                  20201019
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/http/method.html">
+                <p>
+                  [HTTP]HTTP Method
+
+                </p>
+                <p>
+
+                  20200920
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/regexp.html">
+                <p>
+                  정규 표현식
+
+                </p>
+                <p>
+
+                  20180719
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/class_prototype.html">
+                <p>
+                  [자바스크립트]prototype??
+
+                </p>
+                <p>
+
+                  20201029
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/context.html">
+                <p>
+                  컨텍스트와 호이스팅 - JavaScript
+
+                </p>
+                <p>
+
+                  20180830
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/react-calculator-test.html">
+                <p>
+                  [REACT]계산기 구현 + 테스트 코드
+
+                </p>
+                <p>
+
+                  20201018
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/this.html">
+                <p>
+                  자바스크립트 this, bind 그리고 화살표 함수
+
+                </p>
+                <p>
+
+                  20180806
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/javascript/this2.html">
+                <p>
+                  [자바스크립트]this는 뭘까?
+
+                </p>
+                <p>
+
+                  20201009
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/network/internet-2.html">
+                <p>
+                  [네트워크]google.com을 입력하면 일어나는 일
+
+                </p>
+                <p>
+
+                  20200914
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/network/internet.html">
+                <p>
+                  인터넷이 작동하는 방법
+
+                </p>
+                <p>
+
+                  20180901
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/react/react_immutable.html">
+                <p>
+                  리액트의 상태가 불변해야 하는 이유
+
+                </p>
+                <p>
+
+                  20210405
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/cors.html">
+                <p>
+                  CORS란? CORS를 해결해보자
+
+                </p>
+                <p>
+
+                  20200522
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/image-upload.html">
+                <p>
+                  [Spring][React]이미지 업로드 기능 만들기
+
+                </p>
+                <p>
+
+                  20200924
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/react_apache_error.html">
+                <p>
+                  React앱 Apache로 배포 시 404 에러 해결하기
+
+                </p>
+                <p>
+
+                  20200823
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/web/rest.html">
+                <p>
+                  REST란?
+
+                </p>
+                <p>
+
+                  20180810
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/etc/ssh.html">
+                <p>
+                  여러 github 계정 등록하기
+
+                </p>
+                <p>
+
+                  20210117
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/font-end/hello-redux.html">
+                <p>
+                  Redux 알아보기
+
+                </p>
+                <p>
+
+                  20201219
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/front-end/jest-test.html">
+                <p>
+                  jest로 mocking하기
+
+                </p>
+                <p>
+
+                  20210131
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blog-2.html">
+                <p>
+                  정적 블로그 생성기 만들기! - 2탄
+
+                </p>
+                <p>
+
+                  20180911
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blog-3.html">
+                <p>
+                  정적 블로그 생성기 만들기 - 댓글 기능 추가하기
+
+                </p>
+                <p>
+
+                  20180918
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blog-4.html">
+                <p>
+                  정적 블로그 생성기 만들기 - 헤더와 소개 페이지
+
+                </p>
+                <p>
+
+                  20181007
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/nodejs/blogindex.html">
+                <p>
+                  정적 블로그 생성기 만들기!
+
+                </p>
+                <p>
+
+                  20180905
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/python/sort.html">
+                <p>
+                  Sorting in Python
+
+                </p>
+                <p>
+
+                  20180824
+
+                </p>
+              </a>
+
+            </li>
+            
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script>  
+
+  document.querySelector('#searchInput').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+  document.querySelector('#searchIcon').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('modal', 'show')
+    document.querySelector('#input').focus();
+  }
+  )
+
+  document.querySelector('.delete').addEventListener('click', function () {
+
+
+    document.querySelector('.modal').classList.remove('show')
+  })
+
+  function searchArticle() {
+    let input, filter, ul, li, a, i;
+    input = document.getElementById('input')
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('articleUl')
+    li = ul.getElementsByTagName('li');
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName('a')[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = '';
+      } else {
+        li[i].style.display = 'none'
+      }
+    }
+
+  }
+
+</script>
+
+  </div>
+
+
+
+  <div class="content">
+
+    <div class="main">
+      <div class="article">
+
+
+  <div class="value">
+    <h1 style="color:#333">
+       여러 github 계정 등록하기 
+
+    </h1>
+    <span>
+       20210117
+
+    </span>
+  </div>
+
+
+  <div class="article__body">
+    <h1>여러 github 계정 등록하기</h1>
+<p>회사 노트북으로 개인 작업을 하거나, 회사에서 여러 계정의 저장소를 사용할 때가 있는데</p>
+<p>이 때 한 대의 노트북의 여러 원격 저장소를 관리해야 한다.</p>
+<p>이번 글에서는 ssh 프로토콜로 두 개의 github 계정을 로컬에 등록하여 사용하는 과정을 정리했다.</p>
+<p>실습 환경은 mac OS다.</p>
+<h2>SSH? HTTPS?</h2>
+<p>github 저장소를 클론하려고 보면 SSH, HTTPS 중 하나를 선택하라고 나온다.</p>
+<p>SSH와 HTTPS는 뭘까?
+SSH와 HTTPS 모두 클라이언트와 서버 사이에 통신을 위한 프로토콜이다.</p>
+<h3>ssh?</h3>
+<p>SSH 은 Secure Shell로 커넥션을 수립하기 위해서 사용자 username/
+password 인증 시스템이 내장되어 있다.</p>
+<p>22번 포트를 사용하여 커넥션을 위한 인증 프로세스를 수행한다. 원격 시스템의 인증은 공개키 암호화를 사용하여 수행되며 필요한 경우 원격 컴퓨터에서 사용자를 인증할 수 있다.</p>
+<blockquote>
+<p>공개키 방식은 하나의 복호화 키를 사용하는 대칭키와 달리, 암호화할 때 공개키를 사용하고 복호화할 때 개인키를 사용한다.</p>
+</blockquote>
+<p>ssh는 개인 키와 공개키로 알려진 한 쌍의 키로 구성할 수 있다.</p>
+<p>SSH는 공개키 방식으로 커넥션을 수립하는데 자세한 과정은 다음과 같다.</p>
+<p>SSH 서버는 공개키로 암호화하여 챌린지를 생성하고 SSH 클라이언트로 다시 보낸다. 클라이언트는 챌린지를 수행하고 클라이언트의 개인 키로 메시지를 해독한 다음 원래 챌린지를 SSH 서버로 보낸다.
+이 과정이 완료되면 연결이 설정되고 작업을 시작할 수 있다.</p>
+<h3>HTTPS</h3>
+<p>HTTPS HyperText Transfer Secure 프로토콜로 HTTP의 보안 버전이다. HTTPS는 공개키 암호화 방식과 대칭키 암호화 방식을 함께 사용한다. 인증을 받은 인증서가 있는 사이트는 이 방식을 사용해 암호화하여 통신할 수 있다.</p>
+<p>git에서 HTTPS 프로토콜의 모든 작업에 비밀번호 기반 인증을 사용한다.
+명령 줄에서 HTTPS URL을 사용하여 원격 저장소, git fetch, pull, push를 가져오는 경우 git은 사용자 이름과 비밀번호를 요청한다.</p>
+<p>git 서버 공급( github)에게 ssh 키를 생성/복사/붙여넣기 하지 않아도 된다. 어디서든 저장소에 액세스하고 쓰기가 더 쉬우며 계정 세부 정보만 있으면 된다.</p>
+<hr>
+<h3>SSH 프로토콜을 사용하여 github 계정 등록하기</h3>
+<p>계정을 등록하여 사용하는 방법에는 몇 가지 단계가 있다.</p>
+<ol>
+<li>ssh keys 생성하기 (공개키, 개인키)</li>
+<li>github에 공개키 등록하기</li>
+<li>ssh key 로컬에 등록하기</li>
+<li>SSH config 설정을 통해서 이 SSH 규칙 설정하기</li>
+<li>[옵션] gitconfig 설정을 통해서 git 설정해주기</li>
+</ol>
+<p>먼저 공개키와 개인키를 생성하기 전에 기존 SSH 키를 확인한다. 이미 있다면 그 키를 사용하고 없으면 만들면 된다.</p>
+<p>.ssh 는 숨겨진 폴더이기 때문에 <code>ls -al ~/.ssh</code>로 확인할 수 있다. 여기에 .pub 확장자 파일이 SSH 키다.</p>
+<p>계정마다 ssh키가 있어야 한다. 개인용과 업무용으로 사용할 계획이라면 SSH 키가 두 개 있어야 하며 없는 경우 생성하면 된다.</p>
+<p><code>ls -al ~/.ssh</code> 명령을 실행한 후 No such file or directory가 표시되면
+<code>mkdir -p ~/.ssh</code> 명령을 사용하여 디렉터리를 생성할 수 있다.</p>
+<p>p 플래그는 중첩된 디렉터리를 생성하지만, 아직 존재하지 않은 경우에만 가능하다는 의미다.</p>
+<p>내 경우에는 이렇게 했는데도 블로그와 달리 .ssh 파일에 접근할 수 없어서 파일에 대한 권한을 다시 설정해줬었다.</p>
+<p><code>chmod 700 ~/.ssh</code></p>
+<p>chmod는 파일 또는 디렉터리의 권한을 설정해주는 명령어인데 700 맨 앞에 7이 오너에 대한 설정으로 read, write, execute 모든 권한을 주기 위해서 각각의 권한을 더한 7로 명령했다.</p>
+<h3>ssh key 생성하기</h3>
+<p>다음 명령어로 공개키와 개인키를 생성한다.</p>
+<p><code>ssh-keygen -t rsa -C &lt;email&gt;</code></p>
+<p>내가 github에서 사용하는 메일 주소는 <code>goosee115@gmail.com</code>이므로</p>
+<p><code>ssh-keygen -t rsa -C goosee115@gmail.com</code></p>
+<p>이렇게 입력하면</p>
+<pre class="hljs"><code>Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/&lt;current user&gt;/.ssh/id_rsa):
+</code></pre>
+<p>이때 각각의 계정을 구별할 수 있는 키 값을 넣어주면 된다. 기본은 id_rsa다.</p>
+<p>예를 들면, <code>id_rsa_private</code> <code>id_rsa_work</code> 등으로 아무거나 구분할 수 있는 문자를 넣어주면 된다.
+입력 후 암호를 입력하라는 메시지가 표시되면 원하는 암호를 아무거나 입력해주면 된다.</p>
+<p>이 암호는 일반적으로 개인 키를 암호화할 때 사용한다. 개인키를 보호하지 않으면 컴퓨터에 접근할 수 있는 사람은 공용키가 있는 원격 서버(github)에 접근할 수 있다.</p>
+<h3>github에 공개키 등록하기</h3>
+<p>github에 생성한 두 개의 공개키를 각각의 계정에 로그인해서 등록해준다.</p>
+<p><code>cat</code> 명령어는 파일을 읽고 출력해준다. 이 명령어로 공개키 파일에 있는 키를 복사한 뒤 github에 등록해준다.</p>
+<p><code>cat ~/.ssh/id_rsa_private.pub</code></p>
+<ol>
+<li>github setting에 들어가기</li>
+<li>SSH ans GPG Keys 선택 후</li>
+<li>New SSH Key 버튼 클릭 후 등록해주기</li>
+<li>Title은 아무거나 적으면 된다!</li>
+</ol>
+<h3>ssh key 등록하기</h3>
+<p>ssh key를 만들었으니 이 키를 사용한다고 알려주기 위해서 ssh-agent에 SSH 키를 등록해줘야 한다.</p>
+<p><code>ssh-add ~/.ssh/id_rsa_private</code>
+<code>ssh-add ~/.ssh/id_rsa_work</code></p>
+<h3>SSH config 파일 생성 후 규칙 추가하기</h3>
+<p>git/github 관련 작업을 수행하는 동안 회사계정을 사용할 때와 개인 계정을 사용할 때 SSH에 알리기 위해서 SSH config 규칙을 추가해야 한다.</p>
+<p><code>~/.ssh/config</code>에 파일에 설정을 해주면 된다. 파일 작성은 vim이나 editor를 사용할 수 있다.</p>
+<p>만약 이 파일이 없으면 <code>touch ~/.ssh/config</code> <code>touch</code> 명령어로 파일을 만들면 된다.</p>
+<pre class="hljs"><code># work
+Host github.com-work
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_work
+
+# private
+Host github.com-private
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_private
+</code></pre>
+<p>여기서 Host 값은 나중에 해당 계정을 나타내는 값으로 사용된다.</p>
+<h4>확인하기</h4>
+<p>이렇게 설정해준뒤에 설정이 잘 된 건지 확인하려면 <code>ssh -T [host]</code> 명령어로 연결해볼 수 있다.</p>
+<p><code>ssh -T github.com-work</code></p>
+<p><code>ssh -T github.com-private</code></p>
+<h3>SSH로 통신하기</h3>
+<h4>clone</h4>
+<p><code>git clone git@&lt;Host&gt;:bohyeon-n/repository.git</code></p>
+<p>예시)</p>
+<ul>
+<li><code>git clone git@github.com-private:bohyeon-n/repository.git</code></li>
+</ul>
+<h4>remote 주소 변경</h4>
+<p>이미 로컬에 생성된 repository에 remote 주소를 변경해줄 수 있다.</p>
+<p><code>git remote set-url origin git@&lt;Host&gt;:bohyeon-n/repository.git</code></p>
+<p>예시)</p>
+<ul>
+<li><code>git remote set-url origin git@github.com-private:bohyeon-n/repository.git</code></li>
+</ul>
+<h4>remote 주소 등록</h4>
+<p>로컬에 새 저장소를 추가하는 경우에는 remote 주소를 등록해야 한다.</p>
+<p><code>git remote add origin git@&lt;Host&gt;:bohyeon-n/repository.git</code></p>
+<p>예시)</p>
+<ul>
+<li><code>git remote add origin git@github.com-private:bohyeon-n/repository.git</code></li>
+</ul>
+<h3>gitconfig 설정</h3>
+<p>프로젝트 별로 설정을 관리하고 싶다면 .gitconfig에서 프로젝트마다 다른 설정 파일을 적용할 수 있다.</p>
+<p>각각의 프로젝트 폴더에 .gitconfig 파일을 정의해서 사용할 수도 있지만 이런 식으로 특정 폴더 하위에 있는 것들은 다른 .gitconfig 파일을 사용할 수 있도록 설정할 수 있다.</p>
+<p><code>~/.gitconfig</code>에 전역 설정을 해준다.</p>
+<pre class="hljs"><code>[user]
+  email = bohyeon-work@gmail.com
+  name = bohyeon-work
+[includeIf &quot;gitdir:~/Private&quot;]
+  path = .gitconfig-private
+</code></pre>
+<p><code>includeIf</code> 에 directory를 정해주면, 이 디렉터리 하위에 있는 파일들은 path에 지정해준 <code>gitconfig</code>를 따른다.</p>
+<p><code>.gitconfig-private</code> 파일을 만들어서 다른 계정에 적용할 것들을 설정해주면 된다.</p>
+<pre class="hljs"><code>[user]
+  email = goosee115@gmail.com
+  name = bohyeon-n
+</code></pre>
+<h4>확인하기</h4>
+<p>gitconfig에서 설정한 것들이 잘 적용되고 있나 확인하고 싶다면
+<code>git config --list</code> 명령어를 입력하면 해당 프로젝트의 config를 볼 수 있다.</p>
+<h3>gitconfig에 다 설정해줄 수 없나? =&gt; 모르겠음</h3>
+<p>여기까지 실습을 한 후에 의문이 들었다.</p>
+<p>gitconfig에 remote 주소도 설정해줄 수 없을까? 설정할 때마다 <code>Host</code>를 붙여주지 않고 알아서 해주는 건 없나?</p>
+<p>위에서처럼 remote주소를 설정하지 않고, gitconfig로 특정 폴더 아래 있는 건 다 알아서 private로 프로파일링할 순 없나 라는 생각으로 시도를 해봤지만</p>
+<p>origin도 name과 email처럼 똑같이 설정해줄 순 있지만 내가 원하는 것처럼 자동으로(?) 뭔가를 해주는 방법은 찾지 못했다.</p>
+<hr>
+<h2>마치며</h2>
+<p>3주 전에 이 설정하려고 했다가 잘 안 돼서 git credential 설정에 들어가서 해당 계정을 사용할 때 마다 수정하는 고생스러운 짓을 했었다.</p>
+<p>다른 블로그 글을 읽어보니 HTTPS 프로토콜로도 멀티 계정을 설정하는 방법이 있는 것 같다. git credential store를 사용하여 config에 설정할 수 있는 것 같다.(잘 모름)</p>
+<p>설정하는 데 시간이 좀 걸렸지만... 아무튼 이제 멀티 계정으로 사용할 수 있어서 기쁘다...! 😎</p>
+<hr>
+<h2>참고 자료</h2>
+<p>https://dublin-java.tistory.com/62</p>
+<p>https://ourtechroom.com/tech/https-vs-ssh-in-git/#:~:text=your%20git%20account.-,Git%20With%20SSH,fetch%20and%20git%20pull%2C%20etc.</p>
+<p>https://dev.to/jogendra/how-to-use-multiple-github-accounts-on-single-machine-2me9</p>
+<p>https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh</p>
+<p>https://kb.iu.edu/d/aews</p>
+
+  </div>
+
+</div>
+
+  <div id="disqus_thread"></div>
+  <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+
+
+    // var disqus_config = function () {
+    //   this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    //   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // };
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://bohyeon-n.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+    </div>
+    <div class="sidebar">
+      <!-- folder name -->
+<div>
+  Category
+</div>
+<ul>
+
+  
+    
+      <a href="/deploy/category/algorithm.html">
+        <li>
+          Algorithm
+            (
+            8 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/cs.html">
+        <li>
+          CS
+            (
+            2 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/css.html">
+        <li>
+          CSS
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/devops.html">
+        <li>
+          DevOps
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/http.html">
+        <li>
+          HTTP
+            (
+            2 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/javascript.html">
+        <li>
+          JavaScript
+            (
+            6 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/network.html">
+        <li>
+          Network
+            (
+            2 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/react.html">
+        <li>
+          React
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/web.html">
+        <li>
+          Web
+            (
+            4 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/etc.html">
+        <li>
+          etc
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/font-end.html">
+        <li>
+          font-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/front-end.html">
+        <li>
+          front-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/nodejs.html">
+        <li>
+          Nodejs
+            (
+            4 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/python.html">
+        <li>
+          Python
+            (
+            1 )
+        </li>
+      </a>
+
+      
+</ul>
+
+    </div>
+
+
+  </div>
+  <button id="goUp" onclick="topFunction()">
+    <i class="fas fa-arrow-circle-up"></i>
+  </button>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.js"></script>
+  <script>
+    const categoryEl = document.querySelector('.category')
+    const navCategoryEl = document.querySelector('.nav__category')
+    navCategoryEl.addEventListener('click', e => {
+      if (!categoryEl.classList.contains('show')) {
+        categoryEl.classList.add('show')
+
+
+      } else {
+        categoryEl.classList.remove('show');
+      }
+    })
+
+    window.onscroll = function () {
+      scrollFunction()
+    }
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('goUp').style.display = "block";
+      } else {
+        document.getElementById('goUp').style.display = 'none';
+      }
+    }
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>

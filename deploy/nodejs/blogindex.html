@@ -164,9 +164,23 @@
           </li>
         </a>
         
+        <a href="/deploy/category/etc.html">
+          <li>
+            etc
+
+          </li>
+        </a>
+        
         <a href="/deploy/category/font-end.html">
           <li>
             font-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/front-end.html">
+          <li>
+            front-end
 
           </li>
         </a>
@@ -604,6 +618,21 @@
             </li>
             
             <li>
+              <a href="/deploy/etc/ssh.html">
+                <p>
+                  여러 github 계정 등록하기
+
+                </p>
+                <p>
+
+                  20210117
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/font-end/hello-redux.html">
                 <p>
                   Redux 알아보기
@@ -612,6 +641,21 @@
                 <p>
 
                   20201219
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/front-end/jest-test.html">
+                <p>
+                  jest로 mocking하기
+
+                </p>
+                <p>
+
+                  20210131
 
                 </p>
               </a>
@@ -832,12 +876,12 @@
 <p>이제 hello-node.js 파일 안을 채워봅시다.</p>
 <p>하나씩 살펴보겠습니다.</p>
 <p>우선 필요한 모듈을 로딩해야 합니다. 여기선 파일의 경로를 다루기 위한 path  모듈과, 파일시스템 처리를 위한 fs 모듈을 사용합니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
-<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
+<pre class="hljs"><code><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;path&quot;</span>);
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;fs&quot;</span>);
 </code></pre>
 <p>이제 우리가 정한 컨텐츠 디렉토리를 훑고 파일을 읽어보겠습니다.</p>
 <pre class="hljs"><code><span class="hljs-comment">// contents 디렉토리 경로</span>
-<span class="hljs-keyword">const</span> directoryPath = path.join(__dirname, <span class="hljs-string">"contents"</span>);
+<span class="hljs-keyword">const</span> directoryPath = path.join(__dirname, <span class="hljs-string">&quot;contents&quot;</span>);
 <span class="hljs-built_in">console</span>.log(directoryPath);
 <span class="hljs-comment">// 디렉토리에 있는 파일 읽기</span>
 <span class="hljs-keyword">const</span> contentFiles = fs.readdirSync(directoryPath);
@@ -848,17 +892,17 @@
 <p>fs.readdirSync()는 디렉토리의 컨텐츠들을 읽는 메소드입니다. <em>sync</em> 는 동기적 읽기로 파일을 모두 읽은 후 다른 작업을 할 수 있습니다.</p>
 <p>그럼 완성된 코드는 아래와 같을 것입니다.</p>
 <pre class="hljs"><code><span class="hljs-comment">// 모듈</span>
-<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);
-<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;path&quot;</span>);
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;fs&quot;</span>);
 
 <span class="hljs-comment">// contents 디렉토리의 경로</span>
-<span class="hljs-keyword">const</span> directoryPath = path.join(__dirname, <span class="hljs-string">"contents"</span>);
+<span class="hljs-keyword">const</span> directoryPath = path.join(__dirname, <span class="hljs-string">&quot;contents&quot;</span>);
 <span class="hljs-comment">// contents 디렉토리에 있는 파일 읽기</span>
 <span class="hljs-keyword">const</span> contentFiles = fs.readdirSync(directoryPath);
 <span class="hljs-built_in">console</span>.log(contentFiles);
 </code></pre>
 <p><em>node.js</em> 샐행은 커맨드창에 <em>node hello-node.js</em>(자바스크립트 파일 이름) 라고 입력하고 실행해주세요. 실행하면 컨맨드 창에 아래와 같이 찍히는 것을 볼 수 있습니다.</p>
-<pre class="hljs"><code>[ 'cat.md', 'dog.md', 'macaron.md' ]
+<pre class="hljs"><code>[ &#x27;cat.md&#x27;, &#x27;dog.md&#x27;, &#x27;macaron.md&#x27; ]
 </code></pre>
 <p>여기까지 <em>contents</em> 디렉토리 하위에 있는 파일들의 이름을 읽어오는 데 성공하였습니다.</p>
 <h3>파일의 내용 읽기</h3>
@@ -866,7 +910,7 @@
 <p>우선 파일의 내용을 읽어봅시다.</p>
 <p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map 메소드</a>로 배열내의 모든 요소를 돌면서 파일을 읽습니다.</p>
 <pre class="hljs"><code>contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
+  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">&quot;utf8&quot;</span>);
 });
 </code></pre>
 <p>fs.readFileSync(filename, [options])는 동기 방식으로 파일을 읽는 메서드 입니다. options 에는 보통 인코딩 방식이 오게 되며 웹에서는 'utf8' 을 주로 사용합니다.</p>
@@ -876,37 +920,37 @@
 <pre class="hljs"><code>npm install markdown-it --save
 </code></pre>
 <p>설치가 완료되면 package.json 파일의 dependencies 에 markdown-it 이 추가된 것을 볼 수 있습니다.</p>
-<pre class="hljs"><code>  <span class="hljs-string">"dependencies"</span>: {
-    <span class="hljs-string">"markdown-it"</span>: <span class="hljs-string">"^8.4.2"</span>
+<pre class="hljs"><code>  <span class="hljs-string">&quot;dependencies&quot;</span>: {
+    <span class="hljs-string">&quot;markdown-it&quot;</span>: <span class="hljs-string">&quot;^8.4.2&quot;</span>
   }
 </code></pre>
 <p><a href="https://highlightjs.org/">highlightjs</a> 도 설치해주세요. 코드를 예쁘게 보여주는 모듈입니다.</p>
 <pre class="hljs"><code>npm install highlight.js
 </code></pre>
 <p>이제 설치한 markdown-it 모듈로 마크다운을 HTML 로 변환해봅시다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> hljs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"highlight.js"</span>);
+<pre class="hljs"><code><span class="hljs-keyword">const</span> hljs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;highlight.js&quot;</span>);
 
-<span class="hljs-keyword">const</span> md = <span class="hljs-built_in">require</span>(<span class="hljs-string">"markdown-it"</span>)({
+<span class="hljs-keyword">const</span> md = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;markdown-it&quot;</span>)({
   <span class="hljs-attr">html</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">xhtmlOut</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">breaks</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">langPrefix</span>: <span class="hljs-string">"language-"</span>,
+  <span class="hljs-attr">langPrefix</span>: <span class="hljs-string">&quot;language-&quot;</span>,
   <span class="hljs-attr">linkify</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">typographer</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">quotes</span>: <span class="hljs-string">"“”‘’"</span>,
+  <span class="hljs-attr">quotes</span>: <span class="hljs-string">&quot;“”‘’&quot;</span>,
   <span class="hljs-attr">highlight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">str, lang</span>) </span>{
     <span class="hljs-keyword">if</span> (lang &amp;&amp; hljs.getLanguage(lang)) {
       <span class="hljs-keyword">try</span> {
         <span class="hljs-keyword">return</span> (
-          <span class="hljs-string">'&lt;pre class="hljs"&gt;&lt;code&gt;'</span> +
+          <span class="hljs-string">&#x27;&lt;pre class=&quot;hljs&quot;&gt;&lt;code&gt;&#x27;</span> +
           hljs.highlight(lang, str, <span class="hljs-literal">true</span>).value +
-          <span class="hljs-string">"&lt;/code&gt;&lt;/pre&gt;"</span>
+          <span class="hljs-string">&quot;&lt;/code&gt;&lt;/pre&gt;&quot;</span>
         );
       } <span class="hljs-keyword">catch</span> (__) {}
     }
 
     <span class="hljs-keyword">return</span> (
-      <span class="hljs-string">'&lt;pre class="hljs"&gt;&lt;code&gt;'</span> + md.utils.escapeHtml(str) + <span class="hljs-string">"&lt;/code&gt;&lt;/pre&gt;"</span>
+      <span class="hljs-string">&#x27;&lt;pre class=&quot;hljs&quot;&gt;&lt;code&gt;&#x27;</span> + md.utils.escapeHtml(str) + <span class="hljs-string">&quot;&lt;/code&gt;&lt;/pre&gt;&quot;</span>
     );
   }
 });
@@ -914,7 +958,7 @@
 <p>markdown-it 과 hljs 모듈을 불러옵니다. 모듈 로딩 시 마크다운을 어떻게 렌더할 것인지 옵션을 설정해줄 수 있습니다. 자세한 내용은 <a href="https://markdown-it.github.io/markdown-it/">옵션 항목</a>을 참고해주세요.</p>
 <p>이제 위에서 파일을 읽을 때 사용했던 map 메소드의 콜백 함수 안에 다음 코드를 추가해주세요.</p>
 <pre class="hljs"><code>contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
+  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">&quot;utf8&quot;</span>);
   <span class="hljs-keyword">const</span> convertedBody = md.render(body); <span class="hljs-comment">// 이 부분을 추가해주세요!</span>
   <span class="hljs-built_in">console</span>.log(convertedBody);
 });
@@ -969,28 +1013,28 @@ EJS 를 쓰면, 아래 문법과 같이 간단한 방법을 통해 템플릿을 
 <p>처음에 만들었던 <em>layout</em> 템플릿 안에 글의 내용을 넣는 <em>article</em> 템플릿 조각을 넣어서 하나의 페이지를 완성할 수 있습니다.</p>
 <p>이제 템플릿 안의 빈칸을 채우고 Article 페이지를 만들어 봅시다.</p>
 <p>먼저, 새로 만들어지는 HTML 파일을 생성할 상위 디렉토리인, <em>deploy</em> 를 만들어 줍니다. 직접 만들어도 되지만 조금 더 편리하게 사용하기 위해서 또는 다른 사람도 이 프로그램을 사용할 수 있도록 <em>deploy</em> 디렉토리를 자동으로 생성하는 코드를 추가합니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> dir = <span class="hljs-string">"./deploy"</span>;
+<pre class="hljs"><code><span class="hljs-keyword">const</span> dir = <span class="hljs-string">&quot;./deploy&quot;</span>;
 <span class="hljs-keyword">if</span> (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
 </code></pre>
 <p>그리고 템플릿 엔진을 사용하기 위해 모듈을 불러옵니다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">const</span> ejs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"ejs"</span>);
+<pre class="hljs"><code><span class="hljs-keyword">const</span> ejs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;ejs&quot;</span>);
 </code></pre>
 <p>템플릿 엔진을 적용하기 위해 layout_format.html 파일과 article_format.html 파일을 읽는 코드를 작성합니다.</p>
 <pre class="hljs"><code><span class="hljs-keyword">const</span> layoutHtmlFormat = fs.readFileSync(
-  <span class="hljs-string">"./templates/layout_format.html"</span>,
-  <span class="hljs-string">"utf8"</span>
+  <span class="hljs-string">&quot;./templates/layout_format.html&quot;</span>,
+  <span class="hljs-string">&quot;utf8&quot;</span>
 );
 <span class="hljs-keyword">const</span> articleHtmlFormat = fs.readFileSync(
-  <span class="hljs-string">"./templates/article_format.html"</span>,
-  <span class="hljs-string">"utf8"</span>
+  <span class="hljs-string">&quot;./templates/article_format.html&quot;</span>,
+  <span class="hljs-string">&quot;utf8&quot;</span>
 );
 </code></pre>
 <p>layout_format.html 파일을 읽어 layoutHtmlFormat 변수에 대입해줍니다. article_format.html 파일도 이같은 방식으로 작성합니다. articleHtmlFormat 은 틀이고 빈칸인 body 안에 무엇을 넣을 지 정해줘야 합니다.
 map 콜백 함수에 다음의 코드를 추가해주세요</p>
 <pre class="hljs"><code>contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
+  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">&quot;utf8&quot;</span>);
   <span class="hljs-keyword">const</span> convertedBody = md.render(body);
   <span class="hljs-keyword">const</span> articleContent = ejs.render(articleHtmlFormat, {
     <span class="hljs-attr">body</span>: convertedBody
@@ -1008,13 +1052,13 @@ map 콜백 함수에 다음의 코드를 추가해주세요</p>
 <p>다음 코드를 추가해주세요.</p>
 <pre class="hljs"><code><span class="hljs-comment">// 확장자를 제외한 파일 이름을 얻는 함수</span>
 getHtmlFileName = <span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">return</span> file.slice(<span class="hljs-number">0</span>, file.indexOf(<span class="hljs-string">"."</span>)).toLowerCase();
+  <span class="hljs-keyword">return</span> file.slice(<span class="hljs-number">0</span>, file.indexOf(<span class="hljs-string">&quot;.&quot;</span>)).toLowerCase();
 };
 <span class="hljs-comment">// deploy 폴더 안에 넣은 파일의 리스트</span>
 <span class="hljs-keyword">const</span> deployFiles = [];
 <span class="hljs-comment">// map함수로 content안에 있는 파일들을 반복문을 돌면서 deploy안에 html파일 생성</span>
 contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">"utf8"</span>);
+  <span class="hljs-keyword">const</span> body = fs.readFileSync(<span class="hljs-string">`./contents/<span class="hljs-subst">${file}</span>`</span>, <span class="hljs-string">&quot;utf8&quot;</span>);
 
   <span class="hljs-keyword">const</span> convertedBody = md.render(body);
   <span class="hljs-keyword">const</span> articleContent = ejs.render(articleHtmlFormat, {
@@ -1057,7 +1101,7 @@ contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</spa
 <p><img src="/img/list_format.png" alt="list.html format"></p>
 <p>다음의 코드를 hello-node.js 파일에 추가합니다.</p>
 <pre class="hljs"><code><span class="hljs-comment">// list_format.html파일 읽기</span>
-<span class="hljs-keyword">const</span> listHtmlFormat = fs.readFileSync(<span class="hljs-string">"./templates/list_format.html"</span>, <span class="hljs-string">"utf8"</span>);
+<span class="hljs-keyword">const</span> listHtmlFormat = fs.readFileSync(<span class="hljs-string">&quot;./templates/list_format.html&quot;</span>, <span class="hljs-string">&quot;utf8&quot;</span>);
 
 <span class="hljs-comment">// index.html파일 생성 / 파일 목록 렌더</span>
 <span class="hljs-keyword">const</span> listContent = ejs.render(listHtmlFormat, {
@@ -1067,7 +1111,7 @@ contentFiles.map(<span class="hljs-function"><span class="hljs-params">file</spa
   <span class="hljs-attr">content</span>: listContent
 });
 
-fs.writeFileSync(<span class="hljs-string">"./index.html"</span>, listHtml);
+fs.writeFileSync(<span class="hljs-string">&quot;./index.html&quot;</span>, listHtml);
 </code></pre>
 <p>node hello-node.js 를 실행하면 홈 화면이 완성됩니다.</p>
 <p><img src="/img/list1.png" alt="리스트 홈화면"></p>
@@ -1208,9 +1252,29 @@ fs.writeFileSync(<span class="hljs-string">"./index.html"</span>, listHtml);
 
       
     
+      <a href="/deploy/category/etc.html">
+        <li>
+          etc
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
       <a href="/deploy/category/font-end.html">
         <li>
           font-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/front-end.html">
+        <li>
+          front-end
             (
             1 )
         </li>

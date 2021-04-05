@@ -164,9 +164,23 @@
           </li>
         </a>
         
+        <a href="/deploy/category/etc.html">
+          <li>
+            etc
+
+          </li>
+        </a>
+        
         <a href="/deploy/category/font-end.html">
           <li>
             font-end
+
+          </li>
+        </a>
+        
+        <a href="/deploy/category/front-end.html">
+          <li>
+            front-end
 
           </li>
         </a>
@@ -604,6 +618,21 @@
             </li>
             
             <li>
+              <a href="/deploy/etc/ssh.html">
+                <p>
+                  여러 github 계정 등록하기
+
+                </p>
+                <p>
+
+                  20210117
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
               <a href="/deploy/font-end/hello-redux.html">
                 <p>
                   Redux 알아보기
@@ -612,6 +641,21 @@
                 <p>
 
                   20201219
+
+                </p>
+              </a>
+
+            </li>
+            
+            <li>
+              <a href="/deploy/front-end/jest-test.html">
+                <p>
+                  jest로 mocking하기
+
+                </p>
+                <p>
+
+                  20210131
 
                 </p>
               </a>
@@ -783,8 +827,8 @@
 <li>package.json에 추가</li>
 </ul>
 <pre class="hljs"><code>{
-	<span class="hljs-string">"scripts"</span>: {
-		<span class="hljs-string">"test"</span>: <span class="hljs-string">"jest"</span>
+	<span class="hljs-string">&quot;scripts&quot;</span>: {
+		<span class="hljs-string">&quot;test&quot;</span>: <span class="hljs-string">&quot;jest&quot;</span>
 	}
 }
 </code></pre>
@@ -802,8 +846,8 @@
 <ul>
 <li>test code 구현</li>
 </ul>
-<pre class="hljs"><code>test(<span class="hljs-string">'문자열을 표현식으로 쪼개기 테스트'</span>, () =&gt; {
-  expect(splitedExpression(<span class="hljs-string">'1.2+2.2'</span>)).toEqual([<span class="hljs-string">'1.2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'2.2'</span>])
+<pre class="hljs"><code>test(<span class="hljs-string">&#x27;문자열을 표현식으로 쪼개기 테스트&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  expect(splitedExpression(<span class="hljs-string">&#x27;1.2+2.2&#x27;</span>)).toEqual([<span class="hljs-string">&#x27;1.2&#x27;</span>, <span class="hljs-string">&#x27;+&#x27;</span>, <span class="hljs-string">&#x27;2.2&#x27;</span>])
 })
 </code></pre>
 <ul>
@@ -817,10 +861,10 @@
 <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> splitedExpression = <span class="hljs-function"><span class="hljs-params">expression</span> =&gt;</span> {
   <span class="hljs-keyword">let</span> preValue = <span class="hljs-literal">null</span>
   <span class="hljs-keyword">const</span> splitedExpression = []
-  expression.split(<span class="hljs-string">''</span>).forEach(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> {
+  expression.split(<span class="hljs-string">&#x27;&#x27;</span>).forEach(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> {
     <span class="hljs-keyword">if</span> (
-      value === <span class="hljs-string">'.'</span> ||
-      preValue === <span class="hljs-string">'.'</span> ||
+      value === <span class="hljs-string">&#x27;.&#x27;</span> ||
+      preValue === <span class="hljs-string">&#x27;.&#x27;</span> ||
       (!<span class="hljs-built_in">isNaN</span>(<span class="hljs-built_in">Number</span>(value)) &amp;&amp; preValue !== <span class="hljs-literal">null</span> &amp;&amp; !<span class="hljs-built_in">isNaN</span>(<span class="hljs-built_in">Number</span>(preValue)))
     ) {
       splitedExpression[splitedExpression.length - <span class="hljs-number">1</span>] += value
@@ -837,20 +881,20 @@
 <li>테스트 코드 통과</li>
 </ul>
 <h4>후위 표기법으로 변환하기</h4>
-<pre class="hljs"><code>test(<span class="hljs-string">'후위 표기법 테스트'</span>, () =&gt; {
+<pre class="hljs"><code>test(<span class="hljs-string">&#x27;후위 표기법 테스트&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   expect(
-    toPostfix([<span class="hljs-string">'('</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">')'</span>, <span class="hljs-string">'*'</span>, <span class="hljs-string">'('</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">')'</span>])
-  ).toEqual([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'*'</span>])
+    toPostfix([<span class="hljs-string">&#x27;(&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;+&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;)&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>, <span class="hljs-string">&#x27;(&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;+&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;)&#x27;</span>])
+  ).toEqual([<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;+&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;+&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>])
 })
 </code></pre>
 <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> toPostfix = <span class="hljs-function"><span class="hljs-params">expression</span> =&gt;</span> {
   <span class="hljs-keyword">const</span> operationOrder = {
-    <span class="hljs-string">'+'</span>: <span class="hljs-number">2</span>,
-    <span class="hljs-string">'-'</span>: <span class="hljs-number">2</span>,
-    <span class="hljs-string">'/'</span>: <span class="hljs-number">3</span>,
-    <span class="hljs-string">'*'</span>: <span class="hljs-number">3</span>,
-    <span class="hljs-string">'('</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-string">')'</span>: <span class="hljs-number">1</span>
+    <span class="hljs-string">&#x27;+&#x27;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">&#x27;-&#x27;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">&#x27;/&#x27;</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-string">&#x27;*&#x27;</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-string">&#x27;(&#x27;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">&#x27;)&#x27;</span>: <span class="hljs-number">1</span>
   }
 
   <span class="hljs-keyword">const</span> stack = []
@@ -860,14 +904,14 @@
     <span class="hljs-keyword">let</span> lastStack = stack[stack.length - <span class="hljs-number">1</span>]
     <span class="hljs-keyword">const</span> key = expression[i]
 
-    <span class="hljs-keyword">if</span> (key === <span class="hljs-string">'('</span>) {
+    <span class="hljs-keyword">if</span> (key === <span class="hljs-string">&#x27;(&#x27;</span>) {
       stack.push(key)
       <span class="hljs-keyword">continue</span>
     }
 
-    <span class="hljs-keyword">if</span> (key === <span class="hljs-string">')'</span>) {
+    <span class="hljs-keyword">if</span> (key === <span class="hljs-string">&#x27;)&#x27;</span>) {
       <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
-        <span class="hljs-keyword">if</span> (lastStack === <span class="hljs-string">'('</span>) {
+        <span class="hljs-keyword">if</span> (lastStack === <span class="hljs-string">&#x27;(&#x27;</span>) {
           stack.pop()
           <span class="hljs-keyword">break</span>
         }
@@ -896,8 +940,8 @@
 }
 </code></pre>
 <h3>후위 표기법 계산하기</h3>
-<pre class="hljs"><code>test(<span class="hljs-string">'후위 표기법 계산 테스트'</span>, () =&gt; {
-  expect(calcPostfix([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'+'</span>, <span class="hljs-string">'*'</span>])).toBe(<span class="hljs-number">9</span>)
+<pre class="hljs"><code>test(<span class="hljs-string">&#x27;후위 표기법 계산 테스트&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  expect(calcPostfix([<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;+&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;+&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>])).toBe(<span class="hljs-number">9</span>)
 })
 </code></pre>
 <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> calcPostfix = <span class="hljs-function"><span class="hljs-params">expression</span> =&gt;</span> {
@@ -907,18 +951,18 @@
     <span class="hljs-keyword">let</span> n1
     <span class="hljs-keyword">let</span> n2
     <span class="hljs-keyword">switch</span> (expression[i]) {
-      <span class="hljs-keyword">case</span> <span class="hljs-string">'+'</span>:
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;+&#x27;</span>:
         stack.push(<span class="hljs-built_in">parseFloat</span>((stack.pop() + stack.pop()).toFixed()))
         <span class="hljs-keyword">break</span>
-      <span class="hljs-keyword">case</span> <span class="hljs-string">'-'</span>:
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;-&#x27;</span>:
         n1 = stack.pop()
         n2 = stack.pop()
         stack.push(<span class="hljs-built_in">parseFloat</span>((n2 - n1).toFixed(<span class="hljs-number">2</span>)))
         <span class="hljs-keyword">break</span>
-      <span class="hljs-keyword">case</span> <span class="hljs-string">'*'</span>:
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;*&#x27;</span>:
         stack.push(<span class="hljs-built_in">parseFloat</span>((stack.pop() * stack.pop()).toFixed(<span class="hljs-number">2</span>)))
         <span class="hljs-keyword">break</span>
-      <span class="hljs-keyword">case</span> <span class="hljs-string">'/'</span>:
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/&#x27;</span>:
         n1 = stack.pop()
         n2 = stack.pop()
         stack.push(<span class="hljs-built_in">parseFloat</span>((n2 / n1).toFixed(<span class="hljs-number">2</span>)))
@@ -935,58 +979,58 @@
 <p>react-testing-library Enzyme 또는 리액트의 TestUtils 를 사용할 수 있다.</p>
 <p>react-testing-library 를 사용하기로 했다.</p>
 <p>설치하기 위해서 <code>npm install --dev @testing-library/react</code> 를 실행해준다. cra 를 사용하면 모듈이 설치되어 있다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>
 <span class="hljs-keyword">import</span> {
   cleanup,
   fireEvent,
   render,
   waitForElement
-} <span class="hljs-keyword">from</span> <span class="hljs-string">'@testing-library/react'</span>
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@testing-library/react&#x27;</span>
 
-<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App&#x27;</span>
 
 afterEach(cleanup)
 
-it(<span class="hljs-string">'App.js: 계산기가 노출된다.'</span>, () =&gt; {
+it(<span class="hljs-string">&#x27;App.js: 계산기가 노출된다.&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   <span class="hljs-keyword">const</span> { queryByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>)
-  expect(queryByText(<span class="hljs-string">'계산기'</span>)).toBeInTheDocument()
+  expect(queryByText(<span class="hljs-string">&#x27;계산기&#x27;</span>)).toBeInTheDocument()
 })
 </code></pre>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> { cleanup, render } <span class="hljs-keyword">from</span> <span class="hljs-string">'@testing-library/react'</span>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>
+<span class="hljs-keyword">import</span> { cleanup, render } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@testing-library/react&#x27;</span>
 
-<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App&#x27;</span>
 
 afterEach(cleanup)
 
-it(<span class="hljs-string">'App.js: 계산기 제목이 노출된다.'</span>, () =&gt; {
+it(<span class="hljs-string">&#x27;App.js: 계산기 제목이 노출된다.&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   <span class="hljs-keyword">const</span> { queryByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>)
-  expect(queryByText(<span class="hljs-string">'계산기'</span>)).toBeInTheDocument()
+  expect(queryByText(<span class="hljs-string">&#x27;계산기&#x27;</span>)).toBeInTheDocument()
 })
 </code></pre>
 <h2>이벤트 핸들러 테스트</h2>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> Calculator <span class="hljs-keyword">from</span> <span class="hljs-string">'./Calculator'</span>
-<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> { fireEvent, render } <span class="hljs-keyword">from</span> <span class="hljs-string">'@testing-library/react'</span>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> Calculator <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./Calculator&#x27;</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>
+<span class="hljs-keyword">import</span> { fireEvent, render } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@testing-library/react&#x27;</span>
 
-it(<span class="hljs-string">'Calculator.js: button을 click하면 클릭한 데이터가 노출된다.'</span>, () =&gt; {
+it(<span class="hljs-string">&#x27;Calculator.js: button을 click하면 클릭한 데이터가 노출된다.&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   <span class="hljs-keyword">const</span> { getByText, getByTestId } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Calculator</span> /&gt;</span></span>)
-  fireEvent.click(getByText(<span class="hljs-string">'1'</span>))
+  fireEvent.click(getByText(<span class="hljs-string">&#x27;1&#x27;</span>))
 
-  <span class="hljs-keyword">const</span> result = getByTestId(<span class="hljs-string">'result'</span>)
-  expect(result.innerHTML).toBe(<span class="hljs-string">'1'</span>)
+  <span class="hljs-keyword">const</span> result = getByTestId(<span class="hljs-string">&#x27;result&#x27;</span>)
+  expect(result.innerHTML).toBe(<span class="hljs-string">&#x27;1&#x27;</span>)
 })
 </code></pre>
 <p>result에 있는 text를 선택해야 하는데, getByTestId를 사용했다.</p>
 <p>1을 누르면, result에 1이 나오는지 확인하는 테스트</p>
 <h2>비동기 테스트</h2>
 <p>'loading user' 버튼 클릭 시 api 요청 보내서, 받은 데이터로 UI 업데이트해준다.</p>
-<pre class="hljs"><code><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">'./App.css'</span>
-<span class="hljs-keyword">import</span> Calculator <span class="hljs-keyword">from</span> <span class="hljs-string">'./containers/Calculator'</span>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./App.css&#x27;</span>
+<span class="hljs-keyword">import</span> Calculator <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./containers/Calculator&#x27;</span>
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">const</span> [username, setUsername] = useState(<span class="hljs-string">''</span>)
+  <span class="hljs-keyword">const</span> [username, setUsername] = useState(<span class="hljs-string">&#x27;&#x27;</span>)
 
   <span class="hljs-keyword">const</span> fetchData = <span class="hljs-keyword">async</span> () =&gt; {
     <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(
@@ -998,12 +1042,12 @@ it(<span class="hljs-string">'Calculator.js: button을 click하면 클릭한 데
     setUsername(data.username)
   }
 
-  <span class="hljs-keyword">const</span> onClickBtn = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> onClickBtn = <span class="hljs-function">() =&gt;</span> {
     fetchData()
   }
 
   <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"App"</span>&gt;</span>
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;App&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>계산기<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{e</span> =&gt;</span> onClickBtn()}&gt;loading user<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{username}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -1014,24 +1058,24 @@ it(<span class="hljs-string">'Calculator.js: button을 click하면 클릭한 데
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App
 </code></pre>
-<pre class="hljs"><code>it(<span class="hljs-string">'App.js: button을 click하면 사용자 이름이 노출된다.'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+<pre class="hljs"><code>it(<span class="hljs-string">&#x27;App.js: button을 click하면 사용자 이름이 노출된다.&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; {
   <span class="hljs-comment">//given</span>
   <span class="hljs-keyword">const</span> result = {
-    <span class="hljs-attr">username</span>: <span class="hljs-string">'stranger'</span>
+    <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;stranger&#x27;</span>
   }
 
   <span class="hljs-comment">//when</span>
   <span class="hljs-keyword">const</span> { getByText } = render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span>)
-  fireEvent.click(getByText(<span class="hljs-string">'loading user'</span>))
+  fireEvent.click(getByText(<span class="hljs-string">&#x27;loading user&#x27;</span>))
 
   <span class="hljs-comment">//then</span>
-  <span class="hljs-keyword">await</span> waitForElement(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> getByText(result.username))
+  <span class="hljs-keyword">await</span> waitForElement(<span class="hljs-function">() =&gt;</span> getByText(result.username))
 })
 </code></pre>
 <h2>모든 파일 테스트하기</h2>
 <p>정의한 모든 테스트 파일을 테스트하고 싶으면, test 실행 스크립트를 수정해준다.</p>
 <pre class="hljs"><code>{
-	<span class="hljs-string">"test"</span>: <span class="hljs-string">"react-scripts test --watchAll"</span>
+	<span class="hljs-string">&quot;test&quot;</span>: <span class="hljs-string">&quot;react-scripts test --watchAll&quot;</span>
 }
 </code></pre>
 <h2>마치며</h2>
@@ -1172,9 +1216,29 @@ it(<span class="hljs-string">'Calculator.js: button을 click하면 클릭한 데
 
       
     
+      <a href="/deploy/category/etc.html">
+        <li>
+          etc
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
       <a href="/deploy/category/font-end.html">
         <li>
           font-end
+            (
+            1 )
+        </li>
+      </a>
+
+      
+    
+      <a href="/deploy/category/front-end.html">
+        <li>
+          front-end
             (
             1 )
         </li>
