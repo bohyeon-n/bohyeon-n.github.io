@@ -19,10 +19,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-     [자바스크립트]prototype?? |  구보현 블로그 
+     리액트의 상태가 불변해야 하는 이유 |  구보현 블로그 
   </title>
-  <meta name="description" content=" 자바스크립트 prototype을 알아보자!">
-  <meta name="keywords" content=" [ JS]">
+  <meta name="description" content=" 리액트의 상태가 불변해야 하는 이유를 알아보자">
+  <meta name="keywords" content=" [ React, Immutability, 불변성]">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -751,102 +751,108 @@
 
   <div class="value">
     <h1 style="color:#333">
-       [자바스크립트]prototype??
+       리액트의 상태가 불변해야 하는 이유
 
     </h1>
     <span>
-       20201029
+       20210405
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <p>이 글은 <a href="https://www.hanbit.co.kr/store/books/look.php?p_code=E7184102647">You Don't Know JS : this와 객체 프로토타입</a>을 읽고 프로토타입에 대해서 정리한 글입니다.</p>
-<h2>클래스? 상속?</h2>
-<p>prototype에 대해 알아보기 전에 클래스와 상속은 무엇인지 알아보자.</p>
-<p>클래스와 상속은 무엇일까?</p>
-<p>클래스와 상속은 특정 형태의 코드와 구조를 형성하며 실생활 영역의 문제를 소프트웨어로 모델링하기 위한 방법이다.</p>
-<p>객체 지향 또는 클래스 지향 프로그래밍에서는 데이터는 자신을 기반으로 실행되는 작동과 연관되므로(클래스 = 데이터 + 메소드) 데이터와 작동을 함께 잘 감싸는 것이 올바른 설계라고 강조한다. 이를 캡슐화라고 한다.</p>
-<p>데이터와 관련된 작동들을 클래스의 메서드로 설계한다. 그래서 어떤 데이터가 주어지더라도, 데이터와 작동이 잘 포장된 클래스의 인스턴스로 나타낼 수 있다.</p>
-<p>한 곳에 클래스를 정의해두고 이를 상속, 확장받아 인스턴스를 생성한다.</p>
-<p>다형성은 부모 클래스에 뭉뚱그려 정의된 작동을 자식 클래스에서 좀 더 구체화하여 오버라이드하는 것을 뜻한다.</p>
-<p>자바스크립트에는 클래스가 있을까?</p>
-<p>자바스크립트는 클래스 개념이 없다. 그럼에도 개발자들이 다른 객체 지향 언어들과 비슷하게 상속을 구현하려고 했다</p>
-<h2>자바스크립트의 class</h2>
-<p>그동안 자바스크립트는 클래스처럼 생긴 구문을 제공하여 클래스 디자인 패턴을 실현하려고 했다. 그러나 개발자들이 클래스 디자인 패턴으로 코딩할 수 있도록 제공할 것일뿐 클래스는 아니다.</p>
-<p>그럼 자바스크립트는 다른 객체 지향 언어들과 뭐가 다를까?</p>
-<p>자바에서는 클래스를 인스턴스화해야 작업을 할 수 있다. 생성된 객체는 클래스에 기술된 모든 특성을 그대로 가진 사본이다.</p>
-<p>자바스크립트는 객체를 상속받거나 인스턴스화해도, 자동으로 복사 작업이 일어나지 않는다. 자바스크립트에는 인스턴스를 만들 '클래스'라는 개념 자체가 없고 오직 객체만 있다.</p>
-<p>객체지향을 설명할 때 붕어빵 틀과 붕어빵으으 설명하는데, 자바는 붕어빵만 먹을 수 있는데, 자바스크립트는 붕어빵 틀도 먹을 수 있다!</p>
-<p>그리고 객체는 다른 객체에 복사 되는 게 아니라 서로 연결된다.</p>
-<p>자바스크립트는 객체를 복사하는 것이 아닌, 객체를 위임받고자 한다. 이게 프로토타입이다.</p>
-<h2>prototype?</h2>
-<p>자바스크립트에서는 상속과 구분하기 위해 프로토타입 상속이라는 말을 붙였다.</p>
-<p>'일종의 클래스'같은 독특한 작동은 함수가 기본으로 프로토타입이라는 공용/열거 불가 프로퍼티를 가진다는 이상한 특성에 기인한다.</p>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foo</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-comment">//...</span>
-}
-
-Foo.prototype <span class="hljs-comment">// {}</span>
-
-<span class="hljs-keyword">const</span> a = <span class="hljs-keyword">new</span> Foo()
+    <p>이번 글에서는 불변성이 무엇인지 알아보고, 리액트에서 왜 불변성을 유지해야 하는지, 다른 라이브러리에서는 어떤지에 대해 정리해보았다.</p>
+<h2>불변성?</h2>
+<p>불변성이 프로그래밍에서 주목받는 이유는 변경 가능한 상태를 여러 곳에서 공유하게 됨으로써 발생하는 여러 가지 문제를 해결하기 위함이었다.</p>
+<p>이런 문제는 멀티 스레딩과 같은 동시성 프로그래밍을 사용할 때 많이 발생했는데(ex)동시에 값을 읽고 다른 동작을 할 때)
+기존에는 락을 걸어놓고 락이 풀린 상태에만 스레드가 상태에 접근할 수 있도록 허가하는 방식을 주로 사용했었다.</p>
+<p>그럼 불변성이 정확히 무엇일까? Immutability(불변성)는 상태나 값을 변경하지 않는 것이다.</p>
+<p>자바스크립트에서 예를 들자면,</p>
+<p>자바스크립트의 원시 타입의 값들은 불변성을 갖고 있다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>
+a = <span class="hljs-number">2</span>
 </code></pre>
-<p>아래는 위 코드가 어떻게 연결되는지 표현한 그림이다.</p>
-<p><img src="https://user-images.githubusercontent.com/36990926/97564837-89eda900-1a28-11eb-9377-be27950253ff.png" alt=""></p>
-<p>Foo 함수를 생성하면, Foo.prototype이 생성된다.</p>
-<p>new Foo() 로서 만들어진 모든 객체는 결국 <code>Foo 점 프로토타입</code> 객체와 [[prototype]] 링크로 연결된다.</p>
-<p><code>new Foo()</code> 로 새 객체(a)가 만들어지고 이 객체는 <code>Foo.prototype</code> 객체와 내부적으로 연결이 맺어졌다.</p>
-<p>상속은 기본적으로 복사를 수반하지만, 자바스크립트는 객체 프로퍼티를 복사하지 않는다. 대신 두 객체에 링크를 걸어두고 한쪽이 다른 쪽의 프로퍼티/함수에 접근할 수 있게 위임한다.</p>
-<p>자바스크립트는 앞에 new를 붙여 호출한 함수를 모두 '생성자'라 할 수 있다. 함수는 결코 생성자가 아니지만, new를 사용하여 호출할 때에만 '생성자 호출'이다.</p>
-<h3>constructor?</h3>
-<p><code>a.constructor</code> 프로퍼티는 실제로 a에 존재하는 걸까? 아니다. 위 그림처럼 <code>.constructor</code> 역시 Foo.prototype에 위임된 레퍼런스로서 a.constructor는 Foo를 가리킨다.</p>
-<p>Foo.prototype의 .constructor 프로퍼티는 기본으로 선언된 Foo함수에 의해 생성된 객체(Foo.prototype)에만 존재한다.</p>
-<pre class="hljs"><code>Foo.prototype = {}
+<p>위 코드처럼 변수에 값을 재할당하면 'a'가 참조하고 있는 메모리의 값이 변경되는 것이 아니라 새로운 값인 '2'가 메모리에 새로 저장되고 그 주소 값이 'a'에 할당된다.</p>
+<p>원시 타입 값이 아닌 다른 참조형 값들(객체, 배열, 함수 등)은 이와는 다르게 동작한다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> myObj = {
+  <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>
+}
+
+myObj.a = <span class="hljs-number">2</span>
 </code></pre>
-<p>이렇게 새 프로토타입 객체를 생성하면, constructor 프로퍼티가 저절로 붙지 않는다.</p>
-<p>이렇게 없어지면, 결국 계속 상위 객체로 위임하다가 결국 [[Prototype]]체인 끝자락인 Object.prototype 객체에 이르게 된다.</p>
-<h3>자바스크립트 상속</h3>
-<p>그럼 자바스크립트에서 상속은 어떻게 할까?</p>
-<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foo</span>(<span class="hljs-params">name</span>) </span>{
-  <span class="hljs-keyword">this</span>.name = name
-}
-
-Foo.prototype.myName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Bar</span>(<span class="hljs-params">name, label</span>) </span>{
-  Foo.call(<span class="hljs-keyword">this</span>, name)
-  <span class="hljs-keyword">this</span>.label = label
-}
-<span class="hljs-comment">// Bar.prototype 를 Foo.prototype에 연결한다.</span>
-<span class="hljs-comment">// 새로운 객체를 만들고 내부 [[Prototype]]을 지정한 객체(Foo.prototype)에 링크한다.</span>
-Bar.prototype = <span class="hljs-built_in">Object</span>.create(Foo.prototype)
-
-Bar.prototype.myLabel = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.label
-}
-
-<span class="hljs-keyword">const</span> a = <span class="hljs-keyword">new</span> Bar(<span class="hljs-string">'a'</span>, <span class="hljs-string">'obj a'</span>)
-
-a.myLabel()
-a.myName()
+<p>'myObj'의 내부 프로퍼티의 값을 변경했을 때 myObj에서 참조하고 있는 'a'값은 변경되지 않고 값이 변경된다.
+단, 'a'가 참조하고 있는 '1'의 주소 값은 변경된다.</p>
+<p>이처럼 자바스크립트 객체는 가변한다. 리액트에서는 자바스크립트 객체가 가변하기 때문에 문제가 된다.</p>
+<h2>리액트 상태 불변성</h2>
+<p>리액트의 상태가 불변해야 하는 이유는 두 가지 정도가 있는데</p>
+<ol>
+<li>값이 변경됐는지 알기 위해서</li>
+<li>값을 수정하면, 이전 상태와 바뀐 상태값이 동일해져서 비교할 수 없어서</li>
+</ol>
+<p>리액트에서는 상태가 변하면, 컴포넌트가 리렌더링된다.</p>
+<p>리액트에서 리렌더링할 때 값 자체가 아니라 참조 값을 비교하므로 참조 값이 동일하면, 변경을 감지할 수 없다.</p>
+<p>또한, 값을 수정하면 이전 상태와 바뀐 상태값이 동일해지기 때문에, 이전 상태와 현재 상태를 비교하여 렌더링할 수 없게 된다.</p>
+<pre class="hljs"><code>myPackage.sender.address.country.id
 </code></pre>
-<p>Bar가 Foo를 상속하는 것 처럼, Bar.prototype의 [[prototype]]이 Foo.prototype을 가리키도록 만들었다.</p>
-<p>ES6에서는 위에서 처럼 새로운 객체를 생성하지 않고, 기존의 객체 연결 정보를 수정할 수 있는 표준적인 방안이 있다.</p>
-<pre class="hljs"><code><span class="hljs-built_in">Object</span>.setPrototypeOf(Bar.prototype, Foo.prototype)
+<p>위 'myPackage'객체처럼 무엇이 변경됐는지 확인하기가 매우 어려울 때가 있다.</p>
+<p>불변 객체를 사용하지 않고 객체의 변화를 감지할 수 있지만, 효과적으로 객체의 변화를 감지할 수 있는 가장 좋은 방법은 불변 객체를 사용하는 것이다.</p>
+<h2>불변하게 만드는 방법</h2>
+<p>자바스크립트에서 객체를 불변하게 만드는 방법은 크게 3가지 정도가 있다. assign 메서드 사용, spread 연산자 사용, 라이브러리 사용이다.</p>
+<h3>assign</h3>
+<p><code>Object.assign</code> 메서드를 사용할 수 있다.</p>
+<pre class="hljs"><code><span class="hljs-built_in">Object</span>.assign({}, myObj, {
+  <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>
+})
 </code></pre>
-<h2>객체 링크</h2>
-<p>[[Prototype]] 체계는 다름 아닌 다른 객체를 참조하는 어떤 객체에 존재하는 내부 링크다.</p>
-<p>이 연결 고리는 객체의 프로퍼티/메서드를 참조하려고 하는데, 그런 프로퍼티/메서드가 해당 객체에 존재하지 않을 때 주로 활용된다.</p>
-<p>엔진은 [[Prototype]]에 연결된 객체를 하나씩 따라가면서 프로퍼티/메서드를 찾아보고 발견될 때까지 같은 과정을 되풀이한다.</p>
-<p>이렇게 객체 사이에 형성된 일련의 링크를 '프로토타입 체인'이라고 한다.</p>
+<p>Object.assign은 매개 변수로 전달된 객체의 모든 속성을 첫 번째 매개 변수에 지정된 객체에 복사한다.</p>
+<h3>spread 연산자</h3>
+<pre class="hljs"><code>{
+  ...myObj,
+  <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>
+}
+</code></pre>
+<h3>라이브러리 사용</h3>
+<p>위 두 가지 방식을 사용하면 얕은 복사가 된다. 그러므로 객체 안의 객체가 있으면 그 안의 객체도 복사해주어야 한다.</p>
+<p>하지만 무분별하게 깊은 복사를 사용하는 것은 다음과 같은 이유로 문제가 될 수 있다.</p>
+<ul>
+<li>깊은 복사는 성능이 저하될 수 있다.</li>
+<li>리액트에서 변경되지 않은 객체도 변경되었다고 감지하여 모든 것을 리렌더링할 수 있다.</li>
+</ul>
+<p>그러므로, 변경된 객체만 변경해주는 것이 좋다.</p>
+<p>이를 편하게 하고자 <a href="https://github.com/immerjs/immer">immer.js</a>와 같은 라이브러리를 사용하여 쉽게 불변성을 관리할 수 있다.</p>
+<p>immer.js performance 문서를 보면, 변경된 객체만 복사하여 성능을 향상시킬 수 있다고 나와 있다.</p>
+<h2>mobx</h2>
+<p>그럼 다른 라이브러리에서도 상태를 불변하게 유지할까? mobx를 살펴보기로 했다.</p>
+<p>일단 mobx를 간단하게 설명하면 mobx는 Observer 패턴을 사용하여 상태 데이터가 관찰 가능(Observable)하게 관리하여 상태가 변경되었을 때 반응할 수 있도록 돕는 라이브러리다.</p>
+<p>mobx는 상태를 불변하게 변경하지 않는데, 그 이유는 무엇일까? 일단 불변성의 단점을 알아보고 mobx가 가변하게 상태를 변경하는 이유를 알아보자</p>
+<h3>불변성의 단점</h3>
+<p>불변성 자체에 문제가 있는 것은 아니지만, 다음과 같은 단점이 있을 수 있다.</p>
+<ul>
+<li>객체 지향 프로그래밍과 맞지 않는다.</li>
+<li>불변성 유지를 위해 노력해야 한다.</li>
+</ul>
+<h3>mobx가 상태를 불변하게 유지하지 않는 이유</h3>
+<p>mobx에서 왜 상태를 불변하게 유지하지 않는지 찾아보았는데, 다음과 같은 답변을 찾았다.</p>
+<ul>
+<li>observable 배열에 item을 추가하는 경우 변경 불가능한 방식으로 항목을 추가하면 전체 배열이 다시 렌더링하는 때도 있다.</li>
+<li>mobx에서는 상태를 관찰 가능(observable)하게 관리하기 때문에 observable 데이터를 업데이트할 때 불변의 개념을 사용하면 안 된다.</li>
+</ul>
+<p>mobx가 상태를 가변하게 업데이트하기 때문에 상태를 추적하거나 저장할 때 문제가 될 수 있는데 mobx에서는 mobx-state-tree 라이브러리를 제공하여 이러한 문제들을 해결한다.</p>
+<h3>Mobx-state-tree?</h3>
+<p>Mobx-sate-tree는 mobx를 기반으로 한 state container 시스템이다. mobx-state-tree를 씀으로써 트리 모델 구조 안에서 state를 관리함과 동시에 트리 구조에서 자유롭게 위아래로 이동할 수 있다. mobx-state-tree은 상태를 가변하게 관리하지만, immutable snapshot을 보장한다. 스냅샷을 저장하여 상태를 저장하거나 되돌릴 수 있다.</p>
 <h2>마치며</h2>
-<p>책에서는 ES6 클래스가 자바스크립트가 마치 클래스처럼 동작한다고 착각하게 할 수 있다고 쓰여있었다.
-나는 prototype으로 상속을 구현하는 것이 복잡하게 느껴져서 클래스 문법이 나온 것이 다행이라 생각했다. 😂</p>
-<h2>참고자료</h2>
-<p><a href="https://www.hanbit.co.kr/store/books/look.php?p_code=E7184102647">You Don't Know JS : this와 객체 프로토타입</a></p>
+<p>mobx에서 왜 상태를 불변하게 유지하지 않는지에 대한 정확한 답변은 찾지 못했다. observable 객체를 트래킹할 때 어떤 식으로 동작하는지에 대한 글은 아직 찾아보지 못했다.</p>
+<p>mobx든 redux든 각자가 추구하는 컨셉이 있어서 장단점이 있고 이를 잘 알고 사용하는 것이 중요한 것 같다.</p>
+<h2>참고 자료</h2>
+<p>https://immerjs.github.io/immer/performance/</p>
+<p>https://en.wikipedia.org/wiki/Observer_pattern</p>
+<p>https://oliverbenns.com/posts/mutable-state-with-mobx/</p>
+<p>https://woowabros.github.io/experience/2019/01/02/kimcj-react-mobx.html</p>
+<p>http://www.secmem.org/blog/2019/03/09/mobx-internals/</p>
+<p>https://stackoverflow.com/questions/48040627/mobx-mutability-vs-immutability</p>
+<p>https://blog.logrocket.com/immutability-in-react-ebe55253a1cc/</p>
+<p>https://medium.com/@justintulk/why-immutability-boosts-react-performance-145f40bfbf00</p>
 
   </div>
 
