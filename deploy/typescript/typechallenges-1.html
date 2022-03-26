@@ -19,10 +19,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-    Category: JavaScript |  구보현 블로그 
+     [TypeScript]Type Challenges - Pick, Readonly, Tuple of Object |  구보현 블로그 
   </title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content=" TypeScript Challenges를 시작합니다.">
+  <meta name="keywords" content=" [Typescript, Type challenges, pick, Radonly, Tuple of Object ]">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -857,109 +857,198 @@
   <div class="content">
 
     <div class="main">
-      <div class="list">
-  <div class="title">
-    <i class="far fa-folder"></i>
-    JavaScript
+      <div class="article">
 
+
+  <div class="value">
+    <h1 style="color:#333">
+       [TypeScript]Type Challenges - Pick, Readonly, Tuple of Object
+
+    </h1>
+    <span>
+       20220319
+
+    </span>
   </div>
 
 
-  <ul>
-    
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/class_prototype.html">
-            <span>
-               [자바스크립트]prototype??
-            </span>
-          </a>
-          <span>
-             20201029
-          </span>
+  <div class="article__body">
+    <p>타입스크립트를 잘 써보고 싶기도 하고 재밌어 보여서 <a href="https://github.com/type-challenges/type-challenges">type-challenges</a>를 시작했습니다.<br>
+이번 글에서는 type challenges easy 단계인 Pick, Readonly, Tuple of Object 과제를 풀어보고 정리해보았습니다 ~</p>
+<h1>Pick 구현하기</h1>
+<ul>
+<li>Pick&lt;T, K&gt;</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">interface</span> Todo {
+  <span class="hljs-attr">title</span>: <span class="hljs-built_in">string</span>
+  <span class="hljs-attr">description</span>: <span class="hljs-built_in">string</span>
+  <span class="hljs-attr">completed</span>: <span class="hljs-built_in">boolean</span>
+}
 
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/react-calculator-test.html">
-            <span>
-               [REACT]계산기 구현 + 테스트 코드
-            </span>
-          </a>
-          <span>
-             20201018
-          </span>
+<span class="hljs-keyword">type</span> TodoPrevidew = MyPick&lt;Todo, <span class="hljs-string">&#x27;title&#x27;</span> | <span class="hljs-string">&#x27;completed&#x27;</span>&gt;
+<span class="hljs-keyword">const</span> todo: TodoPrivew = {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Celan room&#x27;</span>, 
+  <span class="hljs-attr">completed</span>: <span class="hljs-literal">false</span>,
+}
+</code></pre>
+<p><strong>solution</strong></p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> MyPick&lt;T, K <span class="hljs-keyword">extends</span> keyof T&gt; = {
+  [P <span class="hljs-keyword">in</span> K]: T[P]
+}
+</code></pre>
+<ul>
+<li><code>&lt;T, K extends keyof T&gt;</code>
+<ul>
+<li>어떤 타입을 받아오고, K라는 것은 T 타입에 있는 키들을 상속한 것들이다.</li>
+<li>항상 Pick 을 할 때는 기존 T에 있는 키를 써야 함</li>
+</ul>
+</li>
+<li>전달된 K들에 한해서만 빙글빙글 돌면서 타입 지정 매핑</li>
+</ul>
+<h1>Readonly 구현하기</h1>
+<ul>
+<li>Readonly</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">interface</span> Todo {
+  <span class="hljs-attr">title</span>: <span class="hljs-built_in">string</span>
+  <span class="hljs-attr">description</span>: <span class="hljs-built_in">string</span>
+}
 
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/this2.html">
-            <span>
-               [자바스크립트]this는 뭘까?
-            </span>
-          </a>
-          <span>
-             20201009
-          </span>
+<span class="hljs-keyword">const</span> todo: MyReadonly&lt;Todo&gt; = {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Hey&quot;</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;foobar&quot;</span>
+}
 
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/context.html">
-            <span>
-               컨텍스트와 호이스팅 - JavaScript
-            </span>
-          </a>
-          <span>
-             20180830
-          </span>
+todo.title = <span class="hljs-string">&quot;Hello&quot;</span> <span class="hljs-comment">// Error: cannot reassign a readonly property</span>
+todo.description = <span class="hljs-string">&quot;barFoo&quot;</span> <span class="hljs-comment">// Error: cannot reassign a readonly property</span>
+</code></pre>
+<p><strong>solution</strong></p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> MyReadonly&lt;T&gt; = {
+ <span class="hljs-keyword">readonly</span> [P <span class="hljs-keyword">in</span> keyof T]: T[P]
+}
+</code></pre>
+<ul>
+<li>P는 T타입의 모든 키들 중에 하나다.
+<ul>
+<li>[P in keyof T]</li>
+</ul>
+</li>
+<li>Index Type
+<ul>
+<li>T[P] Index Type 인덱스를 기준으로 타입을 결정할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h1>Tuple of Object</h1>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> tuple = [<span class="hljs-string">&#x27;tesla&#x27;</span>, <span class="hljs-string">&#x27;model 3&#x27;</span>, <span class="hljs-string">&#x27;model X&#x27;</span>, <span class="hljs-string">&#x27;model Y&#x27;</span>] <span class="hljs-keyword">as</span> <span class="hljs-keyword">const</span>
 
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/this.html">
-            <span>
-               자바스크립트 this, bind 그리고 화살표 함수 
-            </span>
-          </a>
-          <span>
-             20180806
-          </span>
+<span class="hljs-keyword">type</span> result = TupleToObject&lt;<span class="hljs-keyword">typeof</span> tuple&gt; <span class="hljs-comment">// expected { tesla: &#x27;tesla&#x27;, &#x27;model 3&#x27;: &#x27;model 3&#x27;, &#x27;model X&#x27;: &#x27;model X&#x27;, &#x27;model Y&#x27;: &#x27;model Y&#x27;}</span>
+</code></pre>
+<p><strong>solution</strong></p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> TupleToObject&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-keyword">readonly</span> <span class="hljs-built_in">any</span>[]&gt; = {
+  [P <span class="hljs-keyword">in</span> T[<span class="hljs-built_in">number</span>]] : P
+}
+</code></pre>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> tuple = <span class="hljs-keyword">readonly</span> [<span class="hljs-string">&#x27;tesla&#x27;</span>, <span class="hljs-string">&#x27;model 3&#x27;</span>, <span class="hljs-string">&#x27;model X&#x27;</span>, <span class="hljs-string">&#x27;model Y&#x27;</span>]
+</code></pre>
+<ul>
+<li>readonly 키워드를 명시적으로 수식한 이유는 어떤 인덱스에 어떤 자료가 들어있는지 기술한 것과 같아서 readonly와 마찬가지다.</li>
+<li>즉 tuple 타입인 값을 선언할 때 해당 자리에 다른 값이 들어갈 수 없게 된다.</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> tuple = [<span class="hljs-string">&#x27;tesla&#x27;</span>, <span class="hljs-string">&#x27;model 3&#x27;</span>, <span class="hljs-string">&#x27;model X&#x27;</span>, <span class="hljs-string">&#x27;model Y&#x27;</span>] <span class="hljs-keyword">as</span> <span class="hljs-keyword">const</span>
+</code></pre>
+<ul>
+<li>문제처럼 <code>as const</code> 를 써주면 값 정의도하고, tuple 타입을 가져올 수도 있다.</li>
+<li>이렇게 정의한 튜플 타입의 값은 몇 가지 고유한 성질을 가진다.
+<ol>
+<li>Array 인터페이스를 만족한다.</li>
+<li>인덱스 타입도 불변이며, 컴파일러가 그 정확한 값을 기억하고 있다.</li>
+</ol>
+</li>
+<li>T[number] 이렇게 배열 요소의 타입을 참조할 수 있다.</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-comment">// indexed Access Types </span>
 
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/regexp.html">
-            <span>
-               정규 표현식
-            </span>
-          </a>
-          <span>
-             20180719
-          </span>
+<span class="hljs-keyword">const</span> MyArray = [
+  {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">15</span>}, 
+  {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">23</span>},
+  {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Eve&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">38</span>}, 
+]
 
-        </div>
-      </li>
-      
-  </ul>
+<span class="hljs-keyword">type</span> Person = <span class="hljs-keyword">typeof</span> MyArray[<span class="hljs-built_in">number</span>];
+<span class="hljs-keyword">type</span> Age = <span class="hljs-keyword">typeof</span> MyArray[<span class="hljs-built_in">number</span>][<span class="hljs-string">&#x27;age&#x27;</span>];
+
+<span class="hljs-keyword">type</span> Age2 = Person[<span class="hljs-string">&#x27;age&#x27;</span>];
+</code></pre>
+<h2>Mapped Type?</h2>
+<ul>
+<li>Mppaed 타입을 더 알아보자면...</li>
+<li>이미 선언된 타입의 프로퍼티에서 새로운 타입을 만드는 것(Pick, Readonly..)</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> OnlyBoolsAndHores = {
+  [key: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">boolean</span> | Horse
+}
+</code></pre>
+<p>매핑된 타입은 PropertyKey(keyof를 통해서 생성되는)의 조합을 사용하여 키를 통해 타입을 반복적으로 생성하는 제너릭 타입이다.</p>
+<pre class="hljs"><code>
+<span class="hljs-keyword">type</span> OptionsFlags&lt;Type&gt; = {
+  [Property <span class="hljs-keyword">in</span> keyof Type]: <span class="hljs-built_in">boolean</span>;
+}
+</code></pre>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> CreateMutable&lt;Type&gt; = {
+  - <span class="hljs-keyword">readonly</span> [Property <span class="hljs-keyword">in</span> keyof Type]: Type[Property];
+}
+
+<span class="hljs-keyword">type</span> LockedAccount = {
+  <span class="hljs-keyword">readonly</span> id: <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">readonly</span> name: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">type</span> UnlockedAccount = createMutable&lt;LockedAccount&gt;;
+</code></pre>
+<p>optional 속성을 제거할 수도 있다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> Concrete&lt;Type&gt; = {
+  [Property <span class="hljs-keyword">in</span> kyeof Type]-?: Type[Property];
+}
+</code></pre>
+<h1>회고</h1>
+<p>회사에서 유지보수나 단순 리팩터링 작업만 하고 있어서 딱히 타입을 복잡하게 사용할 일이 별로 없었다.<br>
+하지만 나는 잘 모르기 때문에... 내가 잘 몰라서 안 쓰는 건지 쓸 필요가 없어서 안 쓰는 건지 잘 모른다... 이제부터 알아봐야지...ㅎ<br>
+문제는 Easy 단계인데 어려웠다. Readonly나 Pick 같은 건 이전에 한번 해본 적이 있어서 괜찮았는데 마지막 문제는 너무 어려웠다.<br>
+나는 모르는게 너무 많구나...😇</p>
+<h1>참고자료</h1>
+<p><a href="https://blog.cometkim.kr/posts/typescript-tuples/">https://blog.cometkim.kr/posts/typescript-tuples/</a></p>
+<p><a href="https://www.typescriptlang.org/ko/docs/handbook/2/mapped-types.html#key-remapping-via-as">https://www.typescriptlang.org/ko/docs/handbook/2/mapped-types.html#key-remapping-via-as</a></p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html">https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html</a></p>
+
+  </div>
 
 </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+
+
+    // var disqus_config = function () {
+    //   this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    //   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // };
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://bohyeon-n.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
 
     </div>
     <div class="sidebar">

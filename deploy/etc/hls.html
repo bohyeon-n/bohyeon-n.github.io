@@ -19,10 +19,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-    Category: JavaScript |  구보현 블로그 
+     HTTP Live Streaming |  구보현 블로그 
   </title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content=" Http Live Streaming이 무엇인지 간단하게 알아봤습니다.">
+  <meta name="keywords" content=" [hls, http live streaming ]">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -857,109 +857,106 @@
   <div class="content">
 
     <div class="main">
-      <div class="list">
-  <div class="title">
-    <i class="far fa-folder"></i>
-    JavaScript
+      <div class="article">
 
+
+  <div class="value">
+    <h1 style="color:#333">
+       HTTP Live Streaming
+
+    </h1>
+    <span>
+       20220305
+
+    </span>
   </div>
 
 
-  <ul>
-    
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/class_prototype.html">
-            <span>
-               [자바스크립트]prototype??
-            </span>
-          </a>
-          <span>
-             20201029
-          </span>
+  <div class="article__body">
+    <p>회사에서 영상 스트리밍할 때 <a href="https://github.com/video-dev/hls.js/">hls.js</a> 라이브러리를 사용하는데, hls가 무엇인지 궁금해져서 알아보았습니다.<br>
+hls가 무엇인지 이 프로토콜을 따른다면, 영상은 어떻게 저장되고 전송되는지 등을 간단하게 정리했습니다.</p>
+<h2>Live Streaming?</h2>
+<p>일단 hls가 무엇인지 알아보기 전에 이 프로토콜을 사용하는 이유인 라이브 스트리밍이란 무엇일까?</p>
+<p>우선 스트리밍이란 사용자들에게 멀티미디어 디지털 정보를 제공하는 기술로 인터넷에서 영상 및 오디오등의 파일을 다운로드 받지 않고 실시간으로 재생해주는 기법이다<br>
+라이브 스트리밍은 생방송처럼 촬영한 정보를 실시간으로 사용자의 동영상 플레이어로 보내 재생하도록 하는 방식을 말한다.</p>
+<h2>HLS의 등장 배경</h2>
+<p>hls가 등장하기 전에 라이브 스트리밍을 위해 많이 사용하던 전통적인 프로토콜은 RTSP(Real-Time Streaming Protocol)다.</p>
+<p>RTSP는 도입 비용이 높고 방화벽 환경에서 서비스가 원활하게 이루어지지 않는다는 단점이 있다.</p>
+<ul>
+<li><a href="https://ko.wikipedia.org/wiki/%EB%B0%A9%ED%99%94%EB%B2%BD_(%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9)">방화벽?</a><br>
+방화벽 또는 파이어월은 미리 정의된 보안 규칙에 기반한, 들어오고 나가는 네트워크 트래픽을 모니터링하고 제어하는 네트워크 보안 시스템이다. 방화벽은 일반적으로 신뢰할 수 있는 내부 네트워크, 신뢰할 수 없는 외부 네트워크 간의 장벽을 구성한다. 서로 다른 네트워크를 지나는 데이터를 허용하거나 거부하거나 검열, 수정하는 하드웨어나 소프트웨어 장치다.</li>
+</ul>
+<p>RTSP, RTP, RTMP를 사용하는 스트리밍 서버는 영상 데이터의 전송뿐만 아니라, 동영상에 대한 정보 분석이나 전송 규격에 맞도록 동영상 파일을 읽어서 변형하는 기능도 갖춰야 한다.<br>
+이렇게 고가의 비용이 드는데, RTSP/RTP의 경우, RTSP와 RTP가 서로 다른 네트워크 연결을 통해 데이터를 교환하기 떄문에 방화벽이나 NAT(Network Addreass Translator)를 많이 쓰고 있는 환경에서는 서비스가 원활하지 않은 문제가 있다.</p>
+<p>이러한 단점을 해결하기 위해 애플에서 HTTP 라이브 스트리밍을 위한 HLS프로토콜을 개발한다.</p>
+<h2>HLS 동작 방식</h2>
+<p>HLS는 가장 널리 사용되는 비디오 스트리밍 프로토콜이다.</p>
+<p>우선 HLS 프로토콜을 따른다면 서버가 하는 일을 순서대로 정리해보자.</p>
+<ol>
+<li>녹화된 비디오, 오디오 파일을 HLS가 지원하는 포맷으로 인코딩한다.(아날로그 -&gt; 디지털 신호)</li>
+<li>인코딩된 데이터는 MPEG-2 Transport Stream 규격으로 담아져 stream segmenter로 전송된다.</li>
+<li>stream segmenter는 전송받은 데이터를 몇 초의 길이의 ts파일(세그먼트)로 나눈다. 또한 세그먼트의 인덱스 파일(m3u8파일)을 만들어 세그먼트의 정보(순서, 길이...)를 기록하고 전송하여 CDN에 저장한다.</li>
+<li>클라이언트가 웹서버에 요청하면 웹서버는 m3u8 파일을 제공한다.</li>
+</ol>
+<h3>m3u8?</h3>
+<p>m3u8은 m3u를 확장한 포맷이다.<br>
+m3u 포맷은 연속으로 재생할 MP3 파일 목록을 가진 플레이 리스트 파일이다. 각 줄마다 재생할 파일의 경로를 적는다.<br>
+하지만 m3u에는 Latin-1 문자 집합만 적을 수 있기 때문에 단순히 파일 목록을 나열할 뿐 재생할 파일에 대한 정보(재생 시간 같은...)를 재생하기 전에 미리 알 수 없다</p>
+<p>그래서 새로 나온 규격이 m3u8 포맷이다.<br>
+m3u8은 UTF-8 문자 집합을 사용할 수 있고, 여러 가지 지시어로 재생할 파일에 대한 추가적인 정보를 제공할 수 있다.<br>
+m3u8은 몇 가지 규칙이 있다. 아래는 m3u8 파일 예시다.</p>
+<pre class="hljs"><code>#EXTM3U  =&gt; 가장 첫 줄은 #EXTM3U로 시작해야 한다.
+#EXT-X-VERSION:3 =&gt; 명령어 시작은 #EXT로 시작해야 한다.
+#EXT-X-TARGETDURATION:12
+#EXT-X-MEDIA-SEQUENCE:1
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXTINF:12, =&gt; 해당 ts 파일의 재생 시간 
+6221ff94d7b3b914fbe45b13_1080_00001.ts
+#EXTINF:2,
+6221ff94d7b3b914fbe45b13_1080_00002.ts
+#EXT-X-ENDLIST
+</code></pre>
+<h3>MPEG-2 TS(Transport Stream)</h3>
+<p>MPEG-2는 MPEG-2 Part 1 System로 오디오나 비디오, 방송의 채널 정보 등을 전송하거나 저장하기 위해 정의한 규격이다.<br>
+디지털 미디어를 전송하는 전송 규격, 전송용 컨테이너 포맷이다. 특정 규격으로 저장하고, 그렇게 저장한 파일을 전송한다.</p>
+<h3>Adaptive Streaming</h3>
+<p>HLS의 특징에는 웹서버가 단순히 저장된 파일을 클라이언트에 전송해준다는 것도 있지만, 또 다른 특징은 Adaptive Streaming을 지원이다.</p>
+<p>adaptive streaming은 네트워크 상태 변화에 따라 스트리밍 중 비디오 품질을 조정하는 능력이다.<br>
+만약, 사용자가 와이파이를 사용하다가 데이터를 사용할 때 네트워크 대역폭이 좁아지게 된다면, 영상이 끊길 수도 있을 것이다.<br>
+adaptive streaming은 사용자의 비디오 플리에어가 이를 감지하고 비디오 품질을 낮춰 비디오가 멈추지 않고 재생되게 할 수 있도록 한다.<br>
+이러한 기능이 가능하게 하기 위해서 스트리밍서버는 다양한 화질의 데이터 파일을 같은 구간으로 segmentation해서 기록한다.</p>
+<h2>마치며</h2>
+<p>처음에 라이브 스트리밍이라고 해서 실시간 라이브, 화상 회의 개발할 때 사용하는 프로토콜인가 했는데, 알아보고 나니 hls는 segmentation 과정이 필요하고 이 과정에서 딜레이가 발생하게 되므로, 화상회의 영상을 전송하는 프로토콜로는 적합하지 않았다.<br>
+화상회의같은 실시간 데이터 전송이 많이 쓰이고 있는데 이럴 떄는 어떤 프로토콜을 사용하고, 어떤 과정으로 데이터가 전송되는지 궁금해졌다.</p>
 
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/react-calculator-test.html">
-            <span>
-               [REACT]계산기 구현 + 테스트 코드
-            </span>
-          </a>
-          <span>
-             20201018
-          </span>
-
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/this2.html">
-            <span>
-               [자바스크립트]this는 뭘까?
-            </span>
-          </a>
-          <span>
-             20201009
-          </span>
-
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/context.html">
-            <span>
-               컨텍스트와 호이스팅 - JavaScript
-            </span>
-          </a>
-          <span>
-             20180830
-          </span>
-
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/this.html">
-            <span>
-               자바스크립트 this, bind 그리고 화살표 함수 
-            </span>
-          </a>
-          <span>
-             20180806
-          </span>
-
-        </div>
-      </li>
-      
-      <li>
-        <i class="fas fa-circle"></i>
-        <div class="content">
-          <a href="/deploy/javascript/regexp.html">
-            <span>
-               정규 표현식
-            </span>
-          </a>
-          <span>
-             20180719
-          </span>
-
-        </div>
-      </li>
-      
-  </ul>
+  </div>
 
 </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+
+
+    // var disqus_config = function () {
+    //   this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    //   this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // };
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://bohyeon-n.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
 
     </div>
     <div class="sidebar">
