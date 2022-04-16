@@ -19,10 +19,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-     CORS란? CORS를 해결해보자 |  구보현 블로그 
+     Rollup 사용법 |  구보현 블로그 
   </title>
-  <meta name="description" content=" CORS가 무엇인지 알아보고 해결 방법을 찾아보자!">
-  <meta name="keywords" content=" [ CORS, HTTP]">
+  <meta name="description" content=" rollup이 무엇인지 알아보고 typescript와 최신 자바스크립트 문법을 사용할 수 있도록 세팅하는 법을 정리합니다.">
+  <meta name="keywords" content=" [ rollup]">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -914,232 +914,380 @@
 
   <div class="value">
     <h1 style="color:#333">
-       CORS란? CORS를 해결해보자
+       Rollup 사용법
 
     </h1>
     <span>
-       20200522
+       20220403
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <p>프로젝트를 하면서 프론트에서 서버에서 제공한 API로 요청하자, CORS 에러가 발생했다.
-지금까지 CORS에러를 해결하기만 하고 정확히 CORS가 무엇이고 어떻게 동작하는지 알지 못했다.<br>
-이번에 CORS가 어떻게 동작하고 CORS 에러를 해결하는 방법을 공부하였고 공부하면서 알게된 내용을 정래해보았다.</p>
-<h2>CORS?</h2>
-<p><strong>Cross Origin Resource Sharing</strong></p>
-<p>CORS는 한 도메인 또는 Origin의 웹 페이지가 다른 도메인 (도메인 간 요청)을 가진 리소스에 액세스 할 수 있게하는 보안 메커니즘이다.</p>
-<p>CORS는 서버와 클라이언트가 정해진 헤더를 통해 서로 요청이나 응답에 반응할지 결정하는 방식으로 <strong>CORS</strong>라는 이름으로 표준화 되었다.
-CORS는 최신 브라우저에서 구현된 동일 출처 정책(same-origin policy) 때문에 등장했다.</p>
-<h2>동일 출처 정책?</h2>
-<p>동일 출처 정책은 동일한 출처의 리소스에만 접근하도록 제한하는 것이다.
-여기서 출처는 프로토콜, 호스트명, 포트가 같다는 것을 의미한다.</p>
-<p><code>https://naver.com:80</code>을 예시로 들면,
-<code>https</code>는 프로토콜, <code>naver.com</code>은 호스트명 <code>80</code>은 포트다.</p>
-<p>왜 동일한 출처에서만 접근하도록 허용하는 것일까?
-모든 출처를 허용하면 어떻게 될까?</p>
-<p><code>https://bank.com</code> 이라는 도메인 사이트가 있다 이 사이트의 api 주소는 <code>https://bank.com/api</code>이다. 사용자가 은행 사이트에서 로그인을 한 후 인증 토큰을 받았다.
-그런데 사용자가 로그인한 상태에서 <code>https://evil.com</code>사이트에 접속하게 되면,
-<code>https://evil.com</code>사이트에서 <code>https://bank.com/api</code>로 ajax 요청을 보낼 때 유저가 획득한 인증 토큰이 자동으로 첨부되어 사용자인척하면서 요청을 보낼 수 있게 된다.</p>
-<p>이렇게 자동으로 쿠키가 첨부되기 때문에 보안상의 이유로 브라우저는 HTTP 호출을 동일한 출처로 제한했다.</p>
-<h2>왜 CORS가 생겼을까?</h2>
-<p>그럼 왜 CORS가 필요하게 됐을까?<br>
-이전에는 동일한 도메인에서 리소스를 받아왔는데, 지금은 클라이언트에서 도메인이 다른 서버에서 제공하는 API를 사용하는 일이 많아졌다.<br>
-그래서 이전처럼 동일한 도메인간의 요청만 할 수 없어졌고 CORS가 생겼다.</p>
-<h2>CORS는 어떻게 동작할까?</h2>
-<p>동일 출처 정책은 브라우저에서 임의로 하는 것이다. 즉 브라우저를 통하지 않고 요청을 보내거나 브라우저에서 동일 출처 정책이 아니라면, 동일 출처가 아니라도 요청을 보내고 응답을 받을 수 있다.
-그럼 브라우저에서는 다른 출처로 요청을 보낼 때 어떻게 동작할까?</p>
-<p>브라우저는 다른 출처로 요청을 보낼 때 다음과 같은 절차를 거친다.
-우선 다른 출처라도, 다 같은 방식으로 동작하지 않는다. CORS 요청에는 simple request와 preflighted request 두 가지가 있다.</p>
-<h3>Simple request</h3>
-<p>simple 요청은 pre-flighted 요청을 보내지 않는다.</p>
-<h4>simple request란 무엇인가.</h4>
-<p>아래 3가지 조건 중 모두 만족하면, simpe request 이다.</p>
+    <p>이번 글에서는 rollup이 무엇인지 알아보고 typescript와 최신 자바스크립트 문법을 사용할 수 있도록 세팅하는 법을 정리해보았습니다.</p>
+<p>예제는 rollup을 설치, plugin 사용법, 타입스크립트 사용하기, 바벨 붙이기 순으로 진행됩니다.</p>
+<h2>Rollup?</h2>
 <ul>
-<li>
-<p>GET 요청, HEAD, POST 중의 한 가지 방식을 사용</p>
-</li>
-<li>
-<p>POST 방식일 경우 conte-type이 아래 셋 중 하나여야 한다.</p>
+<li>Rollup은 자바스크립트 모듈 번들러다.</li>
+</ul>
+<h2>모듈 번들러?</h2>
 <ul>
-<li>application/x-www-form-unlencoded</li>
-<li>multipart/form-data</li>
-<li>text/plain</li>
+<li>모듈 번들란 HTML, CSS Javascript, Images 등을 모두 각각의 모듈로 보고 모듈 단위로 나누어 최소한의 파일 묶음(번들)을 만든다.</li>
+<li>여러 파일들을 하나의 파일로 묶음으로서 네트워크 요청을 줄일 수 있음</li>
+<li>또한 최신 문법의 자바스크립트 코드가 모든 브라우저에서 돌아갈 수 있도록 변환(Transpile)하는 등 다양한 기능을 지원함</li>
 </ul>
-</li>
+<h2>rollup 번들러 세팅하기</h2>
+<p>rollup 번들러를 사용하여 간단한 유틸 함수를 번들링해보자.</p>
+<h3>install</h3>
+<ul>
+<li>프로젝트를 폴더 만들기</li>
+<li>npm init 명령으로 package.json을 생성해서 npm으로 관리하기</li>
+<li>rollup을 설치하기</li>
+<li>rollup 패키지는 개발할 때만 필요하므로 배포 패키지에는 포함시키지 않아야 하므로 <code>--save-dev</code> 나 <code>-D</code> 옵션으로 설치했음</li>
 </ul>
-<h4>simple request 과정</h4>
-<p>simple 요청은 다음과 같은 과정을 거친다.</p>
-<ol>
-<li>요청을 보낸다.</li>
-<li>브라우저는 Host와 같은 헤더를 추가하는 것 외에도 교차 출처 요청에 대해 Origin Request Header를 자동으로 추가한다.</li>
-</ol>
-<pre class="hljs"><code>GET /products/ HTTP/1.1
-Host: api.domain.com
-Origin: https://www.domain.com
+<pre class="hljs"><code>mkdir my-utils
+npm init -y
+npm install rollup --save-dev
 </code></pre>
-<ol start="3">
-<li>서버에서 <code>Origin</code> 리퀘스트 헤더를 확인합니다. Origin 값이 허용되면, <code>Access-Control-Allow-Origin</code>요청 헤더 Origin 값으로 설정한다.</li>
-</ol>
-<pre class="hljs"><code>Http/1.1 200 OK
-Access-Control-Allow-Origin: https://www.domain.com
-Content-Type: application/json
+<h3>Config Files</h3>
+<ul>
+<li>간단한 옵션은 cli로 실행 시 옵션을 넣어줄 수 있지만,</li>
+<li>config 파일을 생성해서 빌드 시 실행할 옵션을 파일에 작성할 수 있음</li>
+<li>기본 파일명은 rollup.config.js 지만,</li>
+<li>rollup.config.dev.js, rollup.config.prd.js 이런식으로 파일을 따로 만들어서 상황에 따라 프로파일링할 수 있다.</li>
+</ul>
+<pre class="hljs"><code>// rollup.config.js
+export default {
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs',
+  },
+}
 </code></pre>
-<ol start="4">
-<li>응답을 받은 브라우저는 Access-Control-Allow-Origin 헤더가 탭의 출처와 일치하는지 확인한다. Access-Control-Allow-Origin 값이 정확히 출처와 일치하거나, &quot;*&quot; 와일드 카드 연산자를 포함하는 경우 검사가 통과된다.</li>
-</ol>
-<p>서버는 요청의 출처의 따라 요청을 허용할 지 결정할 수 있다. 브라우저는 Origin 요청 헤더가 정확하게 설정해야 한다.</p>
-<h3>Preflighted request</h3>
-<p>preflighted 요청은 simple request와는 다른 유형의 CORS 요청이다. 브라우저에서 진짜 요청을 보내기 전에 미리 확인 요청을 보낸다. 이 요청은 <code>OPTIONS</code> 메소드를 사용한다.</p>
-<p>preflighted 요청은 다음과 같은 과정을 거친다.</p>
+<ul>
+<li>여기까지 테스트 해보려면</li>
+<li>input으로 지정한 경로에 src/main.js 파일 생성 후</li>
+<li><code>npx rollup --config</code>를 실행해보면, bundle.js 파일이 생성된 것을 볼 수 있다.</li>
+</ul>
+<blockquote>
+<p>npx?</p>
+<ul>
+<li>npx는 package runner다.</li>
+<li>npm을 더 편하게 쓰려고 나온 것.</li>
+<li>기존 npm과 다르게 패키지를 설치, 제거, 실행할 필요없이 원하는 패키지를 레지스트리에 접근해서 설치하고 실행시키는 실행도구다.</li>
+</ul>
+</blockquote>
+<ul>
+<li>빌드 스크립트를 package.json에 추가해서 명령을 편하게 실행할 수 있도록 할 수 있다.</li>
+</ul>
+<pre class="hljs"><code>// package.josn
+
+{
+  &quot;scripts&quot;: {
+    &quot;build&quot;: &quot;rollup --config&quot;
+  }
+}
+</code></pre>
+<h3>플러그인 사용하기</h3>
+<ul>
+<li>지금까지 진입점과 상대 경로를 통해 가져온 모듈에서 간단한 번들을 만들었다.</li>
+<li>번들을 사용하는 경우, npm과 함께 설치된 모듈을 가져오고, babel로 최신 코드를 컴파일하고, json 파일 작업 등 더 많은 유연성이 필요한 경우가 많다.</li>
+<li>이를 위해 번들링 프로세스의 주요 포인트에서 동작을 변경하는 플러그인을 사용한다.</li>
+<li>롤업 프로러그인들을 <a href="https://github.com/rollup/awesome">The Rollup Awesome List</a>에서 관리된다.</li>
+</ul>
+<h4>JSON 플러그인 추가하기</h4>
+<ul>
+<li>일단 rollup 튜토리얼에 있는 json 파일을 가져오는 예제를 보자.</li>
+<li><a href="https://github.com/rollup/plugins/tree/master/packages/json">@rollup/plugin-json</a>을 사용하여 Rollup이 JSON 파일에서 데이터를 가져올 수 있도록 한다.</li>
+</ul>
 <ol>
-<li>ajax 요청을 보낸다.</li>
+<li>설치하기</li>
 </ol>
-<pre class="hljs"><code>OPTIONS /products/ HTTP/1.1
-Host: api.domain.com
-Origin: https://www.domain.com
-Access-Control-Request-Method: POST
-Access-Control-Request-Headers: Authorization, Content-Type
+<pre class="hljs"><code>  npm install --save-dev @rollup/plugin-json
+</code></pre>
+<ul>
+<li>package.json에 있는 version 정보를 가져오는 함수를 작성해보자.</li>
+</ul>
+<pre class="hljs"><code>// src/mian.js
+import { version } from '../package.json'
+
+export default function () {
+  console.log('version: ' + version)
+}
+</code></pre>
+<p>그리고 config 파일에 JSON 플러그인을 추가해준다.</p>
+<pre class="hljs"><code>// rollup.config.js
+import json from '@rollup/plugin-json'
+
+export default {
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs',
+  },
+  plugins: [json()],
+}
+</code></pre>
+<ul>
+<li><code>npm run build</code> 스크립트를 실행해서 빌드를 하면, 번들 파일이 생성된다.</li>
+<li>아래 코드와 같이 변환된 bundle.js 파일을 볼 수 있다.</li>
+</ul>
+<pre class="hljs"><code>'use strict'
+
+var version = '1.0.0'
+
+function main() {
+  console.log('version: ' + version)
+}
+
+module.exports = main
+</code></pre>
+<ul>
+<li>번들된 파일을 보면, 실제로 필요한 데이터만 가져온다.</li>
+<li>name 등 package.json의 다른 부분은 무시된다. 이게 tree-shaking 이다.</li>
+</ul>
+<h3>output plugins 사용하기</h3>
+<ul>
+<li>일부 플러그인은 특정 output에만 적용할 수도 있다.</li>
+<li>output-specific plugin이 실행할 수 있는 세부 기술 정보를 보려면<br>
+<a href="https://rollupjs.org/guide/en/#build-hooks">plugin hooks</a>를 참조하자.</li>
+<li>간단히 말하면 output-specific plugin은 주요 분석이 완료된 후에만 코드를 수정할 수 있다.</li>
+<li>한가지 예시는 브라우저에서 사용할 번들을 축소하는 것이다.</li>
+</ul>
+<h4>terser</h4>
+<ol>
+<li>rollup-plugin-terser 를 설치</li>
+</ol>
+<pre class="hljs"><code>npm install --save-dev rollup-plugin-terser
 </code></pre>
 <ol start="2">
-<li>서버는 허용된 메소드 및 헤더를 지정하여 응답한다.</li>
+<li>config 파일을 수정한다.</li>
 </ol>
-<pre class="hljs"><code>HTTP/1.1 200 OK
-Access-Control-Allow-Origin: https://www.domain.com
-Access-Control-Allow-Method: GET, POST, OPTIONS, PUT
-Access-Control-Allow-Headers: Authorization, Content-Type
-Content-Type: application/json
+<ul>
+<li>format으로는 iife를 선택한다.</li>
+<li>이 포맷은 다른 코드와의 원치 않은 상호 작용을 피하면서 브라우저의 스크립트 태그를 통해 사용할 수 있도록 코드를 래핑한다.</li>
+<li>다른 코드가 이 변수를 통해 export에 접근할 수 있도록 번들에 의해 생성될 전역 변수의 이름을 제공해야 한다.</li>
+</ul>
+<pre class="hljs"><code>import json from '@rollup/plugin-json'
+import { terser } from 'rollup-plugin-terser'
+
+export default {
+  input: 'src/main.js',
+  output: [
+    {
+      file: 'bundle.js',
+      format: 'cjs',
+    },
+    {
+      file: 'bundle.min.js',
+      format: 'iife',
+      name: 'version',
+      plugins: [terser()],
+    },
+  ],
+  plugins: [json()],
+}
+</code></pre>
+<h2>format</h2>
+<ul>
+<li>번들러가 코드 출력을 어떻게 포맷팅하는지 여러가지 선택지가 있다. (<a href="https://rollupjs.org/guide/en/#outputformat">output.format</a>)</li>
+<li>CJS, AMD, UMD, ESM, System, IIFE 로 설정할 수 있는데 각각의 차이점을 알아보자.</li>
+</ul>
+<h3>AMD(Asynchronous Module Definition)</h3>
+<ul>
+<li>비동기 모듈 로딩을 지원하기 위해서 CJS에서 나왔다.</li>
+<li>AMD는 브라우저 측에서 작동하는 RequireJS에서 사용된다.</li>
+</ul>
+<h3>CJS(CommonJS)</h3>
+<ul>
+<li>Node 및 기타 번들러(alias: commonjs)인 웹 브라우저 외의 생태계에 적합하다.</li>
+<li><a href="https://javascript.plainenglish.io/a-hands-on-guide-for-a-server-side-rendering-react-app-dd1efa3ec0d8">서버 사이드</a>에서 널리 사용된다.</li>
+<li>자바스크립트 클라이언트 개발에서 널리 사용되며 추가 type이 있는 타입스크립트에서도 채택됐다.</li>
+</ul>
+<h3>ESM</h3>
+<ul>
+<li>ESM은 ES2015 이후 자바스크립트에서 사용되는 공식 표준이 되었다.</li>
+<li>번들을 ES 모듈 파일로 유지한다. 다른 번들러에 적합하고 최신 브라우저에서 <code>&lt;script type=module &gt;</code> 태그로 포함한다.</li>
+</ul>
+<h3>IIFE</h3>
+<ul>
+<li><code>&lt;script&gt;</code> 태그로 포함하기에 적합한 즉시 실행 함수에 적합하다.</li>
+<li>이 형식을 사용하여 애플리케이션용 변들을 생성할 수 있다.</li>
+</ul>
+<h3>umd(Univeral Module Definition)</h3>
+<ul>
+<li>UMD는 어디에서나 동작하도록 설계되어 있다.</li>
+<li>브라우저 사이드, 서버 사이드 모두 가능하다.</li>
+<li>RequireJS같은 오늘날 가장 인기 있는 스크립트 로더와 호환성을 제공하려 한다.</li>
+<li>system</li>
+<li>CJS, AMD, ESM 모듈을 지원하는 범용 모듈 로더다.</li>
+<li>롤업은 코드를 SystemJS의 기본 형식으로 묶을 수 있다.</li>
+</ul>
+<h3>여러 포맷 사용하기</h3>
+<ul>
+<li>한 번에 여러 형식으로 출력할 수 있도록 설정할 수 있다.</li>
+</ul>
+<pre class="hljs"><code>
+output = [
+  {
+    file: 'dist/bundle.amd.js',
+    format: 'amd',
+    sourcemap: false,
+  },
+  {
+    file: 'dist/bundle.cjs.js',
+    format: 'cjs',
+    sourcemap: false,
+  },
+  ....
+]
+</code></pre>
+<p>각 형식마다 실제 번들링한 코드를 보고 싶다면 <a href="https://betterprogramming.pub/what-are-cjs-amd-umd-esm-system-and-iife-3633a112db62">https://betterprogramming.pub/what-are-cjs-amd-umd-esm-system-and-iife-3633a112db62</a> 이 블로그를 참고!</p>
+<p>(근데 어떤 포맷 사용해야 하는지 헛갈린다... 좀 더 알아봐야 할 듯!)</p>
+<h2>타입스크립트</h2>
+<ul>
+<li>타입스크립트를 사용해보자.</li>
+<li>타입스크립트를 사용하려면 타입스크립트를 자바스크립트로 변환하고 type definition 파일을 생성해야 한다.</li>
+</ul>
+<ol>
+<li>타입스크립트 플러그인 설치</li>
+<li><code>npm install --save-dev @rollup/plugin-typescript</code></li>
+<li>config 파일 수정</li>
+</ol>
+<ul>
+<li>타입스크립트 플러그인을 설치하고 플러그인에 typescript를 실행해주면 된다.</li>
+</ul>
+<pre class="hljs"><code>import typescript from '@rollup/plugin-typescript'
+plugins: [typescript()]
+</code></pre>
+<ul>
+<li>컴파일 기본적으로 tsconfig.json에 정의된 옵션으로 컴파일 되는데</li>
+<li>플러그인에 직접 오버라이드해서 옵션을 전달할 수도 있다.</li>
+</ul>
+<pre class="hljs"><code>// 직접 오버라이드하기
+plugins: [
+  typescript({
+    compilerOptions: { lib: ['es5', 'es6', 'dom'], target: 'es5' },
+  }),
+]
+</code></pre>
+<h3>타입스크립트 컴파일 옵션</h3>
+<h4>lib</h4>
+<ul>
+<li>typescript에서는 내장 JS API(like Math)에 대한 기본 타입 정의 세트가 포함되어 있다.</li>
+<li>뿐만 아니라 브라우저 환경에서 사용하는 document같은 객체의 타입이 정의되어 있다.</li>
+<li>타입스크립트는 target에서 지정한 새로운 JS 피쳐와 매칭되는 타입도 포함하고 있다.</li>
+<li>에를 들어 Map은 target ES6거나 그 이후이면 타입을 사용할 수 있다.</li>
+</ul>
+<h4>target</h4>
+<ul>
+<li>모던 브라우저에선느 ES6 기능을 모두 지원한다. ES6는 좋은 선택이다.</li>
+<li>실행 환경이 더 낮은 기능만을 지원하면 다운그레이드할 수 있다.</li>
+<li>ESNext 값은 Typescrpit 버전이 지원하는 가장 높은 버전을 나타낸다.</li>
+</ul>
+<h4>declaration</h4>
+<ul>
+<li>type declaration 파일(d.ts 파일)을 생성할건지</li>
+</ul>
+<h2>babel</h2>
+<ul>
+<li>브라우저와 노드 환경에서 동작하지 않는 최신 자바스크립트 문법을 쓰기 위해서 Babel을 이용해서 자바스크립트 코드를 변환해야 한다.</li>
+</ul>
+<ol>
+<li>바벨 플러그인 설치</li>
+</ol>
+<pre class="hljs"><code>npm install --save-dev @babel/puligin-babel @rollup/plugin-node-resolve
+</code></pre>
+<pre class="hljs"><code>plugins: [resolve(), babel({ babelHelpers: 'bundled' })]
+</code></pre>
+<ol start="2">
+<li>babel-core, 필요한 preset 설치</li>
+</ol>
+<ul>
+<li>롤업을 실행하기 전에 babel-core와 env config 설정을 해야 한다.</li>
+</ul>
+<pre class="hljs"><code>npm i -D @babel/core @babel/preset-env
+</code></pre>
+<pre class="hljs"><code>//babelrc.json
+{
+  &quot;presets&quot;: [
+    &quot;@babel/preset-env&quot;,  // @babel/env와 같음
+    &quot;@babel/preset-typescript&quot;, 
+  ] 
+}
 </code></pre>
 <ol start="3">
-<li>헤더와 메소드가 통과되면, 브라우저는 원래 CORS 요청을 보낸다.</li>
+<li>config 파일 구성</li>
 </ol>
-<pre class="hljs"><code>POST /products/ HTTP/1.1
-Host: api.domain.com
-Authorization: token
-Content-Type: application/json
-Origin: https://www.domain.com
-</code></pre>
-<ol start="4">
-<li>응답은 Access-Control-Allow-Origin 헤더에 올바른 출처가 있으므로 검사를 통과한다.</li>
-</ol>
-<h2>CORS 에러 해결하기</h2>
-<p>지금까지 CORS에 대한 브라우저가 어떻게 동작하는지 알아보았다. 그렇다면, 우리가 클라이언트 개발자나 서버 개발자면 브라우저에게 어떻게 알려줄 수 있을까?</p>
-<h3>클라이언트에서 해결하기</h3>
-<ol>
-<li>
-<p>웹 브라우저 실행 옵션이나 플러그인을 통한 동일 출처 정책 회피하기</p>
 <ul>
-<li>동일 출처 정책은 브라우저에서 임의로 하는 것이기 때문에 브라우저에서 동일 출처 정책을 사용하지 않으며 된다.</li>
+<li>바벨이 실제로 코드를 컴파일하기 전에 설정 파일을 구성해야 한다.</li>
 </ul>
-</li>
-<li>
-<p>jsonp 방식으로 json 데이터 가져오기</p>
-<ul>
-<li>자바스크립트 파일이나 css 파일은 동일 출처 정책에 영향을 받지 않고 가져올 수 있다.</li>
-<li>이를 이용해서 자바스크립트 파일을 가져와서 이를 json 형식으로 파싱해서 데이터를 사용할 수 있다.</li>
-</ul>
-</li>
-</ol>
-<h3>서버에서 해결하기</h3>
-<h3>스프링 CORS</h3>
-<h4>@CrossOrigin 어노테이션 사용하기</h4>
-<p>메소드 레벨 및 글로벌 레벨에서 srping mvc 애플리케이션에서 spring cors를 지원하는 방법이다.
-sprign mvc는 <code>@CorssOrigin</code> 어노테이션을 제공한다. 이 어노테이션은 어노테이션이 달린 메소드 또는 타입을 교차 출처를 허용하는 것으로 표시한다.</p>
-<p>기본적으로 <code>@CrossOrigin</code>은 모든 출처, 모든 헤더, <code>@RequestMapping</code> 주석에 지정된 Http 메소드에 최대 30분을 허용한다.
-어노테이션에 속성 값을 넣어 기본 값을 대체할 수 있다.</p>
-<p>속성값을 살펴보면,</p>
-<ul>
-<li><code>origins</code>
-<ul>
-<li>허용된 출처, 이 값은 pre-flight 응답과 실제 응답 모두에 access-control-allow-origin헤더에 배치된다.</li>
-</ul>
-</li>
-<li><code>allowedHeaders</code>
-<ul>
-<li>실제 요청 중에 사용할 수 있는 요청 헤더 목록이다. pre-flight의 응답 헤더인 access-control-allow-header에 값이 사용된다.</li>
-</ul>
-</li>
-<li><code>allowCredential</code>
-<ul>
-<li>브라우저가 요청과 관련된 쿠키를 포함해야 되는지 여부를 결정한다.</li>
-<li>이 값이 true이면, pre-flight 응답에는 값이 true로 설정된 access-control-allow-credentials 헤더가 포함된다.</li>
-</ul>
-</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-meta">@CrossOrigin(origin=&quot;*&quot;, allowedHeaders = &quot;*&quot;)</span>
-<span class="hljs-meta">@Controller</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainController</span> </span>{
-	<span class="hljs-meta">@GetMapping(path = &quot;/&quot;)</span>
-	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">main</span><span class="hljs-params">(Model model)</span> </span>{
-		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;main&quot;</span>;
-	}
+<p>babelrc.json</p>
+<pre class="hljs"><code>{
+  &quot;presets&quot;: [&quot;@babel/env&quot;]
 }
 </code></pre>
-<h4>CorsFilter 사용하기</h4>
-<p>서블릿 필터 인터페이스를 이용하여 개발되었다. 웹 서버의 모든 리소스의 요청을 가로채서 Cross domain request인지 체크하여 실제 요청 페이지에 전달하기전에 적절한 CORS 정책과 해더들을 적용한다.</p>
+<h3>babel presets?</h3>
 <ul>
-<li>Access-Control-Allow-Origin
+<li>presets는 바벨 플러그인 모음이다.</li>
+<li>config 옵션을 공유할 수 있게 함.</li>
+<li>sytax traspile, 폴리필</li>
+<li>공식 presets
 <ul>
-<li>도메인 간 요청을 할 수 있는 권한이 부여된 도메인을 지정한다.</li>
+<li>@babel/preset-env
+<ul>
+<li>ES2015+ 구문 컴파일링</li>
 </ul>
 </li>
-<li>Access-Control-Allow-Credentials
-<ul>
-<li>도메인 간 요청에 credential 권한이 있는지 없는지 지정한다.</li>
-</ul>
-</li>
-<li>Access-Control-Expose-Headers
-<ul>
-<li>노출하기에 안전한 헤더를 나타낸다.</li>
-</ul>
-</li>
-<li>Access-Control-Max-Age
-<ul>
-<li>pre-flighted 요청이 얼마만큼의 시간동안 캐시되는지</li>
-</ul>
-</li>
-<li>Access-Control-Allow-Methods
-<ul>
-<li>리소스에 접근할 때 메소드가 허용되는지</li>
-</ul>
-</li>
-<li>Access-Control-Allow-Headers
-<ul>
-<li>어떤 헤더 필드 네임이 실제 요청에서 사용할 수 있는지 가리킨다.</li>
+<li>@babel/preset-typescript</li>
+<li>@babel/preset-react</li>
+<li>@babel/preset-flow</li>
 </ul>
 </li>
 </ul>
-<pre class="hljs"><code><span class="hljs-meta">@Component</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleCorsFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Filter</span> </span>{
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilter</span><span class="hljs-params">(ServletRequest req, ServletResponse res, FilterChain chain)</span> <span class="hljs-keyword">throws</span> IOException, ServletException </span>{
-        HttpServletRequest request = (HttpServletRequest) req;
-        HttpServletResponse response = (HttpServletResponse) res;
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, request.getHeader(<span class="hljs-string">&quot;Origin&quot;</span>));
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Credentials&quot;</span>, <span class="hljs-string">&quot;true&quot;</span>);
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="hljs-string">&quot;POST, GET, OPTIONS, DELETE, PUT, PATCH&quot;</span>);
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Max-Age&quot;</span>, <span class="hljs-string">&quot;3600&quot;</span>);
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="hljs-string">&quot;Content-Type, Accept, X-Requested-With, remember-me&quot;</span>);
-        chain.doFilter(req, res);
-    }
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(FilterConfig filterConfig)</span> </span>{
-    }
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">destroy</span><span class="hljs-params">()</span> </span>{
-    }
-}
+<h3>babel tooling package?</h3>
+<ul>
+<li>바벨 작업을 도와주는 도구들</li>
+<li>@babel/core?
+<ul>
+<li>바벨 컴파일러의 코어</li>
+</ul>
+</li>
+</ul>
+<h2>typescript? babel? 타입스크립트 컴파일은 어떤 걸로 컴파일 해야할까?</h2>
+<ul>
+<li>이렇게까지 설정하고 나니까 타입스크립트 설정에서도 최신 문법을 설정한 환경에서 돌아갈 수 있도록 컴파일 할 수 있는데 왜 바벨을 사용해야 하는지 의문이 들었다.</li>
+</ul>
+<p><a href="https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html">babel with typescript</a> 글을 찾아보았는데 간단하게 정리하자면,</p>
+<ul>
+<li>바벨의 타입스크립 컴파일을 사용하게 되면, 기존 빌드 파이프라인으로 작업할 수 있고 바벨이 타입 검사를 하지 않기 때문에 빠르게 컴파일 할 수 있다.</li>
+<li>그러나 바벨만 사용할 순 없다.</li>
+<li>바벨은 타입 검사를 하지 않기 때문에 ts에서 js로 변환하는 동안 타입 검사를 받지 못한다.</li>
+<li>그래서 에디터에서 놓친 오류가 프로덕션에 들어갈 수 있다.</li>
+<li>바벨은 .d.ts파일을 생성할 수 없으므로, 라이브러리를 만드는 경우라면 타입을 제공할 수 없게 된다.</li>
+<li>그래서 바벨의 @babel/preset-typescript을 사용하여 js 파일을 생성한 다음 타입스크립트를 사용하여 타입 검사 및 .d.ts 파일을 만드는 하이브리드 접근 방식을 채택할 수 있다.</li>
+</ul>
+<p>=&gt; @babel/preset-typescript + tsc</p>
+<pre class="hljs"><code>&quot;scripts&quot;: {
+    &quot;type-check&quot;: &quot;tsc --noEmit&quot;,
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;build&quot;: &quot;npm run build:types &amp;&amp; npm run build:js&quot;,
+    &quot;build:types&quot;: &quot;tsc --emitDeclarationOnly&quot;,
+    &quot;build:js&quot;: &quot;rollup --c rollup.config.js  &amp;&amp; tsc&quot;
+  },
 </code></pre>
-<h2>정리</h2>
-<p>CORS 에러를 클라이언트에서 해결할 수 있는 방법이 있는지 몰랐다. 서버에서만 허용이 가능한 것인줄만 알았는데, 브라우저에서 컨트롤하는 것이었다니!
-정확한 동작 방식을 알고 나니 사용한 코드도 더 잘 이해된다. 🏃🏽‍♀️🏃🏽‍♀️</p>
-<h2>참고한 자료</h2>
-<p>https://brownbears.tistory.com/336</p>
+<h1>참고 자료</h1>
+<p><a href="https://rollupjs.org/guide/en/#creating-your-first-bundl">rollup 공식문서</a></p>
+<p><a href="https://webruden.tistory.com/275">npx?</a></p>
+<p><a href="https://betterprogramming.pub/what-are-cjs-amd-umd-esm-system-and-iife-3633a112db62">What Are CJS, AMD, UMD, ESM, System, and IIFE?</a></p>
+<p><a href="https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c">webpack and rollup the same but different</a></p>
+<p><a href="https://www.typescriptlang.org/tsconfig#lib">typescript lib options</a></p>
+<p><a href="https://antfu.me/posts/publish-esm-and-cjs">publish esm and cjs</a></p>
+<p><a href="https://babeljs.io/docs/en/presets">babel presets</a></p>
+<p><a href="https://ageek.dev/ts-with-babel">ts with babel</a></p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html">babel with typescript</a></p>
 
   </div>
 

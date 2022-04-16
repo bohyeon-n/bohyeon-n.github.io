@@ -8,11 +8,11 @@ showcomments = true
 slug = ""
 tags = ["Typescript", "Type challenges", "First of Array", "Length of Tuple", "Exclude" ]
 title = "[TypeScript]Type Challenges - First of Array, Length of Tuple, Exclude"
-description = "Typescript Challenges 두번째"
+description = "Typescript Challenges 두 번째"
 front = true
 +++
  
-[지난 글](https://ellie-dev.tistory.com/14)에 이어 [Type challenges](https://github.com/type-challenges/type-challenges)를 풀이한 내용을 올립니다.
+[Type challenges](https://github.com/type-challenges/type-challenges)를 풀이한 내용을 정리했습니다.
 
 # First of Array
 

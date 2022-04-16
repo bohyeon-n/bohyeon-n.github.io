@@ -19,10 +19,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-     CORS란? CORS를 해결해보자 |  구보현 블로그 
+     [Next.js] Next.js를 학습하기 위한 기초 |  구보현 블로그 
   </title>
-  <meta name="description" content=" CORS가 무엇인지 알아보고 해결 방법을 찾아보자!">
-  <meta name="keywords" content=" [ CORS, HTTP]">
+  <meta name="description" content=" Next.js 학습하기 전에 Next.js가 무엇인지 알아봅니다.">
+  <meta name="keywords" content=" [ Next.js]">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -914,232 +914,160 @@
 
   <div class="value">
     <h1 style="color:#333">
-       CORS란? CORS를 해결해보자
+       [Next.js] Next.js를 학습하기 위한 기초
 
     </h1>
     <span>
-       20200522
+       20220410
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <p>프로젝트를 하면서 프론트에서 서버에서 제공한 API로 요청하자, CORS 에러가 발생했다.
-지금까지 CORS에러를 해결하기만 하고 정확히 CORS가 무엇이고 어떻게 동작하는지 알지 못했다.<br>
-이번에 CORS가 어떻게 동작하고 CORS 에러를 해결하는 방법을 공부하였고 공부하면서 알게된 내용을 정래해보았다.</p>
-<h2>CORS?</h2>
-<p><strong>Cross Origin Resource Sharing</strong></p>
-<p>CORS는 한 도메인 또는 Origin의 웹 페이지가 다른 도메인 (도메인 간 요청)을 가진 리소스에 액세스 할 수 있게하는 보안 메커니즘이다.</p>
-<p>CORS는 서버와 클라이언트가 정해진 헤더를 통해 서로 요청이나 응답에 반응할지 결정하는 방식으로 <strong>CORS</strong>라는 이름으로 표준화 되었다.
-CORS는 최신 브라우저에서 구현된 동일 출처 정책(same-origin policy) 때문에 등장했다.</p>
-<h2>동일 출처 정책?</h2>
-<p>동일 출처 정책은 동일한 출처의 리소스에만 접근하도록 제한하는 것이다.
-여기서 출처는 프로토콜, 호스트명, 포트가 같다는 것을 의미한다.</p>
-<p><code>https://naver.com:80</code>을 예시로 들면,
-<code>https</code>는 프로토콜, <code>naver.com</code>은 호스트명 <code>80</code>은 포트다.</p>
-<p>왜 동일한 출처에서만 접근하도록 허용하는 것일까?
-모든 출처를 허용하면 어떻게 될까?</p>
-<p><code>https://bank.com</code> 이라는 도메인 사이트가 있다 이 사이트의 api 주소는 <code>https://bank.com/api</code>이다. 사용자가 은행 사이트에서 로그인을 한 후 인증 토큰을 받았다.
-그런데 사용자가 로그인한 상태에서 <code>https://evil.com</code>사이트에 접속하게 되면,
-<code>https://evil.com</code>사이트에서 <code>https://bank.com/api</code>로 ajax 요청을 보낼 때 유저가 획득한 인증 토큰이 자동으로 첨부되어 사용자인척하면서 요청을 보낼 수 있게 된다.</p>
-<p>이렇게 자동으로 쿠키가 첨부되기 때문에 보안상의 이유로 브라우저는 HTTP 호출을 동일한 출처로 제한했다.</p>
-<h2>왜 CORS가 생겼을까?</h2>
-<p>그럼 왜 CORS가 필요하게 됐을까?<br>
-이전에는 동일한 도메인에서 리소스를 받아왔는데, 지금은 클라이언트에서 도메인이 다른 서버에서 제공하는 API를 사용하는 일이 많아졌다.<br>
-그래서 이전처럼 동일한 도메인간의 요청만 할 수 없어졌고 CORS가 생겼다.</p>
-<h2>CORS는 어떻게 동작할까?</h2>
-<p>동일 출처 정책은 브라우저에서 임의로 하는 것이다. 즉 브라우저를 통하지 않고 요청을 보내거나 브라우저에서 동일 출처 정책이 아니라면, 동일 출처가 아니라도 요청을 보내고 응답을 받을 수 있다.
-그럼 브라우저에서는 다른 출처로 요청을 보낼 때 어떻게 동작할까?</p>
-<p>브라우저는 다른 출처로 요청을 보낼 때 다음과 같은 절차를 거친다.
-우선 다른 출처라도, 다 같은 방식으로 동작하지 않는다. CORS 요청에는 simple request와 preflighted request 두 가지가 있다.</p>
-<h3>Simple request</h3>
-<p>simple 요청은 pre-flighted 요청을 보내지 않는다.</p>
-<h4>simple request란 무엇인가.</h4>
-<p>아래 3가지 조건 중 모두 만족하면, simpe request 이다.</p>
+    <h1>Next - foundation</h1>
+<p>Next.js 공식 문서를 보면서 학습한 내용을 정리할 예정입니다.</p>
+<p>첫 번째 글은 Next 공식 페이지에서 제공하는 <a href="https://nextjs.org/learn/foundations/about-nextjs?utm_source=next-site&amp;utm_medium=nav-cta&amp;utm_campaign=next-website">Learn Next.js</a> 에서 기초 내용으로 Next.js가 무엇인지 알아봅니다.</p>
+<h2>Next.js?</h2>
+<ul>
+<li>Web SDK</li>
+<li>server rendering, typescript support, smart bundling, route, re-fetching 등 next.js에서는 웹을 만드는 데 필요한 모든 도구가 있다.</li>
+</ul>
+<h2>Bundling block of a web applictaion</h2>
 <ul>
 <li>
-<p>GET 요청, HEAD, POST 중의 한 가지 방식을 사용</p>
+<p>모던 웹을 빌딩할 때 몇 가지 생각할 것이 있다.</p>
+<ul>
+<li>User Interface</li>
+<li>Routing
+<ul>
+<li>앱의 다른 파트를 검색하는 방법</li>
+</ul>
+</li>
+<li>data fetching
+<ul>
+<li>데이터의 위치와 가져오는 방법</li>
+</ul>
+</li>
+<li>rendering
+<ul>
+<li>static이나 dynamic 콘텐츠 렌더를 언제, 어디서 할 지</li>
+</ul>
+</li>
+<li>infrastructure
+<ul>
+<li>앱 코드를 배포, 저장 및 실행할 곳(serverless, CDN, Edge...)</li>
+</ul>
+</li>
+<li>Performance</li>
+<li>Scalability</li>
+<li>Developer expreience</li>
+</ul>
+<p>각 부분들에 대해 직접 구축할건지, 외부 툴을 사용할건지 선택해야 한다.</p>
 </li>
 <li>
-<p>POST 방식일 경우 conte-type이 아래 셋 중 하나여야 한다.</p>
-<ul>
-<li>application/x-www-form-unlencoded</li>
-<li>multipart/form-data</li>
-<li>text/plain</li>
-</ul>
-</li>
-</ul>
-<h4>simple request 과정</h4>
-<p>simple 요청은 다음과 같은 과정을 거친다.</p>
-<ol>
-<li>요청을 보낸다.</li>
-<li>브라우저는 Host와 같은 헤더를 추가하는 것 외에도 교차 출처 요청에 대해 Origin Request Header를 자동으로 추가한다.</li>
-</ol>
-<pre class="hljs"><code>GET /products/ HTTP/1.1
-Host: api.domain.com
-Origin: https://www.domain.com
-</code></pre>
-<ol start="3">
-<li>서버에서 <code>Origin</code> 리퀘스트 헤더를 확인합니다. Origin 값이 허용되면, <code>Access-Control-Allow-Origin</code>요청 헤더 Origin 값으로 설정한다.</li>
-</ol>
-<pre class="hljs"><code>Http/1.1 200 OK
-Access-Control-Allow-Origin: https://www.domain.com
-Content-Type: application/json
-</code></pre>
-<ol start="4">
-<li>응답을 받은 브라우저는 Access-Control-Allow-Origin 헤더가 탭의 출처와 일치하는지 확인한다. Access-Control-Allow-Origin 값이 정확히 출처와 일치하거나, &quot;*&quot; 와일드 카드 연산자를 포함하는 경우 검사가 통과된다.</li>
-</ol>
-<p>서버는 요청의 출처의 따라 요청을 허용할 지 결정할 수 있다. 브라우저는 Origin 요청 헤더가 정확하게 설정해야 한다.</p>
-<h3>Preflighted request</h3>
-<p>preflighted 요청은 simple request와는 다른 유형의 CORS 요청이다. 브라우저에서 진짜 요청을 보내기 전에 미리 확인 요청을 보낸다. 이 요청은 <code>OPTIONS</code> 메소드를 사용한다.</p>
-<p>preflighted 요청은 다음과 같은 과정을 거친다.</p>
-<ol>
-<li>ajax 요청을 보낸다.</li>
-</ol>
-<pre class="hljs"><code>OPTIONS /products/ HTTP/1.1
-Host: api.domain.com
-Origin: https://www.domain.com
-Access-Control-Request-Method: POST
-Access-Control-Request-Headers: Authorization, Content-Type
-</code></pre>
-<ol start="2">
-<li>서버는 허용된 메소드 및 헤더를 지정하여 응답한다.</li>
-</ol>
-<pre class="hljs"><code>HTTP/1.1 200 OK
-Access-Control-Allow-Origin: https://www.domain.com
-Access-Control-Allow-Method: GET, POST, OPTIONS, PUT
-Access-Control-Allow-Headers: Authorization, Content-Type
-Content-Type: application/json
-</code></pre>
-<ol start="3">
-<li>헤더와 메소드가 통과되면, 브라우저는 원래 CORS 요청을 보낸다.</li>
-</ol>
-<pre class="hljs"><code>POST /products/ HTTP/1.1
-Host: api.domain.com
-Authorization: token
-Content-Type: application/json
-Origin: https://www.domain.com
-</code></pre>
-<ol start="4">
-<li>응답은 Access-Control-Allow-Origin 헤더에 올바른 출처가 있으므로 검사를 통과한다.</li>
-</ol>
-<h2>CORS 에러 해결하기</h2>
-<p>지금까지 CORS에 대한 브라우저가 어떻게 동작하는지 알아보았다. 그렇다면, 우리가 클라이언트 개발자나 서버 개발자면 브라우저에게 어떻게 알려줄 수 있을까?</p>
-<h3>클라이언트에서 해결하기</h3>
-<ol>
-<li>
-<p>웹 브라우저 실행 옵션이나 플러그인을 통한 동일 출처 정책 회피하기</p>
-<ul>
-<li>동일 출처 정책은 브라우저에서 임의로 하는 것이기 때문에 브라우저에서 동일 출처 정책을 사용하지 않으며 된다.</li>
-</ul>
+<p>Next.js는 웹 애플리케이션을 만들기 위한 building block을 제공하는 React 프레임워크다.</p>
 </li>
 <li>
-<p>jsonp 방식으로 json 데이터 가져오기</p>
-<ul>
-<li>자바스크립트 파일이나 css 파일은 동일 출처 정책에 영향을 받지 않고 가져올 수 있다.</li>
-<li>이를 이용해서 자바스크립트 파일을 가져와서 이를 json 형식으로 파싱해서 데이터를 사용할 수 있다.</li>
-</ul>
+<p>Next.js는 리액트에 필요한 도구 및 configuration을 처리하고 애플리케이션에 대한 구조, 기능 및 최적화를 제공한다.</p>
 </li>
-</ol>
-<h3>서버에서 해결하기</h3>
-<h3>스프링 CORS</h3>
-<h4>@CrossOrigin 어노테이션 사용하기</h4>
-<p>메소드 레벨 및 글로벌 레벨에서 srping mvc 애플리케이션에서 spring cors를 지원하는 방법이다.
-sprign mvc는 <code>@CorssOrigin</code> 어노테이션을 제공한다. 이 어노테이션은 어노테이션이 달린 메소드 또는 타입을 교차 출처를 허용하는 것으로 표시한다.</p>
-<p>기본적으로 <code>@CrossOrigin</code>은 모든 출처, 모든 헤더, <code>@RequestMapping</code> 주석에 지정된 Http 메소드에 최대 30분을 허용한다.
-어노테이션에 속성 값을 넣어 기본 값을 대체할 수 있다.</p>
-<p>속성값을 살펴보면,</p>
-<ul>
-<li><code>origins</code>
-<ul>
-<li>허용된 출처, 이 값은 pre-flight 응답과 실제 응답 모두에 access-control-allow-origin헤더에 배치된다.</li>
-</ul>
-</li>
-<li><code>allowedHeaders</code>
-<ul>
-<li>실제 요청 중에 사용할 수 있는 요청 헤더 목록이다. pre-flight의 응답 헤더인 access-control-allow-header에 값이 사용된다.</li>
-</ul>
-</li>
-<li><code>allowCredential</code>
-<ul>
-<li>브라우저가 요청과 관련된 쿠키를 포함해야 되는지 여부를 결정한다.</li>
-<li>이 값이 true이면, pre-flight 응답에는 값이 true로 설정된 access-control-allow-credentials 헤더가 포함된다.</li>
-</ul>
+<li>
+<p>리액트를 사용하여 UI를 구축한 다음 Next.js 기능을 점진적으로 채택하여 Routing, data fetching, integration과 같은 애플리케이션 요구 사항을 해결할 수 있다.</p>
 </li>
 </ul>
-<pre class="hljs"><code><span class="hljs-meta">@CrossOrigin(origin=&quot;*&quot;, allowedHeaders = &quot;*&quot;)</span>
-<span class="hljs-meta">@Controller</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainController</span> </span>{
-	<span class="hljs-meta">@GetMapping(path = &quot;/&quot;)</span>
-	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">main</span><span class="hljs-params">(Model model)</span> </span>{
-		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;main&quot;</span>;
-	}
-}
-</code></pre>
-<h4>CorsFilter 사용하기</h4>
-<p>서블릿 필터 인터페이스를 이용하여 개발되었다. 웹 서버의 모든 리소스의 요청을 가로채서 Cross domain request인지 체크하여 실제 요청 페이지에 전달하기전에 적절한 CORS 정책과 해더들을 적용한다.</p>
+<h2>How Next.js works</h2>
 <ul>
-<li>Access-Control-Allow-Origin
+<li>next.js는 애플리케이션의 개발 및 production 단계 모두를 위한 기능을 제공한다.</li>
+<li>컴파일링, 번들링, code splitting 등을 지원한다.</li>
+<li>빌드 타임이란 프로덕션용 애플리케이션 코드를 준비하는 일련의 단계를 말한다.
+애플리케이션을 빌드할 때 Next.js는 코들르 프로덕션에 최적화된 파일로 변환하여 서버에 배포하고 사용자가 사용할 수 있다.</li>
+<li>런타임은 애플리케이션이 빌드 및 배포 후 사용자의 요청에 대한 응답으로 애플리케이션이 실행되는 타임을 의미한다.</li>
+</ul>
+<h3>rendering</h3>
 <ul>
-<li>도메인 간 요청을 할 수 있는 권한이 부여된 도메인을 지정한다.</li>
+<li>렌더링은 서버 또는 클라이언트에서 수행될 수 있다.</li>
+<li>빌드 시 미리 발생하거나 런타임 시 모든 request에서 발생할 수 있다.</li>
+<li>Next.js에서는 SSR, CSR, SSG 세 가지 유형의 렌더링 방법을 사용할 수 있다.</li>
+</ul>
+<h4>pre rendering</h4>
+<ul>
+<li>SSR, SSG는 결과가 클라이언트로 전송되기 전에 외부 데이터를 가져오고, React component를 HTML로 변환하기 때문에 pre-rendering이라고 한다.</li>
+</ul>
+<h4>CSR vs Pre-rendering</h4>
+<ul>
+<li>
+<p>리액트 앱 기준으로, 브라우저는 UI를 구성하기 위한 Javascript instruction과 함께 서버로부터 빈 HTML 껍데기를 받는다.  초기 렌더링 작업이 사용자 장치에서 발생하기 떄문에 클라이언트 사이드 렌더링이라고 한다.</p>
+</li>
+<li>
+<p>리액트의 useEffect() 또는 useSWR과 같은 데이터 fetching hook으로 데이터를 가져오록 선택하여 Next.js 애플리케이션의 특정 component에 대해 클라이언트 사이드 렌더링을 사용하도록 선택할 수 있다.</p>
+</li>
+<li>
+<p>Next.js는 기본적으로 모든 페이지를 미리 렌더링한다.</p>
+</li>
+<li>
+<p>pre-renderingd은 HTML이 사용자 장치에서 Javascript로 모두 수행되는 대신 서버에서 미리 생성된다.</p>
+</li>
+<li>
+<p>서버 사이드 렌더링에서 각 요청마다 서버에서 페이지를 생성한다.</p>
+</li>
+<li>
+<p>페이지를 인터랙티브하게 만들기 위해 생성된 HTML, JSON, data, javscript instruction이 클라이언트로 전송된다.</p>
+</li>
+<li>
+<p>클라이언트에서는 HTML은 빠르게 표시하고, React는 JSON데이터와 Javscript 명령을 사용하여 구성 요소를 인터렉티브하게 만든다.</p>
+</li>
+<li>
+<p>이 과정을 hydration이라고 한다.</p>
+</li>
+<li>
+<p>Next.js에서 getServerSideProps를 사용하여 서버 사이드 렌더링할 페이지를 선택할 수 있다.</p>
+</li>
+</ul>
+<h4>Static Site Generation</h4>
+<p>SSG는 HTML이 서버에서 생성되지만, 서버측 렌더링과 달리 런타임에 서버가 없다. 대신 빌드 타임에 애플리케이션이 배포될 때 콘텐츠가 한 번 생성된다. 그리고 CDN에 저장되고 각 request에 재사용된다.</p>
+<p>Next.js에서는 getStaticProps를 사용하여 페이지를 정적으로 생성하도록 선택할 수 있다.</p>
+<p>Incremental static genration을 사용하여 사이틀르 구축한 후 정적 페이지를 만들거나 업데이트할 수 있다.
+즉, 데이터가 변경되더라도 전체 사이트를 다시 만들 필요가 없다.</p>
+<p>Next.js의 장점은 SSG, SSR, CSR 여부에 관계 없이 페이지별로 가장 적합한 렌더링 방법을 선택할 수 있다는 것이다.</p>
+<h4>배포</h4>
+<p>애플리케이션 코드가 저장되고 네트워크에 배포된 후 실행되는 위치는 어디일까.
+Next.js로 만든 앱의 경우 애플리케이션 코드를 origin server, CDN, Edge에 배포할 수 있다.</p>
+<p>각 서버의 차이점을 알아보자.</p>
+<ul>
+<li>
+<p>Origin servers</p>
+<ul>
+<li>CDN, Edge 서버와 구분하기 위해서 origin 서버라는 용어를 사용한다.</li>
+<li>original 서버는 요청을 받으면 응답을 보내기 전에 몇 가지 계산을 수행한다.</li>
+<li>이 계산 작업의 결과는 CDN으로 이동할 수 있다.</li>
 </ul>
 </li>
-<li>Access-Control-Allow-Credentials
+<li>
+<p>Content Delivery Network</p>
 <ul>
-<li>도메인 간 요청에 credential 권한이 있는지 없는지 지정한다.</li>
+<li>CDN은 전 세계 여러 위치에 정적 콘텐츠(HTML 및 이미지)를 저장하고 클라이언트와 origin server 사이에 배치된다.</li>
+<li>새 요청이 들어오면, 사용자와 가장 가까운 CDN 위치에 캐시된 결과를 응답할 수 있다.</li>
+<li>이렇게 하면 각 요청에 대한 계산을 수행할 필요가 없어 original server의 부하가 줄어든다.</li>
+<li>또한 사용자와 물리적으로 가까운 위치에서 제공되기 떄문에 빠르다.</li>
+<li>Next.js에서는 pre-rendering이 미리 수행될 수 있기 때문에 CDN 작업의 정적 결과를 저장하는 데 매우 적합하여 콘텐츠 전달을 더 빠르게 만든다.</li>
 </ul>
 </li>
-<li>Access-Control-Expose-Headers
+<li>
+<p>The Edge</p>
 <ul>
-<li>노출하기에 안전한 헤더를 나타낸다.</li>
-</ul>
-</li>
-<li>Access-Control-Max-Age
-<ul>
-<li>pre-flighted 요청이 얼마만큼의 시간동안 캐시되는지</li>
-</ul>
-</li>
-<li>Access-Control-Allow-Methods
-<ul>
-<li>리소스에 접근할 때 메소드가 허용되는지</li>
-</ul>
-</li>
-<li>Access-Control-Allow-Headers
-<ul>
-<li>어떤 헤더 필드 네임이 실제 요청에서 사용할 수 있는지 가리킨다.</li>
+<li>edge는 사용자에게 가장 가까운 fringe(or edge)에 대한 일반화된 개념이다.</li>
+<li>CDN은 네트워크의 fringe에 정적 콘텐츠를 저장하기 때문에 edge의 일부로 간주할 수 있다.</li>
+<li>CDN과 유사하게 edge서버는 전 세계 여러 위치에 배포된다. 그러나 정적 콘텐츠만을 저장하는 CDN과 달리 일부 edge 서버는 코드를 실행할 수 있다.</li>
+<li>즉 사용자에게 더 가까운 Edge에서 캐싱과 코드 실행을 모두 수행할 수 있다.</li>
+<li>Edge에서 코드를 실행하면 전통적으로 클라이언트 측 또는 서버 측에서 수행되었던 일부 작업을 Edge로 이동할 수 있다.</li>
+<li>클라이언트로 전송되는 코드의 양을 줄이고 사용자의 요청의 일부가 서버로 완전히 돌아갈 필요가 없기 때문에
+애플리케이션의 성능이 향상되어 latency가 줄어든다.</li>
+<li>Next.js에서는 미들웨어를 사용하여 Edge에서 코드를 실행할 수 있다.</li>
 </ul>
 </li>
 </ul>
-<pre class="hljs"><code><span class="hljs-meta">@Component</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleCorsFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Filter</span> </span>{
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilter</span><span class="hljs-params">(ServletRequest req, ServletResponse res, FilterChain chain)</span> <span class="hljs-keyword">throws</span> IOException, ServletException </span>{
-        HttpServletRequest request = (HttpServletRequest) req;
-        HttpServletResponse response = (HttpServletResponse) res;
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, request.getHeader(<span class="hljs-string">&quot;Origin&quot;</span>));
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Credentials&quot;</span>, <span class="hljs-string">&quot;true&quot;</span>);
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="hljs-string">&quot;POST, GET, OPTIONS, DELETE, PUT, PATCH&quot;</span>);
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Max-Age&quot;</span>, <span class="hljs-string">&quot;3600&quot;</span>);
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="hljs-string">&quot;Content-Type, Accept, X-Requested-With, remember-me&quot;</span>);
-        chain.doFilter(req, res);
-    }
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(FilterConfig filterConfig)</span> </span>{
-    }
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">destroy</span><span class="hljs-params">()</span> </span>{
-    }
-}
-</code></pre>
-<h2>정리</h2>
-<p>CORS 에러를 클라이언트에서 해결할 수 있는 방법이 있는지 몰랐다. 서버에서만 허용이 가능한 것인줄만 알았는데, 브라우저에서 컨트롤하는 것이었다니!
-정확한 동작 방식을 알고 나니 사용한 코드도 더 잘 이해된다. 🏃🏽‍♀️🏃🏽‍♀️</p>
-<h2>참고한 자료</h2>
-<p>https://brownbears.tistory.com/336</p>
+<h2>마치며</h2>
+<p>다음에는 실제로 애플리케이션을 만들어보면서 Next.js를 익혀보자.</p>
 
   </div>
 

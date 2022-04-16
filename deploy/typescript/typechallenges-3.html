@@ -19,10 +19,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-     CORS란? CORS를 해결해보자 |  구보현 블로그 
+     [TypeScript]Type Challenges - Awaited, If, Concat |  구보현 블로그 
   </title>
-  <meta name="description" content=" CORS가 무엇인지 알아보고 해결 방법을 찾아보자!">
-  <meta name="keywords" content=" [ CORS, HTTP]">
+  <meta name="description" content=" Typescript Challenges 세 번째">
+  <meta name="keywords" content=" [Typescript, Type challenges ]">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -914,232 +914,136 @@
 
   <div class="value">
     <h1 style="color:#333">
-       CORS란? CORS를 해결해보자
+       [TypeScript]Type Challenges - Awaited, If, Concat
 
     </h1>
     <span>
-       20200522
+       20220417
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <p>프로젝트를 하면서 프론트에서 서버에서 제공한 API로 요청하자, CORS 에러가 발생했다.
-지금까지 CORS에러를 해결하기만 하고 정확히 CORS가 무엇이고 어떻게 동작하는지 알지 못했다.<br>
-이번에 CORS가 어떻게 동작하고 CORS 에러를 해결하는 방법을 공부하였고 공부하면서 알게된 내용을 정래해보았다.</p>
-<h2>CORS?</h2>
-<p><strong>Cross Origin Resource Sharing</strong></p>
-<p>CORS는 한 도메인 또는 Origin의 웹 페이지가 다른 도메인 (도메인 간 요청)을 가진 리소스에 액세스 할 수 있게하는 보안 메커니즘이다.</p>
-<p>CORS는 서버와 클라이언트가 정해진 헤더를 통해 서로 요청이나 응답에 반응할지 결정하는 방식으로 <strong>CORS</strong>라는 이름으로 표준화 되었다.
-CORS는 최신 브라우저에서 구현된 동일 출처 정책(same-origin policy) 때문에 등장했다.</p>
-<h2>동일 출처 정책?</h2>
-<p>동일 출처 정책은 동일한 출처의 리소스에만 접근하도록 제한하는 것이다.
-여기서 출처는 프로토콜, 호스트명, 포트가 같다는 것을 의미한다.</p>
-<p><code>https://naver.com:80</code>을 예시로 들면,
-<code>https</code>는 프로토콜, <code>naver.com</code>은 호스트명 <code>80</code>은 포트다.</p>
-<p>왜 동일한 출처에서만 접근하도록 허용하는 것일까?
-모든 출처를 허용하면 어떻게 될까?</p>
-<p><code>https://bank.com</code> 이라는 도메인 사이트가 있다 이 사이트의 api 주소는 <code>https://bank.com/api</code>이다. 사용자가 은행 사이트에서 로그인을 한 후 인증 토큰을 받았다.
-그런데 사용자가 로그인한 상태에서 <code>https://evil.com</code>사이트에 접속하게 되면,
-<code>https://evil.com</code>사이트에서 <code>https://bank.com/api</code>로 ajax 요청을 보낼 때 유저가 획득한 인증 토큰이 자동으로 첨부되어 사용자인척하면서 요청을 보낼 수 있게 된다.</p>
-<p>이렇게 자동으로 쿠키가 첨부되기 때문에 보안상의 이유로 브라우저는 HTTP 호출을 동일한 출처로 제한했다.</p>
-<h2>왜 CORS가 생겼을까?</h2>
-<p>그럼 왜 CORS가 필요하게 됐을까?<br>
-이전에는 동일한 도메인에서 리소스를 받아왔는데, 지금은 클라이언트에서 도메인이 다른 서버에서 제공하는 API를 사용하는 일이 많아졌다.<br>
-그래서 이전처럼 동일한 도메인간의 요청만 할 수 없어졌고 CORS가 생겼다.</p>
-<h2>CORS는 어떻게 동작할까?</h2>
-<p>동일 출처 정책은 브라우저에서 임의로 하는 것이다. 즉 브라우저를 통하지 않고 요청을 보내거나 브라우저에서 동일 출처 정책이 아니라면, 동일 출처가 아니라도 요청을 보내고 응답을 받을 수 있다.
-그럼 브라우저에서는 다른 출처로 요청을 보낼 때 어떻게 동작할까?</p>
-<p>브라우저는 다른 출처로 요청을 보낼 때 다음과 같은 절차를 거친다.
-우선 다른 출처라도, 다 같은 방식으로 동작하지 않는다. CORS 요청에는 simple request와 preflighted request 두 가지가 있다.</p>
-<h3>Simple request</h3>
-<p>simple 요청은 pre-flighted 요청을 보내지 않는다.</p>
-<h4>simple request란 무엇인가.</h4>
-<p>아래 3가지 조건 중 모두 만족하면, simpe request 이다.</p>
-<ul>
-<li>
-<p>GET 요청, HEAD, POST 중의 한 가지 방식을 사용</p>
-</li>
-<li>
-<p>POST 방식일 경우 conte-type이 아래 셋 중 하나여야 한다.</p>
-<ul>
-<li>application/x-www-form-unlencoded</li>
-<li>multipart/form-data</li>
-<li>text/plain</li>
-</ul>
-</li>
-</ul>
-<h4>simple request 과정</h4>
-<p>simple 요청은 다음과 같은 과정을 거친다.</p>
-<ol>
-<li>요청을 보낸다.</li>
-<li>브라우저는 Host와 같은 헤더를 추가하는 것 외에도 교차 출처 요청에 대해 Origin Request Header를 자동으로 추가한다.</li>
-</ol>
-<pre class="hljs"><code>GET /products/ HTTP/1.1
-Host: api.domain.com
-Origin: https://www.domain.com
-</code></pre>
-<ol start="3">
-<li>서버에서 <code>Origin</code> 리퀘스트 헤더를 확인합니다. Origin 값이 허용되면, <code>Access-Control-Allow-Origin</code>요청 헤더 Origin 값으로 설정한다.</li>
-</ol>
-<pre class="hljs"><code>Http/1.1 200 OK
-Access-Control-Allow-Origin: https://www.domain.com
-Content-Type: application/json
-</code></pre>
-<ol start="4">
-<li>응답을 받은 브라우저는 Access-Control-Allow-Origin 헤더가 탭의 출처와 일치하는지 확인한다. Access-Control-Allow-Origin 값이 정확히 출처와 일치하거나, &quot;*&quot; 와일드 카드 연산자를 포함하는 경우 검사가 통과된다.</li>
-</ol>
-<p>서버는 요청의 출처의 따라 요청을 허용할 지 결정할 수 있다. 브라우저는 Origin 요청 헤더가 정확하게 설정해야 한다.</p>
-<h3>Preflighted request</h3>
-<p>preflighted 요청은 simple request와는 다른 유형의 CORS 요청이다. 브라우저에서 진짜 요청을 보내기 전에 미리 확인 요청을 보낸다. 이 요청은 <code>OPTIONS</code> 메소드를 사용한다.</p>
-<p>preflighted 요청은 다음과 같은 과정을 거친다.</p>
-<ol>
-<li>ajax 요청을 보낸다.</li>
-</ol>
-<pre class="hljs"><code>OPTIONS /products/ HTTP/1.1
-Host: api.domain.com
-Origin: https://www.domain.com
-Access-Control-Request-Method: POST
-Access-Control-Request-Headers: Authorization, Content-Type
-</code></pre>
-<ol start="2">
-<li>서버는 허용된 메소드 및 헤더를 지정하여 응답한다.</li>
-</ol>
-<pre class="hljs"><code>HTTP/1.1 200 OK
-Access-Control-Allow-Origin: https://www.domain.com
-Access-Control-Allow-Method: GET, POST, OPTIONS, PUT
-Access-Control-Allow-Headers: Authorization, Content-Type
-Content-Type: application/json
-</code></pre>
-<ol start="3">
-<li>헤더와 메소드가 통과되면, 브라우저는 원래 CORS 요청을 보낸다.</li>
-</ol>
-<pre class="hljs"><code>POST /products/ HTTP/1.1
-Host: api.domain.com
-Authorization: token
-Content-Type: application/json
-Origin: https://www.domain.com
-</code></pre>
-<ol start="4">
-<li>응답은 Access-Control-Allow-Origin 헤더에 올바른 출처가 있으므로 검사를 통과한다.</li>
-</ol>
-<h2>CORS 에러 해결하기</h2>
-<p>지금까지 CORS에 대한 브라우저가 어떻게 동작하는지 알아보았다. 그렇다면, 우리가 클라이언트 개발자나 서버 개발자면 브라우저에게 어떻게 알려줄 수 있을까?</p>
-<h3>클라이언트에서 해결하기</h3>
-<ol>
-<li>
-<p>웹 브라우저 실행 옵션이나 플러그인을 통한 동일 출처 정책 회피하기</p>
-<ul>
-<li>동일 출처 정책은 브라우저에서 임의로 하는 것이기 때문에 브라우저에서 동일 출처 정책을 사용하지 않으며 된다.</li>
-</ul>
-</li>
-<li>
-<p>jsonp 방식으로 json 데이터 가져오기</p>
-<ul>
-<li>자바스크립트 파일이나 css 파일은 동일 출처 정책에 영향을 받지 않고 가져올 수 있다.</li>
-<li>이를 이용해서 자바스크립트 파일을 가져와서 이를 json 형식으로 파싱해서 데이터를 사용할 수 있다.</li>
-</ul>
-</li>
-</ol>
-<h3>서버에서 해결하기</h3>
-<h3>스프링 CORS</h3>
-<h4>@CrossOrigin 어노테이션 사용하기</h4>
-<p>메소드 레벨 및 글로벌 레벨에서 srping mvc 애플리케이션에서 spring cors를 지원하는 방법이다.
-sprign mvc는 <code>@CorssOrigin</code> 어노테이션을 제공한다. 이 어노테이션은 어노테이션이 달린 메소드 또는 타입을 교차 출처를 허용하는 것으로 표시한다.</p>
-<p>기본적으로 <code>@CrossOrigin</code>은 모든 출처, 모든 헤더, <code>@RequestMapping</code> 주석에 지정된 Http 메소드에 최대 30분을 허용한다.
-어노테이션에 속성 값을 넣어 기본 값을 대체할 수 있다.</p>
-<p>속성값을 살펴보면,</p>
-<ul>
-<li><code>origins</code>
-<ul>
-<li>허용된 출처, 이 값은 pre-flight 응답과 실제 응답 모두에 access-control-allow-origin헤더에 배치된다.</li>
-</ul>
-</li>
-<li><code>allowedHeaders</code>
-<ul>
-<li>실제 요청 중에 사용할 수 있는 요청 헤더 목록이다. pre-flight의 응답 헤더인 access-control-allow-header에 값이 사용된다.</li>
-</ul>
-</li>
-<li><code>allowCredential</code>
-<ul>
-<li>브라우저가 요청과 관련된 쿠키를 포함해야 되는지 여부를 결정한다.</li>
-<li>이 값이 true이면, pre-flight 응답에는 값이 true로 설정된 access-control-allow-credentials 헤더가 포함된다.</li>
-</ul>
-</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-meta">@CrossOrigin(origin=&quot;*&quot;, allowedHeaders = &quot;*&quot;)</span>
-<span class="hljs-meta">@Controller</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainController</span> </span>{
-	<span class="hljs-meta">@GetMapping(path = &quot;/&quot;)</span>
-	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">main</span><span class="hljs-params">(Model model)</span> </span>{
-		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;main&quot;</span>;
-	}
-}
-</code></pre>
-<h4>CorsFilter 사용하기</h4>
-<p>서블릿 필터 인터페이스를 이용하여 개발되었다. 웹 서버의 모든 리소스의 요청을 가로채서 Cross domain request인지 체크하여 실제 요청 페이지에 전달하기전에 적절한 CORS 정책과 해더들을 적용한다.</p>
-<ul>
-<li>Access-Control-Allow-Origin
-<ul>
-<li>도메인 간 요청을 할 수 있는 권한이 부여된 도메인을 지정한다.</li>
-</ul>
-</li>
-<li>Access-Control-Allow-Credentials
-<ul>
-<li>도메인 간 요청에 credential 권한이 있는지 없는지 지정한다.</li>
-</ul>
-</li>
-<li>Access-Control-Expose-Headers
-<ul>
-<li>노출하기에 안전한 헤더를 나타낸다.</li>
-</ul>
-</li>
-<li>Access-Control-Max-Age
-<ul>
-<li>pre-flighted 요청이 얼마만큼의 시간동안 캐시되는지</li>
-</ul>
-</li>
-<li>Access-Control-Allow-Methods
-<ul>
-<li>리소스에 접근할 때 메소드가 허용되는지</li>
-</ul>
-</li>
-<li>Access-Control-Allow-Headers
-<ul>
-<li>어떤 헤더 필드 네임이 실제 요청에서 사용할 수 있는지 가리킨다.</li>
-</ul>
-</li>
-</ul>
-<pre class="hljs"><code><span class="hljs-meta">@Component</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleCorsFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Filter</span> </span>{
+    <p><a href="https://github.com/type-challenges/type-challenges">Type challenges</a>를 풀이한 내용을 정리했습니다.</p>
+<h2>Awaited</h2>
+<p>이렇게 <code>Promise&lt;ExampleType&gt;</code> 처럼 Promise와 같이 래핑된 타입이 있는 경우, 래핑된 타입 내부에 있는 타입을 어떻게 가져올 수 있을까?</p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> MyAwaited = <span class="hljs-built_in">any</span>
+<span class="hljs-comment">/* _____________ Test Cases _____________ */</span>
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { Equal, Expect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@type-challenges/utils&#x27;</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilter</span><span class="hljs-params">(ServletRequest req, ServletResponse res, FilterChain chain)</span> <span class="hljs-keyword">throws</span> IOException, ServletException </span>{
-        HttpServletRequest request = (HttpServletRequest) req;
-        HttpServletResponse response = (HttpServletResponse) res;
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, request.getHeader(<span class="hljs-string">&quot;Origin&quot;</span>));
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Credentials&quot;</span>, <span class="hljs-string">&quot;true&quot;</span>);
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="hljs-string">&quot;POST, GET, OPTIONS, DELETE, PUT, PATCH&quot;</span>);
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Max-Age&quot;</span>, <span class="hljs-string">&quot;3600&quot;</span>);
-        response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="hljs-string">&quot;Content-Type, Accept, X-Requested-With, remember-me&quot;</span>);
-        chain.doFilter(req, res);
-    }
+<span class="hljs-keyword">type</span> X = <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">string</span>&gt;
+<span class="hljs-keyword">type</span> Y = <span class="hljs-built_in">Promise</span>&lt;{ <span class="hljs-attr">field</span>: <span class="hljs-built_in">number</span> }&gt;
+<span class="hljs-keyword">type</span> Z = <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>&gt;&gt;
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(FilterConfig filterConfig)</span> </span>{
-    }
+<span class="hljs-keyword">type</span> cases = [
+  Expect&lt;Equal&lt;MyAwaited&lt;X&gt;, <span class="hljs-built_in">string</span>&gt;&gt;,
+  Expect&lt;Equal&lt;MyAwaited&lt;Y&gt;, { <span class="hljs-attr">field</span>: <span class="hljs-built_in">number</span> }&gt;&gt;,
+  Expect&lt;Equal&lt;MyAwaited&lt;Z&gt;, <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>&gt;&gt;,
+]
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">destroy</span><span class="hljs-params">()</span> </span>{
-    }
-}
+<span class="hljs-comment">// @ts-expect-error</span>
+<span class="hljs-keyword">type</span> error = MyAwaited&lt;<span class="hljs-built_in">number</span>&gt;
 </code></pre>
-<h2>정리</h2>
-<p>CORS 에러를 클라이언트에서 해결할 수 있는 방법이 있는지 몰랐다. 서버에서만 허용이 가능한 것인줄만 알았는데, 브라우저에서 컨트롤하는 것이었다니!
-정확한 동작 방식을 알고 나니 사용한 코드도 더 잘 이해된다. 🏃🏽‍♀️🏃🏽‍♀️</p>
-<h2>참고한 자료</h2>
-<p>https://brownbears.tistory.com/336</p>
+<p><strong>solution</strong></p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> MyAwaited&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt;&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">Promise</span>&lt;infer K&gt; ? K : <span class="hljs-built_in">never</span>
+</code></pre>
+<ul>
+<li>일단 Promise만 제네릭 타입으로 받아야 하므로 <code>T extends Promise&lt;any&gt;</code> Promise 로 한정해준다.</li>
+<li>제약 조건에 따라 값을 받은 다음에 Promise 안에 있는 값을 찾는다.</li>
+<li><code>infer</code>은</li>
+</ul>
+<h2>If</h2>
+<p>조건 C를 받아서 truthy면 T 타입 리턴, falsy면 F 반환한다. C는 true나 false 타입이어야 한다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> If&lt;C, T, F&gt; = <span class="hljs-built_in">any</span>
+
+
+<span class="hljs-comment">/* _____________ Test Cases _____________ */</span>
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { Equal, Expect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@type-challenges/utils&#x27;</span>
+
+<span class="hljs-keyword">type</span> cases = [
+  Expect&lt;Equal&lt;If&lt;<span class="hljs-literal">true</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>&gt;, <span class="hljs-string">&#x27;a&#x27;</span>&gt;&gt;,
+  Expect&lt;Equal&lt;If&lt;<span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">2</span>&gt;, <span class="hljs-number">2</span>&gt;&gt;,
+]
+
+<span class="hljs-comment">// @ts-expect-error</span>
+<span class="hljs-keyword">type</span> error = If&lt;<span class="hljs-literal">null</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>&gt;
+</code></pre>
+<p><strong>solution</strong></p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> If&lt;C <span class="hljs-keyword">extends</span> <span class="hljs-built_in">boolean</span>, T, F&gt; = C <span class="hljs-keyword">extends</span> <span class="hljs-literal">true</span> ? T : F;
+</code></pre>
+<ul>
+<li>C 타입은 boolean으로 제한하고</li>
+<li>C가 true이면 T 타입, 아니면 F 타입 반환.</li>
+</ul>
+<h2>Concat</h2>
+<p>type system에서 자바스크립트의 Array.concat을 구현한다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> Concat&lt;T, U&gt; = <span class="hljs-built_in">any</span>
+
+
+<span class="hljs-comment">/* _____________ Test Cases _____________ */</span>
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { Equal, Expect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@type-challenges/utils&#x27;</span>
+
+<span class="hljs-keyword">type</span> cases = [
+  Expect&lt;Equal&lt;Concat&lt;[], []&gt;, []&gt;&gt;,
+  Expect&lt;Equal&lt;Concat&lt;[], [<span class="hljs-number">1</span>]&gt;, [<span class="hljs-number">1</span>]&gt;&gt;,
+  Expect&lt;Equal&lt;Concat&lt;[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]&gt;, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]&gt;&gt;,
+  Expect&lt;Equal&lt;Concat&lt;[<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;3&#x27;</span>], [<span class="hljs-literal">false</span>, <span class="hljs-built_in">boolean</span>, <span class="hljs-string">&#x27;4&#x27;</span>]&gt;, [<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-literal">false</span>, <span class="hljs-built_in">boolean</span>, <span class="hljs-string">&#x27;4&#x27;</span>]&gt;&gt;,
+]
+
+</code></pre>
+<p><strong>solution</strong></p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> Concat&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">any</span>[], U <span class="hljs-keyword">extends</span> <span class="hljs-built_in">any</span>[]&gt; = [...T, ...U]
+</code></pre>
+<ul>
+<li>T와 U타입을 array 타입으로 제한</li>
+<li>spread operator를 사용</li>
+</ul>
+<h2>Infer?</h2>
+<p>infer에 대해서 더 알아보자.</p>
+<ul>
+<li><code>infer</code> 키워드는 조건부 타입을 보완하며 extends 절 외부에서 사용할 수 없다.</li>
+<li><code>infer</code>를 사용하면 제약 조건 내에서 참조하거나 반환할 변수를 정의할 수 있다.</li>
+</ul>
+<p>타입스크립트의 내장 타입인 ReturnType을 보면, function 타입을 받아서 리턴 타입을 준다.</p>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> a = ReturnType&lt;<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>&gt; <span class="hljs-comment">// void</span>
+<span class="hljs-keyword">type</span> b = ReturnType&lt;<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>&gt; <span class="hljs-comment">//string | number </span>
+<span class="hljs-keyword">type</span> c = ReturnType&lt;<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">any</span>&gt; <span class="hljs-comment">// any</span>
+</code></pre>
+<ul>
+<li>ReturnType은 먼저 type 인수가 Function 타입으로 제한한다.</li>
+<li>그리고 체크하는 과정에서 반환 타입을 변수로 만들고 infer R 하고 성공하면 반환한다.</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> ReturnType&lt;T&gt; = T <span class="hljs-keyword">extends</span> (...args: <span class="hljs-built_in">any</span>[]) =&gt; infer R ? R : <span class="hljs-built_in">any</span>;
+</code></pre>
+<h3>infer use cases</h3>
+<ul>
+<li>
+<p>infer 키워드는 unwrapping type으로 설명된다.</p>
+</li>
+<li>
+<p>function의 첫 번째 인자</p>
+</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> GetFirstArgumentOfAnyFunction&lt;T&gt; = T <span class="hljs-keyword">extends</span> (
+  first: infer FirstArgument, 
+  ...args: <span class="hljs-built_in">any</span>[]
+) =&gt; <span class="hljs-built_in">any</span> 
+  ? FirstArgument 
+  : <span class="hljs-built_in">never</span>
+
+<span class="hljs-keyword">type</span> T = GetFirstArgumentOfAnyFunction&lt;<span class="hljs-function">(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>&gt; <span class="hljs-comment">// string </span>
+</code></pre>
+<ul>
+<li>array type</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> ArrayType&lt;T&gt; = T <span class="hljs-keyword">extends</span> (infer Item)[] ? Item : T
+
+<span class="hljs-keyword">type</span> T = ArrayType&lt;[<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>]&gt; <span class="hljs-comment">// string | number </span>
+</code></pre>
+<p>infer 키워드는 third-party 타입스크립트 코드를 사용할 때 타입을 unwrap하고, 저장할 수 있는 강력한 도구다.</p>
+<h2>참고 자료</h2>
+<p>https://blog.logrocket.com/understanding-infer-typescript/</p>
 
   </div>
 
