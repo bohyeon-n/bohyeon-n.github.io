@@ -1,3 +1,4 @@
+{{% row %}}
 # emotion 
 
 emotion 문서를 읽어보자.
@@ -134,3 +135,5 @@ render(
 - 일반 css를 사용하면 여러 class name을 사용하여 스타일을 함께 구성할 수 있지만, 정의되는 순서가 적용되는 순서이기 때문에 제한적이다.
 - [casecade rules](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#the_cascade)
 
+
+{{% endrow %}}
