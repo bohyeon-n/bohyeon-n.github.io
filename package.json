@@ -4,7 +4,7 @@
   "description": "",
   "main": "hello-world.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node parser.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,6 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.3.0",
     "http-server": "^0.12.3",
-    "live-server": "^1.2.0",
     "markdown-it": "^8.4.2",
     "sass": "^1.10.0"
   },
