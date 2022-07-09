@@ -19,10 +19,10 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-     인터넷이 작동하는 방법  |  구보현 블로그 
+     [TypeScripT]타입 좁히기 |  구보현 블로그 
   </title>
-  <meta name="description" content=" 인터넷이 작동하는 방법을 알아보자 - khan academy">
-  <meta name="keywords" content="">
+  <meta name="description" content=" 타입스크립트에서 타입 좁히기!">
+  <meta name="keywords" content=" [Typescript, type narrowing ]">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-dune-light.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -981,273 +981,420 @@
 
   <div class="value">
     <h1 style="color:#333">
-       인터넷이 작동하는 방법 
+       [TypeScripT]타입 좁히기
 
     </h1>
     <span>
-       20180901
+       20220709
 
     </span>
   </div>
 
 
   <div class="article__body">
-    <h2>와이어, 케이블 및 WIFI</h2>
-<h3>인터넷은 어떻게 정보를 운반할 수 있을까?</h3>
+    <h1>Narrwoing</h1>
+<p><code>padLeft</code>라는 함수가 있다고 한다면,</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">padLeft</span>(<span class="hljs-params">padding: <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span>, input: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">string</span> </span>{
+  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&#x27;Not implements yet!&#x27;</span>);
+}
+</code></pre>
 <ul>
-<li>인터넷은 이진수를 운반한다.</li>
-<li>BITS 는 한 쌍으로 이루저여 있다. 꺼짐 켜짐, 예 아니오와 같은</li>
-<li>BITS 가 두 가지 상태가 되는 것이 가능하므로 그것을 이진코드라고 부른다.</li>
+<li>padding이 number =&gt;  input에 추가하려는 공백수로 처리</li>
+<li>padding이 string이면 =&gt; input에 패딩을 추가</li>
 </ul>
-<p>8bits =&gt; 1byte</p>
-<p>1024bytes =&gt; 1kilobyte</p>
-<p>1024kilobytes =&gt; 1megabyte</p>
-<ul>
-<li>인터넷에 있는 모든 것들은 비트들로 나타내어지고 운송된다.</li>
-</ul>
-<h3>어떻게 0 과 1 을 보낼 수 있을까?</h3>
-<ul>
-<li>우리가 물리적으로 0 이나 1 을 보내는 것은 아니다.</li>
-<li>전선과 전파로 이동한다.</li>
-<li>전기, 빛 그리고 전파를 통해 bit 를 보낸다.</li>
-<li>사람이 1 초에 엄청난 수의 비트들을 보낼 수는 없지만, 기계는 가능하다.</li>
-</ul>
-<h3>대역폭?</h3>
-<ul>
-<li>대역폭(bandwidth)은 보통 초 단위인 일정한 시간 동안 우리가 실제로 보낼 수 있는 비트의 개소를 의미하는 비트율을 통해 측정된다.</li>
-<li>또다른 측정 방법은 대기시간이다. 비트가 이곳에서 저곳으로 이동할 때 걸리는 시간이다.</li>
-</ul>
-<h3>어떤 케이블로 메시지를 보낼까?</h3>
-<ul>
-<li>빛</li>
-<li>광섬유 케이블을 이용하여 비트를 광선의 형태로 이곳에서 저곳으로 보낼 수 있다.</li>
-<li>광섬유 케이블은 유리로 만든 실이다.</li>
-<li>케이블을 통해 광선을 보내면 빛은 반대쪽에서 수신할 때까지 케이블 선 안에서 계속 위아래로 반사된다.</li>
-<li>반사되는 각도에 따라 실제로 모두 빛의 속도로 움직이는 여러 비트를 보낼 수 있다.</li>
-</ul>
-<h3>신호가 얼마나 멀리갈 수 있을까?</h3>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">padLeft</span>(<span class="hljs-params">padding: <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span>, input: <span class="hljs-built_in">string</span></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27; &#x27;</span>.repeat(padding) + input;
+}
+</code></pre>
+<p>이렇게 하면 숫자를 넣으라고 경고가 뜬다.
+즉 패딩이 먼저 숫자인지 명시적으로 확인하지 않았고 문자열인 경우도 처리하지 않았다.</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">padLeft</span>(<span class="hljs-params">padding: <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span>, input: <span class="hljs-built_in">string</span></span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> padding === <span class="hljs-string">&#x27;number&#x27;</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27; &#x27;</span>.repeat(padding) + input;
+  }
+  <span class="hljs-keyword">return</span> padding + input;
+}
+</code></pre>
 <ul>
 <li>
-<p>wireless</p>
+<p>타입스크립트의 타입 시스템은 타입 안정성을 얻기 위해 뒤로 구부리지 않고(?) 가능한 한 쉽게 일반적인 자바스크립트 코드를 작성할 수 있도록 하는 것을 목표로 한다고 생각한다.</p>
 </li>
 <li>
-<p>전파를 사용한다.</p>
+<p>타입스크립트가 정적 타입을 사용하여 런타임 값을 분석하는 방법과 매우 유사하게 이는 모든 해당 타입에 영향을 미칠 수 있는 if/else, 조건문 삼항, 루프, truthniess 등과 같은 javascript(동적 타입 언어) 런타임 제어 흐름 구성에 대한 타입 분석을 오버레이 한다.</p>
 </li>
 <li>
-<p>기계들은 실제로 1 과 0 들을 서로 다른 주파수의 전파들로 번역을 해야 한다.</p>
+<p>if check 내에서 타입스크립트는 typeof padding === 'number' 를 보고 이를 타입 가드라고 하는 특수한 형태의 코드로 이해한다.</p>
 </li>
 <li>
-<p>수신하는 기계들은 그 과정을 뒤집어서 컴퓨터에 있는 이진법으로 다시 변환한다.</p>
+<p>타입스크립트는 우리 프로그램이 주어진 위치에서 가장 구체적은 값 타입을 분석하기 위해 취할 수 있는 가능한 실행 경로를 따른다.</p>
 </li>
 <li>
-<p>커피숍에서 인터넷을 하면 무선 통로를 통해 비트들이 보내진다. 그러나 짧은 거리만 이동할 수 있기 때문에</p>
+<p>이러한 특수 검사 및 할당을 살펴보고 타입을 선언된 것보다 더 구체적인 유형으로 정제하는 프로세스를 narrowing이라고 한다.</p>
 </li>
 <li>
-<p>그 다음에는긴 거리를 이동하기 위해 실제 물리적으로 존재하는 전선으로 이동한다.</p>
+<p>많은 editor에서 이러한 타입이 변경될 때 이를 관찰할 수 있으며 예제에서도 그렇게 할 것이다.</p>
 </li>
 </ul>
-<h2>IP 주소와 DNS</h2>
-<h3>인터넷은 네트워크의 네트워크이다.</h3>
+<h2>typeof type guards</h2>
 <ul>
 <li>
-<p>우리가 인터넷에 주소를 치면, 인터넷 서비스 사업자(ISP)에 연결된다. ISP 는 서로 연결된 수많은 네트워크를 통해서 전세계의 수없이 많은 전자기기들과 연결시켜 준다.</p>
+<p>자바스크립트는 런타임에 값의 타입에 대한 매우 기본적인 정보를 제공할 수 있는 typeof 연산자를 지원한다.</p>
 </li>
 <li>
-<p>인터넷은 디자인 철학이고, 그 구조는 일련의 프로토콜로 표현된다.</p>
+<p>타입스크립트는 이것이 특정 문자열 집합을 반환할 것으로 예상한다.</p>
 </li>
 <li>
-<p>프로토콜은 각각의 부분들에 잘 알려진 규칙들과 표준들을 말한다.</p>
-</li>
-</ul>
-<h3>IP (Internet Protocol)</h3>
-<ul>
-<li>IP 형식
-<ul>
-<li>8 비트 4 개, 32 비트</li>
-<li>일반적으로 디바이스의 네트워크가 어느나라, 어느지역의 것인지 확인한다.</li>
-<li>그 다음은 하위 네트워크</li>
-<li>마지막으로 특정한 전자기기의 주소가 온다.</li>
-</ul>
-</li>
-<li>이러한 형의 IP 주소를 IPv4 라고 부른다.</li>
-<li>80 년대 유행하였다. 그러나 40 억개의 고유한 주소도 부족해졌다.</li>
-<li>그래서 현재는 하나의 주소가 128 비트를 사용하는 IPv6 를 사용한다.</li>
-</ul>
-<h3>DNS (Domain Name System)</h3>
-<ul>
-<li>DNS 라는 시스템은 IP 주소를 www.example.com 과 같이 대응되는 인터넷 주소와 연결해준다.</li>
-<li>하나의 DNS 서버가 모든 요구사항을 처리할 수는 없다.</li>
-<li>DNS 서버를 분산된 계층구조로 연결하고 주요한 주소들을 나누어 맡도록 지역을 나눈다. .org .com .net 처럼</li>
-</ul>
-<h4>DNS Spoofing</h4>
-<ul>
-<li>DNS 서버에 해커가 접속해서 인터넷 주소를 잘못된 아이피 주소와 연결되도록 바꾸어 놓는 것을 말한다.</li>
-</ul>
-<h2>패킷, 라우터 및 신뢰성</h2>
-<p><strong>어떻게 모든 정보들이 안정적으로 전달될까?</strong></p>
-<p><strong>인터넷에서 데이터가 전달되는 방식</strong></p>
-<h3>패킷</h3>
-<ul>
-<li>인터넷상의 정보가 한 컴퓨터에서 다른 컴퓨터로 전달 될 때 패킷이라는 형태로 전달된다.</li>
-</ul>
-<h4>패킷이 전달되는 과정</h4>
-<ul>
-<li>정보의 크기는 제한이 있을 수밖에 없다.</li>
-<li>여러 개의 패킷으로 이동한다.</li>
-<li>각 패킷은 어디서 왔고 어디로 가는 지에 대한 주소를 가지고 있다.</li>
-</ul>
-<h3>라우터</h3>
-<ul>
-<li>라우터라고 불리는 특별한 컴퓨터는 네트워크 상에서 패킷이 원할하게 움직일 수 있도록 통제하고 관리하는 역할을 맡는다.</li>
-<li>한 길이 복잡해지면 나머지 패킷들은 다른 경로를 택한다.</li>
-<li>인터넷 프로토콜로 각각의 라우터는 패킷을 보내는데 여러 개의 경로를 가지고 있다. - 그리고 각 정보마다 도착하는 곳의 ip 주소를 기반으로 가장 합리적인 길을 선택해서 패킷을 전달한다.</li>
-<li>여기서 합리성은 비용이 아니라, time, politics, relationship</li>
-<li>경로가 여러 개 있다는 것은 패킷을 보내는 도중 문제가 생겨도 괜찮을 수 있다는 뜻이다.</li>
-</ul>
-<p><strong>패킷을 모두 다 전달받지 못한다면?</strong></p>
-<ul>
-<li>
-<p>100%가 정확하게 도착했다면 어떻게 확인할 수 있을까.</p>
+<p>padLeft에서 보았듯이 이 연산자는 자바스크립트 라이브러리에서 자주 등장하며 typescript는 이를 다른 분기의 narrow type으로 이해할 수 있다.</p>
 </li>
 <li>
-<p>TCP (Transmission Control Protocol): 보내고 받는 모든 패킷으로 된 데이터를 관리한다.</p>
+<p>타입스크립트에서, typeof에 의해 반환된 값에 대해 검사하는 것은 타입 가드이다.</p>
 </li>
 <li>
-<p>패킷이 도착하면 TCP 는 목록을 보고 확인해서 각각의 패킷이 왔는지 오지 않았는지를 체크한다.</p>
+<p>타입스크립트는 tyoeof가 다른 값에서 작동하는 방식을 인코딩하기 때문에 javascript의 몇 가지 단점을 알고 있다.</p>
 </li>
 <li>
-<p>모든 패킷이 왔으면 작업이 완료된다.</p>
-</li>
-<li>
-<p>안왔으면 파일을 완성하지 않고 다시 보낸다. 패킷을 받았다면 파일을 완성한다.</p>
-</li>
-<li>
-<p>확장이나 축소가 가능하다. 문제가 생겼을 떄 더 많은 라우터를 설치할 수 있다.</p>
-</li>
-<li>
-<p>라우터가 많으면 많을수록 더 안정성을 확보할 수 있다.</p>
+<p>예를들어 위의 목록에서 typeof는 문자열 null을 반환하지 않는다. 다음 예를 확인해보자.</p>
 </li>
 </ul>
-<h2>HTTP 와 HTML</h2>
-<p><strong>HyperText Transfer Protocol</strong></p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printAll</span>(<span class="hljs-params">strs: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">string</span>[] | <span class="hljs-literal">null</span></span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> strs === <span class="hljs-string">&#x27;object&#x27;</span>) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> s <span class="hljs-keyword">of</span> strs) {
+      <span class="hljs-comment">// Error Object is possibly &#x27;null&#x27;.</span>
+      <span class="hljs-built_in">console</span>.log(s);
+    }
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> strs === <span class="hljs-string">&#x27;string&#x27;</span>) {
+    <span class="hljs-built_in">console</span>.log(strs);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// do nothing;</span>
+  }
+}
+</code></pre>
 <ul>
-<li>**URL(Uniform Resource Locator)**을 입력하면</li>
-<li>서버라는 다른 컴퓨터와 대화를 시작한다.</li>
-<li>서버에게 웹사이트를 묻고(Request), 서버는 HTTTP 라는 언어로 여러분의 컴퓨터에게 응답(Response)을 되돌려 준다.</li>
-<li>HTTP 는 어떤 컴퓨터가 다른 컴퓨터에게 문서를 요청 할 때 쓰이는 것이다.</li>
-<li>get document-name</li>
-<li>get/login 로그인하는데 필요한 문서를 주라는 의미이다.</li>
-<li>텀블러에세 get/login 을 요청하면 텀블러가 html code 를 보내준다.</li>
-<li>HTML, HyperText Markup Language</li>
-<li>그러나 이미지나 비디오는 자신의 url 을 가지고 있다. HTML 에 없기 때문에, 요쳥을 해야 얻을 수 있는 것들이다.</li>
-<li>브라우저는 이런 자료들 각각에 http 요청을 보내서 그들이 도착하면 화면에 보여준다.</li>
-<li>정보를 보내는 것도 가능하다. POST</li>
-<li>쿠키 데이터를 같이 전송하고, 여러분이 브라우저를 통해 보고 저장할 수 있도록 한다.</li>
-<li>쿠키는 웹사이트가 여러분이 누구인지를 기억하는 유일한 수단이기 때문이다.</li>
-<li>다음 접속했을 때는 id 넘버와 요청을 걸합하여 텀블러 서버에 보낸다.</li>
+<li>printAll 함수에서 우리는 strs가 객체인지 확인하여 배열 유형인지 확인하려고 한다.</li>
+<li>그러나 자바스크립트에서 typeof null은 실제로 '객체'이기 때문에 null과 string[] 타입을 객체인지, 아닌지로는 구분할 수 없음</li>
+<li>타입스크립트는 위 처럼 함수를 만들었을 때, str이 string[] 대신 string[] | null로 narrowed 할 수 있다.</li>
+<li>그런데 이렇게 자바스크립트에서는 typeof 로 타입을 좁힐 때 예상하지 않은 결과가 나올 수 있으므로, boolean, string, number, symbol 값들만 typeof 를 사용하는 것이 좋다.</li>
 </ul>
-<h3>신뢰성</h3>
-<p>인터넷은</p>
-<ol>
-<li>완전히 오픈되어있고</li>
-<li>연결되어있고</li>
-<li>평범한 글자로 정보가 전달된다.</li>
-</ol>
+<h2>Truthiness narrowing</h2>
 <ul>
-<li>그러나 안전한 웹사이트들은 웹브라우저가 SSL(Secure Socket Layer) 나 TLS(Transport Layer Security)
-같은 것을 이용하는 보안채널을 통해 소통하도록 함으로써 해킹을 방지하고 있다.</li>
+<li>자바스크립트에서는 조건문, &amp;&amp; s, || s, if 문, Boolean negations(!) 등에 모든 표현식을 사용할 수 있다.</li>
+<li>if문은 조건이 항상 Boolean 타입을 가질 것으로 예상하지 않는다.</li>
 </ul>
-<p><strong>https</strong></p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUserOnlineMessamberge</span>(<span class="hljs-params">numUserOnline: <span class="hljs-built_in">number</span></span>) </span>{
+  <span class="hljs-keyword">if</span> (numUsersOnline) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`There are <span class="hljs-subst">${numUserOnlne}</span> online now!`</span>;
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-string">`Nobody&#x27;s here. :(`</span>;
+}
+</code></pre>
+<pre class="hljs"><code>- 0
+- NaN
+- &quot; &quot;
+- null
+- 0n (the bigint version of zero)
+- undefined
+</code></pre>
 <ul>
-<li>보안된 채널로 연결시키려고 하면 웹사이트는 전자인증이라는 것을 제공하는데</li>
-<li>이 사이트는 허위 사이트가 아니라는 것을 보증하는 id 카드 같은 것이다.</li>
-<li>digital certificate 는 인증 기관에 의해 발급된다.</li>
-<li>인증 기관은 정부가 id 나 여권을 발급할 수 없는 것처럼</li>
-<li>웹사이트들의 진위성을 확인하고 그들에 대한 인증서를 발급하는 역할을 한다.</li>
+<li>모두 false로 강제 변환되고 다른 값은 true로 강제 변환된다.</li>
+<li>Boolean 함수를 통해 실행하거나 더 짧은 이중 부울 부정을 사용하여 항상 값을 부울로 강제 변환할 수 있다.</li>
+<li>후자는 타입스크립트가 좁은 리터럴 부울 현상을 true로 유지하는 반면 첫 번째는 부울 유형으로 유추한다는 이점이 있다.</li>
+<li>특히 null 또는 undefined와 같은 값에 대한 보호를 위해 이 동작을 활용하는 것이 매우 일반적이다.</li>
 </ul>
-<p><strong>HTTP &amp; DNS</strong>는 웹상에 존재하는 html, 미디어 파일과 같이 웹상에 존재하는 것들의 송수신을 관리한다.</p>
-<p>그리고 이것을 가능하게 한 핵심적인 기술은 <strong>TCP/IP 와 라우터 네트워크라</strong>는 작은 단위로 정보를 쪼개서 전달하는 것이다.
-이런 단위들은 0 과 1 의 이진수 배열로 이루어져 있고 <strong>전선이나 광섬유 무선 네트웍</strong>을 통해 전달된다.</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printAll</span>(<span class="hljs-params">strs: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">string</span>[] | <span class="hljs-literal">null</span></span>) </span>{
+   <span class="hljs-comment">// strs가 참인지 확인하여 null일 때 object 타입으로 들어가지 않도록 함.</span>
+  <span class="hljs-keyword">if</span> (strs &amp;&amp; <span class="hljs-keyword">typeof</span> strs === <span class="hljs-string">&#x27;object&#x27;</span>) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> s <span class="hljs-keyword">of</span> strs) { <span class="hljs-comment">//null이 들어가게 되면 null is not iterable 에러가 발생</span>
+      <span class="hljs-built_in">console</span>.log(s);
+    }
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> strs === <span class="hljs-string">&#x27;string&#x27;</span>) {
+    <span class="hljs-built_in">console</span>.log(strs);
+  }
+}
+</code></pre>
+<p>truthiness로 좁히는 것에 대한 마지막 단어는 부울 부정이 ! 부정 분기에서 걸러낸다.</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiplyAll</span>(<span class="hljs-params">
+  values: numbers [] | <span class="hljs-literal">undefined</span>;
+  factor: <span class="hljs-built_in">number</span>
+</span>): <span class="hljs-title">number</span> [] | <span class="hljs-title">undefiend</span> </span>{
+  <span class="hljs-keyword">if</span>(!values) { <span class="hljs-comment">// 여기서 undefined 걸러냄</span>
+    <span class="hljs-keyword">return</span> values;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> values.map(<span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> x * factor);
+  }
+}
+</code></pre>
+<h2>Equality narrowing</h2>
 <ul>
-<li>HTTP &amp; DNS</li>
-<li>TCP/IP &amp; ROUTING</li>
-<li>WIRES, CABLES, WIFI</li>
+<li>타입스크립트틑 타입을 좁히기 위해 ===, !==, == 및 != 와 같은 switch 문과 equlity 도 체크합니다. 예를 들어서,</li>
 </ul>
-<h2>암호화 및 공개 키</h2>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printAll</span>(<span class="hljs-params">strs: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">string</span>[] | <span class="hljs-literal">null</span></span>) </span>{
+  <span class="hljs-keyword">if</span> (strs !== <span class="hljs-literal">null</span>) {
+    <span class="hljs-comment">// string | string []</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> strs === <span class="hljs-string">&#x27;object&#x27;</span>) {
+      <span class="hljs-comment">// string[]</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> s <span class="hljs-keyword">of</span> strs) {
+      }
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> strs === <span class="hljs-string">&#x27;string&#x27;</span>) {
+      <span class="hljs-comment">// string</span>
+      <span class="hljs-built_in">console</span>.log(strs);
+    }
+  }
+}
+</code></pre>
+<h2>The in operator narrowing</h2>
 <ul>
 <li>
-<p>인터넷은 개방된 공공 시스템이다.</p>
+<p>자바스크립트에는 객체에 이름이 있는 속성이 있는지 확인하는 연산자인 in 연산자가 있다.</p>
 </li>
 <li>
-<p>encryption scrambling or changing a message to hide it</p>
+<p>타입스크립트는 타입을 좁힐 때 in 연산자를 사용할 수 있다.</p>
 </li>
 <li>
-<p>decryption unscrambling the message or make it readable</p>
+<p>&quot;value&quot; in x</p>
 </li>
 <li>
-<p>key 는 읽는 사람이 비밀 메시지를 풀 수 있게 해준다.</p>
-</li>
-<li>
-<p>오늘날은 256bit 키를 써서 암호화되어 있다.</p>
-</li>
-<li>
-<p>더 긴 키 를 사용하는 것은 암호화는 더 어렵게 하지 않고 해독 가능성을 기하급수적으로 증가시킨다는 것이다.</p>
-</li>
-<li>
-<p>보내는 사람과 받는 사람이 암호화 해독을 위해 같은 키를 사용한다면 이는 대칭 암호라고 불린다.</p>
-</li>
-<li>
-<p>시저암호와 같은 암호를 사용하기 위해서는 두 사람이 미리 개인적으로 만나서 키를 약속해야 한다.</p>
-</li>
-<li>
-<p>컴퓨터 두 대가 만나 비밀 키에 대해 약속하는 것이 불가능하다.</p>
-</li>
-<li>
-<p>asymmetric encryption 비대칭키를 이용한다.</p>
-</li>
-<li>
-<p>누가나 공유하는 공개키</p>
-</li>
-<li>
-<p>공유되지 않는 개인 키를 포함한다.</p>
-</li>
-<li>
-<p>공개키는 이를 이용해 암호화를 한다. 모든 사람이 사용할 수 있다.</p>
-</li>
-<li>
-<p>그러나 secret message 는 오직 개인 키에 대한 접근이 가능하다.</p>
+<p>: value는  string literal 그리고 x는 union type을 쓴다.</p>
 </li>
 </ul>
-<h2>사이버 보안 및 범죄</h2>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> Fish = { <span class="hljs-attr">swim</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span> };
+<span class="hljs-keyword">type</span> Bird = { <span class="hljs-attr">fly</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span> };
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">move</span>(<span class="hljs-params">animal: Fish | Bird</span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;swim&#x27;</span> <span class="hljs-keyword">in</span> animal) {
+    <span class="hljs-keyword">return</span> animal.swim();
+  }
+  <span class="hljs-keyword">return</span> animal.fly();
+}
+</code></pre>
+<h2>instanceof narrowing</h2>
+<ul>
+<li>value가 다른 value의 'instance'인지 확인하는 연산자가 있다.</li>
+<li>x instanceof Foo는 x의 프로토타입 체인에 Foo.prototype이 포함되어 있는지 확인한다.</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logValue</span>(<span class="hljs-params">x: <span class="hljs-built_in">Date</span> | <span class="hljs-built_in">string</span></span>) </span>{
+  <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Date</span>) {
+    <span class="hljs-built_in">console</span>.log(x.toUTCString());
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">console</span>.log(x.toUpperCase());
+  }
+}
+</code></pre>
+<h2>Assignments</h2>
+<ul>
+<li>변수 할당할 때 변수의 오른쪽을 보고 알아서 할당해준다.</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">let</span> x = <span class="hljs-built_in">Math</span>.random() &lt; <span class="hljs-number">0.5</span> ? <span class="hljs-number">10</span> : <span class="hljs-string">&#x27;hello word!&#x27;</span>;
+<span class="hljs-comment">// let x: string | number;</span>
+x = <span class="hljs-number">1</span>;
+<span class="hljs-comment">// let x: number;</span>
+x = <span class="hljs-string">&#x27;goodbye!&#x27;</span>;
+<span class="hljs-comment">// let x: string;</span>
+</code></pre>
+<h2>Control flow analysis</h2>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">padLeft</span>(<span class="hljs-params">padding: <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span>, input: <span class="hljs-built_in">string</span></span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> padding === <span class="hljs-string">&#x27;number&#x27;</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27; &#x27;</span>.repeat(padding) + input;
+  }
+  <span class="hljs-keyword">return</span> padding + left;
+}
+</code></pre>
 <ul>
 <li>
-<p>프로그램이 설치되는 의도를 속여서 설치하도록 유도한다.</p>
+<p>타입스크립트는 이 코드를 분석하여 padding이 숫자인 경우 본문의 나머지 부분에 도달할 수 없음을 확인할 수 있다.</p>
 </li>
 <li>
-<p>보트넷으로도 알려진 디지털 군대를 이용해서 웹사이트들을 공격하고 없앨 수 있다.</p>
+<p>결과적으로 나머지 함수에 코드에 대해 패딩 타입에서 숫자를 제거할 수 있다.</p>
 </li>
 <li>
-<p>이런 종류의 공격은 분산 서비스 거부, 즉 디도스라고 부른다.</p>
+<p>string | number 에서 string으로 축소</p>
 </li>
 <li>
-<p>Distributed Denial Of Service</p>
+<p>도달 가능성을 기반으로 하는 이러한 코드 분석을 <strong>제어 흐름 분석</strong>이라고 하며</p>
 </li>
 <li>
-<p>해커들이 웹사이트에 한꺼번에 요청을 보내 과부하를 만드는 것이다. 한번에 많은 컴퓨터로부터 공격이 들어오는 것이다.</p>
-</li>
-<li>
-<p>피싱</p>
-</li>
-<li>
-<p>많은 양의 스팸 이메일을 보내기</p>
-</li>
-<li>
-<p>피싱은 로그인해달라는 진짜 같은 이메일을 보내지만 이메일을 클릭하게 되면 실제로는 가짜 웹사이트로 접속된다.</p>
-</li>
-<li>
-<p>보안 설계나 소프트웨어에 있다고 생각할 수도 있지만 해킹당했을 때의 90%는 보안 문제가 아니라,인간의 작은 실수로 인해 범죄를 당하게 된다.</p>
+<p>타입스크립트는 이 흐름 분석을 사용하여 타입 가드 및 할당이 발생할 때 타입을 좁힌다.</p>
 </li>
 </ul>
+<h2>using type predicates</h2>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isFish</span>(<span class="hljs-params">pet: Fish | Bird</span>): <span class="hljs-title">pet</span> <span class="hljs-title">is</span> <span class="hljs-title">Fish</span> </span>{
+  <span class="hljs-keyword">return</span> (pet <span class="hljs-keyword">as</span> Fish).swim !== <span class="hljs-literal">undefined</span>;
+}
+</code></pre>
+<ul>
+<li>
+<p><code>pet is Fish</code>는 이 예에서 타입 단언이다.</p>
+</li>
+<li>
+<p>parameterName is type 형식이다.</p>
+</li>
+<li>
+<p>parameterName은 현재 함수 시그니처의 매개변수 이름이어야 한다.</p>
+</li>
+<li>
+<p>isFish가 어떤 변수와 함께 호출될 때 마다 typescript는 원래 타입이 호환되는 경우 해당 변수를 특정 타입으로 좁힌다.</p>
+</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">let</span> pet = getSmallPet();
+
+<span class="hljs-keyword">if</span> (isFish(pet)) {
+  pet.swim();
+} <span class="hljs-keyword">else</span> {
+  pet.fly();
+}
+</code></pre>
+<ul>
+<li>
+<p>타입스크립트는 if 브랜치에서 pet is Fish 라는 것을 알고 있을뿐만 아니라,</p>
+</li>
+<li>
+<p>else 브랜치에서, Fish가 없으므로 Bird가 있어야 한다는 것을 알고 있다.</p>
+</li>
+<li>
+<p>type guard isFish를 사용하여 Fish | Bird 및 Fish 배열을 획득할 수 있다.</p>
+</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> zoo: (Fish | Bird) [] [getSmallPet(), getSmallPet(), getSmallPet()];
+
+<span class="hljs-keyword">const</span> underWater1: Fish[] = zoo.filter(isFish);
+<span class="hljs-comment">// or, equivalently</span>
+<span class="hljs-keyword">const</span> underWater2: Fish[] = zoo.filter(isFish) <span class="hljs-keyword">as</span> Fish[];
+
+<span class="hljs-comment">// the predicate may need repeating for more complex examples</span>
+<span class="hljs-keyword">const</span> underWater3: Fish[] = zoo.filter(pet): pet is Fish =&gt; {
+  <span class="hljs-keyword">if</span>(pet.name === <span class="hljs-string">&quot;sharkey&quot;</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  <span class="hljs-keyword">return</span> isFish(pet);
+}
+</code></pre>
+<ul>
+<li>타입 assertion vs casting
+<ul>
+<li>캐스팅이란 말은 실행 시간에 어떤 동작이 일어날 것임을 내포한다.</li>
+<li>하지만 타입 assertion은 순순하게 컴파일 시간 구성물이고</li>
+<li>당신의 코드가 어떤 식으로 분석되길 원하는지 컴파일러에게 힌트를 제공하는 수단이다.</li>
+<li>: 캐스팅은 실제로 타입을 바꿈, assertion은 분석되길 원하는 타입을 제공</li>
+</ul>
+</li>
+</ul>
+<h2>Discriminated unions</h2>
+<pre class="hljs"><code><span class="hljs-keyword">interface</span> Shape {
+  <span class="hljs-attr">kind</span>: <span class="hljs-string">&#x27;circle&#x27;</span> | <span class="hljs-string">&#x27;square&#x27;</span>;
+  radius?: <span class="hljs-built_in">number</span>;
+  sideLength?: <span class="hljs-built_in">number</span>;
+}
+</code></pre>
+<p>string 대신 union 타입을 사용하면 철자 오류를 피할 수 있다.</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleShape</span>(<span class="hljs-params">shape: Shape</span>) </span>{
+  <span class="hljs-keyword">if</span> (shape.kind === <span class="hljs-string">&#x27;rect&#x27;</span>) {
+    <span class="hljs-comment">// always false</span>
+  }
+}
+</code></pre>
+<ul>
+<li>
+<p>circle 이나 square을 처리하는지 여부에 따라 올바른 논리를 적용하는 getArea 함수를 작성할 수 있다.</p>
+</li>
+<li>
+<p>circle 처리하기</p>
+</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span>(<span class="hljs-params">shape: Shape</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.PI * shape.radius ** <span class="hljs-number">2</span>;
+  <span class="hljs-comment">// Object is possibly &#x27;undefined&#x27;</span>
+}
+</code></pre>
+<ul>
+<li>strictNullChecks
+<ul>
+<li>strictNullChecks가 false이면 null 및 undefined가 언어에서 무시된다.</li>
+<li>이로 인해 런타임에 예기치 않은 오류가 발생할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span>(<span class="hljs-params">shape: Shape</span>) </span>{
+  <span class="hljs-keyword">if</span> (shape.kind === <span class="hljs-string">&#x27;circle&#x27;</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.PI * shape.radius ** <span class="hljs-number">2</span>;
+  }
+}
+</code></pre>
+<ul>
+<li>이렇게 작성하면 circle 일 때 shapre.radius 가 넘어온다는 전제하에 작성한 것이기 때문에</li>
+<li>타입 검사기보다 더 많은 정보를 우리가 알고 있는 상황이 된다.</li>
+<li>타입 체커에게 우리가 알고 있는 정보를 전달해야 한다.</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">interface</span> Circle {
+  <span class="hljs-attr">kind</span>: <span class="hljs-string">&#x27;circle&#x27;</span>;
+  radius: <span class="hljs-built_in">number</span>;
+}
+<span class="hljs-keyword">interface</span> Square {
+  <span class="hljs-attr">kind</span>: <span class="hljs-string">&#x27;square&#x27;</span>;
+  sideLength: <span class="hljs-built_in">number</span>;
+}
+
+<span class="hljs-keyword">type</span> Shape = Circle | Square;
+</code></pre>
+<ul>
+<li>여기에서는 Shape를 두 개의 타입으로 나눴다.</li>
+<li>그러나 radius, sideLength가 필수 속성으로 선언되어 있다. =&gt; 우리가 알고 있는 정보를 타입 체커도 알게 됨.</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span>(<span class="hljs-params">shape: Shape</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.PI * shape.radius ** <span class="hljs-number">2</span>;
+  <span class="hljs-comment">// Property &#x27;radius&#x27; does not exist on type &#x27;Shape&#x27;.</span>
+  <span class="hljs-comment">// Property &#x27;radius&#x27; does not exist on type &#x27;Square&#x27;.</span>
+}
+</code></pre>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span>(<span class="hljs-params">shape: Shape</span>) </span>{
+  <span class="hljs-keyword">switch</span>(shape.kine) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;circle&#x27;</span>: 
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.PI * shape.radius ** <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;square&#x27;</span>: 
+      <span class="hljs-keyword">return</span> shape.sideLength ** <span class="hljs-number">2</span>;
+  }
+}
+</code></pre>
+<h2>The never type</h2>
+<ul>
+<li>타입을 좁힐 때 모든 가능성을 제거하고 아무것도 남지 않은 지점까지 union options를 줄일 수 있다.</li>
+<li>경우에 따라 타입스크립트는 never 타입을 사용하여 존재해서는 안 되는 상태를 나타낸다.</li>
+</ul>
+<h2>Exhaustiveness checking</h2>
+<ul>
+<li>
+<p>Never 타입은 모든 타입에 할당할 수 있다. 그러나 Never에 할당할 수 있는 타입은 없다.</p>
+</li>
+<li>
+<p>타입을 좁히고 switch 문에서 철저한 검사를 하기 위해 never이 나타나지 않는 것에 의존한다.</p>
+</li>
+<li>
+<p>에를 들어 Shape를 할당하려고 하는 getArea 함수에 기본값을 추가하면 가능한 모든 경우가 처리되지 않은 경우 발생하지 않는다.</p>
+</li>
+</ul>
+<pre class="hljs"><code><span class="hljs-keyword">type</span> Shape = Circle | Square;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span>(<span class="hljs-params">shape: Shape</span>) </span>{
+  <span class="hljs-keyword">switch</span>(shape.kind) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;circle&#x27;</span>: 
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.PI * shape.radius ** <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;square&#x27;</span>: 
+      <span class="hljs-keyword">return</span> shape.sideLength ** <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">default</span>: 
+      <span class="hljs-keyword">const</span> _exhaustiveCheck: <span class="hljs-built_in">never</span> = shape;
+      <span class="hljs-keyword">return</span> _exhausitiveCheck;
+  }
+}
+</code></pre>
+<ul>
+<li>
+<p>Shape union 에 새로운 멤버를 추가하면 Type error가 발생한다.</p>
+<ul>
+<li>: Triangle is not assignable to type 'never'</li>
+</ul>
+</li>
+<li>
+<p>그럼 타입을 좁힐 때 까지 좁히고, 나머지 타입들을 never 로 할당해 두면, union에 새 멤버가 추가 되었을 때 타입에러가 나서 에러를 찾을 수 있게 된다!</p>
+</li>
+</ul>
+<h2>참고 자료</h2>
+<p>https://www.typescriptlang.org/docs/handbook/2/narrowing.html</p>
 
   </div>
 
